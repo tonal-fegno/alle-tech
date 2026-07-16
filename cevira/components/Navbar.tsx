@@ -4,7 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, LOGO_URL } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
+
+const LOGO_URL = "/assets/images/logo.png";
 import { services } from "@/lib/data";
 
 export default function Navbar() {
@@ -17,18 +19,15 @@ export default function Navbar() {
       <div className="container-main">
         <nav className="flex items-center justify-between rounded-[20px] bg-white p-3 shadow-[0_4px_20px_rgba(0,11,34,0.06)] md:px-6">
           {/* Logo */}
-          <Link href="/" className="flex shrink-0 items-center gap-2.5" onClick={() => setMobileOpen(false)}>
+          <Link href="/" className="flex shrink-0 items-center" onClick={() => setMobileOpen(false)}>
             <Image
               src={LOGO_URL}
-              alt="Cevira logo"
-              width={40}
-              height={40}
+              alt="Alle Tech logo"
+              width={123}
+              height={77}
               priority
-              className="h-10 w-10 rounded-full bg-primary"
+              className="h-14 w-auto object-contain"
             />
-            <span className="text-[22px] font-bold tracking-[-0.01em] text-ink">
-              Cevira
-            </span>
           </Link>
 
           {/* Desktop links */}

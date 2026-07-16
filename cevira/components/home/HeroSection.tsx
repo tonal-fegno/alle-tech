@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const HERO_IMAGE =
-  "https://framerusercontent.com/images/T5ZwdF4fAv939hZRY9sN4JOX50.png";
+const HERO_IMAGE = "/assets/images/hero-bg.png";
 
-const REVIEW_AVATARS = [
-  "https://framerusercontent.com/images/ReG9tf6xQAp2D3CqssK3eEP0Xk.jpg",
-  "https://framerusercontent.com/images/wdpdbLQu1F6oAUX7W0gwIxxako.png",
-  "https://framerusercontent.com/images/vpbgrsXqJUpUxCOtbvNNuf8bP0.png",
+const CLIENT_LOGOS = [
+  "/assets/client/alwatani.png",
+  "/assets/client/najm.png",
+  "/assets/client/sec.png",
 ];
 
 function StarSmall() {
@@ -24,7 +23,7 @@ export default function HeroSection() {
       {/* Background image */}
       <Image
         src={HERO_IMAGE}
-        alt="Professional cleaner keeping a modern office spotless"
+        alt="Technology team collaborating in a modern office"
         fill
         priority
         sizes="100vw"
@@ -36,8 +35,8 @@ export default function HeroSection() {
 
       <div className="container-main relative flex min-h-[640px] flex-col pb-8 pt-[120px] md:min-h-[100svh] md:pb-10 md:pt-[150px] lg:pt-[170px]">
         {/* Badge */}
-        <span className="inline-flex w-fit items-center gap-2.5 rounded-full bg-white/75 py-2.5 pl-3 pr-5 shadow-[0_2px_12px_rgba(0,11,34,0.15)] backdrop-blur-md">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-dark-blue">
+        <span className="inline-flex w-fit items-center gap-2.5 rounded-full bg-white/75 py-2 pl-3 pr-3 shadow-[0_2px_12px_rgba(0,11,34,0.15)] backdrop-blur-md">
+          {/* <span className="flex h-6 w-6 items-center justify-center rounded-full bg-dark-blue">
             <svg width="11" height="9" viewBox="0 0 12 10" fill="none">
               <path
                 d="M1 5.5L4.2 8.5L11 1.5"
@@ -47,24 +46,22 @@ export default function HeroSection() {
                 strokeLinejoin="round"
               />
             </svg>
-          </span>
-          <span className="text-body-16 font-semibold text-ink">
-            Trusted Cleaning Solutions
+          </span> */}
+          <span className="text-sm font-semibold text-ink">
+          Trusted Technology Consulting
           </span>
         </span>
 
         {/* Heading */}
         <h1 className="mt-6 max-w-[860px] text-[42px] font-semibold leading-[1.15] tracking-[-0.01em] text-white md:text-[56px] lg:text-[68px]">
-          Cleaning Made <br className="hidden sm:block" />
-          Simple, Fast &amp; Reliable
+        Transforming Business Through Intelligent Technology
         </h1>
 
         {/* Bottom row: copy + CTA on the left, stat card on the right */}
         <div className="mt-auto flex flex-col justify-between gap-10 pt-12 lg:flex-row lg:items-end">
-          <div className="max-w-[480px]">
+          <div className="max-w-[520px]">
             <p className="text-body-18 text-white/95">
-              Book expert cleaners in minutes. Transparent pricing, flexible
-              scheduling, and guaranteed results.
+            We combine enterprise applications, AI, automation, and data to build connected business ecosystems that drive measurable results.
             </p>
             <Link
               href="/contact"
@@ -89,25 +86,25 @@ export default function HeroSection() {
           <div className="w-full max-w-[380px] rounded-[20px] bg-primary p-7 shadow-[0_20px_50px_rgba(0,11,34,0.35)]">
             <div className="flex items-center gap-5">
               <span className="text-[52px] font-semibold leading-none tracking-[-0.01em] text-white md:text-[58px]">
-                98.99%
+                12+
               </span>
               <span className="whitespace-nowrap text-body-16 font-medium text-white">
-                Trusted Rate
+                Industries Served
               </span>
             </div>
             <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/20 pt-5">
               <div className="flex items-center -space-x-3.5">
-                {REVIEW_AVATARS.map((src) => (
+                {CLIENT_LOGOS.map((src) => (
                   <Image
                     key={src}
                     src={src}
-                    alt="Happy customer"
+                    alt="Client logo"
                     width={44}
                     height={44}
-                    className="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+                    className="h-11 w-11 rounded-full bg-white object-cover ring-2 ring-black"
                   />
                 ))}
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-500 text-white ring-2 ring-white">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-500 text-white ring-2 ring-black">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path
                       d="M7 1v12M1 7h12"
@@ -119,13 +116,13 @@ export default function HeroSection() {
                 </span>
               </div>
               <div>
-                <div className="flex gap-1">
+                {/* <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <StarSmall key={i} />
                   ))}
-                </div>
+                </div> */}
                 <p className="mt-1.5 text-body-16 font-medium text-white">
-                  50K+ Verified Reviews
+                  Build on Client trust
                 </p>
               </div>
             </div>

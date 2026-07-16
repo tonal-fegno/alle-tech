@@ -1,31 +1,43 @@
 import Image from "next/image";
 
 const logos = [
-  "https://framerusercontent.com/images/JTcLqF2HleWItObWBRpylHX1NjY.svg",
-  "https://framerusercontent.com/images/PDMcsAPPWoWapvX8gTR6F61ykU.svg",
-  "https://framerusercontent.com/images/Z3orUXUbuHjPxIwqbMCrf8j8PE.svg",
+  "/assets/client/alwatani.png",
+  // "/assets/client/ayt.png",
+  "/assets/client/belltel.png",
+  // "/assets/client/brightcom.png",
+  "/assets/client/cfs.png",
+  "/assets/client/euro-poly-plast.png",
+  "/assets/client/exploration.png",
+  "/assets/client/ft.png",
+  "/assets/client/middle-ease-group.png",
+  "/assets/client/najm.png",
+  "/assets/client/natco.png",
+  "/assets/client/orbit-logistics.png",
+  "/assets/client/sec.png",
+  "/assets/client/united-colors.png",
+  // "/assets/client/vapey.png",
 ];
 
 export default function BrandTicker() {
   return (
     <section className="bg-bg-1 py-16">
       <div className="flex flex-col items-center gap-8">
-        <p className="px-4 text-center text-body-16 font-medium text-body-gray">
-          Trusted 200+ corporate partners!
+        <p className="px-4 text-center text-xl font-semibold text-body-gray">
+          Trusted 100+ corporate partners!
         </p>
         <div className="w-full overflow-hidden">
           <div className="flex w-max animate-marquee items-center gap-5 pr-5">
-            {[...logos, ...logos, ...logos, ...logos].map((logo, i) => (
+            {[...logos, ...logos].map((logo, i) => (
               <div
                 key={i}
-                className="flex h-[94px] w-[176px] shrink-0 items-center justify-center rounded-2xl bg-white"
+                className="group flex h-[124px] w-[220px] shrink-0 items-center justify-center rounded-2xl bg-white"
               >
                 <Image
                   src={logo}
-                  alt="Partner logo"
-                  width={110}
-                  height={28}
-                  className="h-7 w-auto"
+                  alt="Client logo"
+                  width={102}
+                  height={102}
+                  className="h-[102px] w-[102px] rounded-xl object-contain grayscale transition-all duration-300 group-hover:grayscale-0"
                 />
               </div>
             ))}
