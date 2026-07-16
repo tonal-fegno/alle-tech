@@ -6,44 +6,74 @@ import Link from "next/link";
 
 const SERVICES = [
   {
-    slug: "home-cleaning",
+    slug: "SAP-Business-One",
     number: "01",
-    title: "Home Cleaning",
+    title: "SAP Business One",
     description:
-      "Keep your home fresh, organized, and spotless with our regular cleaning services daily.",
+      "Streamline your business with an integrated ERP solution that simplifies operations, improves visibility, and drives growth.",
     image:
       "https://framerusercontent.com/images/BHtyXThekWm38efWvDJkVyqbLVM.png",
-    tags: ["Deep Clean", "Apartment", "Regular Villa"],
+    tags: ["Financial Management", "Sales & CRM"],
   },
   {
-    slug: "office-cleaning",
+    slug: "Odoo-ERP",
     number: "02",
-    title: "Office Cleaning",
+    title: "Odoo ERP",
     description:
-      "Ensure your condo is spotless and ready for new occupants with our thorough move-out cleaning.",
+      "Simplify and automate your business processes with a flexible ERP platform that connects every department in one system.",
     image:
       "https://framerusercontent.com/images/56ZqtDbQrIjdTAh4EfEp6NzsCS0.png",
-    tags: ["Move-Out Cleaning", "Condo", "Apartment"],
+    tags: ["Finance & Accounting", "Sales & CRM", "Inventory & Operations"],
   },
   {
-    slug: "deep-cleaning",
+    slug: "Technology-Consulting-&-Digital-Transformation",
     number: "03",
-    title: "Deep Cleaning",
+    title: "Technology Consulting & Digital Transformation",
     description:
-      "Maintain a healthy and productive environment with our comprehensive office sanitization.",
+      "Accelerate business growth with expert technology consulting, digital innovation, and tailored transformation strategies.",
     image:
       "https://framerusercontent.com/images/re8cwwnrRcBWlS63TvqlvS01NY.png",
-    tags: ["Office Sanitization", "Workspace", "Deep Clean"],
+    tags: ["Digital Strategy", "Process Automation", "IT Modernization"],
   },
   {
-    slug: "workplace-cleaning",
+    slug: "Business-Intelligence-&-Power-BI",
     number: "04",
-    title: "Workplace Cleaning",
+    title: "Business Intelligence & Power BI",
     description:
-      "Make sure your apartment is pristine and ready for new residents with our detailed exit cleaning.",
+      "Transform your data into actionable insights with interactive dashboards, real-time analytics, and intelligent reporting.",
     image:
       "https://framerusercontent.com/images/6Paa4KhXEnAGF8Wm4oBiuJj7Rxw.png",
-    tags: ["Exit Cleaning", "Apartment Unit", "Intensive"],
+    tags: ["Interactive Dashboards", "Real-Time Analytics", "Custom Reports"],
+  },
+  {
+    slug: "ERP-Integration-&-Enterprise-Connectivity",
+    number: "05",
+    title: "ERP Integration & Enterprise Connectivity",
+    description:
+      "Seamlessly connect your business systems to streamline workflows, improve data accuracy, and enable real-time collaboration.",
+    image:
+      "https://framerusercontent.com/images/6Paa4KhXEnAGF8Wm4oBiuJj7Rxw.png",
+    tags: ["System Integration", "API Connectivity", "Data Synchronization"],
+  },
+  {
+    slug: "Cloud-&-IT-Infrastructure-Services",
+    number: "06",
+    title: "Cloud & IT Infrastructure Services",
+    description:
+      "Build a secure, scalable, and reliable IT environment with modern cloud solutions and infrastructure management.",
+    image:
+      "https://framerusercontent.com/images/6Paa4KhXEnAGF8Wm4oBiuJj7Rxw.png",
+    tags: ["Cloud Migration", "Infrastructure Management", "Security & Backup"],
+  },
+  {
+    slug: "Managed-Services-&-Technology-Support",
+    number: "07",
+    title: "Managed Services & Technology Support",
+    description:
+      "Keep your business running smoothly with proactive IT management, continuous monitoring, and expert technical support.",
+    image:
+      "https://framerusercontent.com/images/6Paa4KhXEnAGF8Wm4oBiuJj7Rxw.png",
+    tags: ["24/7 Monitoring", "Help Desk Support", "System Maintenance"],
   },
 ];
 
@@ -69,10 +99,11 @@ export default function ServicesSection() {
               Our Solutions
             </span>
           </span>
-          <h2 className="heading-2">Best Cleaning Services</h2>
-          <p className="max-w-[560px] text-body-18 text-body-gray">
-            We take pride in delivering consistent, high-quality cleaning
-            services that our clients rely on every day.
+          <h2 className="heading-2">Technology That Drives Business Growth</h2>
+          <p className="max-w-[860px] text-body-18 text-body-gray">
+            From ERP and AI to automation and enterprise integrations, we
+            deliver intelligent solutions that improve efficiency, enhance
+            decision-making, and support long-term success.
           </p>
         </div>
 
@@ -101,7 +132,7 @@ export default function ServicesSection() {
                     <h3 className="heading-6 !text-dark-blue">
                       {service.title}
                     </h3>
-                    <p className="mt-2 max-w-[440px] text-body-16 text-body-gray">
+                    <p className="mt-2 max-w-[640px] text-body-16 text-body-gray">
                       {service.description}
                     </p>
                     <Link
@@ -110,7 +141,12 @@ export default function ServicesSection() {
                     >
                       View Details
                       <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/60 transition-transform duration-300 group-hover:translate-x-0.5">
-                        <svg width="14" height="11" viewBox="0 0 18 14" fill="none">
+                        <svg
+                          width="14"
+                          height="11"
+                          viewBox="0 0 18 14"
+                          fill="none"
+                        >
                           <path
                             d="M1 7h15m0 0L10.5 1.5M16 7l-5.5 5.5"
                             stroke="white"
