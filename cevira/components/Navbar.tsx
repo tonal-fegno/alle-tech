@@ -1,19 +1,56 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
 
 const LOGO_URL = "/assets/images/logo.png";
+const IDLE_HIDE_DELAY = 4000;
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
   const pathname = usePathname();
+  const lastScrollY = useRef(0);
+  const idleTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 0) {
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        setVisible(false);
+      } else if (currentScrollY < lastScrollY.current) {
+        setVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+
+      if (idleTimeout.current) clearTimeout(idleTimeout.current);
+      if (currentScrollY > 0) {
+        idleTimeout.current = setTimeout(() => setVisible(false), IDLE_HIDE_DELAY);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (idleTimeout.current) clearTimeout(idleTimeout.current);
+    };
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full px-4 pt-4 md:px-8">
+    <header
+      className={`sticky top-0 z-50 w-full px-4 pt-4 transition-transform duration-300 md:px-8 ${
+        visible || mobileOpen ? "translate-y-0" : "-translate-y-[150%]"
+      }`}
+    >
       <div className="container-main">
         <nav className="flex items-center justify-between rounded-[20px] bg-white p-3 shadow-[0_4px_20px_rgba(0,11,34,0.06)] md:px-6">
           {/* Logo */}
