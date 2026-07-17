@@ -7,11 +7,9 @@ import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
 
 const LOGO_URL = "/assets/images/logo.png";
-import { services } from "@/lib/data";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   return (
@@ -32,60 +30,17 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden items-center gap-8 lg:flex">
-            {NAV_LINKS.map((link) =>
-              link.label === "Services" ? (
-                <div
-                  key={link.href}
-                  className="relative"
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
-                >
-                  <Link
-                    href={link.href}
-                    className={`flex items-center gap-1.5 text-body-18 font-semibold transition-colors hover:text-primary ${
-                      pathname.startsWith("/services") ? "text-primary" : "text-dark-blue"
-                    }`}
-                  >
-                    {link.label}
-                    <svg
-                      width="12"
-                      height="8"
-                      viewBox="0 0 12 8"
-                      fill="none"
-                      className={`transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`}
-                    >
-                      <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
-                  </Link>
-                  {dropdownOpen && (
-                    <div className="absolute left-1/2 top-full w-[240px] -translate-x-1/2 pt-3">
-                      <div className="flex flex-col gap-1 rounded-2xl border border-border-gray/40 bg-white p-3 shadow-[0_10px_30px_rgba(0,11,34,0.1)]">
-                        {services.slice(0, 6).map((s) => (
-                          <Link
-                            key={s.slug}
-                            href={`/services/${s.slug}`}
-                            className="rounded-lg px-4 py-2.5 text-body-16 font-semibold text-dark-blue transition-colors hover:bg-bg-2 hover:text-primary"
-                            onClick={() => setDropdownOpen(false)}
-                          >
-                            {s.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-body-18 font-semibold transition-colors hover:text-primary ${
-                    pathname === link.href ? "text-primary" : "text-dark-blue"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-body-18 font-semibold transition-colors hover:text-primary ${
+                  pathname === link.href ? "text-primary" : "text-dark-blue"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           {/* CTA */}
