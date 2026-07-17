@@ -9,7 +9,6 @@ import {
   useMotionValue,
   useReducedMotion,
 } from "framer-motion";
-import SectionHeader from "@/components/SectionHeader";
 
 type Testimonial = {
   quote: string;
@@ -456,10 +455,17 @@ export default function TestimonialSection() {
   return (
     <section className="section-padding bg-[#F7F8FA] px-4 md:px-8">
       <div className="container-main flex flex-col items-center gap-12 md:gap-16">
-        <SectionHeader
-          badge="Testimonial"
-          title="Our Reputation, Built on Client Trust"
-        />
+        <div className="flex flex-col items-center gap-5 text-center">
+          <span className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="text-body-16 font-semibold text-ink">
+              Testimonial
+            </span>
+          </span>
+          <h2 className="heading-2 max-w-[800px]">
+            Our Reputation, Built on Client Trust
+          </h2>
+        </div>
 
         {/* Rotator */}
         <div
