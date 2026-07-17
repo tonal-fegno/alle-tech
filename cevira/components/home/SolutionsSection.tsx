@@ -2,6 +2,11 @@ const SOLUTIONS = [
   {
     title: "Intelligent Product Engineering",
     description: "Accelerate software delivery with agentic engineering",
+    points: [
+      "AI-assisted code generation",
+      "Automated testing & QA",
+      "Continuous delivery pipelines",
+    ],
     art: {
       base: "linear-gradient(140deg,#071c4d 0%,#123a9e 30%,#2f7de0 55%,#5db4f5 72%,#0a2568 100%)",
       blobA:
@@ -13,6 +18,11 @@ const SOLUTIONS = [
   {
     title: "AI-Enhanced Experience Transformation",
     description: "Unlock growth with AI-led, human-centered experiences",
+    points: [
+      "Personalized customer journeys",
+      "Conversational AI interfaces",
+      "Data-driven experience design",
+    ],
     art: {
       base: "linear-gradient(140deg,#22084d 0%,#5b21b6 32%,#a855f7 58%,#e9d5ff 75%,#3b0f78 100%)",
       blobA:
@@ -24,6 +34,11 @@ const SOLUTIONS = [
   {
     title: "Modern Business Platforms",
     description: "Maximize platform ROI with AI",
+    points: [
+      "Cloud-native architecture",
+      "Seamless system integrations",
+      "Scalable platform modernization",
+    ],
     art: {
       base: "linear-gradient(140deg,#6b2447 0%,#c05585 30%,#f0a3c0 55%,#f7d4de 72%,#7c2d52 100%)",
       blobA:
@@ -35,6 +50,11 @@ const SOLUTIONS = [
   {
     title: "Agentic Business Reinvention",
     description: "Transform workflows with agentic AI teammates",
+    points: [
+      "Autonomous workflow agents",
+      "Human-in-the-loop oversight",
+      "Continuous process optimization",
+    ],
     art: {
       base: "linear-gradient(140deg,#02121c 0%,#0a3d4d 32%,#15818e 58%,#67d6d0 78%,#092c3e 100%)",
       blobA:
@@ -89,15 +109,35 @@ export default function ServicesSection() {
                 }}
               />
               {/* Legibility scrim */}
-              <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0B0714]/85 via-[#0B0714]/35 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0B0714]/85 via-[#0B0714]/35 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+              {/* Extra tint on hover so the title stays legible once it's over the artwork's top half */}
+              <div className="absolute inset-0 bg-[#0B0714]/0 transition-colors duration-500 ease-in-out group-hover:bg-[#0B0714]/55" />
 
-              <div className="absolute inset-x-0 bottom-0 p-7">
-                <h3 className="text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-body-16 text-white/85">
-                  {item.description}
-                </p>
+              <div className="absolute inset-0 z-10 flex flex-col p-7">
+                <div className="grow shrink-0 basis-0 transition-[flex-grow] duration-500 ease-in-out group-hover:grow-0" />
+                <div>
+                  <h3 className="text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-body-16 text-white/85">
+                    {item.description}
+                  </p>
+                </div>
+                <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out group-hover:grid-rows-[1fr]">
+                  <div className="overflow-hidden">
+                    <ul className="mt-4 flex flex-col gap-2 border-t border-white/15 pt-4 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                      {item.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-center gap-2 text-[14px] text-white/80"
+                        >
+                          <span className="h-1 w-1 shrink-0 rounded-full bg-white/70" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
