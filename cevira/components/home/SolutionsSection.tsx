@@ -45,7 +45,7 @@ const SOLUTIONS = [
   },
 ];
 
-export default function SolutionsSection() {
+export default function ServicesSection() {
   return (
     <section className="relative overflow-hidden bg-[#0B0714] px-4 py-16 md:px-8 md:py-24 xl:py-[120px]">
       {/* Ambient purple glow */}

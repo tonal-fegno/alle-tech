@@ -85,7 +85,7 @@ function Tag({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function ServicesSection() {
+export default function SolutionsSection() {
   const [open, setOpen] = useState(0);
 
   return (
