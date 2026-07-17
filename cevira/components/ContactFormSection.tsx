@@ -1,9 +1,72 @@
 "use client";
 
 import { useState } from "react";
+import { CONTACT_INFO, SOLUTIONS } from "@/lib/constants";
 
 const inputCls =
-  "w-full rounded-lg border border-border-gray/60 bg-white px-5 py-4 text-body-16 text-dark-blue outline-none transition-colors placeholder:text-body-gray/60 focus:border-primary";
+  "w-full rounded-xl border border-border-gray/50 bg-white px-4 py-3.5 text-body-16 text-ink outline-none transition-colors placeholder:text-body-gray/60 focus:border-primary";
+
+const labelCls = "text-body-16 font-semibold text-ink";
+
+const EMAIL_ICON = (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <rect
+      x="3"
+      y="5"
+      width="18"
+      height="14"
+      rx="2"
+      stroke="white"
+      strokeWidth="1.8"
+    />
+    <path
+      d="m4 6.5 8 6 8-6"
+      stroke="white"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const EMAIL_ITEMS = [
+  { label: "General", value: CONTACT_INFO.email },
+  { label: "Sales Inquiries", value: CONTACT_INFO.salesEmail },
+];
+
+const INFO_ITEMS = [
+  {
+    label: "Call us",
+    value: CONTACT_INFO.phone,
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M4.5 4h4l1.6 5-2.4 1.6a12 12 0 0 0 6.2 6.2L15.5 14l5 1.6v4a1.5 1.5 0 0 1-1.6 1.5A16 16 0 0 1 3 5.6 1.5 1.5 0 0 1 4.5 4Z"
+          stroke="white"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Visit Us",
+    value: CONTACT_INFO.workingHours,
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="white" strokeWidth="1.8" />
+        <path
+          d="M12 7v5l3.5 2"
+          stroke="white"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+];
 
 export default function ContactFormSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -15,66 +78,255 @@ export default function ContactFormSection() {
 
   return (
     <section className="section-padding bg-white px-4 md:px-8">
-      <div className="container-main flex flex-col items-center gap-10">
-        <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="heading-6">Request a service</h2>
-          <p className="text-body-18 text-body-gray">
-            Complete the form and we&apos;ll confirm your booking soon.
+      <div className="container-main flex flex-col items-center gap-12 md:gap-14">
+        {/* Header */}
+        <div className="flex flex-col items-center gap-4 text-center">
+          <span className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="text-body-16 font-semibold text-ink">
+              Request a Service
+            </span>
+          </span>
+          <h2 className="heading-2 max-w-[700px]">
+            Let&apos;s Talk About Your Business Needs
+          </h2>
+          <p className="max-w-[600px] text-body-18 text-body-gray">
+            Tell us a bit about what you&apos;re looking for and our team will
+            get back to you with next steps within one business day.
           </p>
         </div>
 
-        <div className="w-full max-w-[700px] rounded-3xl border border-border-gray/40 bg-bg-3 p-6 md:p-12">
-          {submitted ? (
-            <div className="flex flex-col items-center gap-3 py-10 text-center">
-              <p className="heading-6">Thank you!</p>
-              <p className="text-body-18 text-body-gray">
-                Your request has been received. We&apos;ll get back to you soon.
+        {/* Split card */}
+        <div className="grid w-full max-w-[1100px] grid-cols-1 overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_-30px_rgba(0,21,69,0.35)] lg:grid-cols-[380px_1fr]">
+          {/* Info panel */}
+          <div className="relative flex flex-col justify-between gap-10 overflow-hidden bg-gradient-to-br from-dark-blue to-[#001030] p-8 md:p-10">
+            <div
+              className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-primary/30 blur-3xl"
+              aria-hidden
+            />
+            <div className="relative flex flex-col gap-3">
+              <h3 className="text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-white md:text-[26px]">
+                We&apos;d love to hear from you
+              </h3>
+              <p className="text-body-16 text-white/70">
+                Connect with our team to discuss your business goals and
+                discover the right technology solutions for your organization.
               </p>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+
+            <div className="relative flex flex-col gap-6">
+              <div className="flex items-start gap-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10">
+                  {EMAIL_ICON}
+                </span>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="firstName" className="text-body-16 font-semibold text-dark-blue">
-                    First Name
-                  </label>
-                  <input id="firstName" name="firstName" type="text" required placeholder="Jane" className={inputCls} />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="lastName" className="text-body-16 font-semibold text-dark-blue">
-                    Last Name
-                  </label>
-                  <input id="lastName" name="lastName" type="text" required placeholder="Smith" className={inputCls} />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-body-16 font-semibold text-dark-blue">
-                    Email
-                  </label>
-                  <input id="email" name="email" type="email" required placeholder="jane@example.com" className={inputCls} />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="phone" className="text-body-16 font-semibold text-dark-blue">
-                    Phone number
-                  </label>
-                  <input id="phone" name="phone" type="tel" required placeholder="+1 (800) 123-4567" className={inputCls} />
+                  {EMAIL_ITEMS.map((item) => (
+                    <div key={item.label} className="flex flex-col gap-0.5">
+                      <span className="text-[13px] font-medium uppercase tracking-[0.08em] text-white/50">
+                        {item.label}
+                      </span>
+                      <a
+                        href={`mailto:${item.value}`}
+                        className="text-body-16 font-medium text-white transition-colors hover:text-white/80"
+                      >
+                        {item.value}
+                      </a>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-body-16 font-semibold text-dark-blue">
-                  Message
-                </label>
-                <textarea id="message" name="message" rows={5} required placeholder="Tell us about your cleaning needs..." className={`${inputCls} resize-none`} />
+
+              {INFO_ITEMS.map((item) => (
+                <div key={item.label} className="flex items-start gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10">
+                    {item.icon}
+                  </span>
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-[13px] font-medium uppercase tracking-[0.08em] text-white/50">
+                      {item.label}
+                    </span>
+                    <span className="text-body-16 font-medium text-white">
+                      {item.value}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="relative text-[13px] text-white/40">
+              By submitting this form, you agree to be contacted by ALLE TECH
+              regarding your inquiry.
+            </p>
+          </div>
+
+          {/* Form panel */}
+          <div className="p-6 md:p-10">
+            {submitted ? (
+              <div className="flex h-full flex-col items-center justify-center gap-3 py-16 text-center">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="m4 12.5 5 5L20 7"
+                      stroke="#0A4CE0"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                <p className="heading-6">Thank you!</p>
+                <p className="max-w-[360px] text-body-16 text-body-gray">
+                  Your request has been received. We&apos;ll get back to you
+                  soon.
+                </p>
               </div>
-              <button
-                type="submit"
-                className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-primary px-[30px] py-4 text-body-18 font-semibold text-white transition-colors duration-300 hover:bg-dark-blue"
-              >
-                Send Request
-              </button>
-            </form>
-          )}
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="firstName" className={labelCls}>
+                      First Name
+                    </label>
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      required
+                      placeholder="Jane"
+                      className={inputCls}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="lastName" className={labelCls}>
+                      Last Name
+                    </label>
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      required
+                      placeholder="Smith"
+                      className={inputCls}
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="email" className={labelCls}>
+                      Business Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="jane@company.com"
+                      className={inputCls}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="phone" className={labelCls}>
+                      Phone Number
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      placeholder="+971 4 521 8493"
+                      className={inputCls}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="company" className={labelCls}>
+                    Company Name
+                  </label>
+                  <input
+                    id="company"
+                    name="company"
+                    type="text"
+                    required
+                    placeholder="Acme Inc."
+                    className={inputCls}
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="service" className={labelCls}>
+                    Service You&apos;re Interested In
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="service"
+                      name="service"
+                      defaultValue=""
+                      required
+                      className={`${inputCls} appearance-none pr-11`}
+                    >
+                      <option value="" disabled>
+                        Select a service
+                      </option>
+                      {SOLUTIONS.map((solution) => (
+                        <option key={solution.slug} value={solution.title}>
+                          {solution.title}
+                        </option>
+                      ))}
+                      <option value="Other">Other</option>
+                    </select>
+                    <svg
+                      width="14"
+                      height="9"
+                      viewBox="0 0 14 9"
+                      fill="none"
+                      className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2"
+                    >
+                      <path
+                        d="M1 1.5 7 7.5 13 1.5"
+                        stroke="#4C505B"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="message" className={labelCls}>
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    required
+                    placeholder="Tell us about your business needs..."
+                    className={`${inputCls} resize-none`}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-[30px] py-4 text-body-18 font-semibold text-white transition-colors duration-300 hover:bg-dark-blue"
+                >
+                  Send Request
+                  <svg
+                    width="16"
+                    height="12"
+                    viewBox="0 0 18 14"
+                    fill="none"
+                    className="transition-transform duration-300 group-hover:translate-x-0.5"
+                  >
+                    <path
+                      d="M1 7h15m0 0L10.5 1.5M16 7l-5.5 5.5"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </section>

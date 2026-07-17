@@ -20,8 +20,8 @@ export default function FaqSection() {
             Clearly Answered
           </h2>
           <p className="max-w-[480px] text-body-18 text-body-gray">
-            Find answers to common questions about our cleaning services,
-            booking process, and what to expect.
+            Find answers to common questions about our services, approach,
+            and what it&apos;s like to partner with ALLE TECH.
           </p>
         </div>
 

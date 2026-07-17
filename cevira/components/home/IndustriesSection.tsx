@@ -35,35 +35,39 @@ const INDUSTRIES = [
     title: "Healthcare & Life Sciences",
     description:
       "Modernize healthcare operations, compliance, and resource management.",
-    image: encodeURI("/assets/images/industries/Healthcare & Life Sciences.png"),
+    image: encodeURI(
+      "/assets/images/industries/Healthcare & Life Sciences.png"
+    ),
   },
   {
     title: "Construction, Engineering & Project-Based Businesses",
     description:
       "Manage projects, resources, procurement, and financial performance.",
-    image:
-    encodeURI("/assets/images/industries/Construction, Engineering & Project-Based Businesses.png"),
+    image: encodeURI(
+      "/assets/images/industries/Construction, Engineering & Project-Based Businesses.png"
+    ),
   },
   {
     title: "Professional Services, Consulting & Knowledge-Based Businesses",
     description:
       "Streamline projects, resources, clients, and business operations.",
-    image:
-    encodeURI("/assets/images/industries/Professional Services, Consulting & Knowledge-Based Businesses.png"),
+    image: encodeURI(
+      "/assets/images/industries/Professional Services, Consulting & Knowledge-Based Businesses.png"
+    ),
   },
   {
     title: "Food, Beverage & FMCG",
     description:
       "Optimize production, quality, inventory, and distribution processes.",
-    image:
-    encodeURI("/assets/images/industries/Food, Beverage & FMCG.png"),
+    image: encodeURI("/assets/images/industries/Food, Beverage & FMCG.png"),
   },
   {
     title: "Automotive, Mobility & After-Sales Services",
     description:
       "Enhance vehicle sales, service, workshops, and after-sales operations.",
-    image:
-    encodeURI("/assets/images/industries/Automotive, Mobility & After-Sales Services.png"),
+    image: encodeURI(
+      "/assets/images/industries/Automotive, Mobility & After-Sales Services.png"
+    ),
   },
 ];
 
@@ -143,18 +147,18 @@ export default function IndustriesSection() {
         {/* Left column */}
         <div className="flex flex-col items-start">
           <span className="text-[14px] font-semibold uppercase tracking-[0.2em] text-white">
-            Industries
+            Industry Expertise
           </span>
           <h2 className="mt-6 text-[36px] font-medium leading-[1.2] tracking-[-0.01em] text-white md:text-[44px]">
-            Deep Industry <br />
+            Technology for <br />
             <span className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] bg-clip-text font-semibold text-transparent">
-              Specialization
+              Every Industry
             </span>
           </h2>
           <p className="mt-6 max-w-[420px] text-body-16 leading-[1.7] text-white/85">
-            Industry-specific challenges require extensive industry expertise.
-            Our industry teams provide the strategic perspective enterprises
-            need to compete, adapt, and win digitally.
+            Every industry operates differently. We deliver industry-focused
+            solutions that address unique operational challenges, improve
+            efficiency, and accelerate digital transformation.
           </p>
           <Link
             href="/services"

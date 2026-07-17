@@ -11,11 +11,12 @@ export const LOGO_URL =
   "https://framerusercontent.com/images/6wKgO3T1OGEYcYcFhewutTgCq8M.svg";
 
 export const CONTACT_INFO = {
-  email: "contact@clarion.com",
-  phone: "+1 (800) 123-4567",
+  email: "info@alle-tech.com",
+  salesEmail: "yazan@alle-tech.com",
+  phone: "04 299 6767",
   address1: "1901 Thornridge Cir. Shiloh, Hawaii 81063",
   address2: "2715 Ash Dr. San Jose, South Dakota 83475",
-  workingHours: "Monday through Saturday: 9 AM to 7 PM. Closed on Sundays.",
+  workingHours: "UAE, Dubai, DAFZA, D-05",
 };
 
 export const SOCIAL_LINKS = [
@@ -25,31 +26,185 @@ export const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/" },
 ];
 
+export const PRODUCTS = [
+  {
+    title: "RepProX",
+    description: "AI-Powered Field Operations Platform",
+    points: [
+      "Sales Force Automation",
+      "Field Service & Delivery Management",
+      "Warehouse & Inventory Management",
+      "Business Intelligence & AI Insights",
+      "SAP Business One & Odoo Integration",
+    ],
+  },
+  {
+    title: "Trans Sync",
+    description: "Intelligent Intercompany Management Platform",
+    points: [
+      "Intercompany Automation",
+      "Master Data Synchronization",
+      "Financial Reconciliation",
+      "Multi-Company Management",
+      "SAP Business One Integration",
+    ],
+  },
+  {
+    title: "Freight Pulse",
+    description: "Digital Logistics Platform",
+    points: [
+      "Freight & Transport Management",
+      "Warehouse & Customs Management",
+      "Customer Portal",
+      "Logistics Analytics & AI Planning",
+      "Complete Shipment Lifecycle Management",
+    ],
+  },
+  {
+    title: "Engage Flow",
+    description: "Customer Communication Platform",
+    points: [
+      "Email & WhatsApp Automation",
+      "Customer Statements & Payment Reminders",
+      "Marketing Campaigns",
+      "Internal Notifications",
+      "Business Rule Engine & Multi-Channel Communication",
+    ],
+  },
+  {
+    title: "InvoiceFlow",
+    description: "UAE E-Invoicing Platform",
+    points: [
+      "UAE E-Invoicing Compliance",
+      "ERP Integration & Invoice Exchange",
+      "Invoice Validation",
+      "Monitoring & Administration",
+      "Readiness Assessment & Managed Services",
+    ],
+  },
+];
+
+export const SOLUTIONS = [
+  {
+    slug: "SAP-Business-One",
+    number: "01",
+    title: "SAP Business One",
+    description:
+      "Streamline your business with an integrated ERP solution that simplifies operations, improves visibility, and drives growth.",
+    image: "/assets/images/our-solutions/SAP%20Business%20One.png",
+    tags: ["Financial Management", "Sales & CRM"],
+  },
+  {
+    slug: "Odoo-ERP",
+    number: "02",
+    title: "Odoo ERP",
+    description:
+      "Simplify and automate your business processes with a flexible ERP platform that connects every department in one system.",
+    image: "/assets/images/our-solutions/Odoo%20ERP.png",
+    tags: ["Finance & Accounting", "Sales & CRM", "Inventory & Operations"],
+  },
+  {
+    slug: "Technology-Consulting-&-Digital-Transformation",
+    number: "03",
+    title: "Technology Consulting & Digital Transformation",
+    description:
+      "Accelerate business growth with expert technology consulting, digital innovation, and tailored transformation strategies.",
+    image:
+      "/assets/images/our-solutions/Technology%20Consulting%20%26%20Digital%20Transformation.png",
+    tags: ["Digital Strategy", "Process Automation", "IT Modernization"],
+  },
+  {
+    slug: "Business-Intelligence-&-Power-BI",
+    number: "04",
+    title: "Business Intelligence & Power BI",
+    description:
+      "Transform your data into actionable insights with interactive dashboards, real-time analytics, and intelligent reporting.",
+    image:
+      "/assets/images/our-solutions/Business%20Intelligence%20%26%20Power%20BI.png",
+    tags: ["Interactive Dashboards", "Real-Time Analytics", "Custom Reports"],
+  },
+  {
+    slug: "ERP-Integration-&-Enterprise-Connectivity",
+    number: "05",
+    title: "ERP Integration & Enterprise Connectivity",
+    description:
+      "Seamlessly connect your business systems to streamline workflows, improve data accuracy, and enable real-time collaboration.",
+    image:
+      "/assets/images/our-solutions/ERP%20Integration%20%26%20Enterprise%20Connectivity.png",
+    tags: ["System Integration", "API Connectivity", "Data Synchronization"],
+  },
+  {
+    slug: "Cloud-&-IT-Infrastructure-Services",
+    number: "06",
+    title: "Cloud & IT Infrastructure Services",
+    description:
+      "Build a secure, scalable, and reliable IT environment with modern cloud solutions and infrastructure management.",
+    image:
+      "/assets/images/our-solutions/Cloud%20%26%20IT%20Infrastructure%20Services.png",
+    tags: ["Cloud Migration", "Infrastructure Management", "Security & Backup"],
+  },
+  {
+    slug: "Managed-Services-&-Technology-Support",
+    number: "07",
+    title: "Managed Services & Technology Support",
+    description:
+      "Keep your business running smoothly with proactive IT management, continuous monitoring, and expert technical support.",
+    image:
+      "/assets/images/our-solutions/Managed%20Services%20%26%20Technology%20Support.png",
+    tags: ["24/7 Monitoring", "Help Desk Support", "System Maintenance"],
+  },
+];
+
 export const FAQS = [
   {
-    question: "1. What services do you offer?",
+    question: "1. What does ALLE TECH do?",
     answer:
-      "We provide a range of cleaning services including residential cleaning, office cleaning, deep cleaning, and specialized services like sofa, carpet, and window cleaning.",
+      "ALLE TECH is a Business Technology Partner that helps organizations improve operations through ERP solutions, Artificial Intelligence, Business Intelligence, automation, cloud technologies, enterprise integrations, and industry-specific business applications.",
   },
   {
-    question: "2. How do I book a cleaning service?",
+    question: "2. Which industries do you serve?",
     answer:
-      "Booking is quick and easy. Simply choose your service, pick a date and time that works for you, and confirm your request through our contact form or by phone.",
+      "We work with businesses across manufacturing, distribution, logistics, retail, healthcare, construction, professional services, food & beverage, automotive, and other industries, delivering solutions tailored to each organization's operational needs.",
   },
   {
-    question: "3. Do I need to provide cleaning supplies?",
+    question: "3. Do you only implement ERP solutions?",
     answer:
-      "No, our professional cleaners arrive fully equipped with all the supplies and equipment needed. If you prefer we use your own products, just let us know.",
+      "No. While we specialize in SAP Business One and Odoo ERP, our services extend to AI, Power BI, business automation, cloud infrastructure, enterprise integrations, managed services, mobile applications, and digital transformation consulting.",
   },
   {
-    question: "4. Are your cleaners trained and insured?",
+    question: "4. How do you approach a new project?",
     answer:
-      "Yes, every member of our team is professionally trained, background-checked, and fully insured, so you can trust your space is in safe hands.",
+      "Every engagement begins by understanding your business objectives, challenges, and processes before recommending technology. Our business-first approach ensures every solution aligns with your long-term goals.",
   },
   {
-    question: "5. Can I reschedule or cancel my booking?",
+    question: "5. Can you integrate with our existing systems?",
     answer:
-      "Absolutely. You can reschedule or cancel your booking at no charge with at least 24 hours notice. We are happy to find a time that works better for you.",
+      "Yes. We design and implement enterprise integrations that connect ERP, CRM, finance, warehouse, logistics, HR, and third-party applications to create a unified business ecosystem.",
+  },
+  {
+    question: "6. Do you provide support after implementation?",
+    answer:
+      "Absolutely. Our partnership continues beyond go-live with optimization, managed services, technical support, system enhancements, and continuous innovation to ensure long-term business success.",
+  },
+  {
+    question: "7. How can AI help my business?",
+    answer:
+      "Artificial Intelligence can automate repetitive tasks, provide predictive insights, improve decision-making, enhance customer experiences, and help your organization operate more efficiently.",
+  },
+  {
+    question: "8. Why choose ALLE TECH over other technology providers?",
+    answer:
+      "We focus on understanding your business before recommending technology. By combining strategic consulting, industry expertise, and modern business technologies, we deliver measurable outcomes—not just software implementations.",
+  },
+  {
+    question: "9. How long does a digital transformation project take?",
+    answer:
+      "Project timelines depend on the scope, complexity, and business requirements. After understanding your objectives, we provide a structured implementation roadmap with clear milestones and deliverables.",
+  },
+  {
+    question: "10. How do I get started with ALLE TECH?",
+    answer:
+      "Simply schedule a consultation with our team. We'll assess your current challenges, discuss your business goals, and recommend the most suitable technology strategy for your organization.",
   },
 ];
 

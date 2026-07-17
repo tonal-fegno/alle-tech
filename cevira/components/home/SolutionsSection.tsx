@@ -1,97 +1,43 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { PRODUCTS } from "@/lib/constants";
 
-const SOLUTIONS = [
+const SOLUTION_ART = [
   {
-    title: "RepProX",
-    description: "AI-Powered Field Operations Platform",
-    points: [
-      "Sales Force Automation",
-      "Field Service & Delivery Management",
-      "Warehouse & Inventory Management",
-      "Business Intelligence & AI Insights",
-      "SAP Business One & Odoo Integration",
-    ],
-    art: {
-      base: "linear-gradient(140deg,#071c4d 0%,#123a9e 30%,#2f7de0 55%,#5db4f5 72%,#0a2568 100%)",
-      blobA:
-        "radial-gradient(ellipse 60% 45% at 70% 25%, rgba(125,200,255,0.85), transparent 70%)",
-      blobB:
-        "radial-gradient(ellipse 55% 40% at 25% 65%, rgba(10,30,90,0.9), transparent 70%)",
-    },
+    base: "linear-gradient(140deg,#071c4d 0%,#123a9e 30%,#2f7de0 55%,#5db4f5 72%,#0a2568 100%)",
+    blobA:
+      "radial-gradient(ellipse 60% 45% at 70% 25%, rgba(125,200,255,0.85), transparent 70%)",
+    blobB:
+      "radial-gradient(ellipse 55% 40% at 25% 65%, rgba(10,30,90,0.9), transparent 70%)",
   },
   {
-    title: "Trans Sync",
-    description: "Intelligent Intercompany Management Platform",
-    points: [
-      "Intercompany Automation",
-      "Master Data Synchronization",
-      "Financial Reconciliation",
-      "Multi-Company Management",
-      "SAP Business One Integration",
-    ],
-    art: {
-      base: "linear-gradient(140deg,#22084d 0%,#5b21b6 32%,#a855f7 58%,#e9d5ff 75%,#3b0f78 100%)",
-      blobA:
-        "radial-gradient(ellipse 60% 45% at 65% 20%, rgba(240,225,255,0.9), transparent 70%)",
-      blobB:
-        "radial-gradient(ellipse 55% 45% at 30% 70%, rgba(40,8,90,0.9), transparent 70%)",
-    },
+    base: "linear-gradient(140deg,#22084d 0%,#5b21b6 32%,#a855f7 58%,#e9d5ff 75%,#3b0f78 100%)",
+    blobA:
+      "radial-gradient(ellipse 60% 45% at 65% 20%, rgba(240,225,255,0.9), transparent 70%)",
+    blobB:
+      "radial-gradient(ellipse 55% 45% at 30% 70%, rgba(40,8,90,0.9), transparent 70%)",
   },
   {
-    title: "Freight Pulse",
-    description: "Digital Logistics Platform",
-    points: [
-      "Freight & Transport Management",
-      "Warehouse & Customs Management",
-      "Customer Portal",
-      "Logistics Analytics & AI Planning",
-      "Complete Shipment Lifecycle Management",
-    ],
-    art: {
-      base: "linear-gradient(140deg,#6b2447 0%,#c05585 30%,#f0a3c0 55%,#f7d4de 72%,#7c2d52 100%)",
-      blobA:
-        "radial-gradient(ellipse 60% 45% at 60% 30%, rgba(255,220,235,0.85), transparent 70%)",
-      blobB:
-        "radial-gradient(ellipse 55% 45% at 25% 75%, rgba(90,25,60,0.85), transparent 70%)",
-    },
+    base: "linear-gradient(140deg,#6b2447 0%,#c05585 30%,#f0a3c0 55%,#f7d4de 72%,#7c2d52 100%)",
+    blobA:
+      "radial-gradient(ellipse 60% 45% at 60% 30%, rgba(255,220,235,0.85), transparent 70%)",
+    blobB:
+      "radial-gradient(ellipse 55% 45% at 25% 75%, rgba(90,25,60,0.85), transparent 70%)",
   },
   {
-    title: "Engage Flow",
-    description: "Customer Communication Platform",
-    points: [
-      "Email & WhatsApp Automation",
-      "Customer Statements & Payment Reminders",
-      "Marketing Campaigns",
-      "Internal Notifications",
-      "Business Rule Engine & Multi-Channel Communication",
-    ],
-    art: {
-      base: "linear-gradient(140deg,#02121c 0%,#0a3d4d 32%,#15818e 58%,#67d6d0 78%,#092c3e 100%)",
-      blobA:
-        "radial-gradient(ellipse 60% 45% at 70% 25%, rgba(150,235,225,0.8), transparent 70%)",
-      blobB:
-        "radial-gradient(ellipse 55% 45% at 25% 70%, rgba(4,20,35,0.9), transparent 70%)",
-    },
+    base: "linear-gradient(140deg,#02121c 0%,#0a3d4d 32%,#15818e 58%,#67d6d0 78%,#092c3e 100%)",
+    blobA:
+      "radial-gradient(ellipse 60% 45% at 70% 25%, rgba(150,235,225,0.8), transparent 70%)",
+    blobB:
+      "radial-gradient(ellipse 55% 45% at 25% 70%, rgba(4,20,35,0.9), transparent 70%)",
   },
   {
-    title: "InvoiceFlow",
-    description: "UAE E-Invoicing Platform",
-    points: [
-      "UAE E-Invoicing Compliance",
-      "ERP Integration & Invoice Exchange",
-      "Invoice Validation",
-      "Monitoring & Administration",
-      "Readiness Assessment & Managed Services",
-    ],
-    art: {
-      base: "linear-gradient(140deg,#301c02 0%,#7a4a08 30%,#d68e1d 55%,#ffd98a 72%,#3d2404 100%)",
-      blobA:
-        "radial-gradient(ellipse 60% 45% at 70% 25%, rgba(255,224,160,0.85), transparent 70%)",
-      blobB:
-        "radial-gradient(ellipse 55% 45% at 25% 70%, rgba(45,25,4,0.9), transparent 70%)",
-    },
+    base: "linear-gradient(140deg,#301c02 0%,#7a4a08 30%,#d68e1d 55%,#ffd98a 72%,#3d2404 100%)",
+    blobA:
+      "radial-gradient(ellipse 60% 45% at 70% 25%, rgba(255,224,160,0.85), transparent 70%)",
+    blobB:
+      "radial-gradient(ellipse 55% 45% at 25% 70%, rgba(45,25,4,0.9), transparent 70%)",
   },
 ];
 
@@ -160,7 +106,7 @@ export default function ServicesSection() {
             ref={trackRef}
             className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {SOLUTIONS.map((item, i) => (
+            {PRODUCTS.map((item, i) => (
               <div
                 key={item.title}
                 data-card={i === 0 ? "" : undefined}
@@ -171,7 +117,7 @@ export default function ServicesSection() {
                   aria-hidden
                   className="absolute inset-0 bg-[length:160%_160%] bg-[position:30%_20%] transition-[background-position,transform] duration-[1400ms] ease-out group-hover:scale-105 group-hover:bg-[position:70%_80%]"
                   style={{
-                    backgroundImage: `${item.art.blobA}, ${item.art.blobB}, ${item.art.base}`,
+                    backgroundImage: `${SOLUTION_ART[i].blobA}, ${SOLUTION_ART[i].blobB}, ${SOLUTION_ART[i].base}`,
                   }}
                 />
                 {/* Legibility scrim */}
