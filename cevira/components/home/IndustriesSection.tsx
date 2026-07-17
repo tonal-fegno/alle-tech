@@ -50,35 +50,74 @@ const INDUSTRIES = [
 ];
 
 const CARD_STEP = 384; // card width (360) + gap (24)
+const SLIDE_DURATION = 4000; // ms per slide
+const SET_WIDTH = INDUSTRIES.length * CARD_STEP;
+
+// Render three copies back-to-back so the track always has real cards to
+// scroll into in either direction; the boundary-correction effect below
+// silently snaps between copies once they're out of view.
+const DISPLAY_INDUSTRIES = [...INDUSTRIES, ...INDUSTRIES, ...INDUSTRIES];
 
 export default function IndustriesSection() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [cycle, setCycle] = useState(0);
 
   const scrollByCards = useCallback((dir: 1 | -1) => {
     const el = trackRef.current;
     if (!el) return;
-    const maxScroll = el.scrollWidth - el.clientWidth;
-    if (dir === 1 && el.scrollLeft >= maxScroll - 8) {
-      el.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      el.scrollBy({ left: dir * CARD_STEP, behavior: "smooth" });
-    }
+    el.scrollBy({ left: dir * CARD_STEP, behavior: "smooth" });
+    setCycle((c) => c + 1);
+  }, []);
+
+  // Start centered in the middle copy, and silently snap back into it
+  // whenever a scroll (auto-advance, buttons, or manual drag) carries the
+  // track into the first or third copy — since the copies are identical,
+  // the jump is invisible and the carousel feels endless.
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+
+    el.scrollLeft = SET_WIDTH;
+
+    let settleTimeout: ReturnType<typeof setTimeout>;
+    const handleScroll = () => {
+      clearTimeout(settleTimeout);
+      settleTimeout = setTimeout(() => {
+        const max = el.scrollWidth - el.clientWidth;
+        if (el.scrollLeft < SET_WIDTH - CARD_STEP / 2) {
+          el.scrollLeft += SET_WIDTH;
+        } else if (el.scrollLeft > max - SET_WIDTH + CARD_STEP / 2) {
+          el.scrollLeft -= SET_WIDTH;
+        }
+      }, 120);
+    };
+
+    el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      el.removeEventListener("scroll", handleScroll);
+      clearTimeout(settleTimeout);
+    };
   }, []);
 
   useEffect(() => {
-    if (paused) return;
-    const id = setInterval(() => scrollByCards(1), 4000);
-    return () => clearInterval(id);
-  }, [paused, scrollByCards]);
+    setProgress(0);
+    const start = performance.now();
+    let frame: number;
 
-  const onScroll = () => {
-    const el = trackRef.current;
-    if (!el) return;
-    const maxScroll = el.scrollWidth - el.clientWidth;
-    setProgress(maxScroll > 0 ? el.scrollLeft / maxScroll : 0);
-  };
+    const tick = (now: number) => {
+      const pct = Math.min((now - start) / SLIDE_DURATION, 1);
+      setProgress(pct);
+      if (pct < 1) {
+        frame = requestAnimationFrame(tick);
+      } else {
+        scrollByCards(1);
+      }
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [cycle, scrollByCards]);
 
   return (
     <section className="overflow-hidden bg-[#0B0714] px-4 py-16 md:px-8 md:py-24 xl:py-[120px]">
@@ -111,13 +150,12 @@ export default function IndustriesSection() {
         <div className="min-w-0">
           <div
             ref={trackRef}
-            onScroll={onScroll}
             style={{ marginRight: "calc(50% - 50vw)" }}
             className="flex snap-x snap-mandatory gap-6 overflow-x-auto pr-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {INDUSTRIES.map((item) => (
+            {DISPLAY_INDUSTRIES.map((item, i) => (
               <article
-                key={item.title}
+                key={`${item.title}-${i}`}
                 className="flex h-[560px] w-[330px] shrink-0 snap-start flex-col overflow-hidden rounded-[18px] bg-white md:w-[360px]"
               >
                 <div className="p-6 md:p-7">
@@ -144,27 +182,10 @@ export default function IndustriesSection() {
 
           {/* Controls */}
           <div className="mt-8 flex items-center gap-6">
-            <button
-              type="button"
-              aria-label={paused ? "Play carousel" : "Pause carousel"}
-              onClick={() => setPaused(!paused)}
-              className="shrink-0 text-white transition-opacity hover:opacity-70"
-            >
-              {paused ? (
-                <svg width="14" height="16" viewBox="0 0 14 16" fill="white">
-                  <path d="M1 1.5c0-.8.9-1.3 1.6-.9l11 6.5c.7.4.7 1.4 0 1.8l-11 6.5c-.7.4-1.6-.1-1.6-.9V1.5z" />
-                </svg>
-              ) : (
-                <svg width="12" height="16" viewBox="0 0 12 16" fill="white">
-                  <rect x="0" y="0" width="4" height="16" rx="1" />
-                  <rect x="8" y="0" width="4" height="16" rx="1" />
-                </svg>
-              )}
-            </button>
             <div className="h-[2px] flex-1 overflow-hidden rounded-full bg-white/20">
               <div
-                className="h-full rounded-full bg-white transition-[width] duration-300"
-                style={{ width: `${Math.max(progress * 100, 12)}%` }}
+                className="h-full rounded-full bg-white"
+                style={{ width: `${progress * 100}%` }}
               />
             </div>
             <div className="flex shrink-0 items-center gap-5">
