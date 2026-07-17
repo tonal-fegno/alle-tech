@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import ArrowButton from "@/components/ui/ArrowButton";
 
 const STRATEGY_ICONS = [
   // Target — strategy & goal-setting
@@ -164,23 +164,9 @@ export default function FeaturesSection() {
               <p className="mt-3 text-body-16 font-medium text-white">
               We support your growth beyond implementation.
               </p>
-              <Link
-                href="/contact"
-                className="group mt-6 inline-flex items-center gap-3 rounded-xl bg-white py-2 pl-5 pr-2 text-[15px] font-semibold text-ink transition-colors duration-300 hover:bg-bg-2"
-              >
+              <ArrowButton href="/contact" size="sm" className="mt-6">
                 Schedule Now
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary transition-transform duration-300 group-hover:translate-x-0.5">
-                  <svg width="14" height="11" viewBox="0 0 18 14" fill="none">
-                    <path
-                      d="M1 7h15m0 0L10.5 1.5M16 7l-5.5 5.5"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </Link>
+              </ArrowButton>
             </div>
           </div>
         </div>

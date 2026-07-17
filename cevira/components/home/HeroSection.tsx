@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import ArrowButton from "@/components/ui/ArrowButton";
 
 const HERO_IMAGE = "/assets/images/hero-bg.png";
 
@@ -63,23 +63,9 @@ export default function HeroSection() {
             <p className="text-body-18 text-white/95">
             We combine enterprise applications, AI, automation, and data to build connected business ecosystems that drive measurable results.
             </p>
-            <Link
-              href="/contact"
-              className="group mt-8 inline-flex items-center gap-4 rounded-[14px] bg-white py-2.5 pl-8 pr-2.5 text-body-18 font-semibold text-ink transition-colors duration-300 hover:bg-bg-2"
-            >
+            <ArrowButton href="/contact" className="mt-8">
               Schedule Now
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary transition-transform duration-300 group-hover:translate-x-0.5">
-                <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-                  <path
-                    d="M1 7h15m0 0L10.5 1.5M16 7l-5.5 5.5"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </Link>
+            </ArrowButton>
           </div>
 
           {/* Stat card */}

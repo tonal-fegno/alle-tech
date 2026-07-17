@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import ArrowButton from "@/components/ui/ArrowButton";
 import { SOLUTIONS } from "@/lib/constants";
 
 function Tag({ children }: { children: React.ReactNode }) {
@@ -70,28 +70,13 @@ export default function SolutionsSection() {
                       />
                     </div>
                     <div className="flex flex-1 flex-col justify-center">
-                      <Link
+                      <ArrowButton
                         href={`/services/${service.slug}`}
-                        className="group/link inline-flex w-fit items-center gap-3 rounded-xl bg-primary py-2.5 pl-6 pr-2.5 text-body-16 font-semibold text-white transition-colors duration-300 hover:bg-dark-blue"
+                        variant="solid"
+                        size="sm"
                       >
                         View Details
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/60 transition-transform duration-300 group-hover/link:translate-x-0.5">
-                          <svg
-                            width="14"
-                            height="11"
-                            viewBox="0 0 18 14"
-                            fill="none"
-                          >
-                            <path
-                              d="M1 7h15m0 0L10.5 1.5M16 7l-5.5 5.5"
-                              stroke="white"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </span>
-                      </Link>
+                      </ArrowButton>
                     </div>
                   </div>
                 </div>
