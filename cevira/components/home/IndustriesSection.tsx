@@ -148,7 +148,7 @@ export default function IndustriesSection() {
         <div className="flex flex-col items-start">
           <span className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-white" />
-            <span className="text-[14px] font-semibold uppercase tracking-[0.2em] text-white">
+            <span className="text-base font-semibold uppercase tracking-[0.2em] text-white">
               Industry Expertise
             </span>
           </span>
