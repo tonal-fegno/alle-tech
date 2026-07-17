@@ -88,8 +88,11 @@ export default function ServicesSection() {
       <div className="container-main relative flex flex-col gap-12 md:gap-16">
         {/* Header */}
         <div className="flex flex-col items-center gap-6 text-center">
-          <span className="text-[14px] font-semibold uppercase tracking-[0.2em] text-white">
-            Our Products
+          <span className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-white" />
+            <span className="text-16 font-semibold uppercase text-white">
+              Our Products
+            </span>
           </span>
           <h2 className="max-w-[1020px] text-[32px] font-semibold leading-[1.25] tracking-[-0.01em] text-white md:text-[40px] xl:text-[46px]">
             <span className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] bg-clip-text text-transparent">

@@ -83,7 +83,7 @@ export default function ContactFormSection() {
         <div className="flex flex-col items-center gap-4 text-center">
           <span className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-primary" />
-            <span className="text-body-16 font-semibold text-ink">
+            <span className="text-body-16 font-semibold text-ink uppercase">
               Request a Service
             </span>
           </span>
