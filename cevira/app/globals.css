@@ -39,7 +39,7 @@ body {
   }
 
   .section-padding {
-    @apply py-16 md:py-24 xl:py-[120px];
+    @apply py-12 md:py-16 xl:py-20;
   }
 }
 
