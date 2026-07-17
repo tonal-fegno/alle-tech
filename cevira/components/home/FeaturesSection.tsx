@@ -1,17 +1,51 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const ECO_ICONS = [
-  "https://framerusercontent.com/images/uI5IxtbxoXGcfJCaXFEuZHDCTE.png",
-  "https://framerusercontent.com/images/WuLSFKD8Aj3fmYelKlFPDms7Qo.png",
-  "https://framerusercontent.com/images/IqmnpO3EK4hlwcjBBmDPKlpRoO0.png",
+const STRATEGY_ICONS = [
+  // Target — strategy & goal-setting
+  <svg key="target" width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="9" stroke="white" strokeWidth="1.8" />
+    <circle cx="12" cy="12" r="5" stroke="white" strokeWidth="1.8" />
+    <circle cx="12" cy="12" r="1.5" fill="white" />
+  </svg>,
+  // Briefcase — business consulting
+  <svg key="briefcase" width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <rect
+      x="3"
+      y="7.5"
+      width="18"
+      height="12"
+      rx="2"
+      stroke="white"
+      strokeWidth="1.8"
+    />
+    <path
+      d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"
+      stroke="white"
+      strokeWidth="1.8"
+    />
+    <path d="M3 12.5h18" stroke="white" strokeWidth="1.8" />
+  </svg>,
+  // Trending up — measurable business value
+  <svg key="trending" width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M3 17l6-6 4 4 8-8"
+      stroke="white"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M15 7h6v6"
+      stroke="white"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>,
 ];
 
-const SUPPORT_ICON =
-  "https://framerusercontent.com/images/rMyXhvdtTblyDFd24uiC3cpoJ9g.svg";
-
-const SPLASH_CARD_BG =
-  "https://framerusercontent.com/images/6SpPNtvaL0e5EOLPwsQeQZL9718.png";
+const SPLASH_CARD_BG = "/assets/images/why-choose-us.png";
 
 export default function FeaturesSection() {
   return (
@@ -25,13 +59,14 @@ export default function FeaturesSection() {
               Why Choose Us
             </span>
           </span>
-          <h2 className="heading-2">
-            Our focus is on creating a <br className="hidden sm:block" />
-            clean &amp; healthy environment
+          <h2 className="heading-2 max-w-[1000px]">
+            Business-First Technology. Measurable Business Value.
           </h2>
-          <p className="max-w-[600px] text-body-18 text-body-gray">
-            We deliver reliable, high-quality cleaning services designed to
-            create fresh, comfortable environments for homes and businesses.
+          <p className="max-w-[800px] text-body-18 text-body-gray">
+            We combine strategic consulting, industry expertise, and intelligent
+            technology to help organizations simplify operations, improve
+            decision-making, and achieve sustainable growth. Every solution is
+            designed around your business objectives, not just technology.
           </p>
         </div>
 
@@ -40,68 +75,75 @@ export default function FeaturesSection() {
           {/* Eco-Safe */}
           <div className="flex items-center justify-between gap-4 rounded-2xl bg-[#F7F8FA] p-6 lg:col-start-1 lg:row-start-1">
             <div>
-              <h3 className="heading-6 !text-dark-blue">Eco-Safe</h3>
+              <h3 className="heading-6 !text-dark-blue">
+                Business-First Consulting
+              </h3>
               <p className="mt-1 text-body-16 text-body-gray">
-                For home and the planet
+                Strategy Before Software
               </p>
             </div>
             <div className="flex shrink-0 -space-x-1.5">
-              {ECO_ICONS.map((icon) => (
-                <Image
-                  key={icon}
-                  src={icon}
-                  alt=""
-                  width={44}
-                  height={44}
-                  className="h-11 w-11"
-                />
+              {STRATEGY_ICONS.map((icon, i) => (
+                <span
+                  key={i}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-primary to-dark-blue"
+                >
+                  {icon}
+                </span>
               ))}
             </div>
           </div>
 
           {/* Expert Cleaners / 50+ */}
           <div className="flex min-h-[220px] flex-col justify-between rounded-2xl bg-[#F7F8FA] p-6 lg:col-start-1 lg:row-start-2">
-            <p className="text-body-16 text-body-gray">Expert Cleaners</p>
+            <p className="text-body-16 text-body-gray">Industry Expertise</p>
             <p className="text-[40px] font-semibold leading-none tracking-[-0.01em] text-ink md:text-[48px]">
-              50+
+              12+
             </p>
             <p className="text-body-16 text-body-gray">
-              Cleaning that fits your schedule
+            Industry Expertise. Business-Focused Solutions.
             </p>
           </div>
 
           {/* 1.2k Clean Spaces */}
           <div className="flex min-h-[300px] flex-col justify-between rounded-2xl bg-[#F7F8FA] p-6 lg:col-start-2 lg:row-span-2 lg:row-start-1">
             <p className="text-[40px] font-semibold leading-none tracking-[-0.01em] text-ink md:text-[48px]">
-              1.2k
+              20+
             </p>
             <div>
               <h3 className="heading-6 !text-dark-blue">
-                Clean Spaces Delivered
+                Business Solutions & Products
               </h3>
               <p className="mt-2 text-body-16 text-body-gray">
-                Keep your home fresh, organized, and spotless with our regular
-                and deep cleaning services.
+                From ERP and AI to Business Intelligence, Automation, and
+                Enterprise Integrations, we build connected technology
+                ecosystems that drive measurable results.
               </p>
             </div>
           </div>
 
           {/* Support */}
           <div className="flex items-center gap-5 rounded-2xl bg-[#F7F8FA] p-6 lg:col-span-2 lg:col-start-1 lg:row-start-3">
-            <Image
-              src={SUPPORT_ICON}
-              alt=""
-              width={48}
-              height={48}
-              className="h-12 w-12 shrink-0"
-            />
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-dark-blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="white" strokeWidth="1.8" />
+                <path
+                  d="M3 12h18M12 3c2.5 2.5 3.75 5.5 3.75 9S14.5 18.5 12 21c-2.5-2.5-3.75-5.5-3.75-9S9.5 5.5 12 3Z"
+                  stroke="white"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
             <div>
               <h3 className="heading-6 !text-dark-blue">
-                Fast &amp; Reliable Customer Support
+                Industries Supported
               </h3>
               <p className="mt-1 text-body-16 text-body-gray">
-                Our team responds quickly to your inquiries, ensuring you get
-                the help you need without delay.
+                Our consultants understand the operational realities of
+                different industries, enabling us to deliver practical,
+                business-focused solutions.
               </p>
             </div>
           </div>
@@ -117,11 +159,10 @@ export default function FeaturesSection() {
             />
             <div className="relative flex flex-col items-start p-7">
               <h3 className="text-[24px] font-semibold leading-[1.25] tracking-[-0.01em] text-white md:text-[28px]">
-                Stay consistent <br />
-                with cleaning routine
+              Long-Term Partnership
               </h3>
               <p className="mt-3 text-body-16 font-medium text-white">
-                A better home starts with better cleaning.
+              We support your growth beyond implementation.
               </p>
               <Link
                 href="/contact"
