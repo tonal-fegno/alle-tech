@@ -6,46 +6,64 @@ import Link from "next/link";
 
 const INDUSTRIES = [
   {
-    title: "Healthcare",
+    title: "Distribution & Wholesale",
     description:
-      "Connecting people to the care and services they need, when and where they need them",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=75",
+      "Optimize inventory, sales, warehousing, and distribution operations.",
+    image: encodeURI("/assets/images/industries/Distribution & Wholesale.png"),
   },
   {
-    title: "Industrial, Manufacturing, & Logistics",
+    title: "Manufacturing",
     description:
-      "Improving Lead Generation, Brand Visibility, and Operational Performance",
-    image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=75",
+      "Improve production, quality, inventory, and operational efficiency.",
+    image: encodeURI("/assets/images/industries/Manufacturing.png"),
   },
   {
-    title: "Media, Entertainment, Technology",
+    title: "Logistics, Freight Forwarding & Supply Chain",
     description:
-      "Building scalable solutions that deepen audience connections and drive growth",
-    image:
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=75",
+      "Streamline freight, warehousing, transportation, and supply chain operations.",
+    image: encodeURI(
+      "/assets/images/industries/Logistics, Freight Forwarding & Supply Chain.png"
+    ),
   },
   {
-    title: "Retail",
+    title: "Retail & E-Commerce",
     description:
-      "Modernizing retail experiences to meet customer expectations and business goals",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=75",
+      "Connect retail, e-commerce, inventory, and customer experiences.",
+    image: encodeURI("/assets/images/industries/Retail & E-Commerce.png"),
   },
   {
-    title: "Financial Services",
+    title: "Healthcare & Life Sciences",
     description:
-      "Reimagining banking and insurance with secure, intelligent digital solutions",
-    image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=75",
+      "Modernize healthcare operations, compliance, and resource management.",
+    image: encodeURI("/assets/images/industries/Healthcare & Life Sciences.png"),
   },
   {
-    title: "Travel & Hospitality",
+    title: "Construction, Engineering & Project-Based Businesses",
     description:
-      "Creating seamless journeys that delight customers at every touchpoint",
+      "Manage projects, resources, procurement, and financial performance.",
     image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=75",
+    encodeURI("/assets/images/industries/Construction, Engineering & Project-Based Businesses.png"),
+  },
+  {
+    title: "Professional Services, Consulting & Knowledge-Based Businesses",
+    description:
+      "Streamline projects, resources, clients, and business operations.",
+    image:
+    encodeURI("/assets/images/industries/Professional Services, Consulting & Knowledge-Based Businesses.png"),
+  },
+  {
+    title: "Food, Beverage & FMCG",
+    description:
+      "Optimize production, quality, inventory, and distribution processes.",
+    image:
+    encodeURI("/assets/images/industries/Food, Beverage & FMCG.png"),
+  },
+  {
+    title: "Automotive, Mobility & After-Sales Services",
+    description:
+      "Enhance vehicle sales, service, workshops, and after-sales operations.",
+    image:
+    encodeURI("/assets/images/industries/Automotive, Mobility & After-Sales Services.png"),
   },
 ];
 
