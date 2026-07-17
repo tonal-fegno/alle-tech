@@ -10,8 +10,7 @@ const SERVICES = [
     title: "SAP Business One",
     description:
       "Streamline your business with an integrated ERP solution that simplifies operations, improves visibility, and drives growth.",
-    image:
-      "https://framerusercontent.com/images/BHtyXThekWm38efWvDJkVyqbLVM.png",
+    image: "/assets/images/our-solutions/SAP%20Business%20One.png",
     tags: ["Financial Management", "Sales & CRM"],
   },
   {
@@ -20,8 +19,7 @@ const SERVICES = [
     title: "Odoo ERP",
     description:
       "Simplify and automate your business processes with a flexible ERP platform that connects every department in one system.",
-    image:
-      "https://framerusercontent.com/images/56ZqtDbQrIjdTAh4EfEp6NzsCS0.png",
+    image: "/assets/images/our-solutions/Odoo%20ERP.png",
     tags: ["Finance & Accounting", "Sales & CRM", "Inventory & Operations"],
   },
   {
@@ -31,7 +29,7 @@ const SERVICES = [
     description:
       "Accelerate business growth with expert technology consulting, digital innovation, and tailored transformation strategies.",
     image:
-      "https://framerusercontent.com/images/re8cwwnrRcBWlS63TvqlvS01NY.png",
+      "/assets/images/our-solutions/Technology%20Consulting%20%26%20Digital%20Transformation.png",
     tags: ["Digital Strategy", "Process Automation", "IT Modernization"],
   },
   {
@@ -41,7 +39,7 @@ const SERVICES = [
     description:
       "Transform your data into actionable insights with interactive dashboards, real-time analytics, and intelligent reporting.",
     image:
-      "https://framerusercontent.com/images/6Paa4KhXEnAGF8Wm4oBiuJj7Rxw.png",
+      "/assets/images/our-solutions/Business%20Intelligence%20%26%20Power%20BI.png",
     tags: ["Interactive Dashboards", "Real-Time Analytics", "Custom Reports"],
   },
   {
@@ -51,7 +49,7 @@ const SERVICES = [
     description:
       "Seamlessly connect your business systems to streamline workflows, improve data accuracy, and enable real-time collaboration.",
     image:
-      "https://framerusercontent.com/images/6Paa4KhXEnAGF8Wm4oBiuJj7Rxw.png",
+      "/assets/images/our-solutions/ERP%20Integration%20%26%20Enterprise%20Connectivity.png",
     tags: ["System Integration", "API Connectivity", "Data Synchronization"],
   },
   {
@@ -61,7 +59,7 @@ const SERVICES = [
     description:
       "Build a secure, scalable, and reliable IT environment with modern cloud solutions and infrastructure management.",
     image:
-      "https://framerusercontent.com/images/6Paa4KhXEnAGF8Wm4oBiuJj7Rxw.png",
+      "/assets/images/our-solutions/Cloud%20%26%20IT%20Infrastructure%20Services.png",
     tags: ["Cloud Migration", "Infrastructure Management", "Security & Backup"],
   },
   {
@@ -71,7 +69,7 @@ const SERVICES = [
     description:
       "Keep your business running smoothly with proactive IT management, continuous monitoring, and expert technical support.",
     image:
-      "https://framerusercontent.com/images/6Paa4KhXEnAGF8Wm4oBiuJj7Rxw.png",
+      "/assets/images/our-solutions/Managed%20Services%20%26%20Technology%20Support.png",
     tags: ["24/7 Monitoring", "Help Desk Support", "System Maintenance"],
   },
 ];
