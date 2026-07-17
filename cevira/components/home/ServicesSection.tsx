@@ -60,13 +60,13 @@ export default function SolutionsSection() {
               <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr]">
                 <div className="overflow-hidden">
                   <div className="flex flex-col gap-6 border-t border-border-gray/30 pt-6 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 group-focus-within:opacity-100 md:flex-row md:gap-8">
-                    <div className="relative h-[220px] w-full shrink-0 overflow-hidden rounded-xl bg-[#F7F8FA] md:h-[160px] md:w-[200px]">
+                    <div className="relative rounded-xl h-[280px] w-full shrink-0 md:h-[220px] md:w-[280px]">
                       <Image
                         src={service.image}
                         alt={service.title}
                         fill
-                        sizes="(min-width: 768px) 200px, 100vw"
-                        className="object-contain p-3"
+                        sizes="(min-width: 768px) 280px, 100vw"
+                        className="rounded-xl object-cover"
                       />
                     </div>
                     <div className="flex flex-1 flex-col justify-center">
