@@ -27,6 +27,7 @@ export const SOCIAL_LINKS = [
 
 export const PRODUCTS = [
   {
+    slug: "repprox",
     title: "RepProX",
     description: "AI-Powered Field Operations Platform",
     points: [
@@ -38,6 +39,7 @@ export const PRODUCTS = [
     ],
   },
   {
+    slug: "transsync",
     title: "Trans Sync",
     description: "Intelligent Intercompany Management Platform",
     points: [
@@ -49,6 +51,7 @@ export const PRODUCTS = [
     ],
   },
   {
+    slug: "freight-pulse",
     title: "Freight Pulse",
     description: "Digital Logistics Platform",
     points: [
@@ -60,6 +63,7 @@ export const PRODUCTS = [
     ],
   },
   {
+    slug: "engageflow",
     title: "Engage Flow",
     description: "Customer Communication Platform",
     points: [
@@ -71,6 +75,7 @@ export const PRODUCTS = [
     ],
   },
   {
+    slug: "invoiceflow",
     title: "InvoiceFlow",
     description: "UAE E-Invoicing Platform",
     points: [
@@ -152,6 +157,19 @@ export const SOLUTIONS = [
       "/assets/images/our-solutions/Managed%20Services%20%26%20Technology%20Support.png",
     tags: ["24/7 Monitoring", "Help Desk Support", "System Maintenance"],
   },
+];
+
+export const INDUSTRIES = [
+  { slug: "distribution-wholesale", title: "Distribution & Wholesale" },
+  { slug: "manufacturing", title: "Manufacturing" },
+  { slug: "logistics-supply-chain", title: "Logistics & Supply Chain" },
+  { slug: "retail", title: "Retail" },
+  { slug: "healthcare", title: "Healthcare" },
+  { slug: "construction", title: "Construction" },
+  { slug: "automotive", title: "Automotive" },
+  { slug: "professional-services", title: "Professional Services" },
+  { slug: "food-beverage", title: "Food & Beverage" },
+  { slug: "e-commerce", title: "E-Commerce" },
 ];
 
 export const FAQS = [

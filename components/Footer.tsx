@@ -1,23 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CONTACT_INFO, LOGO_URL, SOCIAL_LINKS } from "@/lib/constants";
+import {
+  CONTACT_INFO,
+  INDUSTRIES,
+  LOGO_URL,
+  PRODUCTS,
+  SOCIAL_LINKS,
+  SOLUTIONS,
+} from "@/lib/constants";
 
-const menuLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Pricing", href: "/pricing" },
-];
+const solutionLinks = SOLUTIONS.map((solution) => ({
+  label: solution.title,
+  href: `/solutions/${solution.slug}`,
+}));
 
-const pageLinks = [
-  { label: "Services", href: "/services" },
-  { label: "Service Details", href: "/services/home-cleaning" },
-  { label: "Blogs", href: "/blogs" },
-  {
-    label: "Blog Details",
-    href: "/blogs/5-simple-tips-to-keep-your-home-spotless-every-day",
-  },
-  { label: "404", href: "/404-page" },
+const productLinks = PRODUCTS.map((product) => ({
+  label: product.title,
+  href: `/products/${product.slug}`,
+}));
+
+const industryLinks = INDUSTRIES.map((industry) => ({
+  label: industry.title,
+  href: `/industries#${industry.slug}`,
+}));
+
+const industryColumns = [
+  industryLinks.slice(0, Math.ceil(industryLinks.length / 2)),
+  industryLinks.slice(Math.ceil(industryLinks.length / 2)),
 ];
 
 const socialIcons: Record<string, React.ReactNode> = {
@@ -59,7 +68,7 @@ export default function Footer() {
       />
 
       <div className="container-main relative">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.2fr_0.9fr_0.9fr_1.6fr_1fr]">
           {/* Logo + Working hours */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center">
@@ -79,11 +88,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Menus */}
+          {/* Solutions */}
           <div className="flex flex-col gap-5">
-            <p className="text-body-18 font-semibold text-white">Menus</p>
+            <p className="text-body-18 font-semibold text-white">Solutions</p>
             <ul className="flex flex-col gap-3">
-              {menuLinks.map((link) => (
+              {solutionLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -96,11 +105,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Pages */}
+          {/* Products */}
           <div className="flex flex-col gap-5">
-            <p className="text-body-18 font-semibold text-white">Menus</p>
+            <p className="text-body-18 font-semibold text-white">Products</p>
             <ul className="flex flex-col gap-3">
-              {pageLinks.map((link) => (
+              {productLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -111,6 +120,27 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Industries */}
+          <div className="flex flex-col gap-5">
+            <p className="text-body-18 font-semibold text-white">Industries</p>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+              {industryColumns.map((column, columnIndex) => (
+                <ul key={columnIndex} className="flex flex-col gap-3">
+                  {column.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-body-16 text-white/70 transition-colors hover:text-white"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
           </div>
 
           {/* Contact */}
