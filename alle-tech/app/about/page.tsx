@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import PageHero from "@/components/PageHero";
+import ImageFrame from "@/components/ui/ImageFrame";
 import Badge from "@/components/ui/Badge";
 import SectionHeader from "@/components/SectionHeader";
 import StatCard from "@/components/about/StatCard";
@@ -70,20 +71,15 @@ export default function AboutPage() {
       {/* Hero/Banner Section */}
       <section className="bg-bg-3 px-4 pb-20 pt-[160px] md:px-8 md:pt-[200px]">
         <div className="container-main">
-          <div className="flex flex-col items-center gap-6 text-center">
-            <Badge>Committed to Healthier Spaces</Badge>
-            <h1 className="heading-1">About Us</h1>
-          </div>
-          <div className="relative mx-auto mt-[60px] aspect-video w-full max-w-[1200px] overflow-hidden rounded-card shadow-[0px_20px_60px_rgba(0,0,0,0.08)]">
-            <Image
-              src="https://framerusercontent.com/images/YicLdfqHipAoteYHnsyRw9BGdhA"
-              alt="Our cleaning team at work"
-              fill
-              priority
-              className="object-cover"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-            />
-          </div>
+          <PageHero badge="Committed to Healthier Spaces" title="About Us" />
+          <ImageFrame
+            src="https://framerusercontent.com/images/YicLdfqHipAoteYHnsyRw9BGdhA"
+            alt="Our cleaning team at work"
+            rounded="rounded-card"
+            priority
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            className="mx-auto mt-[60px] max-w-[1200px] shadow-[0px_20px_60px_rgba(0,0,0,0.08)]"
+          />
         </div>
       </section>
 

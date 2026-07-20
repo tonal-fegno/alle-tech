@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import BlogCard from "@/components/BlogCard";
 import ContactFormSection from "@/components/ContactFormSection";
@@ -13,12 +14,11 @@ export default function BlogsPage() {
     <>
       {/* Hero Section */}
       <section className="bg-bg-1 px-4 py-16 md:px-8 md:py-20 xl:py-24">
-        <div className="container-main flex flex-col items-center gap-5 text-center">
-          <h1 className="heading-1">Our latest blogs &amp; trends</h1>
-          <p className="max-w-[700px] text-body-18 text-body-gray">
-            Expert advice, practical tips, and cleaning guides to help you
-            maintain a fresh, healthy, and spotless space.
-          </p>
+        <div className="container-main">
+          <PageHero
+            title="Our latest blogs & trends"
+            subtitle="Expert advice, practical tips, and cleaning guides to help you maintain a fresh, healthy, and spotless space."
+          />
         </div>
       </section>
 

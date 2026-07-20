@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Badge from "@/components/ui/Badge";
+import ImageFrame from "@/components/ui/ImageFrame";
+import RichText from "@/components/ui/RichText";
 import ContactFormSection from "@/components/ContactFormSection";
 import { blogs, getBlog, formatBlogDate } from "@/lib/data";
 
@@ -88,25 +90,18 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         <div className="mx-auto max-w-[800px]">
           {/* Content 01 */}
           {blog.content01Visible && blog.content01 && (
-            <div
-              className="rich-text"
-              dangerouslySetInnerHTML={{ __html: blog.content01 }}
-            />
+            <RichText html={blog.content01} />
           )}
 
           {/* Body Image 01 */}
           {blog.bodyImageVisible && blog.bodyImage01 && (
-            <div className="my-12">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-section">
-                <Image
-                  src={blog.bodyImage01}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 800px) 100vw, 800px"
-                />
-              </div>
-            </div>
+            <ImageFrame
+              src={blog.bodyImage01}
+              alt=""
+              aspect="aspect-[16/9]"
+              sizes="(max-width: 800px) 100vw, 800px"
+              className="my-12"
+            />
           )}
 
           {/* Banner Callout Box */}
@@ -118,25 +113,18 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
           {/* Body Image 02 */}
           {blog.bodyImageVisible && blog.bodyImage02 && (
-            <div className="my-12">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-section">
-                <Image
-                  src={blog.bodyImage02}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 800px) 100vw, 800px"
-                />
-              </div>
-            </div>
+            <ImageFrame
+              src={blog.bodyImage02}
+              alt=""
+              aspect="aspect-[16/9]"
+              sizes="(max-width: 800px) 100vw, 800px"
+              className="my-12"
+            />
           )}
 
           {/* Content 02 */}
           {blog.content02Visible && blog.content02 && (
-            <div
-              className="rich-text"
-              dangerouslySetInnerHTML={{ __html: blog.content02 }}
-            />
+            <RichText html={blog.content02} />
           )}
         </div>
       </section>

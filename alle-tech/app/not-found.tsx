@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "404 - Page Not Found",
   description:
-    "The page you're looking for doesn't exist. Return to Cevira homepage or contact us for assistance.",
+    "The page you're looking for doesn't exist. Return to Alle Tech homepage or contact us for assistance.",
   robots: "noindex, nofollow",
 };
 

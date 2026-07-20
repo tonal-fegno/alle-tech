@@ -13,11 +13,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Cevira — Professional Cleaning Services",
-    template: "%s | Cevira",
+    default: "Alle Tech — Professional Cleaning Services",
+    template: "%s | Alle Tech",
   },
   description:
-    "Cevira is a clean and professional website for cleaning companies and maintenance services. Showcase your services, build trust, and attract clients with a clear and reliable online presence.",
+    "Alle Tech is a clean and professional website for cleaning companies and maintenance services. Showcase your services, build trust, and attract clients with a clear and reliable online presence.",
 };
 
 export default function RootLayout({

@@ -65,13 +65,13 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2.5">
               <Image
                 src={LOGO_URL}
-                alt="Cevira logo"
+                alt="Alle Tech logo"
                 width={40}
                 height={40}
                 className="h-10 w-10 rounded-full bg-gradient-primary"
               />
               <span className="text-[22px] font-bold tracking-[-0.01em] text-white">
-                Cevira
+                Alle Tech
               </span>
             </Link>
             <div className="flex flex-col gap-2">
