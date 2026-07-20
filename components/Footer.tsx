@@ -62,17 +62,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Logo + Working hours */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-2.5">
+            <Link href="/" className="flex items-center">
               <Image
                 src={LOGO_URL}
                 alt="Alle Tech logo"
-                width={40}
-                height={40}
-                className="h-10 w-10 rounded-full bg-gradient-primary"
+                width={123}
+                height={77}
+                className="h-12 w-auto object-contain"
               />
-              <span className="text-[22px] font-bold tracking-[-0.01em] text-white">
-                Alle Tech
-              </span>
             </Link>
             <div className="flex flex-col gap-2">
               <p className="text-body-18 font-semibold text-white">Working Hours</p>

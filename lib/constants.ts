@@ -7,8 +7,7 @@ export const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const LOGO_URL =
-  "https://framerusercontent.com/images/6wKgO3T1OGEYcYcFhewutTgCq8M.svg";
+export const LOGO_URL = "/assets/images/logo.png";
 
 export const CONTACT_INFO = {
   email: "info@alle-tech.com",
