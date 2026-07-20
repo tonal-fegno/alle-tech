@@ -69,7 +69,7 @@ export default function HeroSection() {
           </div>
 
           {/* Stat card */}
-          <div className="w-full max-w-[380px] rounded-[20px] bg-primary p-7 shadow-[0_20px_50px_rgba(0,11,34,0.35)]">
+          {/* <div className="w-full max-w-[380px] rounded-[20px] bg-primary p-7 shadow-[0_20px_50px_rgba(0,11,34,0.35)]">
             <div className="flex items-center gap-5">
               <span className="text-[52px] font-semibold leading-none tracking-[-0.01em] text-white md:text-[58px]">
                 12+
@@ -102,17 +102,17 @@ export default function HeroSection() {
                 </span>
               </div>
               <div>
-                {/* <div className="flex gap-1">
+                <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <StarSmall key={i} />
                   ))}
-                </div> */}
+                </div>
                 <p className="mt-1.5 text-body-16 font-medium text-white">
                   Build on Client trust
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
