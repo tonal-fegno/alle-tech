@@ -10,7 +10,7 @@ interface ButtonProps {
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-xl px-[30px] py-4 text-body-18 font-semibold transition-all duration-300";
+  "inline-flex items-center justify-center gap-2 rounded-full px-[30px] py-4 text-body-18 font-semibold transition-all duration-300";
 
 const variants = {
   primary: "bg-gradient-primary text-white hover:opacity-90",
