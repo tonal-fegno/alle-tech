@@ -458,7 +458,7 @@ export default function TestimonialSection() {
       <div className="container-main flex flex-col items-center gap-12 md:gap-16">
         <div className="flex flex-col items-center gap-5 text-center">
           <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="h-2 w-2 rounded-full bg-gradient-primary" />
             <span className="text-base font-semibold text-ink uppercase">
               Testimonial
             </span>
@@ -484,11 +484,21 @@ export default function TestimonialSection() {
           aria-label="Client testimonials"
           className="relative w-full max-w-[900px] overflow-hidden rounded-[28px] bg-[#0B0714] p-8 shadow-[0_20px_60px_-15px_rgba(0,11,34,0.25)] md:p-12 lg:p-14"
         >
+          {/* Ambient purple glow */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 h-[560px]"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 90% at 50% -20%, rgba(76,29,149,0.75), transparent 70%)",
+            }}
+          />
+
           {/* Autoplay progress bars */}
           <div
             role="tablist"
             aria-label="Testimonials progress"
-            className="grid gap-[6px]"
+            className="relative grid gap-[6px]"
             style={{
               gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))`,
             }}

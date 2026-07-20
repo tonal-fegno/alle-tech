@@ -15,11 +15,11 @@ const base =
 
 const variants = {
   light: "bg-white text-ink hover:bg-bg-2",
-  solid: "bg-primary text-white hover:bg-dark-blue",
+  solid: "bg-gradient-primary text-white hover:opacity-90",
 };
 
 const circleVariants = {
-  light: "bg-primary",
+  light: "bg-gradient-primary",
   solid: "bg-white",
 };
 

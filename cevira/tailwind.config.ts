@@ -7,6 +7,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "gradient-primary": "linear-gradient(135deg, #3D6BF5 0%, #6C3CE0 100%)",
+      },
       colors: {
         primary: "#0A4CE0", // Primary Color/Blue
         "dark-blue": "#001545", // Secondary Color/Dark Blue

@@ -27,7 +27,7 @@ export default function MissionVisionTabs() {
           onClick={() => setActiveTab("mission")}
           className={`rounded-lg px-8 py-3 text-body-16 font-semibold transition-all duration-300 ${
             activeTab === "mission"
-              ? "bg-primary text-white"
+              ? "bg-gradient-primary text-white"
               : "border border-border-gray bg-white text-body-gray hover:bg-bg-1"
           }`}
         >
@@ -37,7 +37,7 @@ export default function MissionVisionTabs() {
           onClick={() => setActiveTab("vision")}
           className={`rounded-lg px-8 py-3 text-body-16 font-semibold transition-all duration-300 ${
             activeTab === "vision"
-              ? "bg-primary text-white"
+              ? "bg-gradient-primary text-white"
               : "border border-border-gray bg-white text-body-gray hover:bg-bg-1"
           }`}
         >

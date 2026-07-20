@@ -20,7 +20,7 @@ export default function SolutionsSection() {
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
           <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="h-2 w-2 rounded-full bg-gradient-primary" />
             <span className="text-16 font-semibold text-ink uppercase">
               Our Solutions
             </span>

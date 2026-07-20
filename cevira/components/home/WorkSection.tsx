@@ -66,7 +66,7 @@ export default function WorkSection() {
                   <span
                     className={`flex h-12 w-12 items-center justify-center rounded-full border-2 text-body-18 font-semibold ${
                       active === index
-                        ? "border-primary bg-primary text-white"
+                        ? "border-primary bg-gradient-primary text-white"
                         : "border-primary text-primary"
                     }`}
                   >

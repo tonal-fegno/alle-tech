@@ -35,7 +35,7 @@ export default function PricingCard({ plan }: { plan: PricingPlan }) {
       }`}
     >
       {plan.popular && (
-        <span className="absolute right-6 top-6 rounded-full bg-primary px-4 py-1.5 text-[14px] font-semibold text-white">
+        <span className="absolute right-6 top-6 rounded-full bg-gradient-primary px-4 py-1.5 text-[14px] font-semibold text-white">
           Most Popular
         </span>
       )}

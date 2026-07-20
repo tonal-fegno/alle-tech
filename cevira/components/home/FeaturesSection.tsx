@@ -55,7 +55,7 @@ export default function FeaturesSection() {
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
           <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="h-2 w-2 rounded-full bg-gradient-primary" />
             <span className="text-body-16 font-semibold text-ink uppercase">
               Why Choose Us
             </span>
@@ -87,7 +87,7 @@ export default function FeaturesSection() {
               {STRATEGY_ICONS.map((icon, i) => (
                 <span
                   key={i}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-primary to-dark-blue"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-white bg-gradient-primary"
                 >
                   {icon}
                 </span>
@@ -125,7 +125,7 @@ export default function FeaturesSection() {
 
           {/* Support */}
           <div className="flex items-center gap-5 rounded-2xl bg-[#F7F8FA] p-6 lg:col-span-2 lg:col-start-1 lg:row-start-3">
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-dark-blue">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-primary">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="12" r="9" stroke="white" strokeWidth="1.8" />
                 <path

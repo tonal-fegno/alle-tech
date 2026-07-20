@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import ArrowButton from "@/components/ui/ArrowButton";
 import { CONTACT_INFO, SOLUTIONS } from "@/lib/constants";
 
 const inputCls =
@@ -83,7 +84,7 @@ export default function ContactFormSection() {
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
           <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="h-2 w-2 rounded-full bg-gradient-primary" />
             <span className="text-body-16 font-semibold text-ink uppercase">
               Request a Service
             </span>
@@ -100,10 +101,14 @@ export default function ContactFormSection() {
         {/* Split card */}
         <div className="grid w-full max-w-[1100px] grid-cols-1 overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_-30px_rgba(0,21,69,0.35)] lg:grid-cols-[380px_1fr]">
           {/* Info panel */}
-          <div className="relative flex flex-col justify-between gap-10 overflow-hidden bg-gradient-to-br from-dark-blue to-[#001030] p-8 md:p-10">
+          <div className="relative flex flex-col justify-between gap-10 overflow-hidden bg-[#0B0714] p-8 md:p-10">
             <div
-              className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-primary/30 blur-3xl"
               aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-0 h-[560px]"
+              style={{
+                background:
+                  "radial-gradient(ellipse 70% 90% at 50% -20%, rgba(76,29,149,0.75), transparent 70%)",
+              }}
             />
             <div className="relative flex flex-col gap-3">
               <h3 className="text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-white md:text-[26px]">
@@ -304,27 +309,9 @@ export default function ContactFormSection() {
                     className={`${inputCls} resize-none`}
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-[30px] py-4 text-body-18 font-semibold text-white transition-colors duration-300 hover:bg-dark-blue"
-                >
+                <ArrowButton type="submit" variant="solid" className="mt-2">
                   Send Request
-                  <svg
-                    width="16"
-                    height="12"
-                    viewBox="0 0 18 14"
-                    fill="none"
-                    className="transition-transform duration-300 group-hover:translate-x-0.5"
-                  >
-                    <path
-                      d="M1 7h15m0 0L10.5 1.5M16 7l-5.5 5.5"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
+                </ArrowButton>
               </form>
             )}
           </div>

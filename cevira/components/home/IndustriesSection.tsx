@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import ArrowButton from "@/components/ui/ArrowButton";
 
 const INDUSTRIES = [
   {
@@ -143,8 +143,18 @@ export default function IndustriesSection() {
   }, [cycle, scrollByCards]);
 
   return (
-    <section className="overflow-hidden bg-[#0B0714] px-4 py-16 md:px-8 md:py-24 xl:py-[120px]">
-      <div className="container-main grid grid-cols-1 items-center gap-12 lg:grid-cols-[360px_1fr] lg:gap-16">
+    <section className="relative overflow-hidden bg-[#0B0714] px-4 py-16 md:px-8 md:py-24 xl:py-[120px]">
+      {/* Ambient purple glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[560px]"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 90% at 50% -20%, rgba(76,29,149,0.75), transparent 70%)",
+        }}
+      />
+
+      <div className="container-main relative grid grid-cols-1 items-center gap-12 lg:grid-cols-[360px_1fr] lg:gap-16">
         {/* Left column */}
         <div className="flex flex-col items-start">
           <span className="flex items-center gap-2">
@@ -164,12 +174,9 @@ export default function IndustriesSection() {
             solutions that address unique operational challenges, improve
             efficiency, and accelerate digital transformation.
           </p>
-          <Link
-            href="/services"
-            className="mt-8 inline-flex items-center rounded-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] px-7 py-3.5 text-[15px] font-semibold text-white transition-opacity duration-300 hover:opacity-90"
-          >
+          <ArrowButton href="/services" className="mt-8">
             See the industries we serve
-          </Link>
+          </ArrowButton>
         </div>
 
         {/* Right column — carousel */}

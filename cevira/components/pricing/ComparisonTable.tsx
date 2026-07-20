@@ -1,6 +1,6 @@
 function CheckIcon() {
   return (
-    <div className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+    <div className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-primary">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
         <path
           d="M2 6.5L4.5 9L10 3.5"

@@ -47,8 +47,18 @@ const socialIcons: Record<string, React.ReactNode> = {
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-blue px-4 pb-8 pt-16 md:px-8 md:pt-20">
-      <div className="container-main">
+    <footer className="relative overflow-hidden bg-[#0B0714] px-4 pb-8 pt-16 md:px-8 md:pt-20">
+      {/* Ambient purple glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[560px]"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 90% at 50% -20%, rgba(76,29,149,0.75), transparent 70%)",
+        }}
+      />
+
+      <div className="container-main relative">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Logo + Working hours */}
           <div className="flex flex-col gap-6">
@@ -58,7 +68,7 @@ export default function Footer() {
                 alt="Cevira logo"
                 width={40}
                 height={40}
-                className="h-10 w-10 rounded-full bg-primary"
+                className="h-10 w-10 rounded-full bg-gradient-primary"
               />
               <span className="text-[22px] font-bold tracking-[-0.01em] text-white">
                 Cevira
@@ -145,7 +155,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.13] text-white transition-colors duration-300 hover:bg-primary"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.13] text-white transition-colors duration-300 hover:bg-gradient-primary"
               >
                 {socialIcons[social.label]}
               </a>

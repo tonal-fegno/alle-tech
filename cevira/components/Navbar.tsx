@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Button from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/constants";
 
 const LOGO_URL = "/assets/images/logo.png";
@@ -82,12 +83,7 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden lg:block">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-[30px] py-4 text-body-18 font-semibold text-white transition-colors duration-300 hover:bg-dark-blue"
-            >
-              Schedule Now
-            </Link>
+            <Button href="/contact">Schedule Now</Button>
           </div>
 
           {/* Mobile hamburger */}
@@ -123,13 +119,13 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
+            <Button
               href="/contact"
-              className="mt-2 inline-flex items-center justify-center rounded-xl bg-primary px-[30px] py-4 text-body-18 font-semibold text-white"
+              className="mt-2"
               onClick={() => setMobileOpen(false)}
             >
               Schedule Now
-            </Link>
+            </Button>
           </div>
         )}
       </div>
