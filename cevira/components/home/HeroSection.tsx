@@ -30,6 +30,7 @@ export default function HeroSection() {
         sizes="100vw"
         className="object-cover"
       />
+      <div className="absolute inset-0 bg-black/30 z-100"></div>
       {/* Legibility overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-dark-blue/75 via-dark-blue/25 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink/40 to-transparent" />

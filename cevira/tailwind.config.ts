@@ -8,10 +8,10 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-primary": "linear-gradient(135deg, #3D6BF5 0%, #6C3CE0 100%)",
+        "gradient-primary": "linear-gradient(135deg, #2c8fce 0%, #6C3CE0 100%)",
       },
       colors: {
-        primary: "#0A4CE0", // Primary Color/Blue
+        primary: "#2c8fce", // Primary Color/Blue
         "dark-blue": "#001545", // Secondary Color/Dark Blue
         "body-gray": "#4C505B", // Other Color/Gray
         ink: "#000B22", // Other Color/Black
