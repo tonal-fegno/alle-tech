@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import { PRODUCTS } from "@/lib/constants";
 
 const SOLUTION_ART = [
@@ -94,13 +95,13 @@ export default function ServicesSection() {
               Our Products
             </span>
           </span>
-          <h2 className="max-w-[1020px] text-[32px] font-semibold leading-[1.25] tracking-[-0.01em] text-white md:text-[40px] xl:text-[46px]">
+          <AnimatedHeading className="max-w-[1020px] text-[32px] font-semibold leading-[1.25] tracking-[-0.01em] text-white md:text-[40px] xl:text-[46px]">
             <span className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] bg-clip-text text-transparent">
               Enterprise AI solutions
             </span>{" "}
             for organizations at <br className="hidden sm:block" />
             every stage of adoption
-          </h2>
+          </AnimatedHeading>
         </div>
 
         {/* Slider */}

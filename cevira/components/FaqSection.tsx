@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import { FAQS } from "@/lib/constants";
 
 export default function FaqSection() {
@@ -15,10 +16,10 @@ export default function FaqSection() {
             <span className="h-2 w-2 rounded-full bg-primary" />
             <span className="text-body-16 font-semibold text-ink">FAQ</span>
           </span>
-          <h2 className="heading-2">
+          <AnimatedHeading className="heading-2">
             Common Questions, <br className="hidden sm:block" />
             Clearly Answered
-          </h2>
+          </AnimatedHeading>
           <p className="max-w-[480px] text-body-18 text-body-gray">
             Find answers to common questions about our services, approach,
             and what it&apos;s like to partner with ALLE TECH.

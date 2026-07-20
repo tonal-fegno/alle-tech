@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import { CONTACT_INFO, SOLUTIONS } from "@/lib/constants";
 
 const inputCls =
@@ -87,9 +88,9 @@ export default function ContactFormSection() {
               Request a Service
             </span>
           </span>
-          <h2 className="heading-2 max-w-[700px]">
+          <AnimatedHeading className="heading-2 max-w-[700px]">
             Let&apos;s Talk About Your Business Needs
-          </h2>
+          </AnimatedHeading>
           <p className="max-w-[600px] text-body-18 text-body-gray">
             Tell us a bit about what you&apos;re looking for and our team will
             get back to you with next steps within one business day.

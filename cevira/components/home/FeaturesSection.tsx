@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ArrowButton from "@/components/ui/ArrowButton";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const STRATEGY_ICONS = [
   // Target — strategy & goal-setting
@@ -59,9 +60,9 @@ export default function FeaturesSection() {
               Why Choose Us
             </span>
           </span>
-          <h2 className="heading-2 max-w-[1000px]">
+          <AnimatedHeading className="heading-2 max-w-[1000px]">
             Business-First Technology. Measurable Business Value.
-          </h2>
+          </AnimatedHeading>
           <p className="max-w-[800px] text-body-18 text-body-gray">
             We combine strategic consulting, industry expertise, and intelligent
             technology to help organizations simplify operations, improve

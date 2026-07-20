@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ArrowButton from "@/components/ui/ArrowButton";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const HERO_IMAGE = "/assets/images/hero-bg.png";
 
@@ -53,9 +54,12 @@ export default function HeroSection() {
         </span>
 
         {/* Heading */}
-        <h1 className="mt-6 max-w-[860px] text-[42px] font-semibold leading-[1.15] tracking-[-0.01em] text-white md:text-[56px] lg:text-[68px]">
-        Transforming Business Through Intelligent Technology
-        </h1>
+        <AnimatedHeading
+          as="h1"
+          className="mt-6 max-w-[860px] text-[42px] font-semibold leading-[1.15] tracking-[-0.01em] text-white md:text-[56px] lg:text-[68px]"
+        >
+          Transforming Business Through Intelligent Technology
+        </AnimatedHeading>
 
         {/* Bottom row: copy + CTA on the left, stat card on the right */}
         <div className="mt-auto flex flex-col justify-between gap-10 pt-12 lg:flex-row lg:items-end">

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const logos = [
   "/assets/client/alwatani.png",
@@ -57,9 +58,12 @@ export default function BrandTicker() {
   return (
     <section className="bg-bg-1 py-16">
       <div className="flex flex-col items-center gap-8">
-        <p className="px-4 text-center text-xl font-semibold text-body-gray">
+        <AnimatedHeading
+          as="p"
+          className="px-4 text-center text-xl font-semibold text-body-gray"
+        >
           Trusted 100+ corporate partners!
-        </p>
+        </AnimatedHeading>
         <div
           className="w-full overflow-hidden"
           onMouseEnter={() => {

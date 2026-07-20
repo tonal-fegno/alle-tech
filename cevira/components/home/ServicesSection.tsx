@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import ArrowButton from "@/components/ui/ArrowButton";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import { SOLUTIONS } from "@/lib/constants";
 
 function Tag({ children }: { children: React.ReactNode }) {
@@ -24,7 +25,9 @@ export default function SolutionsSection() {
               Our Solutions
             </span>
           </span>
-          <h2 className="heading-2">Technology That Drives Business Growth</h2>
+          <AnimatedHeading className="heading-2">
+            Technology That Drives Business Growth
+          </AnimatedHeading>
           <p className="max-w-[860px] text-body-18 text-body-gray">
             From ERP and AI to automation and enterprise integrations, we
             deliver intelligent solutions that improve efficiency, enhance

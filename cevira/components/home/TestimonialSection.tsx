@@ -9,6 +9,7 @@ import {
   useMotionValue,
   useReducedMotion,
 } from "framer-motion";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 type Testimonial = {
   quote: string;
@@ -462,9 +463,9 @@ export default function TestimonialSection() {
               Testimonial
             </span>
           </span>
-          <h2 className="heading-2 max-w-[800px]">
+          <AnimatedHeading className="heading-2 max-w-[800px]">
             Our Reputation, Built on Client Trust
-          </h2>
+          </AnimatedHeading>
         </div>
 
         {/* Rotator */}

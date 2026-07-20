@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const INDUSTRIES = [
   {
@@ -152,12 +153,12 @@ export default function IndustriesSection() {
               Industry Expertise
             </span>
           </span>
-          <h2 className="mt-6 text-[36px] font-medium leading-[1.2] tracking-[-0.01em] text-white md:text-[44px]">
+          <AnimatedHeading className="mt-6 text-[36px] font-medium leading-[1.2] tracking-[-0.01em] text-white md:text-[44px]">
             Technology for <br />
             <span className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] bg-clip-text font-semibold text-transparent">
               Every Industry
             </span>
-          </h2>
+          </AnimatedHeading>
           <p className="mt-6 max-w-[420px] text-body-16 leading-[1.7] text-white/85">
             Every industry operates differently. We deliver industry-focused
             solutions that address unique operational challenges, improve
