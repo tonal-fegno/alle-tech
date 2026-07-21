@@ -8,6 +8,7 @@ interface ImageFrameProps {
   priority?: boolean;
   sizes?: string;
   className?: string;
+  imageClassName?: string;
 }
 
 export default function ImageFrame({
@@ -18,6 +19,7 @@ export default function ImageFrame({
   priority,
   sizes = "100vw",
   className = "",
+  imageClassName = "",
 }: ImageFrameProps) {
   return (
     <div
@@ -29,7 +31,7 @@ export default function ImageFrame({
         fill
         priority={priority}
         sizes={sizes}
-        className="object-cover"
+        className={`object-cover ${imageClassName}`}
       />
     </div>
   );
