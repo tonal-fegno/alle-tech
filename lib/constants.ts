@@ -13,16 +13,11 @@ export const CONTACT_INFO = {
   email: "info@alle-tech.com",
   salesEmail: "yazan@alle-tech.com",
   phone: "04 299 6767",
-  address1: "1901 Thornridge Cir. Shiloh, Hawaii 81063",
-  address2: "2715 Ash Dr. San Jose, South Dakota 83475",
-  workingHours: "UAE, Dubai, DAFZA, D-05",
+  address: "UAE, Dubai, DAFZA, D-05",
 };
 
 export const SOCIAL_LINKS = [
-  { label: "Facebook", href: "https://www.facebook.com/" },
-  { label: "Instagram", href: "https://www.instagram.com/" },
-  { label: "Twitter", href: "https://x.com/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/alle-tech-fzco/" },
 ];
 
 export const PRODUCTS = [
