@@ -165,7 +165,7 @@ export default function IndustriesSection() {
           </span>
           <AnimatedHeading className="mt-6 text-[36px] font-medium leading-[1.2] tracking-[-0.01em] text-white md:text-[44px]">
             Technology for <br />
-            <span className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] bg-clip-text font-semibold text-transparent">
+            <span className="bg-gradient-primary bg-clip-text font-semibold text-transparent">
               Every Industry
             </span>
           </AnimatedHeading>
