@@ -30,6 +30,7 @@ furniture.
 | `ImageFrame` | `components/ui/ImageFrame.tsx` | Any `relative overflow-hidden` image block (`aspect`, `rounded`, `sizes`, `priority`, extra `className` for margins/max-width). Covers hero images, body images, card media. |
 | `RichText` | `components/ui/RichText.tsx` | Any CMS `content01`/`content02`-style HTML blob (`dangerouslySetInnerHTML`). Wraps it in `.rich-text`. |
 | `Badge` | `components/ui/Badge.tsx` | Small pill label (eyebrow tag, category chip). |
+| `Eyebrow` | `components/ui/Eyebrow.tsx` | The small dot + uppercase label above a heading (e.g. "ABOUT US", "OUR PRODUCTS"). `variant="light"\|"dark"` (default light) — light for white/light-bg sections (ink text, gradient dot), dark for dark-bg sections (white text, white dot). `className` for wrapper spacing, `textClassName`/`dotClassName` for one-off tweaks (e.g. extra letter-spacing, pulse animation). |
 | `Button` | `components/ui/Button.tsx` | Solid/outline/white pill CTA button (`href` or `onClick`). |
 | `ArrowButton` | `components/ui/ArrowButton.tsx` | CTA button with a circular arrow affordance (`variant="light"\|"solid"`, `size="sm"\|"md"`) — used in Navbar and forms. |
 | `AnimatedHeading` | `components/ui/AnimatedHeading.tsx` | Word-by-word blur-in reveal for a heading (`as` tag prop). Used for the big "hook" headings (FAQ, ContactForm), not every heading. |

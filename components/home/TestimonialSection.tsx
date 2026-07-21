@@ -10,6 +10,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import Eyebrow from "@/components/ui/Eyebrow";
 
 type Testimonial = {
   quote: string;
@@ -457,12 +458,7 @@ export default function TestimonialSection() {
     <section className="section-padding bg-[#F7F8FA] px-4 md:px-8">
       <div className="container-main flex flex-col items-center gap-12 md:gap-16">
         <div className="flex flex-col items-center gap-5 text-center">
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-gradient-primary" />
-            <span className="text-base font-semibold text-ink uppercase">
-              Testimonial
-            </span>
-          </span>
+          <Eyebrow>Testimonial</Eyebrow>
           <AnimatedHeading className="heading-2 max-w-[800px]">
             Our Reputation, Built on Client Trust
           </AnimatedHeading>

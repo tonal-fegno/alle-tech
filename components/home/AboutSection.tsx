@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Eyebrow from "@/components/ui/Eyebrow";
 
 const ABOUT_IMAGE = "/assets/images/about-us.png";
 
@@ -20,10 +21,7 @@ export default function AboutSection() {
   return (
     <section className="section-padding bg-[#F7F8FA] px-4 md:px-8">
       <div className="container-main ">
-        <span className="flex shrink-0 items-center justify-start gap-2 md:pt-2">
-          <span className="h-2 w-2 shrink-0 rounded-full bg-gradient-primary" />
-          <span className="text-16 font-semibold text-ink uppercase">About Us</span>
-        </span>
+        <Eyebrow className="md:pt-2">About Us</Eyebrow>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_390px] lg:gap-12 pt-12">
           {/* Left: label, heading, stat cards */}
           <div className="flex flex-col">

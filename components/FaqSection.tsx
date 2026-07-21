@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import Eyebrow from "@/components/ui/Eyebrow";
 import { FAQS } from "@/lib/constants";
 
 export default function FaqSection() {
@@ -12,10 +13,7 @@ export default function FaqSection() {
       <div className="container-main flex flex-col items-center gap-12 md:gap-14">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-gradient-primary" />
-            <span className="text-body-16 font-semibold text-ink">FAQ</span>
-          </span>
+          <Eyebrow>FAQ</Eyebrow>
           <AnimatedHeading className="heading-2">
             Common Questions, <br className="hidden sm:block" />
             Clearly Answered

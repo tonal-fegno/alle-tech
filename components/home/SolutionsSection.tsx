@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import Eyebrow from "@/components/ui/Eyebrow";
 import { PRODUCTS } from "@/lib/constants";
 
 const SOLUTION_ART = [
@@ -89,12 +90,7 @@ export default function ServicesSection() {
       <div className="container-main relative flex flex-col gap-12 md:gap-16">
         {/* Header */}
         <div className="flex flex-col items-center gap-6 text-center">
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-white" />
-            <span className="text-16 font-semibold uppercase text-white">
-              Our Products
-            </span>
-          </span>
+          <Eyebrow variant="dark">Our Products</Eyebrow>
           <AnimatedHeading className="max-w-[1020px] text-[32px] font-semibold leading-[1.25] tracking-[-0.01em] text-white md:text-[40px] xl:text-[46px]">
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               Enterprise AI solutions

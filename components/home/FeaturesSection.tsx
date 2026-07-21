@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ArrowButton from "@/components/ui/ArrowButton";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import Eyebrow from "@/components/ui/Eyebrow";
 
 const STRATEGY_ICONS = [
   // Target — strategy & goal-setting
@@ -54,12 +55,7 @@ export default function FeaturesSection() {
       <div className="container-main flex flex-col gap-12 md:gap-14">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-gradient-primary" />
-            <span className="text-body-16 font-semibold text-ink uppercase">
-              Why Choose Us
-            </span>
-          </span>
+          <Eyebrow>Why Choose Us</Eyebrow>
           <AnimatedHeading className="heading-2 max-w-[1000px]">
             Business-First Technology. Measurable Business Value.
           </AnimatedHeading>

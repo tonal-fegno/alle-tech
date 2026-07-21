@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ArrowButton from "@/components/ui/ArrowButton";
+import Eyebrow from "@/components/ui/Eyebrow";
 
 const INDUSTRIES = [
   {
@@ -157,12 +158,9 @@ export default function IndustriesSection() {
       <div className="container-main relative grid grid-cols-1 items-center gap-12 lg:grid-cols-[360px_1fr] lg:gap-16">
         {/* Left column */}
         <div className="flex flex-col items-start">
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-white" />
-            <span className="text-base font-semibold uppercase tracking-[0.2em] text-white">
-              Industry Expertise
-            </span>
-          </span>
+          <Eyebrow variant="dark" textClassName="tracking-[0.2em]">
+            Industry Expertise
+          </Eyebrow>
           <AnimatedHeading className="mt-6 text-[36px] font-medium leading-[1.2] tracking-[-0.01em] text-white md:text-[44px]">
             Technology for <br />
             <span className="bg-gradient-primary bg-clip-text font-semibold text-transparent">

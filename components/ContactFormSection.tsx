@@ -3,6 +3,7 @@
 import { useState } from "react";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ArrowButton from "@/components/ui/ArrowButton";
+import Eyebrow from "@/components/ui/Eyebrow";
 import { CONTACT_INFO, SOLUTIONS } from "@/lib/constants";
 
 const inputCls =
@@ -83,12 +84,7 @@ export default function ContactFormSection() {
       <div className="container-main flex flex-col items-center gap-12 md:gap-14">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-gradient-primary" />
-            <span className="text-body-16 font-semibold text-ink uppercase">
-              Request a Service
-            </span>
-          </span>
+          <Eyebrow>Request a Service</Eyebrow>
           <AnimatedHeading className="heading-2 max-w-[700px]">
             Let&apos;s Talk About Your Business Needs
           </AnimatedHeading>

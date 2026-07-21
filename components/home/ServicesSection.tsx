@@ -3,6 +3,7 @@
 import Image from "next/image";
 import ArrowButton from "@/components/ui/ArrowButton";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import Eyebrow from "@/components/ui/Eyebrow";
 import { SOLUTIONS } from "@/lib/constants";
 
 function Tag({ children }: { children: React.ReactNode }) {
@@ -19,12 +20,7 @@ export default function SolutionsSection() {
       <div className="container-main flex flex-col gap-12 md:gap-14">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-gradient-primary" />
-            <span className="text-16 font-semibold text-ink uppercase">
-              Our Solutions
-            </span>
-          </span>
+          <Eyebrow>Our Solutions</Eyebrow>
           <AnimatedHeading className="heading-2">
             Technology That Drives Business Growth
           </AnimatedHeading>
