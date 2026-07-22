@@ -462,7 +462,7 @@ export default function SolutionDetailLayout({
                   className="relative overflow-hidden bg-white border border-border-gray/20 rounded-3xl p-6 shadow-[0_6px_25px_-10px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_35px_-12px_rgba(0,0,0,0.08)] hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
                 >
                   {/* Large faint step index */}
-                  <span className="pointer-events-none absolute -right-1 -top-5 select-none text-7xl font-semibold text-bg-3">
+                  <span className="pointer-events-none absolute right-6 top-4 select-none text-7xl font-semibold text-bg-3">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
 

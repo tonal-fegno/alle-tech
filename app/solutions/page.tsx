@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { SwapLabel, SwapArrow } from "@/components/common/HoverSwap";
@@ -38,9 +39,18 @@ export default function SolutionsPage() {
       <section className="relative min-h-[64vh] pt-36 pb-24 px-4 sm:px-6 bg-brand-navy text-white flex flex-col items-center justify-center text-center overflow-hidden">
         {/* Full-bleed background image */}
         <motion.div
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"
+          className="absolute inset-0"
           style={{ scale: bgScale, y: bgY }}
-        />
+        >
+          <Image
+            src="/assets/images/solutions/hero.png"
+            alt="Enterprise Technology Solutions"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </motion.div>
 
         {/* Blue tint overlay and vignettes */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/95 via-brand-navy-dark/40 to-transparent" />

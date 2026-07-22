@@ -120,8 +120,7 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
     id: "sap-business-one",
     heroTitle: "SAP Business One",
     heroSubtitle: "Enterprise ERP for Growing Businesses",
-    heroImage:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",
+    heroImage: "/assets/images/solutions/details/sap_one.png",
     whyTitle: "Why SAP Business One?",
     whyItems: [
       {
@@ -449,7 +448,7 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
     heroSubtitle:
       "Transform Operations With a Flexible, All-in-One ERP Platform",
     heroImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80",
+      "/assets/images/solutions/details/odoo_erp.png",
     whyTitle: "Why Odoo?",
     whyItems: [
       {
@@ -701,7 +700,7 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
     heroTitle: "Technology Consulting",
     heroSubtitle: "Align Strategy with Practical Digital Transformation",
     heroImage:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1920&q=80",
+      "/assets/images/solutions/details/technology_consulting.png",
     whyTitle: "Why Technology Consulting?",
     whyItems: [
       {
@@ -876,7 +875,7 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
     heroSubtitle:
       "Turn Scattered Operational Data into Actionable Real-Time Insights",
     heroImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80",
+      "/assets/images/solutions/details/business_intelligence.png",
     whyTitle: "Why Business Intelligence?",
     whyItems: [
       {
@@ -1023,7 +1022,7 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
     heroSubtitle:
       "Eliminate Manual Data Entry by Connecting Your Business Ecosystem",
     heroImage:
-      "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1920&q=80",
+      "/assets/images/solutions/details/erp_integration.png",
     whyTitle: "Why ERP Integration?",
     whyItems: [
       {
@@ -1158,7 +1157,7 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
     heroTitle: "Cloud & IT Infrastructure",
     heroSubtitle:
       "Build a Secure, Connected, and Future-Ready Technology Infrastructure",
-    heroImage: "/images/common/cloud-network.png",
+    heroImage: "/assets/images/solutions/details/cloud_it_infrastructure.png",
     whyTitle: "Technology Should Support Your Business. Not Hold It Back.",
     whyItems: [
       {
@@ -1352,7 +1351,7 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
     heroSubtitle:
       "Proactive Support. Continuous Improvement. Long-Term Partnership.",
     heroImage:
-      "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=1920&q=80",
+      "/assets/images/solutions/details/managed_services.png",
     whyTitle: "Protect Your Technology Investment",
     whyItems: [
       {
