@@ -45,7 +45,7 @@ export default function AboutPage() {
       </main>
 
       {/* CTA Section */}
-      <CtaSection />
+      {/* <CtaSection /> */}
 
       {/* FAQ Section */}
       {/* <FaqSection /> */}
