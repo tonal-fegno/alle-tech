@@ -207,39 +207,75 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
 
       {/* 5. AI FEATURES SECTION (If present) */}
       {product.aiTitle && product.aiFeatures && (
-        <section className="py-16 md:py-24 bg-bg-2/30 px-6 relative">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-500 text-xs font-bold tracking-widest uppercase mb-4">
-                <Zap size={12} className="animate-pulse" /> Artificial Intelligence
+        <section className="py-20 md:py-28 bg-[#03091E] text-white px-6 relative overflow-hidden border-t border-white/10">
+          {/* Futuristic Ambient Orbs & Mesh */}
+          <div
+            className="absolute inset-0 opacity-[0.06] pointer-events-none"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.4) 1px, transparent 0)`,
+              backgroundSize: "32px 32px",
+            }}
+          />
+          <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-indigo-600/20 rounded-full blur-[130px] pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="max-w-3xl mb-14">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-extrabold tracking-widest uppercase mb-4 backdrop-blur-md">
+                <Zap size={14} className="text-primary animate-pulse" />
+                <span>INTELLIGENCE & AI ENGINE</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-4">
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
                 {product.aiTitle}
               </h2>
-              <p className="text-neutral-500 text-sm md:text-base leading-relaxed font-medium">
+              <p className="text-neutral-300 text-base md:text-lg leading-relaxed font-normal">
                 {product.aiDesc}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {product.aiFeatures.map((ai, idx) => {
                 const IconComp = ai.icon;
                 return (
-                  <div
+                  <motion.div
                     key={idx}
-                    className="bg-white rounded-3xl border border-neutral-100 p-6 shadow-[0_6px_20px_-8px_rgba(0,0,0,0.04)] relative overflow-hidden"
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.55, delay: idx * 0.08, ease }}
+                    whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                    className="group bg-white/[0.04] backdrop-blur-xl border border-white/10 hover:border-primary/40 hover:bg-white/[0.08] rounded-3xl p-7 shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between"
                   >
-                    {/* Glow tag */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full filter blur-[15px] pointer-events-none" />
+                    {/* Corner Ambient Glow */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/15 rounded-full blur-2xl pointer-events-none group-hover:bg-primary/25 transition-all duration-300" />
                     
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-4 border border-blue-100">
-                      <IconComp size={18} className="text-blue-600" />
+                    <div>
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-indigo-500/20 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                          <IconComp size={22} />
+                        </div>
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-primary/90 bg-primary/10 border border-primary/20 px-2.5 py-1 rounded-full">
+                          AI Model
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                        {ai.title}
+                      </h3>
+                      
+                      <p className="text-neutral-300 text-sm leading-relaxed font-normal">
+                        {ai.desc}
+                      </p>
                     </div>
-                    <h3 className="text-base font-bold text-neutral-900 mb-2 flex items-center gap-1.5">
-                      {ai.title}
-                    </h3>
-                    <p className="text-neutral-500 text-sm leading-relaxed font-normal">{ai.desc}</p>
-                  </div>
+
+                    <div className="pt-5 mt-6 border-t border-white/10 flex items-center justify-between text-xs text-neutral-400 font-medium">
+                      <span className="flex items-center gap-1.5 text-emerald-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>Automated</span>
+                      </span>
+                      <span className="text-white/50">Real-Time Core</span>
+                    </div>
+                  </motion.div>
                 );
               })}
             </div>
