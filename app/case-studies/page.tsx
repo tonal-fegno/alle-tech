@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
-import BlogsHero from "@/components/blog/BlogsHero";
-import BlogListGrid from "@/components/blog/BlogListGrid";
+import CaseStudiesHero from "@/components/case-studies/CaseStudiesHero";
+import CaseStudyListGrid from "@/components/case-studies/CaseStudyListGrid";
 import ContactFormSection from "@/components/ContactFormSection";
-import { blogs } from "@/lib/data";
+import { caseStudies } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Blogs",
+  title: "Case Studies",
 };
 
-export default function BlogsPage() {
+export default function CaseStudiesPage() {
   return (
     <main>
       {/* Hero Section */}
-      <BlogsHero />
+      <CaseStudiesHero />
 
-      {/* Blog List Section */}
+      {/* Case Study List Section */}
       <section className="section-padding bg-bg-3 px-4 md:px-8">
         <div className="container-main">
-          <BlogListGrid blogs={blogs} />
+          <CaseStudyListGrid caseStudies={caseStudies} />
         </div>
       </section>
 
