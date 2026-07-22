@@ -392,6 +392,52 @@ export default function SolutionDetailLayout({
         </div>
       </section>
 
+      {/* 4. BUSINESS OUTCOMES */}
+      {detail.outcomesTitle && detail.outcomes && detail.outcomes.length > 0 && (
+        <section className="bg-white border-b border-border-gray/20 section-padding">
+          <div className="container-main">
+            <div className="text-center mb-16">
+              <Eyebrow className="mb-3 justify-center">Measurable Impact</Eyebrow>
+              <h2 className="heading-2">
+                {detail.outcomesTitle}
+              </h2>
+            </div>
+
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {detail.outcomes.map((out, idx) => {
+                const IconComp = out.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    variants={fadeInUp}
+                    className="group bg-bg-2/30 rounded-3xl border border-border-gray/15 p-8 hover:bg-bg-2/50 hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+                  >
+                    {/* Icon Circle */}
+                    <div className="w-12 h-12 rounded-2xl bg-white text-primary flex items-center justify-center shrink-0 mb-6 shadow-sm border border-border-gray/10 group-hover:scale-105 transition-transform duration-300">
+                      <IconComp size={22} />
+                    </div>
+                    
+                    {/* Card Content */}
+                    <h3 className="text-lg font-semibold text-ink mb-3 tracking-tight">
+                      {out.title}
+                    </h3>
+                    <p className="text-body-gray text-sm md:text-[15px] leading-relaxed font-medium">
+                      {out.desc}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* 5. MODULES MAP (Large Cards) */}
       <section className="bg-[#0B0714] text-white overflow-hidden relative section-padding">
         {/* Ambient purple glow */}

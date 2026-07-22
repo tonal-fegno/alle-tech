@@ -28,6 +28,12 @@ import {
   Clock,
   Lock,
   LucideIcon,
+  Eye,
+  Cpu,
+  Award,
+  Activity,
+  Smile,
+  ShieldAlert,
 } from "lucide-react";
 
 export interface WhyItem {
@@ -107,6 +113,8 @@ export interface SolutionDetail {
   integrations?: IntegrationItem[];
   faqsTitle?: string;
   faqs?: FAQItem[];
+  outcomesTitle?: string;
+  outcomes?: { title: string; desc: string; icon: LucideIcon }[];
   whyAlleTechTitle?: string;
   whyAlleTechItems?: { title: string; desc: string; icon: LucideIcon }[];
   ctaTitle?: string;
@@ -411,6 +419,39 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
         icon: Database,
       },
     ],
+    outcomesTitle: "The Business Outcomes That Matter",
+    outcomes: [
+      {
+        title: "Improve Operational Efficiency",
+        desc: "Standardize and automate business processes to eliminate manual work, reduce errors, and increase productivity across every department.",
+        icon: Zap,
+      },
+      {
+        title: "Gain Complete Business Visibility",
+        desc: "Access accurate, real-time information from one centralized platform, enabling faster and more informed business decisions.",
+        icon: Eye,
+      },
+      {
+        title: "Strengthen Financial Control",
+        desc: "Improve budgeting, cash flow management, financial reporting, and compliance through integrated financial management.",
+        icon: Coins,
+      },
+      {
+        title: "Optimize Inventory & Supply Chain",
+        desc: "Improve inventory accuracy, purchasing efficiency, warehouse operations, and stock availability while reducing carrying costs.",
+        icon: Boxes,
+      },
+      {
+        title: "Empower Your Workforce",
+        desc: "Provide employees with intuitive tools, automated workflows, and connected information that improve collaboration and productivity.",
+        icon: Users,
+      },
+      {
+        title: "Scale with Confidence",
+        desc: "Implement a business platform capable of supporting new branches, additional users, increased transaction volumes, and future business growth.",
+        icon: Rocket,
+      },
+    ],
     faqsTitle: "FAQs",
     faqs: [
       {
@@ -680,6 +721,39 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
         icon: Wrench,
       },
     ],
+    outcomesTitle: "Business Outcomes That Matter",
+    outcomes: [
+      {
+        title: "Improve Productivity",
+        desc: "Automate routine activities, streamline workflows, and reduce manual effort so your teams can focus on higher-value work.",
+        icon: Zap,
+      },
+      {
+        title: "Connect Your Business",
+        desc: "Bring every department together through one integrated platform that improves collaboration and information sharing.",
+        icon: Layers,
+      },
+      {
+        title: "Make Better Decisions",
+        desc: "Access accurate, real-time information through interactive dashboards and reporting that support confident decision-making.",
+        icon: TrendingUp,
+      },
+      {
+        title: "Increase Operational Agility",
+        desc: "Respond faster to customer needs, market changes, and new opportunities with a flexible business platform that grows alongside your organization.",
+        icon: Settings,
+      },
+      {
+        title: "Reduce Operational Complexity",
+        desc: "Replace multiple standalone systems with one unified solution that simplifies operations and reduces maintenance costs.",
+        icon: ShieldCheck,
+      },
+      {
+        title: "Scale with Confidence",
+        desc: "Whether you're adding users, opening new branches, launching new products, or expanding internationally, Odoo provides the flexibility to support your growth.",
+        icon: Rocket,
+      },
+    ],
     faqsTitle: "Odoo FAQs",
     faqs: [
       {
@@ -855,6 +929,84 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
         icon: CheckCircle2,
       },
     ],
+    outcomesTitle: "Business Outcomes That Matter",
+    outcomes: [
+      {
+        title: "Increase Operational Efficiency",
+        desc: "Simplify workflows and eliminate unnecessary manual activities.",
+        icon: Zap,
+      },
+      {
+        title: "Improve Decision-Making",
+        desc: "Provide leadership with better information and clearer visibility.",
+        icon: TrendingUp,
+      },
+      {
+        title: "Reduce Operational Costs",
+        desc: "Optimize processes, improve resource utilization, and automate repetitive work.",
+        icon: Coins,
+      },
+      {
+        title: "Increase Operational Agility",
+        desc: "Enable your business to respond faster to changing market conditions.",
+        icon: Settings,
+      },
+      {
+        title: "Prepare for Artificial Intelligence",
+        desc: "Create a digital foundation capable of supporting future AI initiatives.",
+        icon: Cpu,
+      },
+      {
+        title: "Support Sustainable Growth",
+        desc: "Design technology strategies that continue supporting your organization as it expands.",
+        icon: Rocket,
+      },
+    ],
+    lifecycleTitle: "Our Technology Consulting Methodology",
+    lifecycle: [
+      {
+        phase: "Discover",
+        title: "Initial Scoping & Alignment",
+        desc: "We analyze your operations, highlight performance bottlenecks, and define the core digital transformation objectives.",
+        icon: Search,
+      },
+      {
+        phase: "Analyze",
+        title: "Process Assessment",
+        desc: "We evaluate existing workflows, system setups, database structures, and organizational readiness.",
+        icon: FileText,
+      },
+      {
+        phase: "Design",
+        title: "Roadmap Blueprinting",
+        desc: "We define custom roadmap stages, technology fit checklists, integration paths, and architecture solutions.",
+        icon: Sliders,
+      },
+      {
+        phase: "Build",
+        title: "Technology Configuration",
+        desc: "We construct solution environments, build proofs-of-concept, and configure applications to fit target requirements.",
+        icon: Settings,
+      },
+      {
+        phase: "Deploy",
+        title: "User Acceptance & Launch",
+        desc: "We coordinate database migrations, execute comprehensive user testing, and deliver training programs.",
+        icon: Rocket,
+      },
+      {
+        phase: "Optimize",
+        title: "System Fine-Tuning",
+        desc: "We monitor launch usage patterns, fine-tune queries, and run database sanity checks for hypercare stability.",
+        icon: Wrench,
+      },
+      {
+        phase: "Innovate",
+        title: "Continuous Refinement",
+        desc: "We execute ongoing enhancement requests, version upgrades, and introduce advanced AI capabilities.",
+        icon: Layers,
+      },
+    ],
     faqsTitle: "Consulting FAQs",
     faqs: [
       {
@@ -992,6 +1144,109 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
         icon: Layers,
       },
     ],
+    outcomesTitle: "Business Outcomes That Matter",
+    outcomes: [
+      {
+        title: "Executive Visibility",
+        desc: "Access real-time dashboards that provide leadership with complete visibility across the organization.",
+        icon: Eye,
+      },
+      {
+        title: "Faster Decision-Making",
+        desc: "Reduce the time required to collect, analyze, and understand business information.",
+        icon: Zap,
+      },
+      {
+        title: "Better Financial Performance",
+        desc: "Monitor profitability, expenses, cash flow, receivables, and financial KPIs through interactive visual reports.",
+        icon: Coins,
+      },
+      {
+        title: "Sales Performance",
+        desc: "Track sales trends, customer behavior, territory performance, product profitability, and revenue growth.",
+        icon: TrendingUp,
+      },
+      {
+        title: "Operational Excellence",
+        desc: "Monitor inventory, procurement, warehouse activities, manufacturing performance, and operational KPIs in real time.",
+        icon: Award,
+      },
+      {
+        title: "Data-Driven Culture",
+        desc: "Empower every department with reliable information that supports better planning and continuous improvement.",
+        icon: Database,
+      },
+    ],
+    industriesTitle: "Industries We Support",
+    industries: [
+      {
+        name: "Manufacturing",
+        heading: "Precision MRP & Shop-Floor Tracking",
+        desc: "Monitor raw material yields, machine downtime, inventory velocity, and multi-level bills of materials in real-time.",
+        bullets: [
+          "Live yield and scrap rates tracking",
+          "Capacity utilization dashboards",
+          "Material demand planning logs",
+        ],
+        image: "/assets/images/solutions/pos.jpg",
+      },
+      {
+        name: "Wholesale & Distribution",
+        heading: "Supply Chain & Inventory Insights",
+        desc: "Unify data across multiple warehouses, tracking lead times, fulfillment metrics, and stock turn rates.",
+        bullets: [
+          "Stock turn ratio dashboards",
+          "Supplier delivery reliability reports",
+          "Order fulfillment tracking",
+        ],
+        image: "/assets/images/solutions/retail.jpg",
+      },
+    ],
+    lifecycleTitle: "Our Business Intelligence Methodology",
+    lifecycle: [
+      {
+        phase: "Discover",
+        title: "Source System Audits",
+        desc: "We scan your local and cloud database setups, Excel trackers, and application endpoints.",
+        icon: Search,
+      },
+      {
+        phase: "Analyze",
+        title: "KPI Modeling",
+        desc: "We map your operational formulas, margin rules, and target reporting structures.",
+        icon: FileText,
+      },
+      {
+        phase: "Design",
+        title: "Dashboard Wireframes",
+        desc: "We sketch visual dashboard interfaces, filter hierarchies, and data schemas.",
+        icon: Sliders,
+      },
+      {
+        phase: "Build",
+        title: "Data Transformation & DAX",
+        desc: "We build data warehouses, clean records, write DAX metrics, and configure refresh schedules.",
+        icon: Settings,
+      },
+      {
+        phase: "Deploy",
+        title: "Portal Publishing",
+        desc: "We publish dashboards to active work groups, setup gate configurations, and configure permissions.",
+        icon: Rocket,
+      },
+      {
+        phase: "Optimize",
+        title: "Performance Tuning",
+        desc: "We optimize SQL query executions, partition datasets, and accelerate loading times.",
+        icon: Wrench,
+      },
+      {
+        phase: "Innovate",
+        title: "Advanced Insights",
+        desc: "We configure automated dashboard report mailers, alerts, and integrate predictive AI models.",
+        icon: Layers,
+      },
+    ],
     faqsTitle: "Power BI FAQs",
     faqs: [
       {
@@ -1125,6 +1380,129 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
         title: "Robust Security",
         desc: "All custom connections utilize modern token authentication (OAuth 2.0) and TLS encryption.",
         icon: Lock,
+      },
+    ],
+    outcomesTitle: "Business Outcomes That Matter",
+    outcomes: [
+      {
+        title: "Eliminate Manual Data Entry",
+        desc: "Reduce repetitive work and minimize human error through automated data synchronization.",
+        icon: Database,
+      },
+      {
+        title: "Improve Operational Efficiency",
+        desc: "Enable departments to collaborate seamlessly by sharing information in real time.",
+        icon: Zap,
+      },
+      {
+        title: "Increase Data Accuracy",
+        desc: "Maintain one reliable source of information across all connected systems.",
+        icon: CheckCircle2,
+      },
+      {
+        title: "Accelerate Business Processes",
+        desc: "Reduce delays by allowing information to flow automatically between applications.",
+        icon: Activity,
+      },
+      {
+        title: "Strengthen Customer Experience",
+        desc: "Deliver faster response times, improved order accuracy, and consistent customer information.",
+        icon: Smile,
+      },
+      {
+        title: "Prepare for Future Growth",
+        desc: "Build a scalable integration architecture that supports new applications, branches, and digital initiatives.",
+        icon: Rocket,
+      },
+    ],
+    integrationsTitle: "Technologies We Integrate",
+    integrations: [
+      {
+        name: "ERP Platforms",
+        desc: "SAP Business One • Odoo ERP",
+        icon: Layers,
+        color: "text-blue-500",
+        border: "hover:border-blue-500/40",
+      },
+      {
+        name: "CRM & Front Office",
+        desc: "Salesforce • HubSpot CRM",
+        icon: Users,
+        color: "text-indigo-500",
+        border: "hover:border-indigo-500/40",
+      },
+      {
+        name: "eCommerce Platforms",
+        desc: "Shopify • Magento • WooCommerce",
+        icon: ShoppingBag,
+        color: "text-pink-500",
+        border: "hover:border-pink-500/40",
+      },
+      {
+        name: "Warehouse & WMS",
+        desc: "Custom WMS • Barcode Scanners",
+        icon: Warehouse,
+        color: "text-emerald-500",
+        border: "hover:border-emerald-500/40",
+      },
+      {
+        name: "Banking & Payments",
+        desc: "Stripe • Local UAE Bank APIs",
+        icon: Coins,
+        color: "text-cyan-500",
+        border: "hover:border-cyan-500/40",
+      },
+      {
+        name: "Shipping & Logistics",
+        desc: "DHL • FedEx • Shipping APIs",
+        icon: Globe,
+        color: "text-rose-500",
+        border: "hover:border-rose-500/40",
+      },
+    ],
+    lifecycleTitle: "Our ERP Integration Methodology",
+    lifecycle: [
+      {
+        phase: "Discover",
+        title: "Endpoint Mapping",
+        desc: "We identify database endpoints, credentials, and message formats across systems.",
+        icon: Search,
+      },
+      {
+        phase: "Analyze",
+        title: "Schema Redesign",
+        desc: "We match database column values, code states, and currency conversions.",
+        icon: FileText,
+      },
+      {
+        phase: "Design",
+        title: "Middleware Architecture",
+        desc: "We draft retry pipelines, logging servers, and webhook configurations.",
+        icon: Sliders,
+      },
+      {
+        phase: "Build",
+        title: "API Custom Development",
+        desc: "We write standard API endpoints, security authentications, and mapping rules.",
+        icon: Settings,
+      },
+      {
+        phase: "Deploy",
+        title: "Parallel Testing",
+        desc: "We run database operations in parallel sandbox configurations to verify integrity.",
+        icon: Rocket,
+      },
+      {
+        phase: "Optimize",
+        title: "Performance Tuning",
+        desc: "We partition transaction batch sizes, tune API queries, and optimize memory.",
+        icon: Wrench,
+      },
+      {
+        phase: "Innovate",
+        title: "Unified Control Hubs",
+        desc: "We configure centralized error tracking dashboards and auto-alert systems.",
+        icon: Layers,
       },
     ],
     faqsTitle: "ERP Integration FAQs",
@@ -1298,27 +1676,136 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
         bgColor: "bg-cyan-50/50",
       },
     ],
-    whyAlleTechTitle: "Business Outcomes That Matter",
-    whyAlleTechItems: [
+    outcomesTitle: "Business Outcomes That Matter",
+    outcomes: [
       {
-        title: "Continuity & Risk Reduction",
-        desc: "Improve business continuity and reduce operational downtime through reliable infrastructure, redundancy, and disaster recovery planning.",
+        title: "Improve Business Continuity",
+        desc: "Reduce downtime through reliable infrastructure, redundancy, backup, and disaster recovery planning.",
         icon: ShieldCheck,
       },
       {
-        title: "Security & Protection",
+        title: "Increase Security",
         desc: "Protect your business with modern security architecture, access controls, firewalls, endpoint protection, and secure remote connectivity.",
         icon: Lock,
       },
       {
-        title: "Workforce Productivity",
-        desc: "Provide employees with fast, reliable, and secure access to business applications from any location, optimizing performance.",
+        title: "Enable Workforce Productivity",
+        desc: "Provide employees with fast, reliable, and secure access to business applications from any location.",
         icon: Users,
       },
       {
-        title: "Scalable Business Growth",
+        title: "Support Business Growth",
         desc: "Deploy scalable infrastructure capable of supporting new users, branches, cloud services, and expanding operations.",
         icon: Rocket,
+      },
+      {
+        title: "Optimize Performance",
+        desc: "Improve application speed, network performance, and overall system reliability.",
+        icon: Zap,
+      },
+      {
+        title: "Reduce Operational Risk",
+        desc: "Build resilient IT environments that minimize business disruption and support long-term operational stability.",
+        icon: ShieldAlert,
+      },
+    ],
+    integrationsTitle: "Technologies We Support",
+    integrations: [
+      {
+        name: "Cloud Platforms",
+        desc: "Microsoft Azure • AWS • Private/Hybrid Cloud",
+        icon: Server,
+        color: "text-blue-500",
+        border: "hover:border-blue-500/40",
+      },
+      {
+        name: "Enterprise Infrastructure",
+        desc: "Windows Server • Virtualization • Storage",
+        icon: Layers,
+        color: "text-indigo-500",
+        border: "hover:border-indigo-500/40",
+      },
+      {
+        name: "Networking & VPNs",
+        desc: "Switches • Routing • VPN • SD-WAN",
+        icon: Globe,
+        color: "text-pink-500",
+        border: "hover:border-pink-500/40",
+      },
+      {
+        name: "Cybersecurity & Backups",
+        desc: "Endpoint Security • Firewalls • Disaster Recovery",
+        icon: Lock,
+        color: "text-emerald-500",
+        border: "hover:border-emerald-500/40",
+      },
+    ],
+    lifecycleTitle: "Our Cloud & IT Infrastructure Methodology",
+    lifecycle: [
+      {
+        phase: "Discover",
+        title: "Assessment & Audit",
+        desc: "We inspect your current networks, servers, and access permissions.",
+        icon: Search,
+      },
+      {
+        phase: "Analyze",
+        title: "Security Modeling",
+        desc: "We analyze firewall configurations, backup intervals, and downtime tolerance.",
+        icon: FileText,
+      },
+      {
+        phase: "Design",
+        title: "Hybrid Blueprint",
+        desc: "We design server sizes, subnet boundaries, and VPN routing configurations.",
+        icon: Sliders,
+      },
+      {
+        phase: "Build",
+        title: "Cloud Construction",
+        desc: "We deploy server virtualizations, backup databases, and build firewalls.",
+        icon: Settings,
+      },
+      {
+        phase: "Deploy",
+        title: "Transition & Sync",
+        desc: "We migrate active production services and verify sync connectivity.",
+        icon: Rocket,
+      },
+      {
+        phase: "Optimize",
+        title: "Infrastructure Tuning",
+        desc: "We run bandwidth inspections, benchmark query latency, and verify backups.",
+        icon: Wrench,
+      },
+      {
+        phase: "Innovate",
+        title: "Proactive Monitoring",
+        desc: "We enable 24/7 cloud alert notifications and continuous health scanning.",
+        icon: Layers,
+      },
+    ],
+    whyAlleTechTitle: "Why ALLE TECH?",
+    whyAlleTechItems: [
+      {
+        title: "Business-First Infrastructure Planning",
+        desc: "We align all network and database setups with actual business growth and operational objectives.",
+        icon: ShieldCheck,
+      },
+      {
+        title: "Certified Implementation Specialists",
+        desc: "Our team includes cloud-certified architects specializing in secure enterprise migrations.",
+        icon: Users,
+      },
+      {
+        title: "Secure Cloud Architecture",
+        desc: "We configure isolated cloud environments (Azure/AWS) following modern encryption standards.",
+        icon: Server,
+      },
+      {
+        title: "Enterprise Networking & Security",
+        desc: "We establish secure VPNs, firewall rules, and robust disaster recovery replication layers.",
+        icon: Lock,
       },
     ],
     faqsTitle: "Cloud Infrastructure FAQs",
@@ -1560,6 +2047,39 @@ export const SOLUTION_DETAILS: SolutionDetail[] = [
         title: "Agile & Reliable Execution",
         desc: "Fast response times coupled with ongoing innovation to act as an extension of your team.",
         icon: Clock,
+      },
+    ],
+    outcomesTitle: "Business Outcomes That Matter",
+    outcomes: [
+      {
+        title: "Maximize Return on Investment",
+        desc: "Ensure your ERP and business systems continue delivering measurable value long after implementation.",
+        icon: Coins,
+      },
+      {
+        title: "Improve User Productivity",
+        desc: "Provide timely assistance, training, and system enhancements that help employees work more efficiently.",
+        icon: Users,
+      },
+      {
+        title: "Reduce Business Risk",
+        desc: "Identify and resolve potential issues before they impact operations.",
+        icon: ShieldAlert,
+      },
+      {
+        title: "Increase System Reliability",
+        desc: "Maintain stable, secure, and high-performing business systems.",
+        icon: Server,
+      },
+      {
+        title: "Support Continuous Improvement",
+        desc: "Identify opportunities to optimize processes, automate tasks, and improve operational performance.",
+        icon: Wrench,
+      },
+      {
+        title: "Prepare for Business Growth",
+        desc: "Ensure your technology environment scales alongside your organization.",
+        icon: Rocket,
       },
     ],
     faqsTitle: "Frequently Asked Questions",
