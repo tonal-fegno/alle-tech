@@ -13,13 +13,18 @@ interface Faq {
 interface FAQAccordionProps {
   title: string;
   faqs: Faq[];
+  className?: string;
 }
 
-export default function FAQAccordion({ title, faqs }: FAQAccordionProps) {
+export default function FAQAccordion({
+  title,
+  faqs,
+  className = "section-padding bg-[#F7F8FA]",
+}: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section-padding bg-[#F7F8FA] px-4 md:px-8">
+    <section className={`px-4 md:px-8 ${className}`}>
       <div className="container-main flex flex-col items-center gap-12 md:gap-14">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">

@@ -26,6 +26,8 @@ const config: Config = {
         "brand-navy-dark": "#000B2E",
         "brand-navy-light": "#0A2A6B",
         "brand-bg": "#FFFFFF",
+        "brand-accent-blue": "#0da2ff",
+        "brand-accent-blue-dark": "#0092e0",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "sans-serif"],
