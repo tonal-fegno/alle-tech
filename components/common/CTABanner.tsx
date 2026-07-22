@@ -3,10 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SwapLabel } from "@/components/common/HoverSwap";
 
 interface CTABannerProps {
+  label?: string;
   heading: string;
   subtitle?: string;
   ctaHref?: string;
@@ -16,6 +17,7 @@ interface CTABannerProps {
 }
 
 export default function CTABanner({
+  label = "LET'S GET STARTED",
   heading,
   subtitle,
   ctaHref = "/contact",
@@ -24,45 +26,73 @@ export default function CTABanner({
   secondaryHref,
 }: CTABannerProps) {
   return (
-    <section className="py-16 md:py-24 px-6 bg-bg-3 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(44,143,206,0.05),transparent_40%)] pointer-events-none" />
-
+    <section className="px-4 sm:px-6 pt-16 md:pt-20 mb-12 md:mb-20">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 max-w-5xl mx-auto rounded-[32px] border border-border-gray/30 bg-white px-8 py-16 text-center md:px-16 md:py-20 shadow-[0_12px_40px_rgba(0,11,34,0.04)]"
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="relative max-w-7xl mx-auto rounded-[32px] overflow-hidden px-8 md:px-14 py-14 md:py-20"
+        style={{ backgroundColor: "#1E293B" }}
       >
-        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink leading-tight mb-4">
-          {heading}
-        </h2>
-        {subtitle && (
-          <p className="text-body-gray text-base md:text-lg leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
-            {subtitle}
-          </p>
-        )}
+        {/* Decorative glow */}
+        <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
-          <Link
-            href={ctaHref}
-            className="group inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white rounded-xl px-7 py-3.5 font-bold text-sm transition-colors shadow-sm"
-          >
-            <SwapLabel>{ctaLabel}</SwapLabel>
-            <ArrowRight
-              size={16}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </Link>
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          {/* Left: Text */}
+          <div className="lg:col-span-7 text-left">
+            <span className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-4 block">
+              {label}
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.12] mb-5">
+              {heading}
+            </h2>
+            {subtitle && (
+              <p className="text-neutral-400 text-sm md:text-[18px] leading-relaxed font-medium max-w-xl">
+                {subtitle}
+              </p>
+            )}
+          </div>
 
-          {secondaryLabel && secondaryHref && (
-            <Link
-              href={secondaryHref}
-              className="group inline-flex items-center gap-2 bg-bg-2 hover:bg-bg-1 border border-border-gray/30 text-ink rounded-xl px-7 py-3.5 font-bold text-sm transition-colors"
+          {/* Right: Buttons */}
+          <div className="lg:col-span-5 flex flex-col gap-4 items-start lg:items-end w-full">
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              className="w-full max-w-xs"
             >
-              <SwapLabel>{secondaryLabel}</SwapLabel>
-            </Link>
-          )}
+              <Link
+                href={ctaHref}
+                className="group flex items-center justify-between gap-3 pl-7 pr-3 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-bold text-sm tracking-wide shadow-[0_0_30px_-5px_rgba(59,130,246,0.5)] hover:shadow-[0_0_40px_-5px_rgba(59,130,246,0.7)] transition-all duration-300"
+              >
+                <SwapLabel>{ctaLabel}</SwapLabel>
+                <div className="w-8 h-8 rounded-xl bg-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/30 group-hover:translate-x-0.5 shrink-0">
+                  <ArrowUpRight size={16} />
+                </div>
+              </Link>
+            </motion.div>
+
+            {secondaryLabel && secondaryHref && (
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                className="w-full max-w-xs"
+              >
+                <Link
+                  href={secondaryHref}
+                  className="group flex items-center justify-between gap-3 pl-7 pr-3 py-3.5 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-bold text-sm tracking-wide border border-white/20 hover:border-white/40 shadow-[0_0_20px_-5px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.25)] transition-all duration-300"
+                >
+                  <SwapLabel>{secondaryLabel}</SwapLabel>
+                  <div className="w-8 h-8 rounded-xl bg-white/10 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/20 group-hover:translate-x-0.5 shrink-0">
+                    <ArrowUpRight size={16} />
+                  </div>
+                </Link>
+              </motion.div>
+            )}
+          </div>
         </div>
       </motion.div>
     </section>

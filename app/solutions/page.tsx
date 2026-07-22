@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { SwapLabel, SwapArrow } from "@/components/common/HoverSwap";
@@ -129,37 +130,32 @@ export default function SolutionsPage() {
       </main>
 
       {/* 3. Why ALLE TECH */}
-      <section className="py-14 md:py-20 bg-[#0B0714] text-white px-6 overflow-hidden relative">
-        {/* Ambient purple glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[560px]"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 90% at 50% -20%, rgba(76,29,149,0.75), transparent 70%)",
-          }}
-        />
+      <section className="py-14 md:py-20 bg-brand-navy text-white px-6 overflow-hidden relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.12),transparent_40%)] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-4 lg:sticky lg:top-28">
-              <Eyebrow variant="dark" className="mb-4">
+            <div className="lg:col-span-4 lg:sticky lg:top-28 text-left">
+              <span className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-3 block">
                 Why Partner With Us
-              </Eyebrow>
-              <AnimatedHeading className="text-3xl md:text-5xl font-semibold tracking-tight text-white leading-tight mb-6">
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight mb-6">
                 Why ALLE TECH?
-              </AnimatedHeading>
-              <p className="text-white/70 text-body-18 leading-relaxed font-normal mb-8">
+              </h2>
+              <p className="text-neutral-300 text-base md:text-lg leading-relaxed font-normal mb-8">
                 We combine business expertise with intelligent technology to
                 help organizations streamline operations, improve productivity,
                 and achieve measurable outcomes.
               </p>
-              <ArrowButton href="/about" size="sm" variant="solid">
-                Learn about our team
-              </ArrowButton>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-blue-400 hover:text-white uppercase transition-colors"
+              >
+                Learn about our team <ChevronRight size={16} />
+              </Link>
             </div>
 
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 text-left">
               {[
                 {
                   title: "Business-First Approach",
@@ -188,13 +184,13 @@ export default function SolutionsPage() {
                     key={idx}
                     className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                      <IconComp size={20} className="text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+                      <IconComp size={20} className="text-blue-400" />
                     </div>
                     <h3 className="text-base font-bold text-white mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-white/60 text-sm leading-relaxed">
+                    <p className="text-neutral-400 text-sm leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

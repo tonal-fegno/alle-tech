@@ -394,11 +394,13 @@ export default function SolutionDetailLayout({
 
       {/* 4. BUSINESS OUTCOMES */}
       {detail.outcomesTitle && detail.outcomes && detail.outcomes.length > 0 && (
-        <section className="bg-white border-b border-border-gray/20 section-padding">
-          <div className="container-main">
+        <section className="py-14 md:py-20 bg-white border-b border-neutral-100 px-6">
+          <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <Eyebrow className="mb-3 justify-center">Measurable Impact</Eyebrow>
-              <h2 className="heading-2">
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3 block">
+                Measurable Impact
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
                 {detail.outcomesTitle}
               </h2>
             </div>
@@ -416,18 +418,18 @@ export default function SolutionDetailLayout({
                   <motion.div
                     key={idx}
                     variants={fadeInUp}
-                    className="group bg-bg-2/30 rounded-3xl border border-border-gray/15 p-8 hover:bg-bg-2/50 hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+                    className="group bg-neutral-50 rounded-3xl border border-neutral-100/90 p-8 hover:bg-blue-50/20 hover:border-blue-200/60 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
                   >
                     {/* Icon Circle */}
-                    <div className="w-12 h-12 rounded-2xl bg-white text-primary flex items-center justify-center shrink-0 mb-6 shadow-sm border border-border-gray/10 group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-white text-blue-600 flex items-center justify-center shrink-0 mb-6 shadow-sm border border-neutral-100 group-hover:scale-105 transition-transform duration-300">
                       <IconComp size={22} />
                     </div>
                     
                     {/* Card Content */}
-                    <h3 className="text-lg font-semibold text-ink mb-3 tracking-tight">
+                    <h3 className="text-lg font-bold text-neutral-900 mb-3 tracking-tight">
                       {out.title}
                     </h3>
-                    <p className="text-body-gray text-sm md:text-[15px] leading-relaxed font-medium">
+                    <p className="text-neutral-500 text-sm md:text-[15px] leading-relaxed font-medium">
                       {out.desc}
                     </p>
                   </motion.div>
@@ -439,21 +441,16 @@ export default function SolutionDetailLayout({
       )}
 
       {/* 5. MODULES MAP (Large Cards) */}
-      <section className="bg-[#0B0714] text-white overflow-hidden relative section-padding">
-        {/* Ambient purple glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[560px]"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 90% at 50% -20%, rgba(76,29,149,0.75), transparent 70%)",
-          }}
-        />
+      <section className="py-14 md:py-20 bg-neutral-900 text-white px-6 overflow-hidden relative">
+        <div className="absolute -left-40 top-1/4 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute -right-40 bottom-1/4 w-96 h-96 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
 
-        <div className="container-main relative">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <Eyebrow variant="dark" className="mb-3 justify-center">Module Map</Eyebrow>
-            <h2 className="heading-2 !text-white">
+            <span className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-3 block font-mono">
+              Module Map
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
               {detail.modulesTitle}
             </h2>
           </div>
@@ -471,11 +468,11 @@ export default function SolutionDetailLayout({
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
                   className="bg-white/5 border border-white/10 rounded-3xl p-6.5 flex flex-col h-full hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-xl shadow-black/10 group"
                 >
-                  <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2.5">
+                  <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2.5">
                     <IconComp size={20} className="text-white shrink-0" />
                     <span>{mod.title}</span>
                   </h3>
-                  <p className="text-white/60 text-xs md:text-sm leading-relaxed font-normal">
+                  <p className="text-neutral-400 text-xs md:text-sm leading-relaxed font-normal">
                     {mod.desc}
                   </p>
                 </motion.div>
@@ -685,38 +682,32 @@ export default function SolutionDetailLayout({
         )}
 
       {/* 9. WHY ALLE TECH */}
-      <section className="bg-[#0B0714] text-white overflow-hidden relative section-padding">
-        {/* Ambient purple glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[560px]"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 90% at 50% -20%, rgba(76,29,149,0.75), transparent 70%)",
-          }}
-        />
+      <section className="py-14 md:py-20 bg-brand-navy text-white px-6 overflow-hidden relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.12),transparent_40%)] pointer-events-none" />
 
-        <div className="container-main relative z-10">
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-4 lg:sticky lg:top-28">
-              <Eyebrow variant="dark" className="mb-3">Why Partner With Us</Eyebrow>
-              <h2 className="heading-2 !text-white mb-6">
+            <div className="lg:col-span-4 lg:sticky lg:top-28 text-left">
+              <span className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-3 block">
+                Why Partner With Us
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight mb-6">
                 {detail.whyAlleTechTitle ?? "Why ALLE TECH?"}
               </h2>
-              <p className="text-white/80 text-base md:text-lg leading-relaxed font-normal mb-8">
+              <p className="text-neutral-300 text-base md:text-lg leading-relaxed font-normal mb-8">
                 We combine business expertise with intelligent technology to
                 help organizations streamline operations, improve productivity,
                 and achieve measurable outcomes.
               </p>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-primary hover:text-white uppercase transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-blue-400 hover:text-white uppercase transition-colors"
               >
                 Learn about our team <ChevronRight size={16} />
               </Link>
             </div>
 
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 text-left">
               {whyAlleTechItems.map((item, idx) => {
                 const IconComp = item.icon;
                 return (
@@ -724,13 +715,13 @@ export default function SolutionDetailLayout({
                     key={idx}
                     className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                      <IconComp size={20} className="text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+                      <IconComp size={20} className="text-blue-400" />
                     </div>
-                    <h3 className="text-base font-semibold text-white mb-2">
+                    <h3 className="text-base font-bold text-white mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-white/60 text-sm leading-relaxed">
+                    <p className="text-neutral-400 text-sm leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
