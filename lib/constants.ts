@@ -35,7 +35,7 @@ export const PRODUCTS = [
   },
   {
     slug: "transsync",
-    title: "Trans Sync",
+    title: "TransSync™",
     description: "Intelligent Intercompany Management Platform",
     points: [
       "Intercompany Automation",
@@ -47,7 +47,7 @@ export const PRODUCTS = [
   },
   {
     slug: "freight-pulse",
-    title: "Freight Pulse",
+    title: "Freight Pulse™",
     description: "Digital Logistics Platform",
     points: [
       "Freight & Transport Management",
@@ -59,7 +59,7 @@ export const PRODUCTS = [
   },
   {
     slug: "engageflow",
-    title: "Engage Flow",
+    title: "EngageFlow™",
     description: "Customer Communication Platform",
     points: [
       "Email & WhatsApp Automation",
@@ -71,7 +71,7 @@ export const PRODUCTS = [
   },
   {
     slug: "invoiceflow",
-    title: "InvoiceFlow",
+    title: "InvoiceFlow™",
     description: "UAE E-Invoicing Platform",
     points: [
       "UAE E-Invoicing Compliance",
