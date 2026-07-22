@@ -35,7 +35,9 @@ furniture.
 | `ArrowButton` | `components/ui/ArrowButton.tsx` | CTA button with a circular arrow affordance (`variant="light"\|"solid"`, `size="sm"\|"md"`) — used in Navbar and forms. |
 | `AnimatedHeading` | `components/ui/AnimatedHeading.tsx` | Word-by-word blur-in reveal for a heading (`as` tag prop). Used for the big "hook" headings (FAQ, ContactForm), not every heading. |
 | `CtaSection` | `components/CtaSection.tsx` | The dark full-bleed "Schedule Now" banner. Drop in as-is near the end of a page. |
-| `FaqSection` | `components/FaqSection.tsx` | The FAQ accordion, sourced from `FAQS` in `lib/constants.ts`. |
+| `FaqAccordionItem` | `components/ui/FaqAccordionItem.tsx` | A single FAQ question/answer card (`question`, `answer`, `isOpen`, `onToggle`) — the plus/×-rotate toggle + grid-rows expand animation. Shared by `FaqSection` and `FAQAccordion`; use it for any new FAQ-style list instead of re-building the toggle. |
+| `FaqSection` | `components/FaqSection.tsx` | The sitewide FAQ section, sourced from `FAQS` in `lib/constants.ts`. Used by Home/Contact/Services/Pricing. |
+| `FAQAccordion` | `components/common/FAQAccordion.tsx` | Same visual design as `FaqSection` but takes `title` + `faqs` as props instead of the global `FAQS` — use for detail pages with per-item FAQ data (e.g. `solutions/[id]`). |
 | `ContactFormSection` | `components/ContactFormSection.tsx` | The split contact-info/form card. |
 | `ContactCallBanner` | `components/ContactCallBanner.tsx` | The "Call Us Now" info strip, phone number pulled from `CONTACT_INFO.phone`. |
 | `SectionCard`-style cards | `components/{ServiceCard,BlogCard,PricingCard}.tsx`, `components/about/*` | Per-listing-item cards; each takes the matching data-model object as a prop — follow this shape for any new listing (Products, Solutions, Industries). |

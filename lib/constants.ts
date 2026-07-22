@@ -85,7 +85,7 @@ export const PRODUCTS = [
 
 export const SOLUTIONS = [
   {
-    slug: "SAP-Business-One",
+    slug: "sap-business-one",
     number: "01",
     title: "SAP Business One",
     description:
@@ -94,7 +94,7 @@ export const SOLUTIONS = [
     tags: ["Financial Management", "Sales & CRM"],
   },
   {
-    slug: "Odoo-ERP",
+    slug: "odoo-erp",
     number: "02",
     title: "Odoo ERP",
     description:
@@ -103,7 +103,7 @@ export const SOLUTIONS = [
     tags: ["Finance & Accounting", "Sales & CRM", "Inventory & Operations"],
   },
   {
-    slug: "Technology-Consulting-&-Digital-Transformation",
+    slug: "technology-consulting",
     number: "03",
     title: "Technology Consulting & Digital Transformation",
     description:
@@ -113,7 +113,7 @@ export const SOLUTIONS = [
     tags: ["Digital Strategy", "Process Automation", "IT Modernization"],
   },
   {
-    slug: "Business-Intelligence-&-Power-BI",
+    slug: "business-intelligence",
     number: "04",
     title: "Business Intelligence & Power BI",
     description:
@@ -123,7 +123,7 @@ export const SOLUTIONS = [
     tags: ["Interactive Dashboards", "Real-Time Analytics", "Custom Reports"],
   },
   {
-    slug: "ERP-Integration-&-Enterprise-Connectivity",
+    slug: "erp-integration",
     number: "05",
     title: "ERP Integration & Enterprise Connectivity",
     description:
@@ -133,7 +133,7 @@ export const SOLUTIONS = [
     tags: ["System Integration", "API Connectivity", "Data Synchronization"],
   },
   {
-    slug: "Cloud-&-IT-Infrastructure-Services",
+    slug: "cloud-infrastructure",
     number: "06",
     title: "Cloud & IT Infrastructure Services",
     description:
@@ -143,7 +143,7 @@ export const SOLUTIONS = [
     tags: ["Cloud Migration", "Infrastructure Management", "Security & Backup"],
   },
   {
-    slug: "Managed-Services-&-Technology-Support",
+    slug: "managed-services",
     number: "07",
     title: "Managed Services & Technology Support",
     description:

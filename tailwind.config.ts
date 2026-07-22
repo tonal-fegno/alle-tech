@@ -21,6 +21,11 @@ const config: Config = {
         "border-gray": "#B2B6C2", // Other Color/Border
         "white-13": "rgba(255, 255, 255, 0.13)",
         "white-42": "rgba(255, 255, 255, 0.42)",
+        // Solution detail page (dark hero/section) tokens — aliases onto dark-blue
+        "brand-navy": "#001545",
+        "brand-navy-dark": "#000B2E",
+        "brand-navy-light": "#0A2A6B",
+        "brand-bg": "#FFFFFF",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "sans-serif"],
@@ -41,6 +46,15 @@ const config: Config = {
       borderRadius: {
         card: "16px",
         section: "20px",
+        "4xl": "2rem",
+      },
+      boxShadow: {
+        xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      },
+      spacing: {
+        "4.75": "1.1875rem",
+        "6.5": "1.625rem",
+        "10.5": "2.625rem",
       },
     },
   },

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ImageFrame from "@/components/ui/ImageFrame";
 
 interface Solution {
@@ -11,7 +12,10 @@ interface Solution {
 
 export default function SolutionCard({ solution }: { solution: Solution }) {
   return (
-    <div className="group flex flex-col gap-5 rounded-section border border-border-gray/40 bg-white p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,11,34,0.08)] md:p-8">
+    <Link
+      href={`/solutions/${solution.slug}`}
+      className="group flex flex-col gap-5 rounded-section border border-border-gray/40 bg-white p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,11,34,0.08)] md:p-8"
+    >
       <div className="flex flex-wrap gap-2">
         {solution.tags.map((tag) => (
           <span
@@ -38,6 +42,6 @@ export default function SolutionCard({ solution }: { solution: Solution }) {
           imageClassName="transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-    </div>
+    </Link>
   );
 }
