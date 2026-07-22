@@ -22,7 +22,11 @@ export default function CaseStudyListGrid({
     <>
       <div className="flex flex-col gap-8">
         {visibleStudies.map((study, index) => (
-          <CaseStudyCard key={study.slug} study={study} index={index} />
+          <CaseStudyCard
+            key={study.id || study.slug}
+            study={study}
+            index={index}
+          />
         ))}
       </div>
 
@@ -36,7 +40,7 @@ export default function CaseStudyListGrid({
             className="group inline-flex cursor-pointer items-center gap-3.5 rounded-full border border-transparent bg-primary py-3 pl-7 pr-3 text-sm font-bold tracking-wide text-white shadow-lg shadow-primary/15 transition-colors hover:bg-primary/90"
           >
             <SwapLabel>Load More</SwapLabel>
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-primary">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-primary transition-transform duration-300">
               <SwapArrow size={16} />
             </span>
           </motion.button>
