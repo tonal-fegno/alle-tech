@@ -61,7 +61,7 @@ export default function AboutTeam() {
   };
 
   return (
-    <section ref={sectionRef} className="w-full py-8 lg:py-12 border-t border-border-gray/20 overflow-hidden">
+    <section ref={sectionRef} className="w-full py-8 lg:py-12 overflow-hidden mb-20">
       <div className="flex flex-col items-center">
         {/* Header Text Block (animates bottom-to-top) */}
         <div

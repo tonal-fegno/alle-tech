@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
+import whychoose from '@/public/images/about//about-why-choose.png';
 
 export default function WhyChooseUs() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -34,16 +35,15 @@ export default function WhyChooseUs() {
 
         {/* Header Block */}
         <div
-          className={`flex flex-col gap-3 transition-all duration-[1200ms] ease-out will-change-transform ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[40px]"
-          }`}
+          className={`flex flex-col gap-3 transition-all duration-[1200ms] ease-out will-change-transform ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[40px]"
+            }`}
         >
           {/* Badge */}
           <Eyebrow>Why Choose Us</Eyebrow>
 
           {/* Heading */}
           <h2 className="font-inter font-bold text-[36px] leading-[44px] md:text-[48px] md:leading-[58px] text-ink tracking-tight">
-            Why Choose us
+            Built for Your Success
           </h2>
 
           {/* Subtitle */}
@@ -57,9 +57,8 @@ export default function WhyChooseUs() {
 
           {/* Left Column (Grid of Cards) */}
           <div
-            className={`lg:col-span-8 flex flex-col gap-6 transition-all duration-[1200ms] ease-out delay-150 will-change-transform ${
-              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[60px]"
-            }`}
+            className={`lg:col-span-8 flex flex-col gap-6 transition-all duration-[1200ms] ease-out delay-150 will-change-transform ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[60px]"
+              }`}
           >
             {/* Row 1 */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -143,12 +142,11 @@ export default function WhyChooseUs() {
 
           {/* Right Column (Tall Team Image) */}
           <div
-            className={`lg:col-span-4 relative min-h-[400px] lg:min-h-full rounded-[24px] overflow-hidden shadow-md group transition-all duration-[1200ms] ease-out delay-300 will-change-transform ${
-              isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[40px]"
-            }`}
+            className={`lg:col-span-4 relative min-h-[400px] lg:min-h-full rounded-[24px] overflow-hidden shadow-md group transition-all duration-[1200ms] ease-out delay-300 will-change-transform ${isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[40px]"
+              }`}
           >
             <Image
-              src="/assets/images/about/about-img-2.avif"
+              src={whychoose.src}
               alt="ALLE TECH professional collaborative business technology consulting team"
               fill
               className="object-cover scale-105 transition-transform duration-700 ease-out group-hover:scale-100"
