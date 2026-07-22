@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
+import aboutimg from '@/public/images/about/about-banner1.jpg';
 
 export default function AboutWhoWeAre() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -130,7 +131,7 @@ export default function AboutWhoWeAre() {
               }}
             >
               <Image
-                src="/assets/images/about/about-img-1.avif"
+                src={aboutimg.src}
                 alt="ALLE TECH strategic business consulting and technology development"
                 fill
                 className="object-cover scale-110 transition-transform duration-700 ease-out"

@@ -4,6 +4,14 @@ export const NAV_LINKS = [
   { label: "Solutions", href: "/solutions" },
   { label: "Products", href: "/products" },
   { label: "Industries", href: "/industries" },
+  {
+    label: "Resources",
+    href: "/blogs",
+    dropdown: [
+      { label: "Blog & Articles", href: "/blogs" },
+      { label: "Case Studies", href: "/case-studies" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
 ];
 

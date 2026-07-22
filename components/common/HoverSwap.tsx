@@ -38,27 +38,22 @@ export function SwapLabel({
   );
 }
 
-/**
- * Arrow that, on group hover, slides out to the right while an identical copy
- * enters from the left back to center.
- */
-export function SwapArrow({
-  size = 16,
-  className = "",
-}: {
-  size?: number;
-  className?: string;
-}) {
+// Arrow icon that slides out to the top-right while a duplicate slides in
+// from the bottom-left on hover — the icon counterpart to SwapLabel, meant
+// to sit next to it inside the same `group`.
+export function SwapArrow({ size = 16 }: { size?: number }) {
   return (
-    <span className="grid overflow-hidden">
-      <ArrowRight
+    <span
+      className="relative inline-block shrink-0 overflow-hidden"
+      style={{ width: size, height: size }}
+    >
+      <ArrowUpRight
         size={size}
-        className={`col-start-1 row-start-1 transition-transform duration-500 ${BOUNCE} group-hover:translate-x-full ${className}`}
+        className="absolute inset-0 transition-transform duration-300 ease-out group-hover:translate-x-full group-hover:-translate-y-full"
       />
-      <ArrowRight
+      <ArrowUpRight
         size={size}
-        aria-hidden
-        className={`col-start-1 row-start-1 -translate-x-full transition-transform duration-500 ${BOUNCE} group-hover:translate-x-0 ${className}`}
+        className="absolute inset-0 -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0"
       />
     </span>
   );

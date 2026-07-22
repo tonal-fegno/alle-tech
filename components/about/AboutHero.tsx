@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
+import banner from '@/public/images/about/about-banner3.png';
 
 export default function AboutHero() {
   return (
@@ -36,26 +37,29 @@ export default function AboutHero() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-6 sm:gap-8 items-start">
           {/* Left Image - Wide */}
           <div className="relative w-full aspect-[2038/1198] rounded-[24px] overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300">
+
+            {/* Ambient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <video
+              src="/about-vdo.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          </div>
+
+          {/* Right Video - Tall/Narrow */}
+          <div className="relative w-full aspect-[966/1024] rounded-[24px] overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300">
+
             <Image
-              src="/assets/images/about/about-banner-1.avif"
+              src={banner.src}
               alt="Business technology solutions and collaborative planning"
               fill
               priority
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               sizes="(max-width: 1024px) 100vw, 65vw"
-            />
-            {/* Ambient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-          </div>
-
-          {/* Right Image - Tall/Narrow */}
-          <div className="relative w-full aspect-[966/1024] rounded-[24px] overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300">
-            <Image
-              src="/assets/images/about/about-banner-2.avif"
-              alt="Intelligent business automation planning session"
-              fill
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              sizes="(max-width: 1024px) 100vw, 35vw"
             />
             {/* Ambient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />

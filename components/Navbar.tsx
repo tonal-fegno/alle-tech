@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import ArrowButton from "@/components/ui/ArrowButton";
 import Button from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/constants";
@@ -17,6 +19,9 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [dropdownPos, setDropdownPos] = useState<{ top: number; left: number } | null>(null);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
   const pathname = usePathname();
   const lastScrollY = useRef(0);
   const idleTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -28,6 +33,7 @@ export default function Navbar() {
       lenis?.stop();
     } else {
       lenis?.start();
+      setMobileDropdownOpen(null);
     }
     return () => {
       document.body.style.overflow = "";
@@ -107,24 +113,88 @@ export default function Navbar() {
             {/* Desktop links */}
             <div className="hidden items-center gap-1 lg:flex">
               {NAV_LINKS.map((link) => {
-                const active = pathname === link.href;
+                const dropdown = "dropdown" in link ? link.dropdown : undefined;
+                const active =
+                  pathname === link.href ||
+                  (dropdown?.some((item) => item.href === pathname) ?? false);
                 return (
-                  <Link
+                  <div
                     key={link.href}
-                    href={link.href}
-                    className={`relative rounded-full px-4 py-2 text-base font-normal transition-colors duration-200 ${
-                      active ? "text-primary" : "text-dark-blue hover:text-primary"
-                    }`}
+                    className="relative"
+                    onMouseEnter={(e) => {
+                      if (!dropdown) return;
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      setDropdownPos({ top: rect.bottom, left: rect.left });
+                      setOpenDropdown(link.label);
+                    }}
+                    onMouseLeave={() => dropdown && setOpenDropdown(null)}
                   >
-                    {active && (
-                      <motion.span
-                        layoutId="navActivePill"
-                        className="absolute inset-0 rounded-full bg-bg-2"
-                        transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                      />
-                    )}
-                    <span className="relative">{link.label}</span>
-                  </Link>
+                    <Link
+                      href={link.href}
+                      className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-base font-normal transition-colors duration-200 ${
+                        active ? "text-primary" : "text-dark-blue hover:text-primary"
+                      }`}
+                    >
+                      {active && (
+                        <motion.span
+                          layoutId="navActivePill"
+                          className="absolute inset-0 rounded-full bg-bg-2"
+                          transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                        />
+                      )}
+                      <span className="relative">{link.label}</span>
+                      {dropdown && (
+                        <ChevronDown
+                          size={14}
+                          strokeWidth={2}
+                          className={`relative shrink-0 transition-transform duration-200 ${
+                            openDropdown === link.label ? "rotate-180" : ""
+                          }`}
+                        />
+                      )}
+                    </Link>
+
+                    {dropdown &&
+                      dropdownPos &&
+                      typeof document !== "undefined" &&
+                      createPortal(
+                        <AnimatePresence>
+                          {openDropdown === link.label && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -6 }}
+                              transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                              style={{
+                                position: "fixed",
+                                top: dropdownPos.top + 8,
+                                left: dropdownPos.left,
+                              }}
+                              className="z-[60] w-56"
+                              onMouseEnter={() => setOpenDropdown(link.label)}
+                              onMouseLeave={() => setOpenDropdown(null)}
+                            >
+                              <div className="overflow-hidden rounded-2xl border border-border-gray/40 bg-white p-2 shadow-[0_20px_50px_rgba(0,11,34,0.12)]">
+                                {dropdown.map((item) => (
+                                  <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    className={`block rounded-xl px-4 py-2.5 text-sm transition-colors duration-200 ${
+                                      pathname === item.href
+                                        ? "bg-bg-2 text-primary"
+                                        : "text-dark-blue hover:bg-bg-2 hover:text-primary"
+                                    }`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>,
+                        document.body,
+                      )}
+                  </div>
                 );
               })}
             </div>
@@ -175,7 +245,67 @@ export default function Navbar() {
             className="fixed inset-0 z-40 flex flex-col gap-3 overflow-y-auto bg-white px-6 pb-8 pt-28 lg:hidden"
           >
             {NAV_LINKS.map((link, i) => {
-              const active = pathname === link.href;
+              const dropdown = "dropdown" in link ? link.dropdown : undefined;
+              const active =
+                pathname === link.href ||
+                (dropdown?.some((item) => item.href === pathname) ?? false);
+
+              if (dropdown) {
+                const isOpen = mobileDropdownOpen === link.label;
+                return (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.2 }}
+                  >
+                    <button
+                      type="button"
+                      className={`flex w-full items-center justify-between px-3 py-2 text-body-20 font-medium transition-colors ${
+                        active ? "text-primary" : "text-dark-blue hover:text-primary"
+                      }`}
+                      aria-expanded={isOpen}
+                      onClick={() =>
+                        setMobileDropdownOpen(isOpen ? null : link.label)
+                      }
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={18}
+                        strokeWidth={2}
+                        className={`transition-transform duration-300 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <div
+                      className={`grid transition-all duration-300 ease-in-out ${
+                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="flex flex-col gap-1 py-1 pl-6">
+                          {dropdown.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className={`block px-3 py-2 text-body-16 transition-colors ${
+                                pathname === item.href
+                                  ? "text-primary"
+                                  : "text-body-gray hover:text-primary"
+                              }`}
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              }
+
               return (
                 <motion.div
                   key={link.href}
