@@ -24,36 +24,23 @@ const industryLinks = INDUSTRIES.map((industry) => ({
   href: `/industries#${industry.slug}`,
 }));
 
-const industryColumns = [
-  industryLinks.slice(0, Math.ceil(industryLinks.length / 2)),
-  industryLinks.slice(Math.ceil(industryLinks.length / 2)),
-];
-
-const socialIcons: Record<string, React.ReactNode> = {
-  LinkedIn: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-1 1.8-2.2 3.8-2.2 4 0 4.8 2.7 4.8 6.1V24h-4v-8.5c0-2-.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24H8V8z" />
-    </svg>
-  ),
-};
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-[#0B0714] px-4 pb-8 pt-16 md:px-8 md:pt-20">
-      {/* Ambient purple glow */}
+    <footer className="relative overflow-hidden bg-[#00081d] px-4 pb-8 pt-16 md:px-8 md:pt-20">
+      {/* Ambient premium blue glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[560px]"
         style={{
           background:
-            "radial-gradient(ellipse 70% 90% at 50% -20%, rgba(76,29,149,0.75), transparent 70%)",
+            "radial-gradient(ellipse 70% 90% at 50% -20%, rgba(44,143,206,0.15), transparent 70%)",
         }}
       />
 
       <div className="container-main relative">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.2fr_0.9fr_0.9fr_1.6fr]">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-[1.4fr_1.1fr_0.9fr_1.1fr] xl:grid-cols-[1.5fr_1.2fr_1fr_1.2fr]">
           {/* Logo + Address + Contact */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center">
@@ -65,52 +52,90 @@ export default function Footer() {
                 className="h-12 w-auto object-contain"
               />
             </Link>
-            <ul className="flex flex-col gap-2 text-body-16 text-white/70">
-              <li>
-                <p
-                  className="transition-colors hover:text-white"
-                >
-                  {CONTACT_INFO.address}
-                </p>
-              </li>
-              <li>
+
+            <p className="text-[15px] leading-relaxed text-white/70 font-inter">
+              Enterprise Technology Solutions for Digital Transformation, ERP & Business Growth.
+            </p>
+            <div className="flex items-center gap-4">
+              <span className="text-white/70 font-inter text-[14px]">Follow Us</span>
+              <div className="flex items-center gap-2.5">
+                {/* LinkedIn */}
                 <a
-                  href={`mailto:${CONTACT_INFO.email}`}
-                  className="transition-colors hover:text-white"
+                  href="https://www.linkedin.com/company/alle-tech-fzco/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="flex h-10 w-10 items-center justify-center rounded-[8px] bg-white/5 border border-white/10 text-white transition-all duration-300 hover:bg-white/10 hover:border-white/20"
                 >
-                  {CONTACT_INFO.email}
+                  <svg className="w-4 h-4 fill-[#2c8fce]" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                  </svg>
                 </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${CONTACT_INFO.salesEmail}`}
-                  className="transition-colors hover:text-white"
-                >
-                  {CONTACT_INFO.salesEmail}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${CONTACT_INFO.phone.replace(/[^+\d]/g, "")}`}
-                  className="transition-colors hover:text-white"
-                >
-                  {CONTACT_INFO.phone}
-                </a>
-              </li>
-            </ul>
+              </div>
+            </div>
+            <div className="w-full h-[1px] bg-white/10 my-1" />
+
+            <div className="flex flex-col gap-4">
+              <h4 className="text-[14px] font-bold tracking-wider text-primary uppercase">
+                Contact Us
+              </h4>
+
+              <ul className="flex flex-col gap-4">
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 shrink-0 text-primary mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span className="text-white/70 text-[15px] leading-relaxed font-inter">
+                    {CONTACT_INFO.address}
+                  </span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <svg className="w-5 h-5 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="text-white/70 hover:text-white transition-colors text-[15px] font-inter">
+                    {CONTACT_INFO.email}
+                  </a>
+                </li>
+                {/* <li className="flex items-center gap-3">
+                  <svg className="w-5 h-5 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <a href={`mailto:${CONTACT_INFO.salesEmail}`} className="text-white/70 hover:text-white transition-colors text-[15px] font-inter">
+                    {CONTACT_INFO.salesEmail}
+                  </a>
+                </li> */}
+                <li className="flex items-center gap-3">
+                  <svg className="w-5 h-5 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  <a href={`tel:${CONTACT_INFO.phone.replace(/[^+\d]/g, "")}`} className="text-white/70 hover:text-white transition-colors text-[15px] font-inter">
+                    {CONTACT_INFO.phone}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Solutions */}
-          <div className="flex flex-col gap-5">
-            <p className="text-body-18 font-semibold text-white">Solutions</p>
+          <div className="flex flex-col gap-6">
+            <div>
+              <h4 className="text-[16px] font-bold tracking-wider text-white uppercase font-inter">
+                Solutions
+              </h4>
+              <div className="w-10 h-[3px] bg-[#ff7c00] mt-2 rounded-full" />
+            </div>
             <ul className="flex flex-col gap-3">
               {solutionLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-body-16 text-white/70 transition-colors hover:text-white"
+                    className="group flex items-center justify-between text-body-16 text-white/70 transition-colors hover:text-white py-1 font-inter"
                   >
-                    {link.label}
+                    <span className="max-w-[85%]">{link.label}</span>
                   </Link>
                 </li>
               ))}
@@ -118,16 +143,21 @@ export default function Footer() {
           </div>
 
           {/* Products */}
-          <div className="flex flex-col gap-5">
-            <p className="text-body-18 font-semibold text-white">Products</p>
+          <div className="flex flex-col gap-6">
+            <div>
+              <h4 className="text-[16px] font-bold tracking-wider text-white uppercase font-inter">
+                Products
+              </h4>
+              <div className="w-10 h-[3px] bg-[#ff7c00] mt-2 rounded-full" />
+            </div>
             <ul className="flex flex-col gap-3">
               {productLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-body-16 text-white/70 transition-colors hover:text-white"
+                    className="group flex items-center justify-between text-body-16 text-white/70 transition-colors hover:text-white py-1 font-inter"
                   >
-                    {link.label}
+                    <span className="max-w-[85%]">{link.label}</span>
                   </Link>
                 </li>
               ))}
@@ -135,53 +165,51 @@ export default function Footer() {
           </div>
 
           {/* Industries */}
-          <div className="flex flex-col gap-5">
-            <p className="text-body-18 font-semibold text-white">Industries</p>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-              {industryColumns.map((column, columnIndex) => (
-                <ul key={columnIndex} className="flex flex-col gap-3">
-                  {column.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-body-16 text-white/70 transition-colors hover:text-white"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ))}
+          <div className="flex flex-col gap-6">
+            <div>
+              <h4 className="text-[16px] font-bold tracking-wider text-white uppercase font-inter">
+                Industries
+              </h4>
+              <div className="w-10 h-[3px] bg-[#ff7c00] mt-2 rounded-full" />
             </div>
+            <ul className="flex flex-col gap-3">
+              {industryLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="group flex items-center justify-between text-body-16 text-white/70 transition-colors hover:text-white py-1 font-inter"
+                  >
+                    <span className="max-w-[85%]">{link.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-white/[0.13] pt-8 md:flex-row">
-          <p className="text-body-16 text-white/60">
-            © {currentYear} All rights reserved Alle Tech. Designed and developed by{" "}
-            <a
-              href="https://www.fegno.com/?utm_source=client_website&utm_medium=agency_credit&utm_campaign=portfolio_referral&utm_id=AlleTech&utm_content=AlleTech"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-white"
-            >
-              Fegno Technologies
-            </a>
-          </p>
-          <div className="flex items-center gap-3">
-            {SOCIAL_LINKS.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.13] text-white transition-colors duration-300 hover:bg-gradient-primary"
-              >
-                {socialIcons[social.label]}
-              </a>
-            ))}
+        <div className="mt-14 flex flex-col justify-between gap-6 border-t border-white/10 pt-8 lg:flex-row lg:items-center">
+          <div className="flex flex-col gap-2">
+            <p className="text-[14px] text-white/50 font-inter">
+              © {currentYear} ALLE TECH. All rights reserved.
+            </p>
+            <p className="text-[14px] text-white/60 font-inter">
+              Design and Developed By <Link href={"https://www.fegno.com/"} target="_blank" className="text-[#2c8fce] font-medium">Fegno Technologies</Link>.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 text-white/50 text-[14px] font-inter">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="px-2 text-white/20">|</span>
+            <Link href="/terms-of-use" className="hover:text-white transition-colors">
+              Terms of Use
+            </Link>
+            <span className="px-2 text-white/20">|</span>
+            <Link href="/cookies-policy" className="hover:text-white transition-colors">
+              Cookies Policy
+            </Link>
           </div>
         </div>
       </div>
