@@ -155,16 +155,111 @@ export const SOLUTIONS = [
 ];
 
 export const INDUSTRIES = [
-  { slug: "distribution-wholesale", title: "Distribution & Wholesale" },
-  { slug: "manufacturing", title: "Manufacturing" },
-  { slug: "logistics-supply-chain", title: "Logistics & Supply Chain" },
-  { slug: "retail", title: "Retail" },
-  { slug: "healthcare", title: "Healthcare" },
-  { slug: "construction", title: "Construction" },
-  { slug: "automotive", title: "Automotive" },
-  { slug: "professional-services", title: "Professional Services" },
-  { slug: "food-beverage", title: "Food & Beverage" },
-  { slug: "e-commerce", title: "E-Commerce" },
+  {
+    slug: "distribution-wholesale",
+    title: "Distribution & Wholesale",
+    description:
+      "Complete visibility across purchasing, inventory, warehousing, pricing, sales, deliveries, collections, and customer service.",
+    typicalSolutions: [
+      "ERP",
+      "Warehouse Management",
+      "Sales Automation",
+      "Customer Portals",
+      "AI Analytics",
+      "Power BI",
+      "Barcode Solutions",
+    ],
+  },
+  {
+    slug: "manufacturing",
+    title: "Manufacturing",
+    description:
+      "Operational control across production planning, procurement, inventory, quality, costing, and financial management.",
+    typicalSolutions: [
+      "Production Management",
+      "Material Planning",
+      "Quality Control",
+      "Cost Analysis",
+      "Manufacturing KPIs",
+      "AI Analytics",
+    ],
+  },
+  {
+    slug: "logistics-supply-chain",
+    title: "Logistics & Supply Chain",
+    description:
+      "Shipment visibility, documentation, warehousing, transportation, customs, and financial control for dynamic logistics environments.",
+    typicalSolutions: [
+      "Freight Forwarding",
+      "Warehouse Operations",
+      "Transportation",
+      "Customs",
+      "Customer Portal",
+      "Job Costing",
+      "AI Logistics",
+    ],
+  },
+  {
+    slug: "retail",
+    title: "Retail",
+    description:
+      "Real-time visibility into inventory, customers, sales, purchasing, promotions, and financial performance.",
+    typicalSolutions: ["POS", "Inventory", "CRM", "Loyalty", "Marketing", "BI", "Mobile Apps"],
+  },
+  {
+    slug: "healthcare",
+    title: "Healthcare",
+    description:
+      "Operational efficiency alongside compliance, patient service, inventory control, procurement, HR, and financial management.",
+    typicalSolutions: ["ERP", "Inventory", "Procurement", "HR", "Reporting", "AI", "Dashboards"],
+  },
+  {
+    slug: "construction",
+    title: "Construction",
+    description:
+      "Accurate project costing, procurement, inventory, subcontractor management, equipment control, and financial reporting.",
+    typicalSolutions: [
+      "Project Management",
+      "Procurement",
+      "Cost Control",
+      "Asset Management",
+      "Financial Reporting",
+    ],
+  },
+  {
+    slug: "automotive",
+    title: "Automotive",
+    description:
+      "Complete visibility across vehicle sales, spare parts, workshops, inventory, customer service, warranties, and financial management.",
+    typicalSolutions: ["Inventory", "Workshop Operations", "CRM", "Mobile Field Teams", "Reporting"],
+  },
+  {
+    slug: "professional-services",
+    title: "Professional Services",
+    description:
+      "Integrated project management, financial control, resource planning, and business intelligence for consulting and service firms.",
+    typicalSolutions: ["Projects", "Timesheets", "Billing", "CRM", "Dashboards", "AI"],
+  },
+  {
+    slug: "food-beverage",
+    title: "Food & Beverage",
+    description:
+      "Batch traceability, expiry management, inventory control, quality assurance, and efficient distribution.",
+    typicalSolutions: ["Batch Tracking", "Expiry Management", "Distribution", "Warehouse", "RepProX™"],
+  },
+  {
+    slug: "e-commerce",
+    title: "E-Commerce",
+    description:
+      "Integrated operations connecting websites, inventory, warehousing, logistics, finance, customer service, and marketing.",
+    typicalSolutions: [
+      "ERP Integration",
+      "Payment Gateway Integration",
+      "Customer Portal",
+      "BI",
+      "Warehouse Integration",
+    ],
+  },
 ];
 
 export const FAQS = [
