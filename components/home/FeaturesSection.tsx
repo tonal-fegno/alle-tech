@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ArrowButton from "@/components/ui/ArrowButton";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -49,6 +52,66 @@ const STRATEGY_ICONS = [
 
 const SPLASH_CARD_BG = "/assets/images/why-choose-us.png";
 
+function AnimatedCounter({ value }: { value: string }) {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
+
+  // Extract number and suffix (e.g., "12+" -> 12 and "+")
+  const match = value.match(/^(\d+)(.*)$/);
+  const target = match ? parseInt(match[1], 10) : 0;
+  const suffix = match ? match[2] : "";
+
+  useEffect(() => {
+    const element = elementRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          
+          let startTimestamp: number | null = null;
+          const duration = 2000; // Duration of animation in ms
+
+          const step = (timestamp: number) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            
+            // Ease out quad function: f(t) = t * (2 - t)
+            const easeProgress = progress * (2 - progress);
+            
+            setCount(Math.floor(easeProgress * target));
+
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              setCount(target);
+            }
+          };
+
+          window.requestAnimationFrame(step);
+          observer.unobserve(element);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [target]);
+
+  return (
+    <span ref={elementRef} className="tabular-nums">
+      {count}
+      {suffix}
+    </span>
+  );
+}
+
 export default function FeaturesSection() {
   return (
     <section className="section-padding bg-white px-4 md:px-8">
@@ -95,17 +158,17 @@ export default function FeaturesSection() {
           <div className="flex min-h-[220px] flex-col justify-between rounded-2xl bg-[#F7F8FA] p-6 lg:col-start-1 lg:row-start-2">
             <p className="text-body-16 text-body-gray">Industry Expertise</p>
             <p className="text-[40px] font-semibold leading-none tracking-[-0.01em] text-ink md:text-[48px]">
-              12+
+              <AnimatedCounter value="12+" />
             </p>
             <p className="text-body-16 text-body-gray">
-            Industry Expertise. Business-Focused Solutions.
+              Industry Expertise. Business-Focused Solutions.
             </p>
           </div>
 
           {/* 1.2k Clean Spaces */}
           <div className="flex min-h-[300px] flex-col justify-between rounded-2xl bg-[#F7F8FA] p-6 lg:col-start-2 lg:row-span-2 lg:row-start-1">
             <p className="text-[40px] font-semibold leading-none tracking-[-0.01em] text-ink md:text-[48px]">
-              20+
+              <AnimatedCounter value="20+" />
             </p>
             <div>
               <h3 className="heading-6 !text-dark-blue">
@@ -147,19 +210,20 @@ export default function FeaturesSection() {
 
           {/* Blue CTA card */}
           <div className="relative min-h-[420px] overflow-hidden rounded-2xl lg:col-start-3 lg:row-span-3 lg:row-start-1 lg:min-h-0">
-            <Image
-              src={SPLASH_CARD_BG}
-              alt=""
-              fill
-              sizes="(min-width: 1024px) 420px, 100vw"
-              className="object-cover"
+            <video
+              src="/home-vdo.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
             <div className="relative flex flex-col items-start p-7">
               <h3 className="text-[24px] font-semibold leading-[1.25] tracking-[-0.01em] text-white md:text-[28px]">
-              Long-Term Partnership
+                Long-Term Partnership
               </h3>
               <p className="mt-3 text-body-16 font-medium text-white">
-              We support your growth beyond implementation.
+                We support your growth beyond implementation.
               </p>
               <ArrowButton href="/contact" size="sm" className="mt-6">
                 Schedule Now

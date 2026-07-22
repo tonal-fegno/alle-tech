@@ -290,7 +290,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="px-4 pb-16 pt-0 md:px-8 md:pb-24 xl:pb-[120px]">
+      {/* <section className="px-4 pb-16 pt-0 md:px-8 md:pb-24 xl:pb-[120px]">
         <div className="container-main">
           <div className="flex flex-col items-center gap-6 rounded-section bg-dark-blue px-6 py-16 text-center md:px-16 md:py-20">
             <h2 className="heading-2 !text-white">
@@ -311,7 +311,7 @@ export default function IndustriesPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

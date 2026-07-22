@@ -5,71 +5,70 @@ import Image from "next/image";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import ArrowButton from "@/components/ui/ArrowButton";
 import Eyebrow from "@/components/ui/Eyebrow";
+import automotive from '@/public/images/inductries/Automotive.png';
+import construction from '@/public/images/inductries/Construction.png';
+import distribution from '@/public/images/inductries/Distribution.png';
+import food from '@/public/images/inductries/Food.png';
+import healthcare from '@/public/images/inductries/Healthcare.png';
+import logistics from '@/public/images/inductries/Logistics.png';
+import manufacturing from '@/public/images/inductries/Manufacturing.png';
+import professional from '@/public/images/inductries/Professional-Services.png';
+import retail from '@/public/images/inductries/Retail.png';
 
 const INDUSTRIES = [
   {
     title: "Distribution & Wholesale",
     description:
       "Optimize inventory, sales, warehousing, and distribution operations.",
-    image: encodeURI("/assets/images/industries/Distribution & Wholesale.png"),
+    image: distribution,
   },
   {
     title: "Manufacturing",
     description:
       "Improve production, quality, inventory, and operational efficiency.",
-    image: encodeURI("/assets/images/industries/Manufacturing.png"),
+    image: manufacturing,
   },
   {
     title: "Logistics, Freight Forwarding & Supply Chain",
     description:
       "Streamline freight, warehousing, transportation, and supply chain operations.",
-    image: encodeURI(
-      "/assets/images/industries/Logistics, Freight Forwarding & Supply Chain.png"
-    ),
+    image: logistics,
   },
   {
     title: "Retail & E-Commerce",
     description:
       "Connect retail, e-commerce, inventory, and customer experiences.",
-    image: encodeURI("/assets/images/industries/Retail & E-Commerce.png"),
+    image: retail,
   },
   {
     title: "Healthcare & Life Sciences",
     description:
       "Modernize healthcare operations, compliance, and resource management.",
-    image: encodeURI(
-      "/assets/images/industries/Healthcare & Life Sciences.png"
-    ),
+    image: healthcare,
   },
   {
     title: "Construction, Engineering & Project-Based Businesses",
     description:
       "Manage projects, resources, procurement, and financial performance.",
-    image: encodeURI(
-      "/assets/images/industries/Construction, Engineering & Project-Based Businesses.png"
-    ),
+    image: construction,
   },
   {
     title: "Professional Services, Consulting & Knowledge-Based Businesses",
     description:
       "Streamline projects, resources, clients, and business operations.",
-    image: encodeURI(
-      "/assets/images/industries/Professional Services, Consulting & Knowledge-Based Businesses.png"
-    ),
+    image: professional,
   },
   {
     title: "Food, Beverage & FMCG",
     description:
       "Optimize production, quality, inventory, and distribution processes.",
-    image: encodeURI("/assets/images/industries/Food, Beverage & FMCG.png"),
+    image: food,
   },
   {
     title: "Automotive, Mobility & After-Sales Services",
     description:
       "Enhance vehicle sales, service, workshops, and after-sales operations.",
-    image: encodeURI(
-      "/assets/images/industries/Automotive, Mobility & After-Sales Services.png"
-    ),
+    image: automotive,
   },
 ];
 
@@ -187,7 +186,7 @@ export default function IndustriesSection() {
             {DISPLAY_INDUSTRIES.map((item, i) => (
               <article
                 key={`${item.title}-${i}`}
-                className="flex h-[560px] w-[330px] shrink-0 snap-start flex-col overflow-hidden rounded-[18px] bg-white md:w-[360px]"
+                className="flex h-[560px] w-[330px] shrink-0 snap-start flex-col overflow-hidden rounded-[18px] bg-bg-2 md:w-[360px]"
               >
                 <div className="p-6 md:p-7">
                   <h3 className="text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink">
@@ -205,7 +204,7 @@ export default function IndustriesSection() {
                     sizes="360px"
                     className="object-cover"
                   />
-                  <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent" />
+                  <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-bg-2 to-transparent" />
                 </div>
               </article>
             ))}

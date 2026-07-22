@@ -4,6 +4,14 @@ export const NAV_LINKS = [
   { label: "Solutions", href: "/solutions" },
   { label: "Products", href: "/products" },
   { label: "Industries", href: "/industries" },
+  {
+    label: "Resources",
+    href: "/blogs",
+    dropdown: [
+      { label: "Blog & Articles", href: "/blogs" },
+      { label: "Case Studies", href: "/case-studies" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -11,7 +19,7 @@ export const LOGO_URL = "/assets/images/logo.png";
 
 export const CONTACT_INFO = {
   email: "info@alle-tech.com",
-  salesEmail: "yazan@alle-tech.com",
+  salesEmail: "Yaazin@alle-tech.com",
   phone: "04 299 6767",
   address: "UAE, Dubai, DAFZA, D-05",
 };

@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import Badge from "@/components/ui/Badge";
 import ImageFrame from "@/components/ui/ImageFrame";
 import RichText from "@/components/ui/RichText";
 import ContactFormSection from "@/components/ContactFormSection";
-import { blogs, getBlog, formatBlogDate } from "@/lib/data";
+import BlogDetailHero from "@/components/blog/BlogDetailHero";
+import RelatedArticles from "@/components/blog/RelatedArticles";
+import { blogs, getBlog } from "@/lib/data";
 
 interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -44,50 +43,25 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     notFound();
   }
 
+  // Related: same category first, then fill with the rest.
+  const related = [
+    ...blogs.filter((b) => b.slug !== blog.slug && b.category === blog.category),
+    ...blogs.filter((b) => b.slug !== blog.slug && b.category !== blog.category),
+  ].slice(0, 3);
+
   return (
     <>
-      {/* Banner/Hero Image */}
-      {blog.imageVisible && blog.image && (
-        <section className="relative h-[400px] w-full overflow-hidden md:h-[500px] xl:h-[600px]">
-          <Image
-            src={blog.image}
-            alt={blog.title}
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-        </section>
-      )}
-
-      {/* Blog Header Info Section */}
-      <section className="bg-white px-4 pb-8 pt-12 md:px-8 md:pb-12 md:pt-16">
-        <div className="mx-auto max-w-[800px]">
-          {/* Category Badge */}
-          <div>
-            <Badge>{blog.category}</Badge>
-          </div>
-
-          {/* Title */}
-          <h1 className="heading-1 mt-4">{blog.title}</h1>
-
-          {/* Meta Row */}
-          <div className="mt-5 flex items-center gap-6 text-body-16 text-body-gray">
-            <span>Posted: {formatBlogDate(blog.date)}</span>
-            <span className="text-border-gray">•</span>
-            <span>{blog.time}</span>
-          </div>
-
-          {/* Short Description */}
-          <p className="mt-4 text-body-18 text-body-gray">
-            {blog.shortDescription}
-          </p>
-        </div>
-      </section>
+      {/* Hero */}
+      <BlogDetailHero blog={blog} />
 
       {/* Blog Content Section */}
-      <section className="bg-white px-4 pb-16 md:px-8 md:pb-20">
+      <section className="bg-white px-4 pb-16 pt-14 md:px-8 md:pb-20 md:pt-16">
         <div className="mx-auto max-w-[800px]">
+          {/* Short Description */}
+          <p className="mb-10 text-body-20 font-medium text-ink/80">
+            {blog.shortDescription}
+          </p>
+
           {/* Content 01 */}
           {blog.content01Visible && blog.content01 && (
             <RichText html={blog.content01} />
@@ -96,7 +70,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           {/* Body Image 01 */}
           {blog.bodyImageVisible && blog.bodyImage01 && (
             <ImageFrame
-              src={blog.bodyImage01}
+              src={encodeURI(blog.bodyImage01)}
               alt=""
               aspect="aspect-[16/9]"
               sizes="(max-width: 800px) 100vw, 800px"
@@ -114,7 +88,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           {/* Body Image 02 */}
           {blog.bodyImageVisible && blog.bodyImage02 && (
             <ImageFrame
-              src={blog.bodyImage02}
+              src={encodeURI(blog.bodyImage02)}
               alt=""
               aspect="aspect-[16/9]"
               sizes="(max-width: 800px) 100vw, 800px"
@@ -129,18 +103,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         </div>
       </section>
 
-      {/* Back Navigation */}
-      <section className="bg-white px-4 pb-16 md:px-8">
-        <div className="mx-auto max-w-[800px]">
-          <Link
-            href="/blogs"
-            className="inline-flex items-center gap-2 text-body-16 font-semibold text-primary transition-colors hover:underline"
-          >
-            <span>←</span>
-            <span>Back to Blogs</span>
-          </Link>
-        </div>
-      </section>
+      {/* Related Articles */}
+      {related.length > 0 && <RelatedArticles posts={related} />}
 
       {/* Contact Form Section */}
       <ContactFormSection />
