@@ -14,7 +14,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "Streamline your operations with SAP Business One, an intelligent ERP connecting finance, sales, inventory, and production in one unified platform.",
     tags: ["ERP Systems", "SAP"],
-    image: "/images/solutions/sap_one.png",
+    image: "/assets/images/solutions/sap_one.png",
     features: [
       "Business Process Assessment & ERP Consulting",
       "SAP Business One Implementation",
@@ -30,7 +30,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "Unify finance, CRM, sales, inventory, and HR with Odoo ERP—a highly flexible, automated platform tailored to your unique workflows.",
     tags: ["ERP Systems", "Odoo"],
-    image: "/images/solutions/odoo.png",
+    image: "/assets/images/solutions/odoo.png",
     features: [
       "Odoo Consulting & Strategy",
       "End-to-End ERP Implementation",
@@ -46,7 +46,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "Align strategy with modern technology to drive efficiency, automate operations, and build practical digital transformation roadmaps.",
     tags: ["Consulting", "Strategy"],
-    image: "/images/solutions/technology.png",
+    image: "/assets/images/solutions/technology.png",
     features: [
       "Digital Transformation Strategy",
       "Business Process Assessment",
@@ -62,7 +62,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "Convert scattered operational data into live Power BI dashboards and reports that deliver actionable insights in real time.",
     tags: ["BI & Analytics", "Power BI"],
-    image: "/images/solutions/power_bi.png",
+    image: "/assets/images/solutions/power_bi.png",
     features: [
       "Business Intelligence Strategy",
       "Power BI Dashboard Development",
@@ -78,7 +78,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "Eliminate manual data entry by connecting your ERP with eCommerce, CRM, banks, and other third-party enterprise platforms.",
     tags: ["Integration", "Connectivity"],
-    image: "/images/solutions/erp.png",
+    image: "/assets/images/solutions/erp.png",
     features: [
       "ERP & CRM Integration",
       "Warehouse & Logistics Integration",
@@ -94,7 +94,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "Build secure, scalable, and resilient cloud architectures across Azure, AWS, and private environments to ensure business continuity.",
     tags: ["Cloud", "Infrastructure"],
-    image: "/images/solutions/cloud_it.png",
+    image: "/assets/images/solutions/cloud_it.png",
     features: [
       "Cloud Consulting & Migration",
       "Cloud Hosting & Infrastructure",
@@ -110,7 +110,7 @@ export const SOLUTIONS: Solution[] = [
     description:
       "Keep your ERP, cloud, and core applications running at peak performance with proactive support and continuous optimization.",
     tags: ["Managed IT", "Support"],
-    image: "/images/solutions/services_support.png",
+    image: "/assets/images/solutions/services_support.png",
     features: [
       "Functional & Technical Support",
       "Application Management",
