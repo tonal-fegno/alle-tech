@@ -307,13 +307,13 @@ export default function SolutionDetailLayout({
       {/* 2. INTRODUCTION / WHY SECTION */}
       <section
         id="intro-section"
-        className="pt-16 pb-10 md:pt-24 md:pb-12 px-6 max-w-7xl mx-auto border-b border-border-gray/20"
+        className="container-main section-padding border-b border-border-gray/20"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:items-center">
           {/* Left Column: Heading */}
           <div className="lg:col-span-4">
             <Eyebrow className="mb-4">Enterprise Standard</Eyebrow>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-ink leading-tight">
+            <h2 className="heading-2 leading-tight">
               {detail.whyTitle}
             </h2>
             <div className="w-16 h-1 bg-primary rounded-full mt-6" />
@@ -352,11 +352,11 @@ export default function SolutionDetailLayout({
       </section>
 
       {/* 3. BUSINESS CHALLENGES SOLVED */}
-      <section className="py-14 md:py-20 bg-bg-3/50 border-y border-border-gray/20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-bg-3/50 border-y border-border-gray/20 section-padding">
+        <div className="container-main">
           <div className="text-center mb-16">
             <Eyebrow className="mb-3 justify-center">Pain Points Resolved</Eyebrow>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink">
+            <h2 className="heading-2">
               {detail.challengesTitle}
             </h2>
           </div>
@@ -393,7 +393,7 @@ export default function SolutionDetailLayout({
       </section>
 
       {/* 5. MODULES MAP (Large Cards) */}
-      <section className="py-14 md:py-20 bg-[#0B0714] text-white px-6 overflow-hidden relative">
+      <section className="bg-[#0B0714] text-white overflow-hidden relative section-padding">
         {/* Ambient purple glow */}
         <div
           aria-hidden
@@ -404,10 +404,10 @@ export default function SolutionDetailLayout({
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto">
+        <div className="container-main relative">
           <div className="text-center mb-16">
             <Eyebrow variant="dark" className="mb-3 justify-center">Module Map</Eyebrow>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
+            <h2 className="heading-2 !text-white">
               {detail.modulesTitle}
             </h2>
           </div>
@@ -441,10 +441,10 @@ export default function SolutionDetailLayout({
 
       {/* 6. COMPLETE IMPLEMENTATION LIFECYCLE */}
       {detail.lifecycleTitle && detail.lifecycle && (
-        <section className="py-14 md:py-20 px-6 max-w-7xl mx-auto overflow-hidden">
+        <section className="overflow-hidden section-padding container-main">
           <div className="text-center mb-12">
             <Eyebrow className="mb-3 justify-center">Our Methodology</Eyebrow>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink">
+            <h2 className="heading-2">
               {detail.lifecycleTitle}
             </h2>
           </div>
@@ -497,11 +497,11 @@ export default function SolutionDetailLayout({
       {detail.industriesTitle &&
         detail.industries &&
         detail.industries.length > 0 && (
-          <section className="py-14 md:py-20 bg-bg-3 border-y border-border-gray/20 px-6">
-            <div className="max-w-7xl mx-auto">
+          <section className="bg-bg-3 border-y border-border-gray/20 section-padding">
+            <div className="container-main">
               <div className="text-center mb-16">
                 <Eyebrow className="mb-3 justify-center">Industry Segments</Eyebrow>
-                <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink">
+                <h2 className="heading-2">
                   {detail.industriesTitle}
                 </h2>
               </div>
@@ -587,11 +587,11 @@ export default function SolutionDetailLayout({
       {detail.integrationsTitle &&
         detail.integrations &&
         detail.integrations.length > 0 && (
-          <section className="py-14 md:py-20 px-6 max-w-7xl mx-auto">
+          <section className="container-main section-padding">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-5">
                 <Eyebrow className="mb-3">Connected Business</Eyebrow>
-                <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink mb-6 leading-tight">
+                <h2 className="heading-2 mb-6 leading-tight">
                   {detail.integrationsTitle}
                 </h2>
                 <p className="text-body-gray text-base md:text-lg leading-relaxed font-medium mb-8">
@@ -639,7 +639,7 @@ export default function SolutionDetailLayout({
         )}
 
       {/* 9. WHY ALLE TECH */}
-      <section className="py-14 md:py-20 bg-[#0B0714] text-white px-6 overflow-hidden relative">
+      <section className="bg-[#0B0714] text-white overflow-hidden relative section-padding">
         {/* Ambient purple glow */}
         <div
           aria-hidden
@@ -650,11 +650,11 @@ export default function SolutionDetailLayout({
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="container-main relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-4 lg:sticky lg:top-28">
               <Eyebrow variant="dark" className="mb-3">Why Partner With Us</Eyebrow>
-              <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white leading-tight mb-6">
+              <h2 className="heading-2 !text-white mb-6">
                 {detail.whyAlleTechTitle ?? "Why ALLE TECH?"}
               </h2>
               <p className="text-white/80 text-base md:text-lg leading-relaxed font-normal mb-8">
@@ -701,7 +701,7 @@ export default function SolutionDetailLayout({
       )}
 
       {/* 11. CTA BANNER */}
-      {/* <CTABanner
+      <CTABanner
         heading={detail.ctaTitle ?? `Ready to modernize with ${solution.title}?`}
         subtitle={
           detail.ctaSubtitle ??
@@ -710,7 +710,7 @@ export default function SolutionDetailLayout({
         ctaLabel={detail.ctaLabel ?? "Contact Us"}
         secondaryLabel={detail.ctaSecondaryLabel ?? "Schedule a Meeting"}
         secondaryHref="/contact"
-      /> */}
+      />
     </div>
   );
 }

@@ -59,7 +59,12 @@ export default function ArrowButton({
       <span
         className={`flex shrink-0 items-center justify-center rounded-full ${circleVariants[variant]} ${circle} transition-transform duration-300 group-hover:translate-x-0.5`}
       >
-        <svg width={icon.width} height={icon.height} viewBox="0 0 18 14" fill="none">
+        <svg
+          width={icon.width}
+          height={icon.height}
+          viewBox="0 0 18 14"
+          fill="none"
+        >
           <path
             d="M1 7h15m0 0L10.5 1.5M16 7l-5.5 5.5"
             stroke={arrowColor[variant]}
