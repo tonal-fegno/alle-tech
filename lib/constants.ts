@@ -19,7 +19,7 @@ export const LOGO_URL = "/assets/images/logo.png";
 
 export const CONTACT_INFO = {
   email: "info@alle-tech.com",
-  // salesEmail: "Yaazin@alle-tech.com",
+  salesEmail: "Yaazin@alle-tech.com",
   phone: "04 299 6767",
   address: "UAE, Dubai, DAFZA, D-05",
 };
