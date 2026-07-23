@@ -10,7 +10,9 @@ interface ProductsHeroSectionProps {
   onExploreClick?: () => void;
 }
 
-export default function ProductsHeroSection({ onExploreClick }: ProductsHeroSectionProps) {
+export default function ProductsHeroSection({
+  onExploreClick,
+}: ProductsHeroSectionProps) {
   const { scrollY } = useScroll();
   const bgScaleRaw = useTransform(scrollY, [0, 600], [1, 1.15]);
   const bgScale = useSpring(bgScaleRaw, { stiffness: 45, damping: 20 });
@@ -24,9 +26,9 @@ export default function ProductsHeroSection({ onExploreClick }: ProductsHeroSect
   ];
 
   return (
-    <section className="relative min-h-[72vh] pt-32 sm:pt-36 pb-20 sm:pb-24 px-4 sm:px-6 bg-brand-navy-dark text-white flex flex-col items-center justify-center text-center overflow-hidden">
+    <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[74vh] pt-[170px] sm:pt-[200px] pb-20 sm:pb-24 px-4 sm:px-6 bg-brand-navy-dark text-white flex flex-col items-center justify-center text-center overflow-hidden">
       {/* Dynamic Background Grid Pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.07] pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.4) 1px, transparent 0)`,
@@ -98,9 +100,10 @@ export default function ProductsHeroSection({ onExploreClick }: ProductsHeroSect
           transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="text-body-18 md:text-body-20 text-white/75 max-w-2xl font-normal leading-relaxed mb-10"
         >
-          Streamline field operations, intercompany management, digital logistics, automated customer communication, and UAE e-invoicing compliance—all natively synced with your ERP.
+          Streamline field operations, intercompany management, digital
+          logistics, automated customer communication, and UAE e-invoicing
+          compliance—all natively synced with your ERP.
         </motion.p>
-
 
         {/* Scroll affordance / quick jump */}
         {onExploreClick && (
@@ -114,7 +117,11 @@ export default function ProductsHeroSection({ onExploreClick }: ProductsHeroSect
             <span>Explore All Products</span>
             <motion.div
               animate={{ y: [0, 4, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              transition={{
+                repeat: Infinity,
+                duration: 1.5,
+                ease: "easeInOut",
+              }}
             >
               <ArrowDown size={14} className="text-primary" />
             </motion.div>

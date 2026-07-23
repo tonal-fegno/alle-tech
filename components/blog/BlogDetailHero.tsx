@@ -22,7 +22,7 @@ export default function BlogDetailHero({ blog }: { blog: Blog }) {
     <section className="relative -mt-[80px] flex min-h-[64vh] items-end overflow-hidden bg-brand-navy pb-20 pt-32 text-white lg:-mt-[99px]">
       {blog.imageVisible && blog.image && (
         <motion.div
-          className="absolute inset-0"
+          className="absolute inset-0 will-change-transform"
           style={{ scale: bgScale, y: bgY }}
         >
           <Image

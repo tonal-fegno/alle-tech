@@ -3,10 +3,11 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Check, ChevronRight, HelpCircle, ShieldCheck, Zap, Wrench, Users, Plus, Minus } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, ChevronRight, HelpCircle, ShieldCheck, Zap, Wrench, Users, Plus, Minus } from "lucide-react";
 import { ProductDetail } from "@/data/productDetails";
 import FAQAccordion from "@/components/common/FAQAccordion";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { SwapLabel } from "@/components/common/HoverSwap";
 
 interface ProductDetailLayoutProps {
   product: ProductDetail;
@@ -25,16 +26,15 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
   const heroBgScale = useSpring(heroBgScaleRaw, { stiffness: 45, damping: 20, mass: 0.2 });
 
   return (
-    <div className="min-h-screen bg-brand-bg text-ink font-sans antialiased overflow-x-hidden">
-      
+    <>
       {/* 1. HERO SECTION */}
       <section
         ref={heroRef}
-        className="relative min-h-[64vh] pt-32 pb-20 bg-brand-navy text-white flex items-end overflow-hidden"
+        className="relative -mt-[80px] lg:-mt-[99px] min-h-[64vh] pt-36 sm:pt-40 lg:pt-44 pb-20 bg-brand-navy text-white flex items-end overflow-hidden"
       >
         {/* Dynamic Background Gradient / Image Overlay */}
         <motion.div
-          className={`absolute inset-0 bg-gradient-to-br ${product.darkBgGradient}`}
+          className={`absolute inset-0 bg-gradient-to-br ${product.darkBgGradient} will-change-transform`}
           style={{ scale: heroBgScale }}
         />
         
@@ -101,8 +101,9 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
         </div>
       </section>
 
-      {/* 2. OVERVIEW & CORE CONCEPT */}
-      <section className="py-16 md:py-24 bg-bg-2/40 px-6">
+      <div className="bg-brand-bg">
+        {/* 2. OVERVIEW & CORE CONCEPT */}
+        <section className="py-16 md:py-24 bg-bg-2/40 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
             <span className={`text-xs font-bold uppercase tracking-widest bg-gradient-to-r ${product.accentColor} bg-clip-text text-transparent mb-3 block`}>
@@ -510,23 +511,46 @@ export default function ProductDetailLayout({ product }: ProductDetailLayoutProp
             {product.ctaSubtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md">
-            <Link
-              href={product.ctaButton1.href}
-              className={`inline-flex items-center justify-center gap-2 bg-gradient-to-r ${product.accentColor} hover:brightness-110 text-white rounded-full py-4 px-8 text-base font-bold shadow-lg shadow-blue-500/10 transition-all duration-300 cursor-pointer`}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-xl">
+            <motion.div
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              className="w-full sm:w-auto"
             >
-              {product.ctaButton1.label}
-            </Link>
-            <Link
-              href={product.ctaButton2.href}
-              className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full py-4 px-8 text-base font-bold transition-all duration-300 cursor-pointer"
-            >
-              {product.ctaButton2.label}
-            </Link>
+              <Link
+                href={product.ctaButton1.href}
+                className="group flex items-center justify-between gap-3.5 pl-7 pr-3 py-3.5 bg-primary hover:bg-primary/90 text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto cursor-pointer"
+              >
+                <SwapLabel>{product.ctaButton1.label}</SwapLabel>
+                <div className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/30 group-hover:translate-x-0.5 shrink-0">
+                  <ArrowUpRight size={16} />
+                </div>
+              </Link>
+            </motion.div>
+
+            {product.ctaButton2 && (
+              <motion.div
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                className="w-full sm:w-auto"
+              >
+                <Link
+                  href={product.ctaButton2.href}
+                  className="group flex items-center justify-between gap-3.5 pl-7 pr-3 py-3.5 bg-white/10 hover:bg-white/20 text-white rounded-full font-bold text-sm tracking-wide border border-white/20 hover:border-white/40 transition-all duration-300 w-full sm:w-auto cursor-pointer"
+                >
+                  <SwapLabel>{product.ctaButton2.label}</SwapLabel>
+                  <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/20 group-hover:translate-x-0.5 shrink-0">
+                    <ArrowUpRight size={16} />
+                  </div>
+                </Link>
+              </motion.div>
+            )}
           </div>
         </div>
       </section>
-
-    </div>
+      </div>
+    </>
   );
 }

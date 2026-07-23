@@ -29,7 +29,6 @@ export default function BlogCard({
 
   return (
     <motion.article
-      layout
       initial={{ opacity: 0, y: 28, scale: 0.97 }}
       whileInView={{
         opacity: 1,
