@@ -60,12 +60,12 @@ export default function SolutionsPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/95 via-brand-navy-dark/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-navy-dark/70 via-transparent to-brand-navy-dark/80" />
 
-        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-6">
           {/* Badge */}
           <Badge text="Our Solutions" />
 
           {/* Heading */}
-          <h1 className="heading-1 !text-white tracking-tight max-w-4xl mb-6 flex flex-wrap justify-center !font-semibold">
+          <h1 className="heading-1 !text-white tracking-tight max-w-4xl flex flex-wrap justify-center !font-semibold">
             {"Enterprise technology, delivered end-to-end"
               .split(" ")
               .map((word, idx) => (

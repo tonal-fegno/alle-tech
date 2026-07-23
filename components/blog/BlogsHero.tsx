@@ -19,7 +19,7 @@ export default function BlogsHero() {
   const bgY = useSpring(bgYRaw, { stiffness: 45, damping: 20, mass: 0.2 });
 
   return (
-    <section className="relative -mt-[80px] flex min-h-[74vh] flex-col items-center justify-center overflow-hidden bg-brand-navy px-4 pb-24 pt-[200px] text-center text-white lg:-mt-[99px]">
+    <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[64vh] pt-[180px] lg:pt-[200px] pb-24 px-4 sm:px-6 bg-brand-navy text-white flex flex-col items-center justify-center text-center overflow-hidden">
       <motion.div
         className="absolute inset-0"
         style={{ scale: bgScale, y: bgY }}

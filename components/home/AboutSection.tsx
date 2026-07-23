@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Eyebrow from "@/components/ui/Eyebrow";
 
 const ABOUT_IMAGE = "/assets/images/about-us.png";
@@ -132,9 +133,12 @@ export default function AboutSection() {
           </div>
         </div>
         <div className="mt-3 flex w-full justify-center pt-10">
-          <button className="border-2 border-black/30 rounded-3xl p-2 px-3 hover:bg-black hover:text-white cursor-pointer transition-all">
+          <Link
+            href="/about"
+            className="border-2 border-black/30 rounded-full px-5 py-2 hover:bg-black hover:text-white cursor-pointer transition-all font-semibold text-sm"
+          >
             View Details
-          </button>
+          </Link>
         </div>
       </div>
     </section>

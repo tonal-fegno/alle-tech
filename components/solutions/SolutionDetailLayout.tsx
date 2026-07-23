@@ -241,7 +241,7 @@ export default function SolutionDetailLayout({
       {/* 1. HERO SECTION */}
       <section
         ref={heroRef}
-        className="relative -mt-[80px] lg:-mt-[99px] min-h-[68vh] pt-[150px] lg:pt-[170px] pb-20 bg-brand-navy text-white flex items-end overflow-hidden"
+        className="relative -mt-[80px] lg:-mt-[99px] min-h-[64vh] pt-[180px] lg:pt-[200px] pb-24 bg-brand-navy text-white flex items-end overflow-hidden"
       >
         {detail.heroImage.startsWith("http") ||
           detail.heroImage.startsWith("/") ? (

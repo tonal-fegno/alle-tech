@@ -9,6 +9,7 @@ import { SwapLabel, SwapArrow } from "@/components/common/HoverSwap";
 import CalendarWidget from "@/components/contact/CalendarWidget";
 import ContactInfoList from "@/components/contact/ContactInfoList";
 import { PAIN_POINTS, fadeUpOnly, staggerContainer } from "@/app/contact/constants";
+import UIButton from "@/components/ui-button";
 
 declare global {
   interface Window {
@@ -474,25 +475,20 @@ export default function ContactForm() {
 
                 {/* Submit Button */}
                 <motion.div variants={fadeUpOnly}>
-                  <motion.button
+                  <UIButton
                     type="submit"
                     disabled={loading || !recaptchaChecked}
-                    whileHover={recaptchaChecked ? { scale: 1.02 } : {}}
-                    whileTap={recaptchaChecked ? { scale: 0.98 } : {}}
-                    className="group w-full py-3 sm:py-4 bg-brand-accent-blue hover:bg-brand-accent-blue-dark disabled:bg-brand-accent-blue/50 disabled:cursor-not-allowed text-white rounded-xl font-bold flex items-center justify-center gap-2 cursor-pointer border border-transparent transition-all uppercase tracking-wider text-[11px] sm:text-xs md:text-sm"
+                    className="justify-between py-3.5 px-6 disabled:opacity-50 disabled:cursor-not-allowed text-[14px]"
                   >
                     {loading ? (
                       <span className="flex items-center gap-2">
-                        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <span className="w-4 h-4 border-2 border-white border-t-transparent/20 rounded-full animate-spin" />
                         Sending...
                       </span>
                     ) : (
-                      <>
-                        <SwapLabel>Contact Us & Confirm Demo</SwapLabel>
-                        <SwapArrow size={16} />
-                      </>
+                      "Send Request"
                     )}
-                  </motion.button>
+                  </UIButton>
                   <p className="text-[11px] text-neutral-400 text-center mt-3 font-medium">
                     By submitting this form, you agree to our{" "}
                     <a
