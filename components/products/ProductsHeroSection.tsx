@@ -26,57 +26,39 @@ export default function ProductsHeroSection({
   ];
 
   return (
-    <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[74vh] pt-[170px] sm:pt-[200px] pb-20 sm:pb-24 px-4 sm:px-6 bg-brand-navy-dark text-white flex flex-col items-center justify-center text-center overflow-hidden">
-      {/* Dynamic Background Grid Pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.07] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.4) 1px, transparent 0)`,
-          backgroundSize: "32px 32px",
-        }}
-      />
-
-      {/* Animated Glowing Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-1/4 w-[350px] h-[350px] bg-blue-600/15 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute top-10 right-1/4 w-[300px] h-[300px] bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none" />
-
-      {/* Parallax Hero Image Background Layer */}
+    <section className="relative -mt-[80px] flex min-h-[74vh] flex-col items-center justify-center overflow-hidden bg-brand-navy px-4 pb-24 pt-[200px] text-center text-white lg:-mt-[99px]">
       <motion.div
-        className="absolute inset-0 opacity-20 pointer-events-none mix-blend-luminosity"
+        className="absolute inset-0"
         style={{ scale: bgScale, y: bgY }}
       >
         <Image
-          src="/assets/images/solutions/hero.png"
+          src="/assets/images/hero-bg.png"
           alt="Enterprise Software Products"
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-center"
         />
       </motion.div>
 
-      {/* Dark Vignette Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark via-brand-navy-dark/60 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/90 via-transparent to-brand-navy-dark/90 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/95 via-brand-navy-dark/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-navy-dark/70 via-transparent to-brand-navy-dark/80" />
 
-      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+      <div className="container-main relative z-10 flex flex-col items-center">
         {/* Eyebrow Pill */}
-        <motion.div
-          initial={{ opacity: 0, y: -15 }}
+        <motion.span
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/90 text-xs font-semibold uppercase tracking-widest"
+          transition={{ duration: 0.5 }}
+          className="mb-6 inline-flex w-fit items-center rounded-full bg-white/13 px-5 py-2 text-body-16 font-semibold text-white shadow-[0_2px_12px_rgba(0,11,34,0.15)] backdrop-blur-md"
         >
-          <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
-          <span>ALLE TECH Software Suite</span>
-        </motion.div>
+          ALLE TECH Software Suite
+        </motion.span>
 
-        {/* Animated Heading with Blur & Staggered Reveal */}
-        <h1 className="heading-1 !text-white tracking-tight max-w-4xl mb-6 flex flex-wrap justify-center !font-bold leading-[1.15]">
-          {"Intelligent Enterprise Platforms Built for Operational Excellence"
-            .split(" ")
-            .map((word, idx) => (
+        {/* Animated Heading on 2 Lines */}
+        <h1 className="text-[32px] sm:text-[44px] md:text-[50px] lg:text-[56px] xl:text-[60px] font-semibold leading-[1.15] tracking-tight mb-6 max-w-6xl text-center !text-white">
+          <span className="block whitespace-nowrap sm:whitespace-normal md:whitespace-nowrap">
+            {"Intelligent Enterprise Platforms".split(" ").map((word, idx) => (
               <motion.span
                 key={idx}
                 initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
@@ -91,18 +73,35 @@ export default function ProductsHeroSection({
                 {word}
               </motion.span>
             ))}
+          </span>
+          <span className="block whitespace-nowrap sm:whitespace-normal md:whitespace-nowrap">
+            {"Built for Operational Excellence".split(" ").map((word, idx) => (
+              <motion.span
+                key={`l2-${idx}`}
+                initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.25 + idx * 0.04,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="inline-block mr-[0.25em]"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </span>
         </h1>
 
         {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="text-body-18 md:text-body-20 text-white/75 max-w-2xl font-normal leading-relaxed mb-10"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mx-auto max-w-xl text-body-18 font-medium leading-relaxed text-white/90 mb-6"
         >
-          Streamline field operations, intercompany management, digital
-          logistics, automated customer communication, and UAE e-invoicing
-          compliance—all natively synced with your ERP.
+          Specialized enterprise platforms for field operations, intercompany
+          management, digital logistics, and UAE e-invoicing.
         </motion.p>
 
         {/* Scroll affordance / quick jump */}

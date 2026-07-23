@@ -46,7 +46,7 @@ export default function ProductsWhyChoose() {
           <div className="mb-3">
             <Eyebrow variant="light">ENTERPRISE STANDARDS</Eyebrow>
           </div>
-          <h2 className="heading-2 mb-4">
+          <h2 className="heading-2 text-ink mb-4">
             Why Industry Leaders Choose ALLE TECH Products
           </h2>
           <p className="text-body-18 text-body-gray leading-relaxed font-normal">

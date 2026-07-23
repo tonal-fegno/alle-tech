@@ -25,7 +25,10 @@ export const CONTACT_INFO = {
 };
 
 export const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/alle-tech-fzco/" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/alle-tech-fzco/",
+  },
 ];
 
 export const PRODUCTS = [
@@ -43,7 +46,7 @@ export const PRODUCTS = [
   },
   {
     slug: "transsync",
-    title: "TransSync™",
+    title: "TransSync",
     description: "Intelligent Intercompany Management Platform",
     points: [
       "Intercompany Automation",
@@ -55,7 +58,7 @@ export const PRODUCTS = [
   },
   {
     slug: "freight-pulse",
-    title: "Freight Pulse™",
+    title: "Freight Pulse",
     description: "Digital Logistics Platform",
     points: [
       "Freight & Transport Management",
@@ -67,7 +70,7 @@ export const PRODUCTS = [
   },
   {
     slug: "engageflow",
-    title: "EngageFlow™",
+    title: "EngageFlow",
     description: "Customer Communication Platform",
     points: [
       "Email & WhatsApp Automation",
@@ -79,7 +82,7 @@ export const PRODUCTS = [
   },
   {
     slug: "invoiceflow",
-    title: "InvoiceFlow™",
+    title: "InvoiceFlow",
     description: "UAE E-Invoicing Platform",
     points: [
       "UAE E-Invoicing Compliance",
@@ -212,14 +215,30 @@ export const INDUSTRIES = [
     title: "Retail",
     description:
       "Real-time visibility into inventory, customers, sales, purchasing, promotions, and financial performance.",
-    typicalSolutions: ["POS", "Inventory", "CRM", "Loyalty", "Marketing", "BI", "Mobile Apps"],
+    typicalSolutions: [
+      "POS",
+      "Inventory",
+      "CRM",
+      "Loyalty",
+      "Marketing",
+      "BI",
+      "Mobile Apps",
+    ],
   },
   {
     slug: "healthcare",
     title: "Healthcare",
     description:
       "Operational efficiency alongside compliance, patient service, inventory control, procurement, HR, and financial management.",
-    typicalSolutions: ["ERP", "Inventory", "Procurement", "HR", "Reporting", "AI", "Dashboards"],
+    typicalSolutions: [
+      "ERP",
+      "Inventory",
+      "Procurement",
+      "HR",
+      "Reporting",
+      "AI",
+      "Dashboards",
+    ],
   },
   {
     slug: "construction",
@@ -239,21 +258,40 @@ export const INDUSTRIES = [
     title: "Automotive",
     description:
       "Complete visibility across vehicle sales, spare parts, workshops, inventory, customer service, warranties, and financial management.",
-    typicalSolutions: ["Inventory", "Workshop Operations", "CRM", "Mobile Field Teams", "Reporting"],
+    typicalSolutions: [
+      "Inventory",
+      "Workshop Operations",
+      "CRM",
+      "Mobile Field Teams",
+      "Reporting",
+    ],
   },
   {
     slug: "professional-services",
     title: "Professional Services",
     description:
       "Integrated project management, financial control, resource planning, and business intelligence for consulting and service firms.",
-    typicalSolutions: ["Projects", "Timesheets", "Billing", "CRM", "Dashboards", "AI"],
+    typicalSolutions: [
+      "Projects",
+      "Timesheets",
+      "Billing",
+      "CRM",
+      "Dashboards",
+      "AI",
+    ],
   },
   {
     slug: "food-beverage",
     title: "Food & Beverage",
     description:
       "Batch traceability, expiry management, inventory control, quality assurance, and efficient distribution.",
-    typicalSolutions: ["Batch Tracking", "Expiry Management", "Distribution", "Warehouse", "RepProX™"],
+    typicalSolutions: [
+      "Batch Tracking",
+      "Expiry Management",
+      "Distribution",
+      "Warehouse",
+      "RepProX",
+    ],
   },
   {
     slug: "e-commerce",
