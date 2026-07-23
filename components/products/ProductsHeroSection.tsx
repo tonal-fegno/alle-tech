@@ -3,8 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import Eyebrow from "@/components/ui/Eyebrow";
-import { ShieldCheck, Cpu, Zap, ArrowDown, Sparkles } from "lucide-react";
+import Badge from "@/components/badge";
+import { ShieldCheck, Cpu, Zap, ArrowDown } from "lucide-react";
 
 interface ProductsHeroSectionProps {
   onExploreClick?: () => void;
@@ -45,15 +45,10 @@ export default function ProductsHeroSection({
       <div className="absolute inset-0 bg-gradient-to-b from-brand-navy-dark/70 via-transparent to-brand-navy-dark/80" />
 
       <div className="container-main relative z-10 flex flex-col items-center">
-        {/* Eyebrow Pill */}
-        <motion.span
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 inline-flex w-fit items-center rounded-full bg-white/13 px-5 py-2 text-body-16 font-semibold text-white shadow-[0_2px_12px_rgba(0,11,34,0.15)] backdrop-blur-md"
-        >
-          ALLE TECH Software Suite
-        </motion.span>
+        {/* Eyebrow Badge */}
+        <div className="mb-6">
+          <Badge text="ALLE TECH Software Suite" variant="light" />
+        </div>
 
         {/* Animated Heading on 2 Lines */}
         <h1 className="text-[32px] sm:text-[44px] md:text-[50px] lg:text-[56px] xl:text-[60px] font-semibold leading-[1.15] tracking-tight mb-6 max-w-6xl text-center !text-white">

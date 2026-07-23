@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Database, WifiOff, Layers, Cpu, Check } from "lucide-react";
-import Eyebrow from "@/components/ui/Eyebrow";
+import Badge from "@/components/badge";
 
 export default function ProductsWhyChoose() {
   const pillars = [
@@ -44,7 +44,7 @@ export default function ProductsWhyChoose() {
         {/* Centered Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
           <div className="mb-3">
-            <Eyebrow variant="light">ENTERPRISE STANDARDS</Eyebrow>
+            <Badge text="ENTERPRISE STANDARDS" variant="light" />
           </div>
           <h2 className="heading-2 text-ink mb-4">
             Why Industry Leaders Choose ALLE TECH Products

@@ -6,7 +6,7 @@ import ProductsHeroSection from "@/components/products/ProductsHeroSection";
 import ProductCard from "@/components/products/ProductCard";
 import ProductsWhyChoose from "@/components/products/ProductsWhyChoose";
 import CTABanner from "@/components/common/CTABanner";
-import Eyebrow from "@/components/ui/Eyebrow";
+import Badge from "@/components/badge";
 
 export default function ProductsPage() {
   const productsListRef = React.useRef<HTMLDivElement>(null);
@@ -25,7 +25,7 @@ export default function ProductsPage() {
         <main ref={productsListRef} className="container-main section-padding py-20 md:py-28 relative z-10 scroll-mt-10">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
             <div className="mb-4">
-              <Eyebrow variant="light">ENTERPRISE SOFTWARE SUITE</Eyebrow>
+              <Badge text="ENTERPRISE SOFTWARE SUITE" variant="light" />
             </div>
             <h2 className="heading-2 text-ink mb-5 font-bold tracking-tight">
               Our Enterprise Software Products
