@@ -9,7 +9,7 @@ import { SwapLabel, SwapArrow } from "@/components/common/HoverSwap";
 import CalendarWidget from "@/components/contact/CalendarWidget";
 import ContactInfoList from "@/components/contact/ContactInfoList";
 import { PAIN_POINTS, fadeUpOnly, staggerContainer } from "@/app/(site)/contact/constants";
-
+import UIButton from "@/components/ui-button";
 declare global {
   interface Window {
     onRecaptchaSuccess?: (token: string) => void;
@@ -109,10 +109,7 @@ export default function ContactForm() {
   });
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+    <div
       className="bg-white rounded-2xl sm:rounded-4xl border border-neutral-100 p-4 sm:p-6 md:p-10 lg:p-12"
     >
       {formSubmitted ? (
@@ -124,7 +121,7 @@ export default function ContactForm() {
           <div className="w-16 h-16 rounded-full bg-green-50 text-green-500 flex items-center justify-center mb-6 shadow-sm">
             <CheckCircle2 size={36} />
           </div>
-          <h3 className="text-2xl md:text-3xl font-extrabold text-neutral-900 tracking-tight">
+          <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 tracking-tight">
             {isCalendarActive ? "Demo Requested!" : "Inquiry Received!"}
           </h3>
           <p className="text-neutral-500 mt-4 text-sm md:text-base max-w-xl leading-relaxed font-medium">
@@ -164,12 +161,11 @@ export default function ContactForm() {
             <motion.div
               variants={staggerContainer}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              animate="visible"
               className="lg:col-span-7 flex flex-col gap-6"
             >
               <motion.div variants={fadeUpOnly}>
-                <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-neutral-900">
+                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-neutral-900">
                   Tell us about your team
                 </h2>
               </motion.div>
@@ -474,25 +470,20 @@ export default function ContactForm() {
 
                 {/* Submit Button */}
                 <motion.div variants={fadeUpOnly}>
-                  <motion.button
+                  <UIButton
                     type="submit"
                     disabled={loading || !recaptchaChecked}
-                    whileHover={recaptchaChecked ? { scale: 1.02 } : {}}
-                    whileTap={recaptchaChecked ? { scale: 0.98 } : {}}
-                    className="group w-full py-3 sm:py-4 bg-brand-accent-blue hover:bg-brand-accent-blue-dark disabled:bg-brand-accent-blue/50 disabled:cursor-not-allowed text-white rounded-xl font-bold flex items-center justify-center gap-2 cursor-pointer border border-transparent transition-all uppercase tracking-wider text-[11px] sm:text-xs md:text-sm"
+                    className="justify-between py-3.5 px-6 disabled:opacity-50 disabled:cursor-not-allowed text-[14px]"
                   >
                     {loading ? (
                       <span className="flex items-center gap-2">
-                        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <span className="w-4 h-4 border-2 border-white border-t-transparent/20 rounded-full animate-spin" />
                         Sending...
                       </span>
                     ) : (
-                      <>
-                        <SwapLabel>Contact Us & Confirm Demo</SwapLabel>
-                        <SwapArrow size={16} />
-                      </>
+                      "Send Request"
                     )}
-                  </motion.button>
+                  </UIButton>
                   <p className="text-[11px] text-neutral-400 text-center mt-3 font-medium">
                     By submitting this form, you agree to our{" "}
                     <a
@@ -511,8 +502,7 @@ export default function ContactForm() {
             <motion.div
               variants={staggerContainer}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              animate="visible"
               className="lg:col-span-5 flex flex-col gap-6"
             >
               {/* Desktop Calendar Section (Hidden on mobile) */}
@@ -523,7 +513,7 @@ export default function ContactForm() {
                       className="text-blue-600 shrink-0"
                       size={24}
                     />
-                    <h3 className="text-lg md:text-xl font-extrabold text-neutral-900">
+                    <h3 className="text-lg md:text-xl font-semibold text-neutral-900">
                       Book a Live Demo
                     </h3>
                   </div>
@@ -560,6 +550,6 @@ export default function ContactForm() {
           </div>
         </form>
       )}
-    </motion.div>
+    </div>
   );
 }

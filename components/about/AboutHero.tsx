@@ -25,7 +25,7 @@ export default function AboutHero() {
               Business is evolving rapidly, and organizations need smarter ways to improve efficiency, reduce costs, and accelerate growth.
             </p>
             <p>
-              At <b>ALLE TECH</b>, we help businesses transform their operations through intelligent technology solutions. By understanding your unique business needs, we deliver solutions that drive measurable results—not just software.
+              At <b>ALLE TECH</b>, we help businesses transform their operations through intelligent technology solutions. By understanding your unique business needs, we deliver solutions that drive measurable result not just software.
 
               Our expertise includes ERP, AI, Business Automation, Business Intelligence, Data & Analytics, Cloud Technologies, Enterprise Mobility, Warehouse Management, Enterprise Integrations, and Custom Business Applications—all designed to help your business work smarter and stay future-ready.
 

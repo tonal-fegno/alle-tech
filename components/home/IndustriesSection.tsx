@@ -12,7 +12,7 @@ import food from '@/public/images/inductries/Food.png';
 import healthcare from '@/public/images/inductries/Healthcare.png';
 import logistics from '@/public/images/inductries/Logistics.png';
 import manufacturing from '@/public/images/inductries/Manufacturing.png';
-import professional from '@/public/images/inductries/Professional-Services.png';
+import professional from '@/public/images/inductries/Professional.png';
 import retail from '@/public/images/inductries/Retail.png';
 
 const INDUSTRIES = [
@@ -171,7 +171,7 @@ export default function IndustriesSection() {
             solutions that address unique operational challenges, improve
             efficiency, and accelerate digital transformation.
           </p>
-          <ArrowButton href="/services" className="mt-8">
+          <ArrowButton href="/industries" className="mt-8">
             See the industries we serve
           </ArrowButton>
         </div>

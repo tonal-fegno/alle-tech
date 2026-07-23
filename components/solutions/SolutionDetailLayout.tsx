@@ -237,14 +237,14 @@ export default function SolutionDetailLayout({
   const whyAlleTechItems = detail.whyAlleTechItems ?? defaultWhyAlleTechItems;
 
   return (
-    <div className="min-h-screen bg-brand-bg text-ink font-sans antialiased overflow-x-hidden">
+    <div className="text-ink antialiased">
       {/* 1. HERO SECTION */}
       <section
         ref={heroRef}
-        className="relative min-h-[68vh] pt-32 pb-20 bg-brand-navy text-white flex items-end overflow-hidden"
+        className="relative -mt-[80px] lg:-mt-[99px] min-h-[64vh] pt-[180px] lg:pt-[200px] pb-24 bg-brand-navy text-white flex items-end overflow-hidden"
       >
         {detail.heroImage.startsWith("http") ||
-        detail.heroImage.startsWith("/") ? (
+          detail.heroImage.startsWith("/") ? (
           <motion.div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -397,9 +397,9 @@ export default function SolutionDetailLayout({
         <section className="py-14 md:py-20 bg-white border-b border-neutral-100 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3 block">
-                Measurable Impact
-              </span>
+              <div className="w-full flex justify-center items-center pb-4">
+                <Eyebrow dotClassName="text-center">Measurable Impact</Eyebrow>
+              </div>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">
                 {detail.outcomesTitle}
               </h2>
@@ -421,10 +421,10 @@ export default function SolutionDetailLayout({
                     className="group bg-neutral-50 rounded-3xl border border-neutral-100/90 p-8 hover:bg-blue-50/20 hover:border-blue-200/60 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
                   >
                     {/* Icon Circle */}
-                    <div className="w-12 h-12 rounded-2xl bg-white text-blue-600 flex items-center justify-center shrink-0 mb-6 shadow-sm border border-neutral-100 group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-white text-[#2C8FCE] flex items-center justify-center shrink-0 mb-6 shadow-sm border border-neutral-100 group-hover:scale-105 transition-transform duration-300">
                       <IconComp size={22} />
                     </div>
-                    
+
                     {/* Card Content */}
                     <h3 className="text-lg font-bold text-neutral-900 mb-3 tracking-tight">
                       {out.title}
@@ -447,9 +447,9 @@ export default function SolutionDetailLayout({
 
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-3 block font-mono">
-              Module Map
-            </span>
+            <div className="w-full flex justify-center items-center pb-4">
+              <Eyebrow variant="dark" dotClassName="text-center">Module Map</Eyebrow>
+            </div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
               {detail.modulesTitle}
             </h2>
@@ -555,11 +555,10 @@ export default function SolutionDetailLayout({
                     <button
                       key={ind.name}
                       onClick={() => setActiveIndTab(ind.name)}
-                      className={`px-6 py-3 rounded-full font-bold text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer ${
-                        activeIndTab === ind.name
-                          ? "bg-primary text-white shadow-md shadow-primary/15"
-                          : "bg-white hover:bg-bg-1 text-body-gray border border-border-gray/40"
-                      }`}
+                      className={`px-6 py-3 rounded-full font-bold text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer ${activeIndTab === ind.name
+                        ? "bg-primary text-white shadow-md shadow-primary/15"
+                        : "bg-white hover:bg-bg-1 text-body-gray border border-border-gray/40"
+                        }`}
                     >
                       {ind.name}
                     </button>
@@ -653,7 +652,7 @@ export default function SolutionDetailLayout({
               </div>
 
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {detail.integrations.map((integ, idx) => {
+                {detail?.integrations.map((integ, idx) => {
                   const IconComp = integ.icon;
                   return (
                     <div
@@ -663,7 +662,7 @@ export default function SolutionDetailLayout({
                       <div
                         className={`w-10 h-10 rounded-xl bg-bg-1 flex items-center justify-center shrink-0 ${integ.color}`}
                       >
-                        <IconComp size={20} />
+                        <IconComp size={20} color="#2C8FCE" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-ink text-sm mb-1 flex items-center gap-1.5">

@@ -25,7 +25,7 @@ const circleVariants = {
 
 const arrowColor = {
   light: "#FFFFFF",
-  solid: "#0A4CE0",
+  solid: "#2C8FCE",
 };
 
 const sizes = {

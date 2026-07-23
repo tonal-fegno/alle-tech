@@ -70,7 +70,7 @@ export default function SolutionsSection() {
                     </div>
                     <div className="flex flex-1 flex-col justify-center">
                       <ArrowButton
-                        href={`/services/${service.slug}`}
+                        href={`/solutions/${service.slug}`}
                         variant="solid"
                         size="sm"
                       >
