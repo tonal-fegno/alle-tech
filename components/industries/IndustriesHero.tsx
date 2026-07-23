@@ -7,6 +7,7 @@ export default function IndustriesHero() {
       badgeText="Industries"
       title="Technology Built Around Your Industry"
       subtitle="Combining industry expertise with intelligent technology to design solutions tailored to your operational workflows."
+      imageSrc="/images/inductries/hero.png"
       imageAlt="Industry-focused business technology"
     />
   );

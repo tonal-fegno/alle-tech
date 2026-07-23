@@ -172,14 +172,14 @@ export default function ProductDetailLayout({
               </Link>
             </motion.div>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.06 }}
-              className="text-[11px] font-bold uppercase tracking-widest text-white/40 mb-4"
+              className="mb-4"
             >
-              {product.tagline}
-            </motion.p>
+              <Eyebrow variant="dark">{product.tagline}</Eyebrow>
+            </motion.div>
 
             <div className="flex items-center gap-4 mb-4 flex-wrap">
               {product.logo && (
@@ -329,12 +329,7 @@ export default function ProductDetailLayout({
 
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
             <div className="lg:col-span-7">
-              <span
-                className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest bg-gradient-to-r ${product.accentColor} bg-clip-text text-transparent mb-4 block`}
-              >
-                <Target size={14} className="text-primary" />
-                <span>Core Concept</span>
-              </span>
+              <Eyebrow className="mb-4">Core Concept</Eyebrow>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-6 leading-tight">
                 {product.conceptTitle} <br />
                 <span className="text-neutral-400 font-semibold block mt-1">
@@ -382,10 +377,7 @@ export default function ProductDetailLayout({
         {/* 3. CHALLENGES SECTION */}
         <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto text-left">
           <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3 block">
-              <ShieldAlert size={14} className="text-amber-500" />
-              <span>Pain Points</span>
-            </span>
+            <Eyebrow className="mb-3">Pain Points</Eyebrow>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-5">
               {product.challengesTitle}
             </h2>
@@ -431,7 +423,7 @@ export default function ProductDetailLayout({
         </section>
 
         {/* 4. BUSINESS OUTCOMES SECTION */}
-        <section className="py-20 md:py-28 bg-[#070e24] text-white px-6 overflow-hidden relative">
+        <section className="py-20 md:py-28 bg-[#1c3849] text-white px-6 overflow-hidden relative">
           {/* Glow overlay */}
           <div
             className={`absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br ${product.accentColor} rounded-full filter blur-[130px] opacity-15 pointer-events-none`}
@@ -439,10 +431,7 @@ export default function ProductDetailLayout({
 
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="max-w-3xl mb-16">
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary uppercase tracking-widest mb-3 block">
-                <Sparkles size={14} className="text-primary animate-pulse" />
-                <span>Outcomes</span>
-              </span>
+              <Eyebrow className="mb-3" variant="dark">Outcomes</Eyebrow>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-5 leading-tight">
                 {product.outcomesTitle}
               </h2>
@@ -498,10 +487,7 @@ export default function ProductDetailLayout({
 
             <div className="max-w-7xl mx-auto relative z-10">
               <div className="max-w-3xl mb-16">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-extrabold tracking-widest uppercase mb-5 backdrop-blur-md">
-                  <Zap size={12} className="text-primary animate-pulse" />
-                  <span>INTELLIGENCE & AI ENGINE</span>
-                </div>
+                <Eyebrow className="mb-5" variant="dark">INTELLIGENCE & AI ENGINE</Eyebrow>
                 <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-5 leading-tight">
                   {product.aiTitle}
                 </h2>
@@ -578,10 +564,7 @@ export default function ProductDetailLayout({
         {/* 6. MODULES SECTION (Product Capabilities) */}
         <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
           <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3 block">
-              <Boxes size={14} className="text-primary" />
-              <span>Product Capabilities</span>
-            </span>
+            <Eyebrow className="mb-3">Product Capabilities</Eyebrow>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-5">
               {product.modulesTitle}
             </h2>

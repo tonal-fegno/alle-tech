@@ -171,7 +171,7 @@ export default function IndustriesSection() {
             solutions that address unique operational challenges, improve
             efficiency, and accelerate digital transformation.
           </p>
-          <ArrowButton href="/services" className="mt-8">
+          <ArrowButton href="/industries" className="mt-8">
             See the industries we serve
           </ArrowButton>
         </div>

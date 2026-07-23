@@ -12,12 +12,18 @@ import {
   Truck,
   MessageCircle,
   FileText,
+  Zap,
+  Layers,
+  ShieldCheck,
+  UserCheck,
+  Rocket,
   type LucideIcon,
 } from "lucide-react";
 import IndustriesHero from "@/components/industries/IndustriesHero";
 import IndustryCard from "@/components/IndustryCard";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
+import CTABanner from "@/components/common/CTABanner";
 import { INDUSTRIES, SOLUTIONS, PRODUCTS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -25,22 +31,67 @@ export const metadata: Metadata = {
 };
 
 const APPROACH_STEPS = [
-  "Understand the Industry",
-  "Understand the Business",
-  "Analyze Processes",
-  "Design the Solution",
-  "Implement Technology",
-  "Optimize Performance",
-  "Continuously Improve",
+  {
+    title: "Understand the Industry",
+    desc: "We study the compliance, operational standards, and standard requirements of your specific sector first.",
+  },
+  {
+    title: "Understand the Business",
+    desc: "We align with your unique team workflows, long-term growth goals, and current pain points.",
+  },
+  {
+    title: "Analyze Processes",
+    desc: "Our technology consultants map out current process flows to identify bottlenecks and integration gaps.",
+  },
+  {
+    title: "Design the Solution",
+    desc: "We blueprint a tailormade ecosystem linking your ERP, analytics, and business automation.",
+  },
+  {
+    title: "Implement Technology",
+    desc: "Our developers deploy, migrate, and configure systems safely using proven industry frameworks.",
+  },
+  {
+    title: "Optimize Performance",
+    desc: "We perform thorough testing, run user onboarding sessions, and monitor productivity metrics.",
+  },
+  {
+    title: "Continuously Improve",
+    desc: "We act as your long-term technology partner, supporting new upgrades and innovation as you scale.",
+  },
 ];
 
 const WHY_IT_MATTERS = [
-  "Faster implementations",
-  "Better business processes",
-  "Reduced project risk",
-  "Higher user adoption",
-  "Stronger return on investment",
-  "Long-term scalability",
+  {
+    title: "Faster implementations",
+    icon: Zap,
+    desc: "Pre-built templates and pre-configured industry logic accelerate deployment schedules.",
+  },
+  {
+    title: "Better business processes",
+    icon: Layers,
+    desc: "Standardize your operations on time-tested workflows used by industry leaders.",
+  },
+  {
+    title: "Reduced project risk",
+    icon: ShieldCheck,
+    desc: "Avoid costly errors and compliance issues with certified business processes.",
+  },
+  {
+    title: "Higher user adoption",
+    icon: UserCheck,
+    desc: "Software configured for your team's everyday tasks feels intuitive and easy to adopt.",
+  },
+  {
+    title: "Stronger return on investment",
+    icon: TrendingUp,
+    desc: "Optimized efficiency, automated tasks, and clean data result in real, fast ROI.",
+  },
+  {
+    title: "Long-term scalability",
+    icon: Rocket,
+    desc: "A solid digital foundation supports expansion into new business models and markets.",
+  },
 ];
 
 const ENTERPRISE_ICONS: Record<string, LucideIcon> = {
@@ -65,17 +116,23 @@ function EyebrowHeader({
   badge,
   title,
   subtitle,
+  variant = "light",
 }: {
   badge: string;
   title: string;
   subtitle?: string;
+  variant?: "light" | "dark";
 }) {
   return (
     <div className="flex flex-col items-center gap-5 text-center">
-      <Eyebrow>{badge}</Eyebrow>
-      <h2 className="heading-2 max-w-[800px]">{title}</h2>
+      <Eyebrow variant={variant}>{badge}</Eyebrow>
+      <h2 className={`heading-2 max-w-[800px] ${variant === "dark" ? "text-white" : "text-ink"}`}>
+        {title}
+      </h2>
       {subtitle && (
-        <p className="max-w-[700px] text-body-20 text-body-gray">{subtitle}</p>
+        <p className={`max-w-[700px] text-body-20 ${variant === "dark" ? "text-white/70" : "text-body-gray"}`}>
+          {subtitle}
+        </p>
       )}
     </div>
   );
@@ -92,14 +149,16 @@ function EcosystemCard({
 }) {
   return (
     <div
-      className={`flex flex-col items-center gap-4 rounded-section border border-border-gray/40 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,11,34,0.08)] ${className}`}
+      className={`group flex flex-col items-center gap-4 rounded-section border border-border-gray/30 bg-gradient-to-br from-bg-2/80 via-white to-blue-50/20 p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:from-bg-2 hover:to-primary/20 hover:border-primary/60 hover:shadow-[0_20px_40px_rgba(44,143,206,0.15)] ${className}`}
     >
-      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-bg-2 text-primary">
+      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-primary text-white shadow-[0_4px_12px_rgba(44,143,206,0.25)] transition-transform duration-300 group-hover:scale-110">
         <Icon size={24} />
       </span>
       <div className="flex flex-col items-center gap-2">
-        <span className="text-body-16 font-semibold text-ink">{title}</span>
-        <span className="h-[3px] w-6 rounded-full bg-gradient-primary" />
+        <span className="text-body-16 font-semibold text-ink transition-colors duration-300 group-hover:text-primary">
+          {title}
+        </span>
+        <span className="h-[3px] w-8 rounded-full bg-gradient-primary transition-all duration-300 group-hover:w-12" />
       </div>
     </div>
   );
@@ -161,18 +220,6 @@ export default function IndustriesPage() {
     <main>
       {/* Hero Section */}
       <IndustriesHero />
-
-      {/* Industry Expertise Section */}
-      <section className="bg-white px-4 section-padding md:px-8">
-        <div className="container-main flex flex-col items-center gap-8">
-          <EyebrowHeader
-            badge="Why It Matters"
-            title="Industry Expertise That Creates Business Value"
-            subtitle="Technology delivers the greatest value when it reflects industry best practices. Rather than forcing businesses to adapt to software, we configure technology around the way your industry operates."
-          />
-        </div>
-      </section>
-
       {/* Industries We Serve Section */}
       <section
         id="industries-we-serve"
@@ -221,68 +268,78 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Why Industry Expertise Matters Section */}
-      <section className="bg-bg-3 px-4 section-padding md:px-8">
-        <div className="container-main flex flex-col items-center gap-12">
+      {/* Why Industry Expertise Matters Section (Immersive Dark Section) */}
+      <section className="relative overflow-hidden bg-[#0B0714] px-4 section-padding md:px-8">
+        {/* Ambient background glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-[480px]"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 80% at 50% -10%, rgba(76,29,149,0.4), transparent 70%)",
+          }}
+        />
+
+        <div className="container-main relative z-10 flex flex-col items-center gap-12">
           <EyebrowHeader
             badge="The Difference"
             title="Why Industry Expertise Matters"
             subtitle="Technology alone doesn't create business success — industry knowledge does. We don't simply implement software. We implement industry best practices."
+            variant="dark"
           />
+
           <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {WHY_IT_MATTERS.map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-4 rounded-section border border-border-gray/40 bg-white p-6"
-              >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-bg-2 text-primary">
-                  <CheckIcon />
-                </span>
-                <span className="text-body-18 font-semibold text-ink">
-                  {item}
-                </span>
-              </div>
-            ))}
+            {WHY_IT_MATTERS.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.title}
+                  className="flex flex-col gap-4 rounded-section border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/50 hover:-translate-y-1.5"
+                >
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                    <Icon size={20} strokeWidth={2} />
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-[18px] font-bold text-white tracking-tight">
+                      {item.title}
+                    </h3>
+                    <p className="text-[14px] leading-relaxed text-white/70">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Industry Approach Section */}
-      <section className="bg-white px-4 section-padding md:px-8">
+      {/* Industry Approach Section (Premium Numbered Grid) */}
+      <section className="bg-slate-50 px-4 section-padding md:px-8">
         <div className="container-main flex flex-col items-center gap-12">
           <EyebrowHeader
             badge="Our Methodology"
             title="The ALLE Industry Approach"
-            subtitle="Technology should adapt to your industry — not the other way around. Every engagement follows the same philosophy."
+            subtitle="Technology should adapt to your industry — not the other way around. Every engagement follows a structured, business-first process."
           />
-          <div className="flex w-full flex-wrap items-center justify-center gap-3">
+
+          <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {APPROACH_STEPS.map((step, index) => (
-              <div key={step} className="flex items-center gap-3">
-                <div className="flex items-center gap-3 rounded-full border border-border-gray/60 bg-bg-3 px-5 py-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-primary text-[14px] font-semibold text-white">
-                    {index + 1}
-                  </span>
-                  <span className="whitespace-nowrap text-body-16 font-semibold text-ink">
-                    {step}
-                  </span>
+              <div
+                key={step.title}
+                className="flex flex-col gap-4 rounded-section border border-border-gray/30 bg-white p-6 shadow-xs transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary text-[15px] font-extrabold">
+                  0{index + 1}
                 </div>
-                {index < APPROACH_STEPS.length - 1 && (
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    className="hidden shrink-0 text-border-gray sm:block"
-                  >
-                    <path
-                      d="M1 8h13m0 0L9.5 3.5M14 8l-4.5 4.5"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                )}
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-[18px] font-bold text-ink tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p className="text-[14px] leading-relaxed text-body-gray">
+                    {step.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -290,28 +347,14 @@ export default function IndustriesPage() {
       </section>
 
       {/* Final CTA Section */}
-      {/* <section className="px-4 pb-16 pt-0 md:px-8 md:pb-24 xl:pb-[120px]">
-        <div className="container-main">
-          <div className="flex flex-col items-center gap-6 rounded-section bg-dark-blue px-6 py-16 text-center md:px-16 md:py-20">
-            <h2 className="heading-2 !text-white">
-              Your Industry Is Unique. Your Technology Should Be Too.
-            </h2>
-            <p className="max-w-[700px] text-body-20 text-white/70">
-              At ALLE TECH, we combine deep business understanding with
-              intelligent technology to help organizations operate more
-              efficiently, make better decisions, and grow with confidence.
-              Let&apos;s build a solution designed specifically for your
-              industry.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Button href="/contact">Book an Industry Consultation</Button>
-              <Button href="/contact" variant="white">
-                Speak with an Industry Expert
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section> */}
+      <CTABanner
+        label="LET'S CONNECT"
+        heading="Your Industry Is Unique. Your Technology Should Be Too."
+        subtitle="At ALLE TECH, we combine deep business understanding with intelligent technology to help organizations operate more efficiently, make better decisions, and grow with confidence."
+        ctaLabel="Book a Consultation"
+        secondaryLabel="Speak with an Advisor"
+        secondaryHref="/contact"
+      />
     </main>
   );
 }

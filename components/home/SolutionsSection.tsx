@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { PRODUCTS } from "@/lib/constants";
+import Link from "next/link";
 
 const SOLUTION_ART = [
   {
@@ -107,8 +108,9 @@ export default function ServicesSection() {
             className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {PRODUCTS.map((item, i) => (
-              <div
+              <Link
                 key={item.title}
+                href={`/products/${item.slug}`}
                 data-card={i === 0 ? "" : undefined}
                 className="group relative min-h-[420px] w-[85%] shrink-0 snap-start overflow-hidden rounded-[20px] border border-white/10 transition-transform duration-300 hover:-translate-y-1.5 sm:w-[calc((100%-24px)/2)] xl:w-[calc((100%-72px)/4)]"
               >
@@ -151,7 +153,7 @@ export default function ServicesSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
