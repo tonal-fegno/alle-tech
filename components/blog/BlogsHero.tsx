@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import Badge from "../badge";
 
 const HERO_IMAGE = "/assets/images/hero-bg.png";
 const HEADING = "Our latest blogs & articles";
@@ -43,7 +44,7 @@ export default function BlogsHero() {
           transition={{ duration: 0.5 }}
           className="mb-6 inline-flex w-fit items-center rounded-full bg-white/13 px-5 py-2 text-body-16 font-semibold text-white shadow-[0_2px_12px_rgba(0,11,34,0.15)] backdrop-blur-md"
         >
-          Blogs & Articles
+          <Badge text="Blogs & Articles" variant="light" />
         </motion.span>
 
         <h1 className="heading-1 mb-6 flex max-w-4xl flex-wrap justify-center !text-white">
