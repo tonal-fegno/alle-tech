@@ -11,8 +11,8 @@ import AboutPhilosophy from "@/components/about/AboutPhilosophy";
 import AboutValue from "@/components/about/AboutValue";
 
 export const metadata: Metadata = {
-  title: "About Us | Alle Tech",
-  description: "Learn how Alle Tech helps organizations transform by combining deep business understanding with intelligent business technologies.",
+  title: "About Us | ALLE TECH",
+  description: "Learn how ALLE TECH helps organizations transform by combining deep business understanding with intelligent business technologies.",
 };
 
 export default function AboutPage() {
