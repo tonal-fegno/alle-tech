@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import Badge from "../badge";
 
 const HERO_IMAGE = "/assets/images/hero-bg.png";
 const HEADING = "Client success stories";
@@ -18,7 +19,7 @@ export default function CaseStudiesHero() {
   const bgY = useSpring(bgYRaw, { stiffness: 45, damping: 20, mass: 0.2 });
 
   return (
-    <section className="relative -mt-[80px] flex min-h-[74vh] flex-col items-center justify-center overflow-hidden bg-brand-navy px-4 pb-24 pt-[200px] text-center text-white lg:-mt-[99px]">
+    <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[64vh] pt-[180px] lg:pt-[200px] pb-24 px-4 sm:px-6 bg-brand-navy text-white flex flex-col items-center justify-center text-center overflow-hidden">
       <motion.div
         className="absolute inset-0"
         style={{ scale: bgScale, y: bgY }}
@@ -41,9 +42,8 @@ export default function CaseStudiesHero() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-6 inline-flex w-fit items-center rounded-full bg-white/13 px-5 py-2 text-body-16 font-semibold text-white shadow-[0_2px_12px_rgba(0,11,34,0.15)] backdrop-blur-md"
         >
-          Case Studies
+          <Badge text="Case Studies" variant="light" />
         </motion.span>
 
         <h1 className="heading-1 mb-6 flex max-w-4xl flex-wrap justify-center !text-white">

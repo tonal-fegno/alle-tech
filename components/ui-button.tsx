@@ -20,7 +20,7 @@ const UIButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, UIButto
           <svg width="14" height="11" viewBox="0 0 18 14" fill="none">
             <path
               d="M1 7h15m0 0L10.5 1.5M16 7l-5.5 5.5"
-              stroke="#0A4CE0"
+              stroke="#2C8FCE"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"

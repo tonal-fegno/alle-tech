@@ -18,7 +18,7 @@ export default function ContactHero() {
   const bgY = useSpring(bgYRaw, { stiffness: 45, damping: 20, mass: 0.2 });
 
   return (
-    <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[45vh] pt-[150px] lg:pt-[170px] pb-16 px-4 sm:px-6 bg-brand-navy text-white flex flex-col items-center justify-center text-center overflow-hidden">
+    <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[64vh] pt-[180px] lg:pt-[200px] pb-24 px-4 sm:px-6 bg-brand-navy text-white flex flex-col items-center justify-center text-center overflow-hidden">
       {/* Full-bleed background image */}
       <motion.div
         className="absolute inset-0"
