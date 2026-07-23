@@ -50,6 +50,11 @@ import {
   Warehouse,
   ShoppingBag,
 } from "lucide-react";
+import transsync from '@/public/images/products/transsync.png';
+import engageflow from '@/public/images/products/engageflow.png';
+import invoiceflow from '@/public/images/products/invoiceflow.png';
+import repprox from '@/public/images/products/repprox.png';
+import freight from '@/public/images/products/freight-puls.png';
 
 export interface FAQItem {
   question: string;
@@ -154,7 +159,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tagline: "AI-Powered Field Operations Platform",
     heroSubtitle:
       "Transform Field Teams into High-Performing Business Operations.",
-    heroImage: "/assets/images/products/repprox_hero.png",
+    heroImage: repprox.src,
     accentColor: "from-blue-600 to-indigo-700",
     accentGradient: "linear-gradient(to right, #2563eb, #4338ca)",
     heroDesc:
@@ -447,7 +452,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
       "Intelligent Intercompany Management Platform for SAP Business One",
     heroSubtitle:
       "Automate Your Multi-Company Operations. Operate as One Connected Enterprise.",
-    heroImage: "/assets/images/solutions/erp.png",
+    heroImage: transsync.src,
     accentColor: "from-emerald-600 to-teal-700",
     accentGradient: "linear-gradient(to right, #059669, #0f766e)",
     darkBgGradient: "from-brand-navy-dark via-[#021A30] to-[#032A44]",
@@ -657,7 +662,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     title: "Freight Pulse",
     tagline: "The Digital Logistics Platform for SAP Business One",
     heroSubtitle: "One Platform. Every Shipment. Complete Control.",
-    heroImage: "/assets/images/solutions/technology.png",
+    heroImage: freight.src,
     accentColor: "from-cyan-600 to-blue-700",
     accentGradient: "linear-gradient(to right, #0891b2, #1d4ed8)",
     darkBgGradient: "from-brand-navy-dark via-[#001D42] to-[#002B63]",
@@ -907,7 +912,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     title: "EngageFlow",
     tagline: "Intelligent Customer Communication Platform for SAP Business One",
     heroSubtitle: "Every Customer Interaction. Automatically Delivered.",
-    heroImage: "/assets/images/solutions/power_bi.png",
+    heroImage: engageflow.src,
     accentColor: "from-purple-600 to-pink-700",
     accentGradient: "linear-gradient(to right, #9333ea, #be185d)",
     darkBgGradient: "from-brand-navy-dark via-[#1A0A33] to-[#2B0E4C]",
@@ -1143,7 +1148,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     title: "InvoiceFlow",
     tagline: "UAE E-Invoicing Platform",
     heroSubtitle: "Future-Proof Your Business with Intelligent E-Invoicing",
-    heroImage: "/assets/images/solutions/services_support.png",
+    heroImage: invoiceflow.src,
     accentColor: "from-amber-500 to-red-600",
     accentGradient: "linear-gradient(to right, #f59e0b, #dc2626)",
     darkBgGradient: "from-brand-navy-dark via-[#211510] to-[#3B1F0E]",
