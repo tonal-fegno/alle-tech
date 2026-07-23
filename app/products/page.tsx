@@ -35,15 +35,25 @@ export default function ProductsPage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center items-stretch gap-8 sm:gap-10">
-            {PRODUCT_DETAILS.map((product, index) => (
-              <div
-                key={product.slug}
-                className="w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-27px)] flex flex-col"
-              >
-                <ProductCard product={product} index={index} />
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {PRODUCT_DETAILS.map((product, index) => {
+              const isLastOdd =
+                index === PRODUCT_DETAILS.length - 1 &&
+                PRODUCT_DETAILS.length % 2 !== 0;
+
+              return (
+                <div
+                  key={product.slug}
+                  className={
+                    isLastOdd
+                      ? "md:col-span-2 lg:col-span-1 md:max-w-[calc(50%-12px)] md:mx-auto lg:max-w-none w-full"
+                      : "w-full"
+                  }
+                >
+                  <ProductCard product={product} index={index} />
+                </div>
+              );
+            })}
           </div>
         </main>
 
