@@ -91,7 +91,7 @@ export default function BlogDetailHero({ blog }: { blog: Blog }) {
           </div>
           <div className="flex items-center gap-2 font-semibold text-white/80">
             <Clock size={15} className="text-white/60" />
-            {blog.time}
+            {blog.time || blog.readTime}
           </div>
         </motion.div>
       </div>

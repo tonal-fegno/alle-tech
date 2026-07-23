@@ -22,7 +22,10 @@ export default function BlogCard({
   basePath = "/blogs",
   showDate = true,
 }: BlogCardProps) {
-  const href = `${basePath}/${blog.slug}`;
+  const targetId = blog.id || blog.slug;
+  const href = `${basePath}/${targetId}`;
+  const descriptionText = blog.description || blog.shortDescription;
+  const timeText = blog.readTime || blog.time || "5 Min Read";
 
   return (
     <motion.article
@@ -47,7 +50,7 @@ export default function BlogCard({
         transition: { duration: 0.2, ease: "easeIn" },
       }}
       transition={{ type: "spring", stiffness: 300, damping: 26 }}
-      className="group flex w-full flex-col items-stretch gap-4 lg:flex-row"
+      className="group flex w-full flex-col items-stretch gap-4 lg:flex-row mb-6"
     >
       {/* Metadata card — desktop only */}
       <div className="hidden w-45 shrink-0 flex-col justify-between rounded-card border border-border-gray/20 bg-white p-7 shadow-xs transition-all duration-300 group-hover:shadow-[0_12px_30px_rgba(0,11,34,0.06)] lg:flex">
@@ -62,13 +65,13 @@ export default function BlogCard({
           </div>
         )}
         <span className="font-mono text-xs font-bold uppercase tracking-widest text-body-gray/70">
-          {blog.time}
+          {timeText}
         </span>
       </div>
 
       {/* Content card */}
       <div className="flex grow flex-col gap-6 rounded-card border border-border-gray/20 bg-white p-4 shadow-xs transition-all duration-300 group-hover:border-border-gray/40 group-hover:shadow-[0_12px_30px_rgba(0,11,34,0.06)] sm:p-7 md:flex-row lg:flex-row">
-        {blog.imageVisible && blog.image && (
+        {blog.image && (
           <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden rounded-card border border-border-gray/10 bg-bg-1 md:aspect-auto md:w-70 lg:w-80">
             <Image
               src={encodeURI(blog.image)}
@@ -90,7 +93,7 @@ export default function BlogCard({
               {showDate && (
                 <span className="h-1 w-1 rounded-full bg-border-gray" />
               )}
-              <span>{blog.time}</span>
+              <span>{timeText}</span>
             </div>
           </div>
 
@@ -99,7 +102,7 @@ export default function BlogCard({
               <Link href={href}>{blog.title}</Link>
             </h3>
             <p className="mb-6 line-clamp-2 text-body-16 text-body-gray">
-              {blog.shortDescription}
+              {descriptionText}
             </p>
           </div>
 
