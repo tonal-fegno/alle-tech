@@ -135,7 +135,7 @@ export default function ProductDetailLayout({
   return (
     <>
       {/* 1. HERO SECTION */}
-      <section className="relative -mt-[80px] lg:-mt-[99px] h-screen flex items-center bg-brand-navy text-white overflow-hidden">
+      <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[550px] md:min-h-[620px] lg:min-h-[700px] flex items-center bg-brand-navy text-white overflow-hidden pt-[130px] pb-16 md:pt-[140px] md:pb-16 lg:py-0">
         {/* Background */}
         <div
           className={`absolute inset-0 bg-gradient-to-br ${product.darkBgGradient} z-0`}
@@ -152,9 +152,9 @@ export default function ProductDetailLayout({
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left */}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start w-full">
             <motion.div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -265,7 +265,7 @@ export default function ProductDetailLayout({
           </div>
 
           {/* Right — Hero Image Showcase */}
-          <div className="flex flex-col items-center lg:items-end w-full max-w-[520px] mx-auto lg:ml-auto">
+          <div className="flex flex-col items-center md:items-end w-full max-w-[520px] mx-auto md:ml-auto">
             <motion.div
               initial={{ opacity: 0, y: 24, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
