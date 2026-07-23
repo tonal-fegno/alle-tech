@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Badge from "../badge";
+import UIButton from "@/components/ui-button";
+import ArrowButton from "../ui/ArrowButton";
 
 const HERO_IMAGE = "/assets/images/hero-bg.png";
 
@@ -19,9 +22,7 @@ export default function IndustriesHero() {
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink/40 to-transparent" />
 
       <div className="container-main relative flex flex-col items-center gap-6 px-4 pb-[120px] pt-[200px] text-center md:px-8">
-        <span className="inline-flex w-fit items-center rounded-full bg-white/13 px-5 py-2 text-body-16 font-semibold text-white shadow-[0_2px_12px_rgba(0,11,34,0.15)] backdrop-blur-md">
-          Industries
-        </span>
+        <Badge text="Industries" variant="light" />
         <h1 className="heading-1 max-w-[800px] !text-white">
           Technology Built Around Your Industry
         </h1>
@@ -36,10 +37,10 @@ export default function IndustriesHero() {
           Business First. Technology Always.
         </p>
         <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
-          <Button href="/contact">Book an Industry Consultation</Button>
-          <Button href="#industries-we-serve" variant="white">
-            Explore Your Industry
-          </Button>
+          <UIButton href="/contact" className="py-4">Book an Industry Consultation</UIButton>
+          <ArrowButton href="/contact" >
+            Schedule Now
+          </ArrowButton>
         </div>
       </div>
     </section>
