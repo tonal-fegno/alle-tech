@@ -7,7 +7,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import ArrowButton from "@/components/ui/ArrowButton";
+import UIButton from "@/components/ui-button";
 import Button from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/constants";
 import { getLenisInstance } from "@/lib/lenis-instance";
@@ -201,9 +201,9 @@ export default function Navbar() {
 
             {/* CTA */}
             <div className="hidden lg:block">
-              <ArrowButton href="/contact" variant="solid" size="sm">
+              <UIButton href="/contact">
                 Schedule Now
-              </ArrowButton>
+              </UIButton>
             </div>
 
             {/* Mobile hamburger */}

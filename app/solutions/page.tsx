@@ -12,7 +12,10 @@ import CTABanner from "@/components/common/CTABanner";
 import { ShieldCheck, Zap, Wrench, Users } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
-import ArrowButton from "@/components/ui/ArrowButton";
+import Badge from "@/components/badge";
+import UIButton from "@/components/ui-button";
+
+const MotionUIButton = motion(UIButton);
 
 export default function SolutionsPage() {
   const [visibleCount, setVisibleCount] = useState(6);
@@ -35,9 +38,9 @@ export default function SolutionsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-bg text-neutral-900 font-sans antialiased overflow-x-hidden">
+    <div className="text-neutral-900 antialiased">
       {/* 1. Hero Section (Cevira Style) */}
-      <section className="relative min-h-[64vh] pt-36 pb-24 px-4 sm:px-6 bg-brand-navy text-white flex flex-col items-center justify-center text-center overflow-hidden">
+      <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[64vh] pt-[180px] lg:pt-[200px] pb-24 px-4 sm:px-6 bg-brand-navy text-white flex flex-col items-center justify-center text-center overflow-hidden">
         {/* Full-bleed background image */}
         <motion.div
           className="absolute inset-0"
@@ -59,14 +62,7 @@ export default function SolutionsPage() {
 
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6"
-          >
-            <Eyebrow variant="dark">Our Solutions</Eyebrow>
-          </motion.div>
+          <Badge text="Our Solutions" />
 
           {/* Heading */}
           <h1 className="heading-1 !text-white tracking-tight max-w-4xl mb-6 flex flex-wrap justify-center !font-semibold">
@@ -113,18 +109,12 @@ export default function SolutionsPage() {
         {/* Load More Button (Cevira Style) */}
         {hasMore && (
           <div className="flex justify-center mt-12 mb-6">
-            <motion.button
+            <MotionUIButton
               onClick={handleLoadMore}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className="group inline-flex items-center gap-3.5 pl-7 pr-3 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg shadow-blue-500/15 overflow-hidden font-bold text-sm tracking-wide cursor-pointer border border-transparent"
             >
-              <SwapLabel>Load More</SwapLabel>
-              <div className="w-8 h-8 rounded-full bg-white text-blue-600 flex items-center justify-center transition-transform duration-300">
-                <SwapArrow size={16} />
-              </div>
-            </motion.button>
+              Load More
+            </MotionUIButton>
           </div>
         )}
       </main>

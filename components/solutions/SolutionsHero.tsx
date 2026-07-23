@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Badge from "@/components/badge";
 
 const HERO_IMAGE = "/assets/images/hero-bg.png";
 
@@ -18,9 +19,7 @@ export default function SolutionsHero() {
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink/40 to-transparent" />
 
       <div className="container-main relative flex flex-col items-center gap-6 px-4 pb-[120px] pt-[200px] text-center md:px-8">
-        <span className="inline-flex w-fit items-center rounded-full bg-white/13 px-5 py-2 text-body-16 font-semibold text-white shadow-[0_2px_12px_rgba(0,11,34,0.15)] backdrop-blur-md">
-          Solutions
-        </span>
+        <Badge text="Solutions" variant="light" />
         <h1 className="heading-1 max-w-[800px] !text-white">
           Business Technology Solutions
         </h1>

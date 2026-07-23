@@ -65,7 +65,7 @@ export default function CTABanner({
             >
               <Link
                 href={ctaHref}
-                className="group flex items-center justify-between gap-3 pl-7 pr-3 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-bold text-sm tracking-wide shadow-[0_0_30px_-5px_rgba(59,130,246,0.5)] hover:shadow-[0_0_40px_-5px_rgba(59,130,246,0.7)] transition-all duration-300"
+                className="group flex items-center justify-between gap-3 pl-7 pr-3 py-3.5 bg-[#2C8FCE] text-white rounded-2xl font-bold text-sm tracking-wide transition-all duration-300"
               >
                 <SwapLabel>{ctaLabel}</SwapLabel>
                 <div className="w-8 h-8 rounded-xl bg-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/30 group-hover:translate-x-0.5 shrink-0">
@@ -83,7 +83,7 @@ export default function CTABanner({
               >
                 <Link
                   href={secondaryHref}
-                  className="group flex items-center justify-between gap-3 pl-7 pr-3 py-3.5 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-bold text-sm tracking-wide border border-white/20 hover:border-white/40 shadow-[0_0_20px_-5px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.25)] transition-all duration-300"
+                  className="group flex items-center justify-between gap-3 pl-7 pr-3 py-3.5 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-bold text-sm tracking-wide border border-white/20 transition-all duration-300"
                 >
                   <SwapLabel>{secondaryLabel}</SwapLabel>
                   <div className="w-8 h-8 rounded-xl bg-white/10 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/20 group-hover:translate-x-0.5 shrink-0">

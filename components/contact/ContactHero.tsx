@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import Badge from "../badge";
 
 export default function ContactHero() {
   const { scrollY } = useScroll();
@@ -17,7 +18,7 @@ export default function ContactHero() {
   const bgY = useSpring(bgYRaw, { stiffness: 45, damping: 20, mass: 0.2 });
 
   return (
-    <section className="relative min-h-[45vh] pt-32 pb-16 px-4 sm:px-6 bg-brand-navy text-white flex flex-col items-center justify-center text-center overflow-hidden">
+    <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[45vh] pt-[150px] lg:pt-[170px] pb-16 px-4 sm:px-6 bg-brand-navy text-white flex flex-col items-center justify-center text-center overflow-hidden">
       {/* Full-bleed background image */}
       <motion.div
         className="absolute inset-0"
@@ -42,28 +43,29 @@ export default function ContactHero() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[12px] font-bold tracking-widest uppercase text-white mb-6 shadow-lg shadow-black/20"
         >
-          Contact Us
+          <Badge text="Contact Us" variant="light" />
         </motion.div>
 
         {/* Heading */}
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight max-w-4xl leading-[1.1] mb-6 flex flex-wrap justify-center">
-          {"Get in touch with us".split(" ").map((word, idx) => (
-            <motion.span
-              key={idx}
-              initial={{ opacity: 0, y: 4, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{
-                duration: 1.1,
-                delay: 0.15 + idx * 0.035,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="inline-block mr-[0.25em]"
-            >
-              {word}
-            </motion.span>
-          ))}
+        <h1 className="heading-1 !text-white tracking-tight max-w-4xl mb-6 flex flex-wrap justify-center !font-semibold">
+          {"Get in touch with us"
+            .split(" ")
+            .map((word, idx) => (
+              <motion.span
+                key={idx}
+                initial={{ opacity: 0, y: 4, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{
+                  duration: 1.1,
+                  delay: 0.15 + idx * 0.035,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="inline-block mr-[0.25em]"
+              >
+                {word}
+              </motion.span>
+            ))}
         </h1>
 
         {/* Subtitle */}

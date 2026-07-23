@@ -259,7 +259,7 @@ export default function CalendarWidget({
         {/* Calendar Widget */}
         <div className="border border-neutral-100 rounded-xl p-3 bg-white">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-extrabold text-neutral-800 capitalize select-none">
+            <span className="text-xs font-semibold text-neutral-800 capitalize select-none">
               {monthName} {yearLabel}
             </span>
             <div className="flex items-center gap-1">
@@ -342,7 +342,7 @@ export default function CalendarWidget({
       {/* Calendar Widget */}
       <div className="border border-neutral-100 rounded-2xl p-3 sm:p-4 bg-slate-50">
         <div className="flex items-center justify-between mb-4">
-          <span className="text-sm font-extrabold text-neutral-800 capitalize select-none">
+          <span className="text-sm font-semibold text-neutral-800 capitalize select-none">
             {monthName} {yearLabel}
           </span>
           <div className="flex items-center gap-1">

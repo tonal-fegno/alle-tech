@@ -124,7 +124,7 @@ export default function ContactForm() {
           <div className="w-16 h-16 rounded-full bg-green-50 text-green-500 flex items-center justify-center mb-6 shadow-sm">
             <CheckCircle2 size={36} />
           </div>
-          <h3 className="text-2xl md:text-3xl font-extrabold text-neutral-900 tracking-tight">
+          <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 tracking-tight">
             {isCalendarActive ? "Demo Requested!" : "Inquiry Received!"}
           </h3>
           <p className="text-neutral-500 mt-4 text-sm md:text-base max-w-xl leading-relaxed font-medium">
@@ -169,7 +169,7 @@ export default function ContactForm() {
               className="lg:col-span-7 flex flex-col gap-6"
             >
               <motion.div variants={fadeUpOnly}>
-                <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-neutral-900">
+                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-neutral-900">
                   Tell us about your team
                 </h2>
               </motion.div>
@@ -523,7 +523,7 @@ export default function ContactForm() {
                       className="text-blue-600 shrink-0"
                       size={24}
                     />
-                    <h3 className="text-lg md:text-xl font-extrabold text-neutral-900">
+                    <h3 className="text-lg md:text-xl font-semibold text-neutral-900">
                       Book a Live Demo
                     </h3>
                   </div>

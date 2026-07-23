@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ArrowButton from "@/components/ui/ArrowButton";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import Badge from "@/components/badge";
 
 const HERO_IMAGE = "/assets/images/hero-bg.png";
 
@@ -36,23 +37,7 @@ export default function HeroSection() {
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink/40 to-transparent" />
 
       <div className="container-main relative flex min-h-[640px] flex-col pb-8 pt-[120px] md:min-h-[100svh] md:pb-10 md:pt-[150px] lg:pt-[170px]">
-        {/* Badge */}
-        <span className="inline-flex w-fit items-center gap-2.5 rounded-full bg-white/75 py-2 pl-3 pr-3 shadow-[0_2px_12px_rgba(0,11,34,0.15)] backdrop-blur-md">
-          {/* <span className="flex h-6 w-6 items-center justify-center rounded-full bg-dark-blue">
-            <svg width="11" height="9" viewBox="0 0 12 10" fill="none">
-              <path
-                d="M1 5.5L4.2 8.5L11 1.5"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span> */}
-          <span className="text-sm font-semibold text-ink">
-          Trusted Technology Consulting
-          </span>
-        </span>
+        <Badge text="Trusted Technology Consulting" />
 
         {/* Heading */}
         <AnimatedHeading

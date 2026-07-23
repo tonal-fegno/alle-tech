@@ -8,7 +8,7 @@ import { contactFaqs } from "./constants";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-slate-50 text-neutral-900 font-sans antialiased overflow-x-hidden">
+    <div className="text-neutral-900 bg-slate-50 antialiased">
       {/* 1. Hero Section */}
       <ContactHero />
 

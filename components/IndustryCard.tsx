@@ -21,7 +21,7 @@ export default function IndustryCard({ industry }: { industry: Industry }) {
           {industry.typicalSolutions.map((solution) => (
             <span
               key={solution}
-              className="rounded-full border border-border-gray/60 px-4 py-1.5 text-[14px] text-body-gray"
+              className="rounded-full border border-gray/20 px-4 py-1.5 text-[14px] text-body-gray"
             >
               {solution}
             </span>
