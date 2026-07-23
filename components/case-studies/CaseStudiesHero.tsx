@@ -36,7 +36,7 @@ export default function CaseStudiesHero() {
       <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/95 via-brand-navy-dark/40 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-brand-navy-dark/70 via-transparent to-brand-navy-dark/80" />
 
-      <div className="container-main relative z-10 flex max-w-4xl flex-col items-center">
+      <div className="container-main relative z-10 flex flex-col items-center">
         <motion.span
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ export default function CaseStudiesHero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl text-body-18 font-medium leading-relaxed text-white/90"
+          className="mx-auto max-w-xl text-body-18 font-medium leading-relaxed text-white/90"
         >
           Real results from real deployments — see how we help enterprises
           modernize operations, unlock analytics, and scale with confidence.

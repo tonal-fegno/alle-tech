@@ -25,7 +25,7 @@ export default function RelatedArticles({ posts }: { posts: Blog[] }) {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, i) => (
             <motion.div
-              key={post.slug}
+              key={post.id || post.slug}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}

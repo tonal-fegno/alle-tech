@@ -22,7 +22,11 @@ export default function BlogListGrid({ blogs }: { blogs: Blog[] }) {
       <div className="flex flex-col gap-6">
         <AnimatePresence mode="popLayout">
           {visibleBlogs.map((blog, index) => (
-            <BlogCard key={blog.slug} blog={blog} index={index} />
+            <BlogCard
+              key={blog.id || blog.slug}
+              blog={blog}
+              index={index}
+            />
           ))}
         </AnimatePresence>
       </div>
