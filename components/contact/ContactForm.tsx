@@ -8,9 +8,8 @@ import { CheckCircle2, ChevronDown, Calendar } from "lucide-react";
 import { SwapLabel, SwapArrow } from "@/components/common/HoverSwap";
 import CalendarWidget from "@/components/contact/CalendarWidget";
 import ContactInfoList from "@/components/contact/ContactInfoList";
-import { PAIN_POINTS, fadeUpOnly, staggerContainer } from "@/app/contact/constants";
+import { PAIN_POINTS, fadeUpOnly, staggerContainer } from "@/app/(site)/contact/constants";
 import UIButton from "@/components/ui-button";
-
 declare global {
   interface Window {
     onRecaptchaSuccess?: (token: string) => void;
