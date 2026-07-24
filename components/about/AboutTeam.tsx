@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
-import dummy from '@/public/assets/images/about/dummy-image.png';
+import dummy from '@/public/images/about/dummy-image.png';
 
 
 interface TeamMember {

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
-import whychoose from '@/public/images/about//about-why-choose.png';
+import whychoose from '@/public/images/about/about-why-choose.png';
 
 export default function WhyChooseUs() {
   const sectionRef = useRef<HTMLDivElement>(null);

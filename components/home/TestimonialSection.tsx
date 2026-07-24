@@ -25,105 +25,105 @@ const testimonials: Testimonial[] = [
       "Alle Tech Team have always shown a marked ability to work with people in entrepreneurial spirit and an admirable work ethic. Their talent for solving complex problems is unique! We as Al Watani Group have invested in multiple solutions from Alle Tech which automated our business cycle and optimized workflow enabling control and increasing efficiency.",
     author: "Al Watani Group",
     role: "Digital Company",
-    avatar: "/assets/client/alwatani.png",
+    avatar: "/images/client/alwatani.png",
   },
   {
     quote:
       "Alle Tech software development capabilities and unique and practical implementation of ERP systems helped us transform our complex business requirements through powerful, sophisticated, intuitive, and accessible solutions that streamlined our operations, automated our workflows, and improved our bottom line across all departments.",
     author: "Euro Poly Plast",
     role: "Plastic Factory",
-    avatar: "/assets/client/euro-poly-plast.png",
+    avatar: "/images/client/euro-poly-plast.png",
   },
   {
     quote:
       "Alle Tech enabled us with real-time reports in a dynamic method which unlocked our opportunities in the market and optimized workflow performance.",
     author: "Beltel FZE",
     role: "Communication Company",
-    avatar: "/assets/client/belltel.png",
+    avatar: "/images/client/belltel.png",
   },
   {
     quote:
       "Is a leading car trading company specializing in Japanese vehicles. Operating across multiple locations, including Dubai, Oman, Libya, and North Africa, faced challenges in managing their logistics and intercompany transactions efficiently. With our TransSync add-on for SAP Business One and our comprehensive consultation services, we helped them transform their operations and achieve significant improvements.",
     author: "Middle East Group",
     role: "Digital Company",
-    avatar: "/assets/client/middle-ease-group.png",
+    avatar: "/images/client/middle-ease-group.png",
   },
   {
     quote:
       "Our logistics management was a cumbersome and error-prone process. With Freight Pulse, we now have a robust tool that handles everything from managing requests and tracking shipments to creating jobs, receiving goods, and arranging them in the warehouse. The ability to efficiently pack and arrange shipments for outbound logistics according to best practices has greatly improved our operations.",
     author: "Orbit logistics",
     role: "Logistics Company",
-    avatar: "/assets/client/orbit-logistics.png",
+    avatar: "/images/client/orbit-logistics.png",
   },
   {
     quote:
       "One of the standout features of Freight Pulse is its integration of billing and cost tracking. We can now easily manage the cost structure for each job, ensuring accurate billing and cost allocation. This integration has not only streamlined our financial processes but also provided us with a comprehensive view of our logistics costs, enhancing our financial management and planning.",
     author: "Captain Freight",
     role: "Freight & Logistics",
-    avatar: "/assets/client/cfs.png",
+    avatar: "/images/client/cfs.png",
   },
   {
     quote:
       "Working with ALLE TECH to implement SAP Business One has been a game-changer for our business. As a paint manufacturing and trading company with locations in Iraq we faced significant challenges in managing our operations and maintaining control over our extensive activities. The implementation of SAP Business One has not only addressed these challenges but also provided us with enhanced operational efficiency and control.",
     author: "United Colors",
     role: "Paint Factory",
-    avatar: "/assets/client/united-colors.png",
+    avatar: "/images/client/united-colors.png",
   },
   // {
   //   quote:
   //     "ALLE TECH ensured that SAP Business One was seamlessly integrated with our existing systems. This integration has allowed for smooth data transfer and communication between different departments, further enhancing our operational efficiency. The system's flexibility and scalability also mean that it can grow with our business, adapting to our changing needs.",
   //   author: "Brightcom",
   //   role: "Electronics Distributor",
-  //   avatar: "/assets/client/brightcom.png",
+  //   avatar: "/images/client/brightcom.png",
   // },
   {
     quote:
       "ALLE TECH ensured that SAP Business One was seamlessly integrated with our existing systems. This integration has allowed for smooth data transfer and communication between different departments, further enhancing our operational efficiency. The system's flexibility and scalability also mean that it can grow with our business, adapting to our changing needs.",
     author: "Najm Properties",
     role: "Real Estate Company",
-    avatar: "/assets/client/najm.png",
+    avatar: "/images/client/najm.png",
   },
   {
     quote:
       "With ALLE TECH consultation along with SAP Business One, we now have a centralized platform that integrates all aspects of our trading operations. This has streamlined our processes, allowing us to manage vehicle trades more efficiently, track transactions in real-time, and ensure consistent data across all locations.",
     author: "AYT Motors",
     role: "Cars Dealer",
-    avatar: "/assets/client/ayt.png",
+    avatar: "/images/client/ayt.png",
   },
   {
     quote:
       "Partnering with ALLE TECH to implement SAP Business One has been a game-changer for our car spare parts dealership. Managing an inventory of over 150,000 items across multiple locations was a daunting task that often led to operational inefficiencies and challenges in maintaining control over trades. The implementation of SAP Business One has not only addressed these issues but has also significantly enhanced our overall operational efficiency and control.",
     author: "Explorations",
     role: "Vehicle Spare Parts Distribution",
-    avatar: "/assets/client/exploration.png",
+    avatar: "/images/client/exploration.png",
   },
   {
     quote:
       "In addition to the TransSync add-on, the consultation services provided by Alle Tech have been exceptional. Their team took the time to understand our unique challenges and provided tailored solutions that have greatly benefited our business. The ongoing support and guidance have been instrumental in our continued success.",
     author: "North Africa General Trading",
     role: "General Trading",
-    avatar: "/assets/client/natco.png",
+    avatar: "/images/client/natco.png",
   },
   {
     quote:
       "The comprehensive tools provided by Van Sales solution of ALLE TECH have optimized our logistics operations. From managing incoming and outgoing shipments to tracking inventory and assigning sales reps, every aspect of our logistics is now more efficient and effective. The ability to set up price rules and promotions within the app has also helped us drive sales and better manage our distribution.",
     author: "Smart Electronics Company",
     role: "Digital Company",
-    avatar: "/assets/client/sec.png",
+    avatar: "/images/client/sec.png",
   },
   {
     quote:
       "The integration of SAP Business One through ALLE TECH has significantly improved our day-to-day operations. Tasks such as processing orders, managing stock, and tracking financials are now automated, freeing up our team to focus on strategic initiatives and customer service. The system's intuitive interface and comprehensive features have made it easier for our staff to perform their duties efficiently.",
     author: "VAPEY",
     role: "Vape Wholesale",
-    avatar: "/assets/client/vapey.png",
+    avatar: "/images/client/vapey.png",
   },
   {
     quote:
       "We rely on ALLE TECH for streamline and accelerate our daily mass operation's transactions, and it has exceeded our expectations in terms of reliability and performance. The real-time updates and customizable features have allowed us to tailor the application to our unique needs, resulting in a more streamlined and productive operation.",
     author: "Focuz Company",
     role: "Spare Parts Trading",
-    avatar: "/assets/client/ft.png",
+    avatar: "/images/client/ft.png",
   },
 ];
 
