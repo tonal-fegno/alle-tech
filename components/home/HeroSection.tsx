@@ -5,12 +5,12 @@ import ArrowButton from "@/components/ui/ArrowButton";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import Badge from "@/components/badge";
 
-const HERO_IMAGE = "/assets/images/hero-bg.png";
+const HERO_IMAGE = "/images/hero-bg.png";
 
 const CLIENT_LOGOS = [
-  "/assets/client/alwatani.png",
-  "/assets/client/najm.png",
-  "/assets/client/sec.png",
+  "/images/client/alwatani.png",
+  "/images/client/najm.png",
+  "/images/client/sec.png",
 ];
 
 function StarSmall() {

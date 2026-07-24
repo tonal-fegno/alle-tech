@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
-import dummy from '@/public/assets/images/about/dummy-image.png';
+import dummy from '@/public/images/about/dummy-image.png';
 
 
 interface TeamMember {
@@ -73,12 +73,12 @@ export default function AboutTeam() {
 
           {/* Main Heading */}
           <h2 className="font-inter font-semibold text-[36px] md:text-[48px] leading-[44px] md:leading-[58px] text-ink text-center mb-4">
-            Meet Our Professional Team
+            Meet Our Expert Team
           </h2>
 
           {/* Description */}
-          <p className="font-inter font-normal custom-body-text text-dark-blue text-center mb-16 max-w-[650px] mx-auto">
-            A dedicated team of trained professionals committed to delivering consistent, high-quality cleaning services with care and attention to detail.
+          <p className="font-inter font-normal text-[18px] leading-[27px] text-body-gray text-center mb-16 max-w-[650px] mx-auto">
+            A team of experienced technology professionals dedicated to delivering innovative, reliable, and scalable digital solutions tailored to your business needs.
           </p>
         </div>
 

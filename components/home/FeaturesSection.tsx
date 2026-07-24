@@ -50,7 +50,7 @@ const STRATEGY_ICONS = [
   </svg>,
 ];
 
-const SPLASH_CARD_BG = "/assets/images/why-choose-us.png";
+const SPLASH_CARD_BG = "/images/why-choose-us.png";
 
 function AnimatedCounter({ value }: { value: string }) {
   const [count, setCount] = useState(0);

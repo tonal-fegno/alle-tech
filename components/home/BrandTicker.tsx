@@ -5,21 +5,21 @@ import { useEffect, useRef } from "react";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const logos = [
-  "/assets/client/alwatani.png",
-  // "/assets/client/ayt.png",
-  "/assets/client/belltel.png",
-  // "/assets/client/brightcom.png",
-  "/assets/client/cfs.png",
-  "/assets/client/euro-poly-plast.png",
-  "/assets/client/exploration.png",
-  "/assets/client/ft.png",
-  "/assets/client/middle-ease-group.png",
-  "/assets/client/najm.png",
-  "/assets/client/natco.png",
-  "/assets/client/orbit-logistics.png",
-  "/assets/client/sec.png",
-  "/assets/client/united-colors.png",
-  // "/assets/client/vapey.png",
+  "/images/client/alwatani.png",
+  // "/images/client/ayt.png",
+  "/images/client/belltel.png",
+  // "/images/client/brightcom.png",
+  "/images/client/cfs.png",
+  "/images/client/euro-poly-plast.png",
+  "/images/client/exploration.png",
+  "/images/client/ft.png",
+  "/images/client/middle-ease-group.png",
+  "/images/client/najm.png",
+  "/images/client/natco.png",
+  "/images/client/orbit-logistics.png",
+  "/images/client/sec.png",
+  "/images/client/united-colors.png",
+  // "/images/client/vapey.png",
 ];
 
 const NORMAL_SPEED = 2.2; // px per frame

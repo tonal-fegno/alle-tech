@@ -8,9 +8,8 @@ import { CheckCircle2, ChevronDown, Calendar } from "lucide-react";
 import { SwapLabel, SwapArrow } from "@/components/common/HoverSwap";
 import CalendarWidget from "@/components/contact/CalendarWidget";
 import ContactInfoList from "@/components/contact/ContactInfoList";
-import { PAIN_POINTS, fadeUpOnly, staggerContainer } from "@/app/contact/constants";
+import { PAIN_POINTS, fadeUpOnly, staggerContainer } from "@/app/(site)/contact/constants";
 import UIButton from "@/components/ui-button";
-
 declare global {
   interface Window {
     onRecaptchaSuccess?: (token: string) => void;
@@ -110,10 +109,7 @@ export default function ContactForm() {
   });
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+    <div
       className="bg-white rounded-2xl sm:rounded-4xl border border-neutral-100 p-4 sm:p-6 md:p-10 lg:p-12"
     >
       {formSubmitted ? (
@@ -165,8 +161,7 @@ export default function ContactForm() {
             <motion.div
               variants={staggerContainer}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              animate="visible"
               className="lg:col-span-7 flex flex-col gap-6"
             >
               <motion.div variants={fadeUpOnly}>
@@ -507,8 +502,7 @@ export default function ContactForm() {
             <motion.div
               variants={staggerContainer}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              animate="visible"
               className="lg:col-span-5 flex flex-col gap-6"
             >
               {/* Desktop Calendar Section (Hidden on mobile) */}
@@ -556,6 +550,6 @@ export default function ContactForm() {
           </div>
         </form>
       )}
-    </motion.div>
+    </div>
   );
 }

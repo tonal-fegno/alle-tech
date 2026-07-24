@@ -155,7 +155,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     slug: "repprox",
     title: "RepProX",
     logo: "https://www.repprox.com/logo.png",
-    cardBg: "/assets/images/products/card_bg.png",
+    cardBg: "/images/products/card_bg.png",
     tagline: "AI-Powered Field Operations Platform",
     heroSubtitle:
       "Transform Field Teams into High-Performing Business Operations.",
