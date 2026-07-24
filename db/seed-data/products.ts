@@ -1,0 +1,67 @@
+export const PRODUCTS_SEED = [
+  {
+    slug: "repprox",
+    title: "RepProX",
+    tagline: "AI-Powered Field Operations Platform",
+    conceptBullets: [
+      "Sales Force Automation",
+      "Field Service & Delivery Management",
+      "Warehouse & Inventory Management",
+      "Business Intelligence & AI Insights",
+      "SAP Business One & Odoo Integration",
+    ],
+    sortOrder: 0,
+  },
+  {
+    slug: "transsync",
+    title: "TransSync",
+    tagline: "Intelligent Intercompany Management Platform",
+    conceptBullets: [
+      "Intercompany Automation",
+      "Master Data Synchronization",
+      "Financial Reconciliation",
+      "Multi-Company Management",
+      "SAP Business One Integration",
+    ],
+    sortOrder: 1,
+  },
+  {
+    slug: "freight-pulse",
+    title: "Freight Pulse",
+    tagline: "Digital Logistics Platform",
+    conceptBullets: [
+      "Freight & Transport Management",
+      "Warehouse & Customs Management",
+      "Customer Portal",
+      "Logistics Analytics & AI Planning",
+      "Complete Shipment Lifecycle Management",
+    ],
+    sortOrder: 2,
+  },
+  {
+    slug: "engageflow",
+    title: "EngageFlow",
+    tagline: "Customer Communication Platform",
+    conceptBullets: [
+      "Email & WhatsApp Automation",
+      "Customer Statements & Payment Reminders",
+      "Marketing Campaigns",
+      "Internal Notifications",
+      "Business Rule Engine & Multi-Channel Communication",
+    ],
+    sortOrder: 3,
+  },
+  {
+    slug: "invoiceflow",
+    title: "InvoiceFlow",
+    tagline: "UAE E-Invoicing Platform",
+    conceptBullets: [
+      "UAE E-Invoicing Compliance",
+      "ERP Integration & Invoice Exchange",
+      "Invoice Validation",
+      "Monitoring & Administration",
+      "Readiness Assessment & Managed Services",
+    ],
+    sortOrder: 4,
+  },
+];

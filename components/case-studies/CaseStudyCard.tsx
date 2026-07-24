@@ -4,8 +4,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { CaseStudy } from "@/lib/data";
+import type { caseStudies } from "@/db/schema";
 import { SwapArrow, SwapLabel } from "@/components/common/HoverSwap";
+
+type CaseStudy = typeof caseStudies.$inferSelect;
 
 interface CaseStudyCardProps {
   study: CaseStudy;
@@ -19,11 +21,10 @@ export default function CaseStudyCard({
   index,
   basePath = "/case-studies",
 }: CaseStudyCardProps) {
-  const targetId = study.id || study.slug;
-  const href = `${basePath}/${targetId}`;
+  const href = `${basePath}/${study.slug}`;
   // Alternate the image side for an editorial zig-zag layout.
   const reversed = index % 2 === 1;
-  const categoriesList = study.categories || (study.category ? [study.category] : []);
+  const categoriesList = study.categories.length > 0 ? study.categories : [study.category];
   const descriptionText = study.description || study.shortDescription;
 
   return (

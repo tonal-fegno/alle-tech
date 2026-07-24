@@ -9,10 +9,6 @@ import {
   Check,
   ChevronRight,
   HelpCircle,
-  ShieldCheck,
-  Zap,
-  Wrench,
-  Users,
   Building2,
   ShoppingBag,
   Truck,
@@ -24,22 +20,22 @@ import {
   Package,
   Target,
   Award,
-  Sparkles,
   CheckCircle2,
   Briefcase,
   Boxes,
-  ShieldAlert,
-  Rocket,
+  Wrench,
   Share2,
   Cpu,
-  Layers,
 } from "lucide-react";
-import { ProductDetail } from "@/data/productDetails";
+import type { products } from "@/db/schema";
+import DynamicIcon from "@/components/ui/DynamicIcon";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { SwapLabel } from "@/components/common/HoverSwap";
 
+type Product = typeof products.$inferSelect;
+
 interface ProductDetailLayoutProps {
-  product: ProductDetail;
+  product: Product;
 }
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -104,7 +100,7 @@ function getIntegrationIcon(name: string) {
   if (n.includes("whatsapp") || n.includes("email") || n.includes("messag"))
     return Share2;
   if (n.includes("bank") || n.includes("payment") || n.includes("tax"))
-    return Zap;
+    return Share2;
   return Server;
 }
 
@@ -113,24 +109,8 @@ export default function ProductDetailLayout({
 }: ProductDetailLayoutProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  // Resolve product website URL or fallback
-  const hasLiveSite = Boolean(
-    product.displayUrl || (product.logo && product.logo.startsWith("http")),
-  );
-  let visitUrl = "";
-  if (hasLiveSite) {
-    if (product.displayUrl) {
-      visitUrl = product.displayUrl.startsWith("http")
-        ? product.displayUrl
-        : `https://${product.displayUrl}`;
-    } else if (product.logo && product.logo.startsWith("http")) {
-      try {
-        visitUrl = new URL(product.logo).origin;
-      } catch (e) {
-        visitUrl = "";
-      }
-    }
-  }
+  const visitUrl = product.websiteUrl || "";
+  const [ctaButton1, ctaButton2] = product.ctaButtons;
 
   return (
     <>
@@ -138,10 +118,10 @@ export default function ProductDetailLayout({
       <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[550px] md:min-h-[620px] lg:min-h-[700px] flex items-center bg-brand-navy text-white overflow-hidden pt-[130px] pb-16 md:pt-[140px] md:pb-16 lg:py-0">
         {/* Background */}
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${product.darkBgGradient} z-0`}
+          className={`absolute inset-0 bg-gradient-to-br ${product.darkBgGradient ?? ""} z-0`}
         />
         <div
-          className={`absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-br ${product.accentColor} rounded-full blur-[160px] opacity-15 pointer-events-none z-0`}
+          className={`absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-br ${product.accentColor ?? ""} rounded-full blur-[160px] opacity-15 pointer-events-none z-0`}
         />
         <div
           className="absolute inset-0 opacity-[0.06] pointer-events-none z-0"
@@ -215,7 +195,7 @@ export default function ProductDetailLayout({
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className={`h-[3px] w-16 rounded-full bg-gradient-to-r ${product.accentColor} mb-5 origin-left`}
+              className={`h-[3px] w-16 rounded-full bg-gradient-to-r ${product.accentColor ?? ""} mb-5 origin-left`}
             />
 
             <motion.p
@@ -238,30 +218,34 @@ export default function ProductDetailLayout({
               </motion.p>
             )}
 
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.34 }}
-              className="flex flex-col sm:flex-row gap-3"
-            >
-              <Link
-                href={product.ctaButton1.href}
-                className="group inline-flex items-center justify-between gap-4 pl-6 pr-2.5 py-3 rounded-full font-bold text-sm text-white bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300"
+            {(ctaButton1 || ctaButton2) && (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.34 }}
+                className="flex flex-col sm:flex-row gap-3"
               >
-                <span>{product.ctaButton1.label}</span>
-                <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:translate-x-0.5 transition-all duration-300 shrink-0">
-                  <ArrowUpRight size={14} />
-                </div>
-              </Link>
-              {product.ctaButton2 && (
-                <Link
-                  href={product.ctaButton2.href}
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-sm text-white/85 hover:text-white bg-white/8 hover:bg-white/12 border border-white/15 hover:border-white/25 backdrop-blur-md transition-all duration-300"
-                >
-                  {product.ctaButton2.label}
-                </Link>
-              )}
-            </motion.div>
+                {ctaButton1 && (
+                  <Link
+                    href={ctaButton1.href}
+                    className="group inline-flex items-center justify-between gap-4 pl-6 pr-2.5 py-3 rounded-full font-bold text-sm text-white bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300"
+                  >
+                    <span>{ctaButton1.label}</span>
+                    <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:translate-x-0.5 transition-all duration-300 shrink-0">
+                      <ArrowUpRight size={14} />
+                    </div>
+                  </Link>
+                )}
+                {ctaButton2 && (
+                  <Link
+                    href={ctaButton2.href}
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-sm text-white/85 hover:text-white bg-white/8 hover:bg-white/12 border border-white/15 hover:border-white/25 backdrop-blur-md transition-all duration-300"
+                  >
+                    {ctaButton2.label}
+                  </Link>
+                )}
+              </motion.div>
+            )}
           </div>
 
           {/* Right — Hero Image Showcase */}
@@ -276,15 +260,17 @@ export default function ProductDetailLayout({
               }}
               className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden group/mockup"
             >
-              <img
-                src={product.heroImage}
-                alt={`${product.title} Showcase`}
-                className="w-full h-full object-cover rounded-2xl group-hover/mockup:scale-[1.03] transition-transform duration-700 ease-out"
-              />
+              {product.heroImage && (
+                <img
+                  src={product.heroImage}
+                  alt={`${product.title} Showcase`}
+                  className="w-full h-full object-cover rounded-2xl group-hover/mockup:scale-[1.03] transition-transform duration-700 ease-out"
+                />
+              )}
               <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-navy/60 to-transparent pointer-events-none z-10" />
             </motion.div>
 
-            {hasLiveSite && visitUrl && (
+            {visitUrl && (
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -316,7 +302,6 @@ export default function ProductDetailLayout({
       <div className="bg-brand-bg">
         {/* 2. OVERVIEW & CORE CONCEPT */}
         <section className="py-20 md:py-28 bg-[#fafbfd] border-b border-neutral-100/60 px-6 relative overflow-hidden">
-          {/* Background decorative path */}
           <div className="absolute inset-0 pointer-events-none opacity-40">
             <svg
               className="absolute -top-24 -left-24 w-96 h-96 text-primary/5"
@@ -375,23 +360,22 @@ export default function ProductDetailLayout({
         </section>
 
         {/* 3. CHALLENGES SECTION */}
-        <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto text-left">
-          <div className="max-w-3xl mb-16">
-            <Eyebrow className="mb-3">Pain Points</Eyebrow>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-5">
-              {product.challengesTitle}
-            </h2>
-            <p className="text-neutral-500 text-base leading-relaxed font-semibold">
-              Many organizations struggle to manage their daily workflows
-              efficiently. Our tools convert these persistent operational
-              friction points into structured business assets.
-            </p>
-          </div>
+        {product.challenges.length > 0 && (
+          <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto text-left">
+            <div className="max-w-3xl mb-16">
+              <Eyebrow className="mb-3">Pain Points</Eyebrow>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-5">
+                {product.challengesTitle}
+              </h2>
+              <p className="text-neutral-500 text-base leading-relaxed font-semibold">
+                Many organizations struggle to manage their daily workflows
+                efficiently. Our tools convert these persistent operational
+                friction points into structured business assets.
+              </p>
+            </div>
 
-          <div className="flex flex-col divide-y divide-neutral-100">
-            {product.challenges.map((challenge, idx) => {
-              const IconComp = challenge.icon;
-              return (
+            <div className="flex flex-col divide-y divide-neutral-100">
+              {product.challenges.map((challenge, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: -16 }}
@@ -405,7 +389,7 @@ export default function ProductDetailLayout({
                   </span>
                   <div className="flex items-start gap-5 flex-1">
                     <div className="shrink-0 w-11 h-11 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center mt-0.5 group-hover:scale-110 group-hover:bg-amber-100 transition-all duration-300">
-                      <IconComp size={20} className="text-amber-600" />
+                      <DynamicIcon name={challenge.icon} className="size-5 text-amber-600" />
                     </div>
                     <div>
                       <h3 className="text-lg font-extrabold text-neutral-900 mb-2 group-hover:text-primary transition-colors duration-200">
@@ -417,33 +401,31 @@ export default function ProductDetailLayout({
                     </div>
                   </div>
                 </motion.div>
-              );
-            })}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* 4. BUSINESS OUTCOMES SECTION */}
-        <section className="py-20 md:py-28 bg-[#1c3849] text-white px-6 overflow-hidden relative">
-          {/* Glow overlay */}
-          <div
-            className={`absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br ${product.accentColor} rounded-full filter blur-[130px] opacity-15 pointer-events-none`}
-          />
+        {product.outcomes.length > 0 && (
+          <section className="py-20 md:py-28 bg-[#1c3849] text-white px-6 overflow-hidden relative">
+            <div
+              className={`absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br ${product.accentColor ?? ""} rounded-full filter blur-[130px] opacity-15 pointer-events-none`}
+            />
 
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="max-w-3xl mb-16">
-              <Eyebrow className="mb-3" variant="dark">Outcomes</Eyebrow>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-5 leading-tight">
-                {product.outcomesTitle}
-              </h2>
-              <p className="text-neutral-350 text-base md:text-lg leading-relaxed font-normal">
-                {product.outcomesDesc}
-              </p>
-            </div>
+            <div className="max-w-7xl mx-auto relative z-10">
+              <div className="max-w-3xl mb-16">
+                <Eyebrow className="mb-3" variant="dark">Outcomes</Eyebrow>
+                <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-5 leading-tight">
+                  {product.outcomesTitle}
+                </h2>
+                <p className="text-neutral-350 text-base md:text-lg leading-relaxed font-normal">
+                  {product.outcomesDesc}
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {product.outcomes.map((outcome, idx) => {
-                const IconComp = outcome.icon;
-                return (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {product.outcomes.map((outcome, idx) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 15 }}
@@ -453,9 +435,9 @@ export default function ProductDetailLayout({
                     className="bg-white/[0.03] border border-white/10 hover:border-white/20 rounded-[24px] p-7 hover:bg-white/[0.06] transition-all duration-300 group"
                   >
                     <div
-                      className={`w-11 h-11 rounded-2xl bg-gradient-to-r ${product.accentColor} flex items-center justify-center mb-5 shadow-lg group-hover:scale-105 transition-transform`}
+                      className={`w-11 h-11 rounded-2xl bg-gradient-to-r ${product.accentColor ?? ""} flex items-center justify-center mb-5 shadow-lg group-hover:scale-105 transition-transform`}
                     >
-                      <IconComp size={20} className="text-white" />
+                      <DynamicIcon name={outcome.icon} className="size-5 text-white" />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-3 group-hover:text-primary transition-colors duration-300">
                       {outcome.title}
@@ -464,16 +446,15 @@ export default function ProductDetailLayout({
                       {outcome.desc}
                     </p>
                   </motion.div>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* 5. AI FEATURES SECTION (If present) */}
-        {product.aiTitle && product.aiFeatures && (
+        {product.aiTitle && product.aiFeatures.length > 0 && (
           <section className="py-24 md:py-32 bg-[#020716] text-white px-6 relative overflow-hidden border-t border-white/5">
-            {/* Futuristic Ambient Orbs & Mesh */}
             <div
               className="absolute inset-0 opacity-[0.04] pointer-events-none"
               style={{
@@ -482,7 +463,7 @@ export default function ProductDetailLayout({
               }}
             />
             <div
-              className={`absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br ${product.accentColor} rounded-full blur-[160px] opacity-10 pointer-events-none`}
+              className={`absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br ${product.accentColor ?? ""} rounded-full blur-[160px] opacity-10 pointer-events-none`}
             />
 
             <div className="max-w-7xl mx-auto relative z-10">
@@ -497,11 +478,9 @@ export default function ProductDetailLayout({
               </div>
 
               <div className="relative max-w-5xl mx-auto mt-16 md:mt-24">
-                {/* Central glowing line */}
                 <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent -translate-x-1/2" />
 
                 {product.aiFeatures.map((ai, idx) => {
-                  const IconComp = ai.icon;
                   const isEven = idx % 2 === 0;
                   return (
                     <motion.div
@@ -516,28 +495,23 @@ export default function ProductDetailLayout({
                       }}
                       className={`relative flex items-center mb-16 md:mb-24 last:mb-0 ${isEven ? "md:flex-row-reverse" : "md:flex-row"}`}
                     >
-                      {/* Node on the line */}
                       <div className="absolute left-8 md:left-1/2 w-8 h-8 rounded-full bg-[#000a1f] border-[3px] border-primary/40 -translate-x-1/2 flex items-center justify-center z-10 shadow-lg">
                         <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
                       </div>
 
-                      {/* Spacer to push content to alternating sides on desktop */}
                       <div className="hidden md:block w-1/2" />
 
-                      {/* Content Box */}
                       <div
                         className={`w-full pl-20 md:pl-0 md:w-1/2 ${isEven ? "md:pr-16" : "md:pl-16"} text-left`}
                       >
                         <div className="group relative bg-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-primary/40 hover:bg-white/[0.04] rounded-[32px] p-8 sm:p-10 shadow-2xl transition-all duration-500 overflow-hidden">
-                          {/* Glow inside card */}
                           <div
                             className={`absolute top-0 ${isEven ? "left-0" : "right-0"} w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none group-hover:bg-primary/20 transition-all duration-500`}
                           />
 
-                          {/* Header */}
                           <div className="flex flex-wrap items-center gap-4 mb-6 relative z-10 justify-start">
                             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-indigo-500/20 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shrink-0">
-                              <IconComp size={24} />
+                              <DynamicIcon name={ai.icon} className="size-6" />
                             </div>
                             <span className="text-[10px] font-extrabold uppercase tracking-widest text-primary/90 bg-primary/10 border border-primary/30 px-3 py-1.5 rounded-full backdrop-blur-md">
                               AI Model
@@ -562,233 +536,227 @@ export default function ProductDetailLayout({
         )}
 
         {/* 6. MODULES SECTION (Product Capabilities) */}
-        <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-16">
-            <Eyebrow className="mb-3">Product Capabilities</Eyebrow>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-5">
-              {product.modulesTitle}
-            </h2>
-            {product.modulesDesc && (
-              <p className="text-neutral-500 text-base leading-relaxed font-semibold">
-                {product.modulesDesc}
-              </p>
-            )}
-          </div>
+        {product.modules.length > 0 && (
+          <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
+            <div className="max-w-3xl mb-16">
+              <Eyebrow className="mb-3">Product Capabilities</Eyebrow>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-5">
+                {product.modulesTitle}
+              </h2>
+              {product.modulesDesc && (
+                <p className="text-neutral-500 text-base leading-relaxed font-semibold">
+                  {product.modulesDesc}
+                </p>
+              )}
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-neutral-100 rounded-[28px] overflow-hidden shadow-xs">
-            {product.modules.map((mod, i) => {
-              const IconComp = mod.icon;
-              const isOddTotal = product.modules.length % 2 === 1;
-              const isLastItem = i === product.modules.length - 1;
-              const isLastRow =
-                i >= product.modules.length - (isOddTotal ? 1 : 2);
-              const isRightCol = i % 2 === 1;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.45, delay: i * 0.04 }}
-                  className={`group relative flex items-start gap-5 p-7 sm:p-8 bg-white hover:bg-neutral-50/80 transition-colors duration-200
-                    ${!isLastRow ? "border-b border-neutral-100" : ""}
-                    ${!isRightCol && !(isOddTotal && isLastItem) ? "md:border-r border-neutral-100" : ""}
-                    ${isOddTotal && isLastItem ? "md:col-span-2" : ""}
-                  `}
-                >
-                  <div
-                    className={`shrink-0 w-11 h-11 rounded-2xl flex items-center justify-center ${mod.bgColor} ${mod.color} group-hover:scale-110 transition-transform duration-300`}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-neutral-100 rounded-[28px] overflow-hidden shadow-xs">
+              {product.modules.map((mod, i) => {
+                const isOddTotal = product.modules.length % 2 === 1;
+                const isLastItem = i === product.modules.length - 1;
+                const isLastRow =
+                  i >= product.modules.length - (isOddTotal ? 1 : 2);
+                const isRightCol = i % 2 === 1;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.45, delay: i * 0.04 }}
+                    className={`group relative flex items-start gap-5 p-7 sm:p-8 bg-white hover:bg-neutral-50/80 transition-colors duration-200
+                      ${!isLastRow ? "border-b border-neutral-100" : ""}
+                      ${!isRightCol && !(isOddTotal && isLastItem) ? "md:border-r border-neutral-100" : ""}
+                      ${isOddTotal && isLastItem ? "md:col-span-2" : ""}
+                    `}
                   >
-                    <IconComp size={20} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base font-extrabold text-neutral-900 mb-1.5 group-hover:text-primary transition-colors duration-200">
-                      {mod.title}
-                    </h3>
-                    {mod.desc && (
-                      <p className="text-neutral-500 text-sm leading-relaxed font-medium">
-                        {mod.desc}
-                      </p>
-                    )}
-                    {mod.points && mod.points.length > 0 && (
-                      <ul className="mt-3 flex flex-col gap-1.5 list-none">
-                        {mod.points.map((point, k) => (
-                          <li
-                            key={k}
-                            className="flex items-center gap-2 text-xs font-semibold text-neutral-500"
-                          >
-                            <Check
-                              size={11}
-                              className="text-emerald-500 shrink-0"
-                            />
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </section>
+                    <div
+                      className={`shrink-0 w-11 h-11 rounded-2xl flex items-center justify-center ${mod.bgColor ?? "bg-neutral-100"} ${mod.color ?? "text-neutral-700"} group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <DynamicIcon name={mod.icon} className="size-5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-base font-extrabold text-neutral-900 mb-1.5 group-hover:text-primary transition-colors duration-200">
+                        {mod.title}
+                      </h3>
+                      {mod.desc && (
+                        <p className="text-neutral-500 text-sm leading-relaxed font-medium">
+                          {mod.desc}
+                        </p>
+                      )}
+                      {mod.points && mod.points.length > 0 && (
+                        <ul className="mt-3 flex flex-col gap-1.5 list-none">
+                          {mod.points.map((point, k) => (
+                            <li
+                              key={k}
+                              className="flex items-center gap-2 text-xs font-semibold text-neutral-500"
+                            >
+                              <Check size={11} className="text-emerald-500 shrink-0" />
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* 7. INDUSTRIES & ERP INTEGRATION SECTIONS */}
-        <section className="py-20 md:py-28 bg-[#fafbfd] border-y border-neutral-100 px-6">
-          <div className="max-w-7xl mx-auto">
-            {product.integrationsTitle &&
-            product.integrations &&
-            product.integrations.length > 0 ? (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-                {/* Left Column: Industries */}
-                <div className="bg-white border border-neutral-150 rounded-[32px] p-8 sm:p-10 shadow-xs hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-center gap-3.5 mb-3">
-                    <div className="w-10 h-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                      <Building2 size={20} />
+        {(product.industries.length > 0 || product.integrations.length > 0) && (
+          <section className="py-20 md:py-28 bg-[#fafbfd] border-y border-neutral-100 px-6">
+            <div className="max-w-7xl mx-auto">
+              {product.integrationsTitle && product.integrations.length > 0 ? (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                  {/* Left Column: Industries */}
+                  <div className="bg-white border border-neutral-150 rounded-[32px] p-8 sm:p-10 shadow-xs hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center gap-3.5 mb-3">
+                      <div className="w-10 h-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                        <Building2 size={20} />
+                      </div>
+                      <h3 className="text-2xl font-extrabold text-neutral-900">
+                        {product.industriesTitle}
+                      </h3>
                     </div>
-                    <h3 className="text-2xl font-extrabold text-neutral-900">
-                      {product.industriesTitle}
-                    </h3>
+                    <p className="text-neutral-500 text-sm leading-relaxed mb-8 font-medium">
+                      {product.industriesDesc}
+                    </p>
+                    <div className="flex flex-wrap gap-2.5">
+                      {product.industries.map((ind, i) => {
+                        const IndIcon = getIndustryIcon(ind);
+                        return (
+                          <motion.span
+                            key={i}
+                            whileHover={{ scale: 1.04 }}
+                            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-neutral-200 bg-neutral-50/60 text-neutral-700 text-xs md:text-sm font-bold cursor-default hover:bg-white hover:border-primary/40 hover:text-primary transition-all duration-200 shadow-2xs"
+                          >
+                            <IndIcon size={14} className="text-primary shrink-0" />
+                            <span>{ind}</span>
+                          </motion.span>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <p className="text-neutral-500 text-sm leading-relaxed mb-8 font-medium">
-                    {product.industriesDesc}
-                  </p>
-                  <div className="flex flex-wrap gap-2.5">
+
+                  {/* Right Column: ERP / Connectivity */}
+                  <div className="bg-white border border-neutral-150 rounded-[32px] p-8 sm:p-10 shadow-xs hover:shadow-md transition-shadow duration-300 relative overflow-hidden group/integ-card">
+                    <div
+                      className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-br ${product.accentColor ?? ""} rounded-full filter blur-[50px] opacity-10`}
+                    />
+
+                    <div className="flex items-center gap-3.5 mb-3">
+                      <div className="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
+                        <Server size={20} />
+                      </div>
+                      <h3 className="text-2xl font-extrabold text-neutral-900">
+                        {product.integrationsTitle}
+                      </h3>
+                    </div>
+                    {product.integrationsDesc && (
+                      <p className="text-neutral-500 text-sm leading-relaxed mb-8 font-medium">
+                        {product.integrationsDesc}
+                      </p>
+                    )}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {product.integrations.map((item, i) => {
+                        const IntegIcon = getIntegrationIcon(item);
+                        return (
+                          <motion.div
+                            key={i}
+                            whileHover={{ x: 4 }}
+                            className="flex items-center gap-3.5 p-4 rounded-2xl bg-neutral-50 border border-neutral-100 hover:border-primary/30 hover:bg-white transition-all duration-200 shadow-2xs group"
+                          >
+                            <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                              <IntegIcon size={16} />
+                            </div>
+                            <span className="text-sm font-bold text-neutral-800">{item}</span>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-white border border-neutral-150 rounded-[32px] p-8 sm:p-12 shadow-xs hover:shadow-md transition-shadow duration-300">
+                  <div className="max-w-3xl mb-8">
+                    <div className="flex items-center gap-3.5 mb-3">
+                      <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                        <Building2 size={22} />
+                      </div>
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-900">
+                        {product.industriesTitle}
+                      </h3>
+                    </div>
+                    <p className="text-neutral-500 text-base leading-relaxed font-medium">
+                      {product.industriesDesc}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
                     {product.industries.map((ind, i) => {
                       const IndIcon = getIndustryIcon(ind);
                       return (
                         <motion.span
                           key={i}
                           whileHover={{ scale: 1.04 }}
-                          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-neutral-200 bg-neutral-50/60 text-neutral-700 text-xs md:text-sm font-bold cursor-default hover:bg-white hover:border-primary/40 hover:text-primary transition-all duration-200 shadow-2xs"
+                          className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-neutral-200 bg-neutral-50/70 text-neutral-700 text-sm font-bold cursor-default hover:bg-white hover:border-primary/40 hover:text-primary transition-all duration-200 shadow-2xs"
                         >
-                          <IndIcon
-                            size={14}
-                            className="text-primary shrink-0"
-                          />
+                          <IndIcon size={16} className="text-primary shrink-0" />
                           <span>{ind}</span>
                         </motion.span>
                       );
                     })}
                   </div>
                 </div>
-
-                {/* Right Column: ERP / Connectivity */}
-                <div className="bg-white border border-neutral-150 rounded-[32px] p-8 sm:p-10 shadow-xs hover:shadow-md transition-shadow duration-300 relative overflow-hidden group/integ-card">
-                  <div
-                    className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-br ${product.accentColor} rounded-full filter blur-[50px] opacity-10`}
-                  />
-
-                  <div className="flex items-center gap-3.5 mb-3">
-                    <div className="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
-                      <Server size={20} />
-                    </div>
-                    <h3 className="text-2xl font-extrabold text-neutral-900">
-                      {product.integrationsTitle}
-                    </h3>
-                  </div>
-                  {product.integrationsDesc && (
-                    <p className="text-neutral-500 text-sm leading-relaxed mb-8 font-medium">
-                      {product.integrationsDesc}
-                    </p>
-                  )}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {product.integrations.map((item, i) => {
-                      const IntegIcon = getIntegrationIcon(item);
-                      return (
-                        <motion.div
-                          key={i}
-                          whileHover={{ x: 4 }}
-                          className="flex items-center gap-3.5 p-4 rounded-2xl bg-neutral-50 border border-neutral-100 hover:border-primary/30 hover:bg-white transition-all duration-200 shadow-2xs group"
-                        >
-                          <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-                            <IntegIcon size={16} />
-                          </div>
-                          <span className="text-sm font-bold text-neutral-800">
-                            {item}
-                          </span>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            ) : (
-              /* Full-Width Layout when no integrations block exists */
-              <div className="bg-white border border-neutral-150 rounded-[32px] p-8 sm:p-12 shadow-xs hover:shadow-md transition-shadow duration-300">
-                <div className="max-w-3xl mb-8">
-                  <div className="flex items-center gap-3.5 mb-3">
-                    <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                      <Building2 size={22} />
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-900">
-                      {product.industriesTitle}
-                    </h3>
-                  </div>
-                  <p className="text-neutral-500 text-base leading-relaxed font-medium">
-                    {product.industriesDesc}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {product.industries.map((ind, i) => {
-                    const IndIcon = getIndustryIcon(ind);
-                    return (
-                      <motion.span
-                        key={i}
-                        whileHover={{ scale: 1.04 }}
-                        className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-neutral-200 bg-neutral-50/70 text-neutral-700 text-sm font-bold cursor-default hover:bg-white hover:border-primary/40 hover:text-primary transition-all duration-200 shadow-2xs"
-                      >
-                        <IndIcon size={16} className="text-primary shrink-0" />
-                        <span>{ind}</span>
-                      </motion.span>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
+              )}
+            </div>
+          </section>
+        )}
 
         {/* 8. WHY CHOOSE THIS PRODUCT */}
-        <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-5 text-left">
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3 block">
-                <Award size={14} className="text-primary" />
-                <span>Product Values</span>
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-5 leading-tight">
-                {product.whyTitle}
-              </h2>
-              <p className="text-neutral-500 text-base md:text-lg leading-relaxed font-semibold">
-                {product.whyDesc}
-              </p>
-            </div>
+        {product.whyBullets.length > 0 && (
+          <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <div className="lg:col-span-5 text-left">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3 block">
+                  <Award size={14} className="text-primary" />
+                  <span>Product Values</span>
+                </span>
+                <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-5 leading-tight">
+                  {product.whyTitle}
+                </h2>
+                <p className="text-neutral-500 text-base md:text-lg leading-relaxed font-semibold">
+                  {product.whyDesc}
+                </p>
+              </div>
 
-            <div className="lg:col-span-7 flex flex-col">
-              {product.whyBullets.map((bullet, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="group flex items-start gap-6 py-6 border-b border-neutral-100 last:border-0 hover:bg-neutral-50/50 px-3 rounded-lg transition-colors duration-200"
-                >
-                  <span className="shrink-0 text-3xl font-black text-neutral-150 group-hover:text-primary/20 transition-colors duration-300 leading-none w-8 text-right select-none">
-                    {i + 1}
-                  </span>
-                  <p className="text-base text-neutral-700 leading-relaxed font-bold pt-0.5 group-hover:text-neutral-900 transition-colors duration-200">
-                    {bullet}
-                  </p>
-                </motion.div>
-              ))}
+              <div className="lg:col-span-7 flex flex-col">
+                {product.whyBullets.map((bullet, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    className="group flex items-start gap-6 py-6 border-b border-neutral-100 last:border-0 hover:bg-neutral-50/50 px-3 rounded-lg transition-colors duration-200"
+                  >
+                    <span className="shrink-0 text-3xl font-black text-neutral-150 group-hover:text-primary/20 transition-colors duration-300 leading-none w-8 text-right select-none">
+                      {i + 1}
+                    </span>
+                    <p className="text-base text-neutral-700 leading-relaxed font-bold pt-0.5 group-hover:text-neutral-900 transition-colors duration-200">
+                      {bullet}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* 9. FAQs SECTION */}
-        {product.faqs && product.faqs.length > 0 && (
+        {product.faqs.length > 0 && (
           <section className="py-20 md:py-28 bg-[#fafbfd] px-6 border-t border-neutral-100">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
@@ -817,9 +785,7 @@ export default function ProductDetailLayout({
                         onClick={() => setOpenFaq(isOpen ? null : i)}
                         className="w-full flex items-center justify-between p-6 text-left font-bold text-neutral-900 text-base md:text-lg cursor-pointer hover:bg-neutral-50/20"
                       >
-                        <span
-                          className={`${isOpen ? "text-primary" : "text-neutral-950"}`}
-                        >
+                        <span className={`${isOpen ? "text-primary" : "text-neutral-950"}`}>
                           {faq.question}
                         </span>
                         <span
@@ -857,9 +823,8 @@ export default function ProductDetailLayout({
 
         {/* 10. DYNAMIC FINAL CALL TO ACTION BANNER */}
         <section className="py-24 md:py-32 bg-brand-navy text-white text-center relative px-6 overflow-hidden">
-          {/* Glow gradients */}
           <div
-            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br ${product.accentColor} rounded-full filter blur-[160px] opacity-20 pointer-events-none`}
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br ${product.accentColor ?? ""} rounded-full filter blur-[160px] opacity-20 pointer-events-none`}
           />
 
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
@@ -872,24 +837,7 @@ export default function ProductDetailLayout({
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-xl">
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className="w-full sm:w-auto"
-              >
-                <Link
-                  href={product.ctaButton1.href}
-                  className="group flex items-center justify-between gap-4 pl-8 pr-3.5 py-4 bg-primary hover:bg-primary/95 text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto cursor-pointer shadow-lg shadow-primary/20"
-                >
-                  <SwapLabel>{product.ctaButton1.label}</SwapLabel>
-                  <div className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/30 group-hover:translate-x-0.5 shrink-0">
-                    <ArrowUpRight size={16} />
-                  </div>
-                </Link>
-              </motion.div>
-
-              {product.ctaButton2 && (
+              {ctaButton1 && (
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -897,10 +845,29 @@ export default function ProductDetailLayout({
                   className="w-full sm:w-auto"
                 >
                   <Link
-                    href={product.ctaButton2.href}
+                    href={ctaButton1.href}
+                    className="group flex items-center justify-between gap-4 pl-8 pr-3.5 py-4 bg-primary hover:bg-primary/95 text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto cursor-pointer shadow-lg shadow-primary/20"
+                  >
+                    <SwapLabel>{ctaButton1.label}</SwapLabel>
+                    <div className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/30 group-hover:translate-x-0.5 shrink-0">
+                      <ArrowUpRight size={16} />
+                    </div>
+                  </Link>
+                </motion.div>
+              )}
+
+              {ctaButton2 && (
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                  className="w-full sm:w-auto"
+                >
+                  <Link
+                    href={ctaButton2.href}
                     className="group flex items-center justify-between gap-4 pl-8 pr-3.5 py-4 bg-white/10 hover:bg-white/15 text-white rounded-full font-bold text-sm tracking-wide border border-white/15 hover:border-white/30 transition-all duration-300 w-full sm:w-auto cursor-pointer backdrop-blur-md"
                   >
-                    <SwapLabel>{product.ctaButton2.label}</SwapLabel>
+                    <SwapLabel>{ctaButton2.label}</SwapLabel>
                     <div className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/20 group-hover:translate-x-0.5 shrink-0">
                       <ArrowUpRight size={16} />
                     </div>

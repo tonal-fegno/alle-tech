@@ -1,14 +1,21 @@
+import { desc, eq } from "drizzle-orm";
 import type { Metadata } from "next";
+import { db } from "@/db";
+import { blogs } from "@/db/schema";
 import BlogsHero from "@/components/blog/BlogsHero";
 import BlogListGrid from "@/components/blog/BlogListGrid";
-import ContactFormSection from "@/components/ContactFormSection";
-import { blogs } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Blogs",
 };
 
-export default function BlogsPage() {
+export default async function BlogsPage() {
+  const items = await db
+    .select()
+    .from(blogs)
+    .where(eq(blogs.enabled, true))
+    .orderBy(desc(blogs.publishedAt));
+
   return (
     <main>
       {/* Hero Section */}
@@ -17,12 +24,9 @@ export default function BlogsPage() {
       {/* Blog List Section */}
       <section className="section-padding bg-bg-3 px-4 md:px-8">
         <div className="container-main">
-          <BlogListGrid blogs={blogs} />
+          <BlogListGrid blogs={items} />
         </div>
       </section>
-
-      {/* Contact Form Section */}
-      {/* <ContactFormSection /> */}
     </main>
   );
 }

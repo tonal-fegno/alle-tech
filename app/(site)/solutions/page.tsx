@@ -1,33 +1,19 @@
-"use client";
-
-import React, { useState } from "react";
-import Image from "next/image";
+import { asc, eq } from "drizzle-orm";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import { SwapLabel, SwapArrow } from "@/components/common/HoverSwap";
-import { SOLUTIONS } from "@/data/solutions";
-import SolutionCard from "@/components/solutions/SolutionCard";
-import CTABanner from "@/components/common/CTABanner";
 import { ShieldCheck, Zap, Wrench, Users } from "lucide-react";
-import Eyebrow from "@/components/ui/Eyebrow";
-import AnimatedHeading from "@/components/ui/AnimatedHeading";
-import Badge from "@/components/badge";
-import UIButton from "@/components/ui-button";
-
+import { db } from "@/db";
+import { solutions } from "@/db/schema";
+import SolutionsListingGrid from "@/components/solutions/SolutionsListingGrid";
+import CTABanner from "@/components/common/CTABanner";
 import SolutionsHero from "@/components/solutions/SolutionsHero";
 
-const MotionUIButton = motion(UIButton);
-
-export default function SolutionsPage() {
-  const [visibleCount, setVisibleCount] = useState(6);
-
-  const visibleSolutions = SOLUTIONS.slice(0, visibleCount);
-  const hasMore = SOLUTIONS.length > visibleCount;
-
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 6);
-  };
+export default async function SolutionsPage() {
+  const items = await db
+    .select()
+    .from(solutions)
+    .where(eq(solutions.enabled, true))
+    .orderBy(asc(solutions.sortOrder));
 
   return (
     <div className="text-neutral-900 antialiased">
@@ -35,25 +21,7 @@ export default function SolutionsPage() {
       <SolutionsHero />
 
       {/* 2. Solutions Grid */}
-      <main className="container-main section-padding">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {visibleSolutions.map((solution, index) => (
-            <SolutionCard key={solution.id} solution={solution} index={index} />
-          ))}
-        </div>
-
-        {/* Load More Button (Cevira Style) */}
-        {hasMore && (
-          <div className="flex justify-center mt-12 mb-6">
-            <MotionUIButton
-              onClick={handleLoadMore}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            >
-              Load More
-            </MotionUIButton>
-          </div>
-        )}
-      </main>
+      <SolutionsListingGrid solutions={items} />
 
       {/* 3. Why ALLE TECH */}
       <section className="py-14 md:py-20 bg-brand-navy text-white px-6 overflow-hidden relative">

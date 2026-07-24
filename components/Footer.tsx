@@ -1,31 +1,33 @@
+import { asc, eq } from "drizzle-orm";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  CONTACT_INFO,
-  INDUSTRIES,
-  LOGO_URL,
-  PRODUCTS,
-  SOCIAL_LINKS,
-  SOLUTIONS,
-} from "@/lib/constants";
+import { CONTACT_INFO, LOGO_URL, SOCIAL_LINKS } from "@/lib/constants";
+import { db } from "@/db";
+import { industries, products, solutions } from "@/db/schema";
 
-const solutionLinks = SOLUTIONS.map((solution) => ({
-  label: solution.title,
-  href: `/solutions/${solution.slug}`,
-}));
-
-const productLinks = PRODUCTS.map((product) => ({
-  label: product.title,
-  href: `/products/${product.slug}`,
-}));
-
-const industryLinks = INDUSTRIES.map((industry) => ({
-  label: industry.title,
-  href: `/industries#${industry.slug}`,
-}));
-
-export default function Footer() {
+export default async function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const [solutionRows, productRows, industryRows] = await Promise.all([
+    db.select().from(solutions).where(eq(solutions.enabled, true)).orderBy(asc(solutions.sortOrder)),
+    db.select().from(products).where(eq(products.enabled, true)).orderBy(asc(products.sortOrder)),
+    db.select().from(industries).where(eq(industries.enabled, true)).orderBy(asc(industries.sortOrder)),
+  ]);
+
+  const solutionLinks = solutionRows.map((solution) => ({
+    label: solution.title,
+    href: `/solutions/${solution.slug}`,
+  }));
+
+  const productLinks = productRows.map((product) => ({
+    label: product.title,
+    href: `/products/${product.slug}`,
+  }));
+
+  const industryLinks = industryRows.map((industry) => ({
+    label: industry.title,
+    href: `/industries/${industry.slug}`,
+  }));
 
   return (
     <footer className="relative overflow-hidden bg-[#00081d] px-4 pb-8 pt-16 md:px-8 md:pt-20">

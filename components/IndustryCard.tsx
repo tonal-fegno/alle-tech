@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Boxes,
   Factory,
@@ -11,13 +12,9 @@ import {
   Globe,
   type LucideIcon,
 } from "lucide-react";
+import type { industries } from "@/db/schema";
 
-interface Industry {
-  slug: string;
-  title: string;
-  description: string;
-  typicalSolutions: string[];
-}
+type Industry = typeof industries.$inferSelect;
 
 const INDUSTRY_ICONS: Record<string, LucideIcon> = {
   "distribution-wholesale": Boxes,
@@ -36,7 +33,8 @@ export default function IndustryCard({ industry }: { industry: Industry }) {
   const Icon = INDUSTRY_ICONS[industry.slug] || Boxes;
 
   return (
-    <div
+    <Link
+      href={`/industries/${industry.slug}`}
       id={industry.slug}
       className="flex flex-col gap-5 rounded-section border border-border-gray/40 bg-white p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,11,34,0.08)] md:p-8"
     >
@@ -64,6 +62,6 @@ export default function IndustryCard({ industry }: { industry: Industry }) {
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

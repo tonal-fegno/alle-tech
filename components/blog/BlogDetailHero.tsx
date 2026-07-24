@@ -4,8 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
-import type { Blog } from "@/lib/data";
-import { formatBlogDate } from "@/lib/data";
+import type { blogs } from "@/db/schema";
+import { formatDate } from "@/lib/format-date";
+
+type Blog = typeof blogs.$inferSelect;
 
 export default function BlogDetailHero({ blog }: { blog: Blog }) {
   const { scrollY } = useScroll();
@@ -20,13 +22,13 @@ export default function BlogDetailHero({ blog }: { blog: Blog }) {
 
   return (
     <section className="relative -mt-[80px] flex min-h-[64vh] items-end overflow-hidden bg-brand-navy pb-20 pt-32 text-white lg:-mt-[99px]">
-      {blog.imageVisible && blog.image && (
+      {blog.image && (
         <motion.div
           className="absolute inset-0 will-change-transform"
           style={{ scale: bgScale, y: bgY }}
         >
           <Image
-            src={encodeURI(blog.image)}
+            src={blog.image}
             alt={blog.title}
             fill
             priority
@@ -87,11 +89,11 @@ export default function BlogDetailHero({ blog }: { blog: Blog }) {
           <span className="hidden h-8 w-px bg-white/15 sm:block" />
           <div className="flex items-center gap-2 font-semibold text-white/80">
             <Calendar size={15} className="text-white/60" />
-            {formatBlogDate(blog.date)}
+            {formatDate(blog.publishedAt)}
           </div>
           <div className="flex items-center gap-2 font-semibold text-white/80">
             <Clock size={15} className="text-white/60" />
-            {blog.time || blog.readTime}
+            {blog.readTime}
           </div>
         </motion.div>
       </div>

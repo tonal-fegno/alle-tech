@@ -1,3 +1,4 @@
+import { asc, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import {
   TrendingUp,
@@ -24,7 +25,12 @@ import IndustryCard from "@/components/IndustryCard";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
 import CTABanner from "@/components/common/CTABanner";
-import { INDUSTRIES, SOLUTIONS, PRODUCTS } from "@/lib/constants";
+import { db } from "@/db";
+import {
+  industries as industriesTable,
+  solutions as solutionsTable,
+  products as productsTable,
+} from "@/db/schema";
 
 export const metadata: Metadata = {
   title: "Industries",
@@ -215,7 +221,25 @@ function CheckIcon() {
   );
 }
 
-export default function IndustriesPage() {
+export default async function IndustriesPage() {
+  const industries = await db
+    .select()
+    .from(industriesTable)
+    .where(eq(industriesTable.enabled, true))
+    .orderBy(asc(industriesTable.sortOrder));
+
+  const solutions = await db
+    .select()
+    .from(solutionsTable)
+    .where(eq(solutionsTable.enabled, true))
+    .orderBy(asc(solutionsTable.sortOrder));
+
+  const products = await db
+    .select()
+    .from(productsTable)
+    .where(eq(productsTable.enabled, true))
+    .orderBy(asc(productsTable.sortOrder));
+
   return (
     <main>
       {/* Hero Section */}
@@ -231,7 +255,7 @@ export default function IndustriesPage() {
             title="Solutions Built for Your Sector"
           />
           <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2 xl:grid-cols-3">
-            {INDUSTRIES.map((industry) => (
+            {industries.map((industry) => (
               <IndustryCard key={industry.slug} industry={industry} />
             ))}
           </div>
@@ -251,17 +275,17 @@ export default function IndustriesPage() {
             <EcosystemGroup
               type="enterprise"
               label="Enterprise Solutions"
-              items={SOLUTIONS.map((solution) => ({
+              items={solutions.map((solution) => ({
                 title: solution.title,
-                icon: ENTERPRISE_ICONS[solution.slug],
+                icon: ENTERPRISE_ICONS[solution.slug] ?? Layers,
               }))}
             />
             <EcosystemGroup
               type="platform"
               label="Platform Solutions"
-              items={PRODUCTS.map((product) => ({
+              items={products.map((product) => ({
                 title: product.title,
-                icon: PLATFORM_ICONS[product.slug],
+                icon: PLATFORM_ICONS[product.slug] ?? Boxes,
               }))}
             />
           </div>

@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import type { CaseStudy } from "@/lib/data";
+import type { caseStudies as caseStudiesTable } from "@/db/schema";
 import CaseStudyCard from "@/components/case-studies/CaseStudyCard";
 import { SwapArrow, SwapLabel } from "@/components/common/HoverSwap";
+
+type CaseStudy = typeof caseStudiesTable.$inferSelect;
 
 const PAGE_SIZE = 3;
 
@@ -23,7 +25,7 @@ export default function CaseStudyListGrid({
       <div className="flex flex-col gap-8">
         {visibleStudies.map((study, index) => (
           <CaseStudyCard
-            key={study.id || study.slug}
+            key={study.id}
             study={study}
             index={index}
           />

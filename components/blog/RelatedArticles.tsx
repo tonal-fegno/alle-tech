@@ -3,8 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { Blog } from "@/lib/data";
-import { formatBlogDate } from "@/lib/data";
+import type { blogs } from "@/db/schema";
+import { formatDate } from "@/lib/format-date";
+
+type Blog = typeof blogs.$inferSelect;
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -25,7 +27,7 @@ export default function RelatedArticles({ posts }: { posts: Blog[] }) {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, i) => (
             <motion.div
-              key={post.id || post.slug}
+              key={post.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -35,10 +37,10 @@ export default function RelatedArticles({ posts }: { posts: Blog[] }) {
                 href={`/blogs/${post.slug}`}
                 className="group block h-full overflow-hidden rounded-card border border-border-gray/20 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,11,34,0.08)]"
               >
-                {post.imageVisible && post.image && (
+                {post.image && (
                   <div className="relative aspect-[16/10] overflow-hidden bg-bg-1">
                     <Image
-                      src={encodeURI(post.image)}
+                      src={post.image}
                       alt={post.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 280px"
@@ -51,7 +53,7 @@ export default function RelatedArticles({ posts }: { posts: Blog[] }) {
                 )}
                 <div className="p-4">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-body-gray/70">
-                    {formatBlogDate(post.date)} · {post.time}
+                    {formatDate(post.publishedAt)} · {post.readTime}
                   </div>
                   <h3 className="mt-1.5 line-clamp-2 text-sm font-bold leading-snug text-ink transition-colors group-hover:text-primary">
                     {post.title}

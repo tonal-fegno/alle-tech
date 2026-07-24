@@ -4,7 +4,9 @@ import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { Solution } from "@/data/solutions";
+import type { solutions } from "@/db/schema";
+
+type Solution = typeof solutions.$inferSelect;
 
 interface SolutionCardProps {
   solution: Solution;
@@ -39,7 +41,7 @@ export default function SolutionCard({ solution, index }: SolutionCardProps) {
       viewport={{ once: true, margin: "-40px" }}
       className="group flex flex-col bg-white rounded-4xl border border-neutral-100/70 p-6 shadow-[0_6px_28px_-8px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_45px_-12px_rgba(0,0,0,0.10)] hover:border-neutral-200/70 transition-colors duration-300"
     >
-      <Link href={`/solutions/${solution.id}`} className="flex flex-col h-full">
+      <Link href={`/solutions/${solution.slug}`} className="flex flex-col h-full">
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
           {solution.tags.map((tag) => (
@@ -59,7 +61,7 @@ export default function SolutionCard({ solution, index }: SolutionCardProps) {
 
         {/* Description */}
         <p className="text-sm md:text-base text-neutral-500 leading-relaxed font-medium mb-6">
-          {solution.description}
+          {solution.shortDescription}
         </p>
 
         {/* Image — zooms out linearly, scrubbed to scroll position */}

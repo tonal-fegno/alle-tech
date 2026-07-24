@@ -7,8 +7,8 @@ import IndustriesSection from "@/components/home/IndustriesSection";
 import TestimonialSection from "@/components/home/TestimonialSection";
 import FaqSection from "@/components/FaqSection";
 import ContactFormSection from "@/components/ContactFormSection";
-import SolutionsSection from "@/components/home/ServicesSection";
-import ServicesSection from "@/components/home/SolutionsSection";
+import SolutionsSection from "@/components/home/SolutionsSection";
+import ProductsSliderSection from "@/components/home/ProductsSliderSection";
 
 export default function HomePage() {
   return (
@@ -17,7 +17,7 @@ export default function HomePage() {
       <BrandTicker />
       <AboutSection />
       <SolutionsSection />
-      <ServicesSection />
+      <ProductsSliderSection />
       <FeaturesSection />
       {/* <CtaSection /> */}
       <IndustriesSection />

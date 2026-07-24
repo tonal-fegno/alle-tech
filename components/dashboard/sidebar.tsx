@@ -14,7 +14,7 @@ export function DashboardSidebar({ items }: { items: MenuItem[] }) {
   const pathname = usePathname();
 
   return (
-    <nav className="flex h-screen w-64 shrink-0 flex-col border-r border-border bg-card">
+    <nav className="flex h-full w-64 shrink-0 flex-col border-r border-border bg-card">
       <div className="flex items-center gap-2.5 border-b border-border px-5 py-5">
         <Image
           src="/assets/images/logo.png"
@@ -42,15 +42,15 @@ export function DashboardSidebar({ items }: { items: MenuItem[] }) {
               className={cn(
                 "group flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium transition-colors",
                 isActive
-                  ? "bg-primary/10 text-primary"
-                  : "text-body-gray hover:bg-accent hover:text-accent-foreground"
+                  ? "bg-dashPrimary/10 text-dashPrimary"
+                  : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               )}
             >
               <MenuIcon
                 name={item.icon}
                 className={cn(
                   "size-4 shrink-0",
-                  isActive ? "text-primary" : "text-body-gray group-hover:text-accent-foreground"
+                  isActive ? "text-dashPrimary" : "text-muted-foreground group-hover:text-accent-foreground"
                 )}
               />
               <span className="truncate">{item.label}</span>

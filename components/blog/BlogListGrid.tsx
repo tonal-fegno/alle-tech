@@ -2,9 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import type { Blog } from "@/lib/data";
+import type { blogs as blogsTable } from "@/db/schema";
 import BlogCard from "@/components/BlogCard";
 import { SwapArrow, SwapLabel } from "@/components/common/HoverSwap";
+
+type Blog = typeof blogsTable.$inferSelect;
 
 const PAGE_SIZE = 3;
 

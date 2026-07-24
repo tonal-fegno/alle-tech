@@ -1,87 +1,20 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
+import { asc, eq } from "drizzle-orm";
 import Image from "next/image";
 import Link from "next/link";
+import { db } from "@/db";
+import { aboutStats } from "@/db/schema";
 import Eyebrow from "@/components/ui/Eyebrow";
+import AnimatedCounter from "@/components/home/AnimatedCounter";
 
 const ABOUT_IMAGE = "/assets/images/about-us.png";
 
-const stats = [
-  { top: "Industry Expertise", number: "12+", bottom: "Industries Served" },
-  {
-    top: "Technology Experience",
-    number: "10+",
-    bottom: "Years of Excellence",
-  },
-  {
-    top: "Trusted Partner",
-    number: "100+",
-    bottom: "Business Transformations",
-  },
-];
+export default async function AboutSection() {
+  const stats = await db
+    .select()
+    .from(aboutStats)
+    .where(eq(aboutStats.enabled, true))
+    .orderBy(asc(aboutStats.sortOrder));
 
-function AnimatedCounter({ value }: { value: string }) {
-  const [count, setCount] = useState(0);
-  const elementRef = useRef<HTMLSpanElement>(null);
-  const hasAnimated = useRef(false);
-
-  // Extract number and suffix (e.g., "12+" -> 12 and "+")
-  const match = value.match(/^(\d+)(.*)$/);
-  const target = match ? parseInt(match[1], 10) : 0;
-  const suffix = match ? match[2] : "";
-
-  useEffect(() => {
-    const element = elementRef.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          
-          let startTimestamp: number | null = null;
-          const duration = 2000; // Duration of animation in ms
-
-          const step = (timestamp: number) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            
-            // Ease out quad function: f(t) = t * (2 - t)
-            const easeProgress = progress * (2 - progress);
-            
-            setCount(Math.floor(easeProgress * target));
-
-            if (progress < 1) {
-              window.requestAnimationFrame(step);
-            } else {
-              setCount(target);
-            }
-          };
-
-          window.requestAnimationFrame(step);
-          observer.unobserve(element);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [target]);
-
-  return (
-    <span ref={elementRef} className="tabular-nums">
-      {count}
-      {suffix}
-    </span>
-  );
-}
-
-export default function AboutSection() {
   return (
     <section className="section-padding bg-[#F7F8FA] px-4 md:px-8">
       <div className="container-main ">
@@ -104,16 +37,16 @@ export default function AboutSection() {
             <div className="mt-12 grid flex-1 grid-cols-1 gap-5 sm:grid-cols-3 lg:mt-auto lg:pt-12">
               {stats.map((stat) => (
                 <div
-                  key={stat.number}
+                  key={stat.id}
                   className="flex min-h-[200px] flex-col justify-between rounded-2xl bg-white px-5 py-6 shadow-[0_2px_12px_rgba(0,11,34,0.04)]"
                 >
-                  <p className="text-body-16 text-ink">{stat.top}</p>
+                  <p className="text-body-16 text-ink">{stat.topLabel}</p>
                   <div>
                     <p className="text-[40px] font-semibold leading-[1.1] tracking-[-0.01em] text-ink md:text-[44px]">
                       <AnimatedCounter value={stat.number} />
                     </p>
                     <p className="mt-2 text-[14px] leading-normal text-body-gray">
-                      {stat.bottom}
+                      {stat.bottomLabel}
                     </p>
                   </div>
                 </div>

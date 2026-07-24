@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ProductDetail } from "@/data/productDetails";
+import type { products } from "@/db/schema";
 import {
   Smartphone,
   Database,
@@ -14,8 +14,10 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+type Product = typeof products.$inferSelect;
+
 interface ProductCardProps {
-  product: ProductDetail;
+  product: Product;
   index: number;
 }
 

@@ -10,7 +10,7 @@ export function DashboardTopbar({
   user?: { name?: string | null; email?: string | null };
 }) {
   return (
-    <header className="flex flex-wrap items-center justify-between gap-4 border-b border-border bg-card px-6 py-4 md:px-8">
+    <header className="flex shrink-0 flex-wrap items-center justify-between gap-4 border-b border-border bg-card px-6 py-4 md:px-8">
       <div>
         <h1 className="text-lg font-semibold text-foreground">{title}</h1>
         {description && (

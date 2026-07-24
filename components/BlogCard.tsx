@@ -3,9 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { Blog } from "@/lib/data";
-import { formatBlogDate } from "@/lib/data";
+import type { blogs } from "@/db/schema";
+import { formatDate } from "@/lib/format-date";
 import { SwapLabel, SwapArrow } from "@/components/common/HoverSwap";
+
+type Blog = typeof blogs.$inferSelect;
 
 interface BlogCardProps {
   blog: Blog;
@@ -22,10 +24,8 @@ export default function BlogCard({
   basePath = "/blogs",
   showDate = true,
 }: BlogCardProps) {
-  const targetId = blog.id || blog.slug;
-  const href = `${basePath}/${targetId}`;
+  const href = `${basePath}/${blog.slug}`;
   const descriptionText = blog.description || blog.shortDescription;
-  const timeText = blog.readTime || blog.time || "5 Min Read";
 
   return (
     <motion.article
@@ -59,12 +59,12 @@ export default function BlogCard({
               Posted
             </span>
             <span className="mt-1 block text-sm font-bold text-ink">
-              {formatBlogDate(blog.date)}
+              {formatDate(blog.publishedAt)}
             </span>
           </div>
         )}
         <span className="font-mono text-xs font-bold uppercase tracking-widest text-body-gray/70">
-          {timeText}
+          {blog.readTime}
         </span>
       </div>
 
@@ -73,7 +73,7 @@ export default function BlogCard({
         {blog.image && (
           <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden rounded-card border border-border-gray/10 bg-bg-1 md:aspect-auto md:w-70 lg:w-80">
             <Image
-              src={encodeURI(blog.image)}
+              src={blog.image}
               alt={blog.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 280px, 320px"
@@ -88,11 +88,11 @@ export default function BlogCard({
               {blog.category}
             </span>
             <div className="flex flex-wrap items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-body-gray/70 lg:hidden">
-              {showDate && <span>{formatBlogDate(blog.date)}</span>}
+              {showDate && <span>{formatDate(blog.publishedAt)}</span>}
               {showDate && (
                 <span className="h-1 w-1 rounded-full bg-border-gray" />
               )}
-              <span>{timeText}</span>
+              <span>{blog.readTime}</span>
             </div>
           </div>
 
