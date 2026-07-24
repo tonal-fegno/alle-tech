@@ -5,6 +5,25 @@ import ArrowButton from "@/components/ui/ArrowButton";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { SOLUTIONS } from "@/lib/constants";
+import {
+  Database,
+  Layers,
+  Lightbulb,
+  LineChart,
+  Network,
+  Cloud,
+  Wrench,
+} from "lucide-react";
+
+const SOLUTION_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  "sap-business-one": Database,
+  "odoo-erp": Layers,
+  "technology-consulting": Lightbulb,
+  "business-intelligence": LineChart,
+  "erp-integration": Network,
+  "cloud-infrastructure": Cloud,
+  "managed-services": Wrench,
+};
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
@@ -24,7 +43,7 @@ export default function SolutionsSection() {
           <AnimatedHeading className="heading-2">
             Technology That Drives Business Growth
           </AnimatedHeading>
-          <p className="max-w-[860px] text-body-18 text-body-gray">
+          <p className="max-w-[860px] home-body-text text-body-gray">
             From ERP and AI to automation and enterprise integrations, we
             deliver intelligent solutions that improve efficiency, enhance
             decision-making, and support long-term success.
@@ -40,12 +59,15 @@ export default function SolutionsSection() {
               className="group flex cursor-pointer flex-col gap-4 rounded-2xl bg-white p-6 shadow-[0_1px_2px_rgba(0,11,34,0.04)] transition-shadow duration-500 ease-in-out hover:shadow-[0_8px_24px_rgba(0,11,34,0.08)] focus-within:shadow-[0_8px_24px_rgba(0,11,34,0.08)] focus:outline-none md:px-8 md:py-7"
             >
               <div className="grid grid-cols-1 gap-4 md:grid-cols-[72px_1fr_auto] md:items-center">
-                <p className="text-[28px] font-semibold leading-none tracking-[-0.01em] text-ink md:text-[32px]">
-                  {service.number}
-                </p>
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-focus-within:bg-primary group-focus-within:text-white md:h-14 md:w-14">
+                  {(() => {
+                    const Icon = SOLUTION_ICONS[service.slug];
+                    return Icon ? <Icon className="h-6 w-6 md:h-7 md:w-7" /> : null;
+                  })()}
+                </div>
                 <div>
                   <h3 className="heading-6 !text-dark-blue">{service.title}</h3>
-                  <p className="mt-2 max-w-[440px] text-body-16 text-body-gray">
+                  <p className="mt-2 max-w-[440px] home-body-text text-body-gray">
                     {service.description}
                   </p>
                 </div>

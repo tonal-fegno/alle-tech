@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import ArrowButton from "@/components/ui/ArrowButton";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -50,11 +52,18 @@ export default function HeroSection() {
         {/* Bottom row: copy + CTA on the left, stat card on the right */}
         <div className="mt-auto flex flex-col justify-between gap-10 pt-12 lg:flex-row lg:items-end">
           <div className="max-w-[520px]">
-            <p className="text-body-18 text-white/95">
+            <p className="home-body-text text-white/95">
             We combine enterprise applications, AI, automation, and data to build connected business ecosystems that drive measurable results.
             </p>
-            <ArrowButton href="/contact" className="mt-8">
-              Schedule Now
+            <ArrowButton
+              href="#contact"
+              className="mt-8"
+              onClick={(e: any) => {
+                e.preventDefault();
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Talk to Sales
             </ArrowButton>
           </div>
 

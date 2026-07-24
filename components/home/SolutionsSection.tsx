@@ -133,7 +133,7 @@ export default function ServicesSection() {
                     <h3 className="text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-body-16 text-white/85">
+                    <p className="mt-3 home-body-text text-white/85">
                       {item.description}
                     </p>
                   </div>

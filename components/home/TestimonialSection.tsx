@@ -284,7 +284,7 @@ function StaticSizer({ item }: { item: Testimonial }) {
       className="[grid-area:1/1] w-full"
       style={{ visibility: "hidden", pointerEvents: "none" }}
     >
-      <p className="max-w-[720px] whitespace-pre-wrap text-[17px] font-medium leading-[1.5] tracking-[-0.01em] md:text-[19px]">
+      <p className="max-w-[720px] whitespace-pre-wrap home-body-text font-medium text-white/90">
         {quoted}
       </p>
       <div className="mt-8 flex items-center gap-5">
@@ -337,7 +337,7 @@ function AnimatedCard({
       transition={{ duration: reduceMotion ? 0 : 0.16 }}
       className="m-0 flex h-full w-full min-w-0 flex-col justify-between"
     >
-      <blockquote className="max-w-[720px] text-[17px] font-medium leading-[1.5] tracking-[-0.01em] text-white md:text-[19px]">
+      <blockquote className="max-w-[720px] home-body-text font-medium text-white/90">
         <LineReveal
           text={quoted}
           lines={quoteMeasurement.lines}

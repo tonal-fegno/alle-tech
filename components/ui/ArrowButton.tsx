@@ -6,7 +6,7 @@ interface ArrowButtonProps {
   size?: "sm" | "md";
   type?: "button" | "submit";
   className?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
   children: React.ReactNode;
 }
 

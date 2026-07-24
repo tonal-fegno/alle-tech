@@ -166,7 +166,7 @@ export default function IndustriesSection() {
               Every Industry
             </span>
           </AnimatedHeading>
-          <p className="mt-6 max-w-[420px] text-body-16 leading-[1.7] text-white/85">
+          <p className="mt-6 max-w-[420px] home-body-text text-white/85">
             Every industry operates differently. We deliver industry-focused
             solutions that address unique operational challenges, improve
             efficiency, and accelerate digital transformation.
@@ -192,7 +192,7 @@ export default function IndustriesSection() {
                   <h3 className="text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-body-16 text-body-gray">
+                  <p className="mt-3 home-body-text text-body-gray">
                     {item.description}
                   </p>
                 </div>
