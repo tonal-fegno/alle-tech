@@ -80,7 +80,7 @@ export default function ContactFormSection() {
   }
 
   return (
-    <section className="section-padding bg-white px-4 md:px-8">
+    <section id="contact" className="section-padding bg-white px-4 md:px-8">
       <div className="container-main flex flex-col items-center gap-12 md:gap-14">
         {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
@@ -88,7 +88,7 @@ export default function ContactFormSection() {
           <AnimatedHeading className="heading-2 max-w-[700px]">
             Let&apos;s Talk About Your Business Needs
           </AnimatedHeading>
-          <p className="max-w-[600px] text-body-18 text-body-gray">
+          <p className="max-w-[600px] home-body-text text-body-gray">
             Tell us a bit about what you&apos;re looking for and our team will
             get back to you with next steps within one business day.
           </p>
@@ -110,7 +110,7 @@ export default function ContactFormSection() {
               <h3 className="text-[22px] font-semibold leading-[1.3] tracking-[-0.01em] text-white md:text-[26px]">
                 We&apos;d love to hear from you
               </h3>
-              <p className="text-body-16 text-white/70">
+              <p className="home-body-text text-white/77">
                 Connect with our team to discuss your business goals and
                 discover the right technology solutions for your organization.
               </p>

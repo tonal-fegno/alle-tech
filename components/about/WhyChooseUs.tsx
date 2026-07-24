@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
-import whychoose from '@/public/images/about//about-why-choose.png';
+import whychoose from '@/public/images/about/about-why-choose.png';
 
 export default function WhyChooseUs() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-8 lg:py-12 bg-white overflow-hidden">
+    <section ref={sectionRef} className="w-full py-10 lg:py-14 px-6 md:px-10 border border-blue-200/20 rounded-[32px] overflow-hidden shadow-2xs">
       <div className="flex flex-col gap-8">
 
         {/* Header Block */}
@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
           </h2>
 
           {/* Subtitle */}
-          <p className="font-inter font-normal text-[16px] sm:text-[18px] leading-[26px] sm:leading-[28px] text-body-gray max-w-[750px]">
+          <p className="font-inter font-normal text-[16px] sm:text-[18px] leading-[26px] sm:leading-[28px] text-dark-blue max-w-[750px]">
             Expert team, proven strategies, personalized approach, and dedicated support to help your business thrive and grow.
           </p>
         </div>
@@ -87,7 +87,7 @@ export default function WhyChooseUs() {
                   <h3 className="font-inter font-bold text-[18px] sm:text-[20px] leading-[26px] tracking-tight text-ink">
                     "Empowering Smarter Businesses Across the GCC"
                   </h3>
-                  <p className="font-inter text-[13px] sm:text-[14px] leading-[20px] text-body-gray">
+                  <p className="font-inter text-[13px] sm:text-[14px] leading-[20px] text-dark-blue">
                     To become the GCC's most trusted Business Technology Partner by helping organizations transform the way they operate through intelligent enterprise technologies.
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export default function WhyChooseUs() {
                   <h4 className="font-inter font-bold text-[16px] sm:text-[18px] leading-[24px] text-dark-blue">
                     "Technology should simplify business—not complicate it."
                   </h4>
-                  <p className="font-inter text-[13px] sm:text-[14px] leading-[20px] text-body-gray">
+                  <p className="font-inter text-[13px] sm:text-[14px] leading-[20px] text-dark-blue">
                     ALLE TECH exists to bridge the gap between business strategy and technology execution by empowering organizations with intelligent technology solutions.
                   </p>
                 </div>
@@ -145,12 +145,13 @@ export default function WhyChooseUs() {
             className={`lg:col-span-4 relative min-h-[400px] lg:min-h-full rounded-[24px] overflow-hidden shadow-md group transition-all duration-[1200ms] ease-out delay-300 will-change-transform ${isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[40px]"
               }`}
           >
-            <Image
-              src={whychoose.src}
-              alt="ALLE TECH professional collaborative business technology consulting team"
-              fill
-              className="object-cover scale-105 transition-transform duration-700 ease-out group-hover:scale-100"
-              sizes="(max-width: 1024px) 100vw, 30vw"
+            <video
+              src="/why-choose.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
             {/* Ambient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />

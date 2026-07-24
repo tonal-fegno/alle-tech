@@ -39,13 +39,12 @@ export default function AboutValue() {
   ];
 
   return (
-    <section ref={sectionRef} className="w-full py-8 lg:py-12 border-t border-border-gray/20 bg-white rounded-[32px] px-6 md:px-12 overflow-hidden">
+    <section ref={sectionRef} className="w-full py-10 lg:py-14 border border-blue-200/20 bg-gradient-to-br from-[#E8F1FC] via-[#F4F8FD] to-white rounded-[32px] px-6 md:px-12 shadow-2xs overflow-hidden">
       <div className="flex flex-col gap-12">
         {/* Header Block */}
         <div
-          className={`flex flex-col lg:flex-row justify-start items-start gap-6 lg:gap-[100px] transition-all duration-[1200ms] ease-out will-change-transform ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[60px]"
-          }`}
+          className={`flex flex-col lg:flex-row justify-start items-start gap-6 lg:gap-[100px] transition-all duration-[1200ms] ease-out will-change-transform ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[60px]"
+            }`}
         >
           {/* Badge & Title */}
           <div className="flex flex-col gap-4 max-w-[500px] w-full shrink-0">
@@ -56,11 +55,11 @@ export default function AboutValue() {
           </div>
 
           {/* Leads */}
-          <div className="max-w-[700px] flex flex-col gap-6 lg:pt-8 text-body-gray font-inter text-[18px] leading-[28px]">
+          <div className="max-w-[700px] flex flex-col gap-6 lg:pt-8 text-body-gray font-inter custom-body-text">
             <p className="font-medium text-dark-blue">
               We don't define ourselves by the software we implement. We define ourselves by the value we create.
             </p>
-            <p className="text-[16px] leading-[26px]">
+            <p className="text-dark-blue">
               Whether implementing ERP solutions, Artificial Intelligence, Business Intelligence, Automation, Mobile Applications, Cloud Technologies, or Enterprise Integrations, our focus never changes.
             </p>
           </div>
@@ -68,18 +67,16 @@ export default function AboutValue() {
 
         {/* We Help Organizations Title */}
         <div
-          className={`font-inter font-bold text-[20px] text-ink tracking-tight transition-all duration-[1200ms] ease-out delay-100 will-change-transform ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"
-          }`}
+          className={`font-inter font-bold text-[20px] text-ink tracking-tight transition-all duration-[1200ms] ease-out delay-100 will-change-transform ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"
+            }`}
         >
           We help organizations:
         </div>
 
         {/* Outcomes Grid */}
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-[1200ms] ease-out delay-200 will-change-transform ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[80px]"
-          }`}
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-[1200ms] ease-out delay-200 will-change-transform ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[80px]"
+            }`}
         >
           {outcomes.map((outcome, index) => (
             <div
@@ -92,7 +89,7 @@ export default function AboutValue() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
               </div>
-              <p className="font-inter font-semibold text-[16px] leading-[24px] text-ink pt-1">
+              <p className="font-inter font-semibold custom-body-text text-ink pt-1">
                 {outcome}
               </p>
             </div>
@@ -101,9 +98,8 @@ export default function AboutValue() {
 
         {/* Callout Outro */}
         <div
-          className={`mt-4 border-t border-border-gray/30 pt-8 transition-all duration-[1200ms] ease-out delay-300 will-change-transform ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[40px]"
-          }`}
+          className={`mt-4 border-t border-border-gray/30 pt-8 transition-all duration-[1200ms] ease-out delay-300 will-change-transform ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[40px]"
+            }`}
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-dark-blue to-ink rounded-[24px] p-8 md:p-10 shadow-md">
             <h3 className="font-inter font-bold text-[22px] sm:text-[26px] leading-[32px] text-white tracking-tight max-w-[600px] text-center md:text-left">

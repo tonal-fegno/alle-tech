@@ -5,10 +5,12 @@ import FeaturesSection from "@/components/home/FeaturesSection";
 import CtaSection from "@/components/CtaSection";
 import IndustriesSection from "@/components/home/IndustriesSection";
 import TestimonialSection from "@/components/home/TestimonialSection";
+import BlogsSection from "@/components/home/BlogsSection";
 import FaqSection from "@/components/FaqSection";
 import ContactFormSection from "@/components/ContactFormSection";
 import SolutionsSection from "@/components/home/ServicesSection";
 import ServicesSection from "@/components/home/SolutionsSection";
+import FloatingActions from "@/components/FloatingActions";
 
 export default function HomePage() {
   return (
@@ -22,8 +24,10 @@ export default function HomePage() {
       {/* <CtaSection /> */}
       <IndustriesSection />
       <TestimonialSection />
+      <BlogsSection />
       <FaqSection />
       <ContactFormSection />
+      <FloatingActions />
     </>
   );
 }

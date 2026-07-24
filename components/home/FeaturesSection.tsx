@@ -122,7 +122,7 @@ export default function FeaturesSection() {
           <AnimatedHeading className="heading-2 max-w-[1000px]">
             Business-First Technology. Measurable Business Value.
           </AnimatedHeading>
-          <p className="max-w-[800px] text-body-18 text-body-gray">
+          <p className="max-w-[800px] home-body-text text-body-gray">
             We combine strategic consulting, industry expertise, and intelligent
             technology to help organizations simplify operations, improve
             decision-making, and achieve sustainable growth. Every solution is
@@ -138,7 +138,7 @@ export default function FeaturesSection() {
               <h3 className="heading-6 !text-dark-blue">
                 Business-First Consulting
               </h3>
-              <p className="mt-1 text-body-16 text-body-gray">
+              <p className="mt-1 home-body-text text-body-gray">
                 Strategy Before Software
               </p>
             </div>
@@ -160,7 +160,7 @@ export default function FeaturesSection() {
             <p className="text-[40px] font-semibold leading-none tracking-[-0.01em] text-ink md:text-[48px]">
               <AnimatedCounter value="12+" />
             </p>
-            <p className="text-body-16 text-body-gray">
+            <p className="home-body-text text-body-gray">
               Industry Expertise. Business-Focused Solutions.
             </p>
           </div>
@@ -174,7 +174,7 @@ export default function FeaturesSection() {
               <h3 className="heading-6 !text-dark-blue">
                 Business Solutions & Products
               </h3>
-              <p className="mt-2 text-body-16 text-body-gray">
+              <p className="mt-2 home-body-text text-body-gray">
                 From ERP and AI to Business Intelligence, Automation, and
                 Enterprise Integrations, we build connected technology
                 ecosystems that drive measurable results.
@@ -200,7 +200,7 @@ export default function FeaturesSection() {
               <h3 className="heading-6 !text-dark-blue">
                 Industries Supported
               </h3>
-              <p className="mt-1 text-body-16 text-body-gray">
+              <p className="mt-1 home-body-text text-body-gray">
                 Our consultants understand the operational realities of
                 different industries, enabling us to deliver practical,
                 business-focused solutions.
@@ -222,7 +222,7 @@ export default function FeaturesSection() {
               <h3 className="text-[24px] font-semibold leading-[1.25] tracking-[-0.01em] text-white md:text-[28px]">
                 Long-Term Partnership
               </h3>
-              <p className="mt-3 text-body-16 font-medium text-white">
+              <p className="mt-3 home-body-text font-medium text-white">
                 We support your growth beyond implementation.
               </p>
               <ArrowButton href="/contact" size="sm" className="mt-6">

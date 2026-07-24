@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Badge from "@/components/badge";
 import { ShieldCheck, Cpu, Zap, ArrowDown } from "lucide-react";
-
+import heroimg from '@/public/images/products/banner.png';
 interface ProductsHeroSectionProps {
   onExploreClick?: () => void;
 }
@@ -32,7 +32,7 @@ export default function ProductsHeroSection({
         style={{ scale: bgScale, y: bgY }}
       >
         <Image
-          src="/assets/images/hero-bg.png"
+          src={heroimg.src}
           alt="Enterprise Software Products"
           fill
           priority

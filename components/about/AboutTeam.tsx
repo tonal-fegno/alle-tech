@@ -77,7 +77,7 @@ export default function AboutTeam() {
           </h2>
 
           {/* Description */}
-          <p className="font-inter font-normal text-[18px] leading-[27px] text-body-gray text-center mb-16 max-w-[650px] mx-auto">
+          <p className="font-inter font-normal custom-body-text text-dark-blue text-center mb-16 max-w-[650px] mx-auto">
             A dedicated team of trained professionals committed to delivering consistent, high-quality cleaning services with care and attention to detail.
           </p>
         </div>

@@ -90,7 +90,7 @@ export default function AboutSection() {
           {/* Left: label, heading, stat cards */}
           <div className="flex flex-col">
             <div className="flex flex-col gap-5 md:flex-row md:items-start md:gap-8">
-              <h2 className="text-[24px] font-normal leading-[1.35] tracking-[-0.01em] text-ink md:text-[28px] xl:text-[24px]">
+              <h2 className="home-body-text font-normal text-ink">
                 At <span className="font-semibold">ALLE</span>
                 <span className="font-semibold"> TECH</span>, we help businesses
                 simplify operations, accelerate growth, and make smarter
