@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Eyebrow from "@/components/ui/Eyebrow";
 
-const ABOUT_IMAGE = "/assets/images/about-us.png";
+const ABOUT_IMAGE = "/images/about-us.png";
 
 const stats = [
   { top: "Industry Expertise", number: "12+", bottom: "Industries Served" },

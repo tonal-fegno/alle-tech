@@ -17,7 +17,7 @@ export function DashboardSidebar({ items }: { items: MenuItem[] }) {
     <nav className="flex h-screen w-64 shrink-0 flex-col border-r border-border bg-card">
       <div className="flex items-center gap-2.5 border-b border-border px-5 py-5">
         <Image
-          src="/assets/images/logo.png"
+          src="/images/logo.png"
           alt="Alle Tech logo"
           width={123}
           height={77}

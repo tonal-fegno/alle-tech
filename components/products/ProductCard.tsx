@@ -114,7 +114,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
       {/* Main Card Link Container */}
       <Link
         href={`/products/${product.slug}`}
-        className="flex flex-col flex-1 rounded-[28px] p-6 sm:p-8 relative z-10 overflow-hidden bg-[#000b22] border border-white/10 text-white shadow-[0_20px_50px_rgba(0,11,34,0.3)] transition-all duration-500 hover:border-sky-400/40 hover:shadow-[0_30px_70px_-15px_rgba(44,143,206,0.3)] cursor-pointer"
+        className="flex flex-col flex-1 rounded-2xl sm:rounded-[28px] p-5 sm:p-8 relative z-10 overflow-hidden bg-[#000b22] border border-white/10 text-white shadow-[0_20px_50px_rgba(0,11,34,0.3)] transition-all duration-500 hover:border-sky-400/40 hover:shadow-[0_30px_70px_-15px_rgba(44,143,206,0.3)] cursor-pointer"
       >
         {/* Subtle animated ambient glow */}
         <div
@@ -170,27 +170,27 @@ export default function ProductCard({ product, index }: ProductCardProps) {
         </div>
 
         {/* Handcrafted Emblem / Circuit Icon / Logo */}
-        <div className="relative z-10 mb-5 flex items-center min-h-[64px] sm:min-h-[80px]">
+        <div className="relative z-10 mb-4 sm:mb-5 flex items-center min-h-[56px] sm:min-h-[80px]">
           {product.logo ? (
             <img
               src={product.logo}
               alt={`${product.title} logo`}
-              className="h-14 sm:h-16 w-auto object-contain max-w-[220px] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover:scale-105"
+              className="h-12 sm:h-16 w-auto object-contain max-w-[180px] sm:max-w-[220px] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
-            <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white shadow-xl group-hover:scale-105 group-hover:border-sky-400/30 group-hover:bg-white/[0.08] transition-all duration-500">
-              <div className="absolute inset-0.5 rounded-[14px] bg-gradient-to-tr from-sky-500/10 via-primary/5 to-transparent blur-[1px]" />
-              <ProductIcon className="relative w-7 h-7 sm:w-8 sm:h-8 text-sky-400 drop-shadow-[0_2px_10px_rgba(56,189,248,0.45)] group-hover:text-sky-300 transition-colors duration-300" />
+            <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white shadow-xl group-hover:scale-105 group-hover:border-sky-400/30 group-hover:bg-white/[0.08] transition-all duration-500">
+              <div className="absolute inset-0.5 rounded-lg sm:rounded-[14px] bg-gradient-to-tr from-sky-500/10 via-primary/5 to-transparent blur-[1px]" />
+              <ProductIcon className="relative w-6 h-6 sm:w-8 sm:h-8 text-sky-400 drop-shadow-[0_2px_10px_rgba(56,189,248,0.45)] group-hover:text-sky-300 transition-colors duration-300" />
             </div>
           )}
         </div>
 
         {/* Product Identity */}
-        <div className="relative z-10 mb-4">
-          <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-sky-200 transition-colors duration-300">
+        <div className="relative z-10 mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-2xl font-bold tracking-tight text-white group-hover:text-sky-200 transition-colors duration-300">
             {product.title}
           </h3>
-          <p className="text-xs sm:text-sm font-semibold tracking-wide text-sky-300/80 mt-1">
+          <p className="text-[11px] sm:text-sm font-semibold tracking-wide text-sky-300/80 mt-0.5 sm:mt-1">
             {product.tagline}
           </p>
         </div>
@@ -213,7 +213,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
         </div>
 
         {/* Footer Area: Learn Details */}
-        <div className="relative z-10 mt-auto pt-5 border-t border-white/10 flex justify-end">
+        <div className="relative z-10 mt-auto pt-4 sm:pt-5 border-t border-white/10 flex justify-end">
           <div className="group/btn inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-sky-400 hover:text-sky-300 transition-colors duration-300">
             <span>Learn Details</span>
             <ChevronRight

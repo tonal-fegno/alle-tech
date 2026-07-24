@@ -20,7 +20,7 @@ export default function DashboardLoginPage() {
       <div className="w-full max-w-sm">
         <div className="mb-6 flex justify-center">
           <Image
-            src="/assets/images/logo.png"
+            src="/images/logo.png"
             alt="Alle Tech logo"
             width={123}
             height={77}

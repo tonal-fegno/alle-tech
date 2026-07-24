@@ -12,7 +12,7 @@ import Button from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/constants";
 import { getLenisInstance } from "@/lib/lenis-instance";
 
-const LOGO_URL = "/assets/images/logo.png";
+const LOGO_URL = "/images/logo.png";
 const IDLE_HIDE_DELAY = 4000;
 
 export default function Navbar() {
