@@ -218,7 +218,7 @@ export function IndustriesTable({ initialItems }: { initialItems: Industry[] }) 
                   <FormItem>
                     <FormLabel>Image</FormLabel>
                     <FormControl>
-                      <ImageUpload prefix="industries" value={field.value} onChange={field.onChange} />
+                      <ImageUpload className="max-w-sm" prefix="industries" value={field.value} onChange={field.onChange} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

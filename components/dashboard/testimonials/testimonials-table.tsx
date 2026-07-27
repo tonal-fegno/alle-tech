@@ -187,7 +187,7 @@ export function TestimonialsTable({ initialItems }: { initialItems: Testimonial[
                   <FormItem>
                     <FormLabel>Avatar image</FormLabel>
                     <FormControl>
-                      <ImageUpload prefix="testimonials" value={field.value} onChange={field.onChange} />
+                      <ImageUpload className="max-w-[160px]" prefix="testimonials" value={field.value} onChange={field.onChange} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

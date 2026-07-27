@@ -35,18 +35,40 @@ export function DashboardListSkeleton({ rows = 6 }: { rows?: number }) {
   );
 }
 
-export function DashboardFormSkeleton({ fields = 5 }: { fields?: number }) {
+export function DashboardFormSkeleton({ fields = 5, sections = 1 }: { fields?: number; sections?: number }) {
   return (
-    <div className="space-y-6 p-6 md:p-8">
-      <HeaderSkeleton withDescription={false} />
-      <div className="space-y-5 rounded-lg border border-border bg-card p-6">
-        {Array.from({ length: fields }).map((_, i) => (
-          <div key={i} className="space-y-2">
-            <Skeleton className="h-4 w-28" />
-            <Skeleton className="h-9 w-full" />
+    <div className="flex flex-col">
+      <div className="flex items-center justify-between gap-3 border-b border-border px-6 py-4 md:px-8">
+        <div className="flex items-center gap-3">
+          <Skeleton className="size-8 rounded-md" />
+          <Skeleton className="h-5 w-40" />
+        </div>
+        <Skeleton className="h-10 w-32 rounded-md" />
+      </div>
+      <div className="flex items-start gap-8 px-6 py-6 md:px-8">
+        {sections > 1 && (
+          <div className="hidden w-52 shrink-0 flex-col gap-2 lg:flex">
+            {Array.from({ length: sections }).map((_, i) => (
+              <Skeleton key={i} className="h-7 w-full rounded-md" />
+            ))}
           </div>
-        ))}
-        <Skeleton className="h-10 w-full" />
+        )}
+        <div className="min-w-0 flex-1 space-y-6">
+          {Array.from({ length: sections }).map((_, s) => (
+            <div key={s} className="space-y-5 rounded-xl border border-border bg-card p-6">
+              <div className="flex items-center gap-3">
+                <Skeleton className="size-9 rounded-lg" />
+                <Skeleton className="h-4 w-32" />
+              </div>
+              {Array.from({ length: fields }).map((_, i) => (
+                <div key={i} className="space-y-2">
+                  <Skeleton className="h-4 w-28" />
+                  <Skeleton className="h-9 w-full" />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

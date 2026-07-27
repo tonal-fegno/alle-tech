@@ -171,7 +171,7 @@ export function TeamMembersTable({ initialItems }: { initialItems: TeamMember[] 
                   <FormItem>
                     <FormLabel>Photo</FormLabel>
                     <FormControl>
-                      <ImageUpload prefix="team" value={field.value} onChange={field.onChange} />
+                      <ImageUpload className="max-w-[200px]" prefix="team" value={field.value} onChange={field.onChange} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

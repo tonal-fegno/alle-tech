@@ -156,7 +156,7 @@ export function ClientLogosTable({ initialItems }: { initialItems: ClientLogo[] 
                   <FormItem>
                     <FormLabel>Logo image</FormLabel>
                     <FormControl>
-                      <ImageUpload prefix="logos" value={field.value} onChange={field.onChange} />
+                      <ImageUpload className="max-w-[200px]" prefix="logos" value={field.value} onChange={field.onChange} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
