@@ -170,6 +170,7 @@ export const products = pgTable("products", {
   title: text("title").notNull(),
   logo: text("logo"),
   cardBg: text("card_bg"),
+  cardFeatures: jsonb("card_features").$type<string[]>().notNull().default([]),
   tagline: text("tagline").notNull(),
   websiteUrl: text("website_url"),
   displayUrl: text("display_url"),

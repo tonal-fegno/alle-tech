@@ -204,7 +204,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
 
         {/* Feature Highlights Chips */}
         <div className="relative z-10 flex flex-wrap gap-1.5 mb-6">
-          {meta.features.map((feat) => (
+          {(product.cardFeatures?.length ? product.cardFeatures : meta.features).map((feat) => (
             <span
               key={feat}
               className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 bg-white/5 border border-white/10 rounded-md text-slate-300/95 hover:bg-white/10 hover:text-white transition-colors duration-200"

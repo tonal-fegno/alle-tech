@@ -9,10 +9,8 @@ import {
   Check,
   ChevronRight,
   HelpCircle,
-  ShieldCheck,
   Zap,
   Wrench,
-  Users,
   Building2,
   ShoppingBag,
   Truck,
@@ -24,19 +22,18 @@ import {
   Package,
   Target,
   Award,
-  Sparkles,
   CheckCircle2,
   Briefcase,
   Boxes,
-  ShieldAlert,
-  Rocket,
   Share2,
   Cpu,
-  Layers,
 } from "lucide-react";
-import { ProductDetail } from "@/data/productDetails";
+import type { products } from "@/db/schema";
+import DynamicIcon from "@/components/ui/DynamicIcon";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { SwapLabel } from "@/components/common/HoverSwap";
+
+type ProductDetail = typeof products.$inferSelect;
 
 interface ProductDetailLayoutProps {
   product: ProductDetail;
@@ -112,6 +109,7 @@ export default function ProductDetailLayout({
   product,
 }: ProductDetailLayoutProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [primaryCta, secondaryCta] = product.ctaButtons;
 
   // Resolve product website URL or fallback
   const hasLiveSite = Boolean(
@@ -246,21 +244,23 @@ export default function ProductDetailLayout({
               transition={{ duration: 0.5, delay: 0.34 }}
               className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
             >
-              <Link
-                href={product.ctaButton1.href}
-                className="group flex items-center justify-between gap-4 pl-6 pr-2.5 py-3 rounded-full font-bold text-sm text-white bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300 w-full sm:w-auto"
-              >
-                <span>{product.ctaButton1.label}</span>
-                <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:translate-x-0.5 transition-all duration-300 shrink-0">
-                  <ArrowUpRight size={14} />
-                </div>
-              </Link>
-              {product.ctaButton2 && (
+              {primaryCta && (
                 <Link
-                  href={product.ctaButton2.href}
+                  href={primaryCta.href}
+                  className="group flex items-center justify-between gap-4 pl-6 pr-2.5 py-3 rounded-full font-bold text-sm text-white bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300 w-full sm:w-auto"
+                >
+                  <span>{primaryCta.label}</span>
+                  <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:translate-x-0.5 transition-all duration-300 shrink-0">
+                    <ArrowUpRight size={14} />
+                  </div>
+                </Link>
+              )}
+              {secondaryCta && (
+                <Link
+                  href={secondaryCta.href}
                   className="inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-sm text-white/85 hover:text-white bg-white/8 hover:bg-white/12 border border-white/15 hover:border-white/25 backdrop-blur-md transition-all duration-300 w-full sm:w-auto"
                 >
-                  {product.ctaButton2.label}
+                  {secondaryCta.label}
                 </Link>
               )}
             </motion.div>
@@ -279,7 +279,7 @@ export default function ProductDetailLayout({
               className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden group/mockup"
             >
               <img
-                src={product.heroImage}
+                src={product.heroImage ?? undefined}
                 alt={`${product.title} Showcase`}
                 className="w-full h-full object-cover rounded-2xl group-hover/mockup:scale-[1.03] transition-transform duration-700 ease-out"
               />
@@ -392,7 +392,6 @@ export default function ProductDetailLayout({
 
           <div className="flex flex-col divide-y divide-neutral-100">
             {product.challenges.map((challenge, idx) => {
-              const IconComp = challenge.icon;
               return (
                 <motion.div
                   key={idx}
@@ -407,7 +406,7 @@ export default function ProductDetailLayout({
                   </span>
                   <div className="flex items-start gap-3 sm:gap-5 flex-1 min-w-0">
                     <div className="shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center mt-0.5 group-hover:scale-110 group-hover:bg-amber-100 transition-all duration-300">
-                      <IconComp className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-amber-600" />
+                      <DynamicIcon name={challenge.icon} className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-amber-600" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-sm sm:text-base md:text-lg font-extrabold text-neutral-900 mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-200">
@@ -444,7 +443,6 @@ export default function ProductDetailLayout({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {product.outcomes.map((outcome, idx) => {
-                const IconComp = outcome.icon;
                 return (
                   <motion.div
                     key={idx}
@@ -457,7 +455,7 @@ export default function ProductDetailLayout({
                     <div
                       className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-r ${product.accentColor} flex items-center justify-center mb-4 sm:mb-5 shadow-lg group-hover:scale-105 transition-transform`}
                     >
-                      <IconComp className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-white" />
+                      <DynamicIcon name={outcome.icon} className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-white" />
                     </div>
                     <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">
                       {outcome.title}
@@ -473,7 +471,7 @@ export default function ProductDetailLayout({
         </section>
 
         {/* 5. AI FEATURES SECTION (If present) */}
-        {product.aiTitle && product.aiFeatures && (
+        {product.aiTitle && product.aiFeatures.length > 0 && (
           <section className="py-12 sm:py-20 md:py-32 bg-[#020716] text-white px-4 sm:px-6 md:px-8 relative overflow-hidden border-t border-white/5">
             {/* Futuristic Ambient Orbs & Mesh */}
             <div
@@ -503,7 +501,6 @@ export default function ProductDetailLayout({
                 <div className="absolute left-4 sm:left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent -translate-x-1/2" />
 
                 {product.aiFeatures.map((ai, idx) => {
-                  const IconComp = ai.icon;
                   const isEven = idx % 2 === 0;
                   return (
                     <motion.div
@@ -539,7 +536,7 @@ export default function ProductDetailLayout({
                           {/* Header */}
                           <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 mb-3 sm:mb-6 relative z-10 justify-start">
                             <div className="w-9 h-9 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/20 to-indigo-500/20 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shrink-0">
-                              <IconComp className="w-4.5 h-4.5 sm:w-6 sm:h-6" />
+                              <DynamicIcon name={ai.icon} className="w-4.5 h-4.5 sm:w-6 sm:h-6" />
                             </div>
                             <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-primary/90 bg-primary/10 border border-primary/30 px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-full backdrop-blur-md">
                               AI Model
@@ -579,7 +576,6 @@ export default function ProductDetailLayout({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-neutral-100 rounded-2xl sm:rounded-[28px] overflow-hidden shadow-xs">
             {product.modules.map((mod, i) => {
-              const IconComp = mod.icon;
               const isOddTotal = product.modules.length % 2 === 1;
               const isLastItem = i === product.modules.length - 1;
               const isLastRow =
@@ -603,7 +599,7 @@ export default function ProductDetailLayout({
                     <div
                       className={`shrink-0 w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center ${mod.bgColor} ${mod.color} group-hover:scale-110 transition-transform duration-300`}
                     >
-                      <IconComp className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+                      <DynamicIcon name={mod.icon} className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
                     </div>
                     <h3 className="text-base sm:text-lg font-extrabold text-neutral-900 group-hover:text-primary transition-colors duration-200">
                       {mod.title}
@@ -877,24 +873,7 @@ export default function ProductDetailLayout({
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full max-w-xl">
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className="w-full sm:w-auto"
-              >
-                <Link
-                  href={product.ctaButton1.href}
-                  className="group flex items-center justify-between sm:justify-center gap-4 pl-6 sm:pl-8 pr-3.5 py-3.5 sm:py-4 bg-primary hover:bg-primary/95 text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto cursor-pointer shadow-lg shadow-primary/20"
-                >
-                  <SwapLabel>{product.ctaButton1.label}</SwapLabel>
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/30 group-hover:translate-x-0.5 shrink-0">
-                    <ArrowUpRight size={16} />
-                  </div>
-                </Link>
-              </motion.div>
-
-              {product.ctaButton2 && (
+              {primaryCta && (
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -902,10 +881,29 @@ export default function ProductDetailLayout({
                   className="w-full sm:w-auto"
                 >
                   <Link
-                    href={product.ctaButton2.href}
+                    href={primaryCta.href}
+                    className="group flex items-center justify-between sm:justify-center gap-4 pl-6 sm:pl-8 pr-3.5 py-3.5 sm:py-4 bg-primary hover:bg-primary/95 text-white rounded-full font-bold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto cursor-pointer shadow-lg shadow-primary/20"
+                  >
+                    <SwapLabel>{primaryCta.label}</SwapLabel>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/30 group-hover:translate-x-0.5 shrink-0">
+                      <ArrowUpRight size={16} />
+                    </div>
+                  </Link>
+                </motion.div>
+              )}
+
+              {secondaryCta && (
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                  className="w-full sm:w-auto"
+                >
+                  <Link
+                    href={secondaryCta.href}
                     className="group flex items-center justify-between sm:justify-center gap-4 pl-6 sm:pl-8 pr-3.5 py-3.5 sm:py-4 bg-white/10 hover:bg-white/15 text-white rounded-full font-bold text-sm tracking-wide border border-white/15 hover:border-white/30 transition-all duration-300 w-full sm:w-auto cursor-pointer backdrop-blur-md"
                   >
-                    <SwapLabel>{product.ctaButton2.label}</SwapLabel>
+                    <SwapLabel>{secondaryCta.label}</SwapLabel>
                     <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white/20 group-hover:translate-x-0.5 shrink-0">
                       <ArrowUpRight size={16} />
                     </div>

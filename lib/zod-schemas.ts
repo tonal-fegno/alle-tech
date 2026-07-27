@@ -129,6 +129,7 @@ export const productSchema = z.object({
   title: z.string().min(1, "Title is required"),
   logo: z.string().optional(),
   cardBg: z.string().optional(),
+  cardFeatures: z.array(z.string()),
   tagline: z.string().min(1, "Tagline is required"),
   websiteUrl: z.string().optional(),
   displayUrl: z.string().optional(),

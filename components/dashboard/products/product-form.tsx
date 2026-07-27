@@ -26,6 +26,7 @@ const EMPTY: ProductFormValues = {
   title: "",
   logo: "",
   cardBg: "",
+  cardFeatures: [],
   tagline: "",
   websiteUrl: "",
   displayUrl: "",
@@ -126,6 +127,9 @@ export function ProductForm({
           </div>
           <FormField control={form.control} name="logo" render={({ field }) => (
             <FormItem><FormLabel>Logo</FormLabel><FormControl><ImageUpload prefix="products" value={field.value ?? ""} onChange={field.onChange} /></FormControl><FormMessage /></FormItem>
+          )} />
+          <FormField control={form.control} name="cardFeatures" render={({ field }) => (
+            <FormItem><FormLabel>Feature highlight chips (shown on the product listing card)</FormLabel><FormControl><TextList value={field.value} onChange={field.onChange} placeholder="Comma-separated, e.g. SFA Mobility, Merchandising, Offline Engine" /></FormControl><FormMessage /></FormItem>
           )} />
         </section>
 

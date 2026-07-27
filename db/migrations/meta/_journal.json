@@ -15,6 +15,13 @@
       "when": 1784869972395,
       "tag": "0001_add_cms_content_tables",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1785146105113,
+      "tag": "0002_colorful_ravenous",
+      "breakpoints": true
     }
   ]
 }
