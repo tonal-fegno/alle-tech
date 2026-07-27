@@ -8,7 +8,7 @@ import TestimonialSection from "@/components/home/TestimonialSection";
 import BlogsSection from "@/components/home/BlogsSection";
 import FaqSection from "@/components/FaqSection";
 import ContactFormSection from "@/components/ContactFormSection";
-import SolutionsSection from "@/components/home/ServicesSection";
+import SolutionsSection from "@/components/home/SolutionsSection";
 import ServicesSection from "@/components/home/SolutionsSection";
 import FloatingActions from "@/components/FloatingActions";
 import ProductsSliderSection from "@/components/home/ProductsSliderSection";
