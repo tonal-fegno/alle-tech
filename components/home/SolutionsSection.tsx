@@ -1,10 +1,29 @@
-import { asc, eq } from "drizzle-orm";
+"use client";
+
 import Image from "next/image";
-import { db } from "@/db";
-import { solutions } from "@/db/schema";
 import ArrowButton from "@/components/ui/ArrowButton";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { SOLUTIONS } from "@/lib/constants";
+import {
+  Database,
+  Layers,
+  Lightbulb,
+  LineChart,
+  Network,
+  Cloud,
+  Wrench,
+} from "lucide-react";
+
+const SOLUTION_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  "sap-business-one": Database,
+  "odoo-erp": Layers,
+  "technology-consulting": Lightbulb,
+  "business-intelligence": LineChart,
+  "erp-integration": Network,
+  "cloud-infrastructure": Cloud,
+  "managed-services": Wrench,
+};
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
@@ -14,15 +33,7 @@ function Tag({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default async function SolutionsSection() {
-  const items = await db
-    .select()
-    .from(solutions)
-    .where(eq(solutions.enabled, true))
-    .orderBy(asc(solutions.sortOrder));
-
-  if (items.length === 0) return null;
-
+export default function SolutionsSection() {
   return (
     <section className="section-padding bg-[#F7F8FA] px-4 md:px-8">
       <div className="container-main flex flex-col gap-12 md:gap-14">
@@ -32,7 +43,7 @@ export default async function SolutionsSection() {
           <AnimatedHeading className="heading-2">
             Technology That Drives Business Growth
           </AnimatedHeading>
-          <p className="max-w-[860px] text-body-18 text-body-gray">
+          <p className="max-w-[860px] home-body-text text-body-gray">
             From ERP and AI to automation and enterprise integrations, we
             deliver intelligent solutions that improve efficiency, enhance
             decision-making, and support long-term success.
@@ -41,24 +52,27 @@ export default async function SolutionsSection() {
 
         {/* Accordion list */}
         <div className="flex flex-col gap-4">
-          {items.map((solution, index) => (
+          {SOLUTIONS.map((service) => (
             <div
-              key={solution.slug}
+              key={service.slug}
               tabIndex={0}
               className="group flex cursor-pointer flex-col gap-4 rounded-2xl bg-white p-6 shadow-[0_1px_2px_rgba(0,11,34,0.04)] transition-shadow duration-500 ease-in-out hover:shadow-[0_8px_24px_rgba(0,11,34,0.08)] focus-within:shadow-[0_8px_24px_rgba(0,11,34,0.08)] focus:outline-none md:px-8 md:py-7"
             >
               <div className="grid grid-cols-1 gap-4 md:grid-cols-[72px_1fr_auto] md:items-center">
-                <p className="text-[28px] font-semibold leading-none tracking-[-0.01em] text-ink md:text-[32px]">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-focus-within:bg-primary group-focus-within:text-white md:h-14 md:w-14">
+                  {(() => {
+                    const Icon = SOLUTION_ICONS[service.slug];
+                    return Icon ? <Icon className="h-6 w-6 md:h-7 md:w-7" /> : null;
+                  })()}
+                </div>
                 <div>
-                  <h3 className="heading-6 !text-dark-blue">{solution.title}</h3>
-                  <p className="mt-2 max-w-[440px] text-body-16 text-body-gray">
-                    {solution.shortDescription}
+                  <h3 className="heading-6 !text-dark-blue">{service.title}</h3>
+                  <p className="mt-2 max-w-[440px] home-body-text text-body-gray">
+                    {service.description}
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2 md:justify-end">
-                  {solution.tags.map((tag) => (
+                  {service.tags.map((tag) => (
                     <Tag key={tag}>{tag}</Tag>
                   ))}
                 </div>
@@ -69,8 +83,8 @@ export default async function SolutionsSection() {
                   <div className="flex flex-col gap-6 border-t border-border-gray/30 pt-6 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 group-focus-within:opacity-100 md:flex-row md:gap-8">
                     <div className="relative rounded-xl h-[280px] w-full shrink-0 md:h-[220px] md:w-[280px]">
                       <Image
-                        src={solution.image}
-                        alt={solution.title}
+                        src={service.image}
+                        alt={service.title}
                         fill
                         sizes="(min-width: 768px) 280px, 100vw"
                         className="rounded-xl object-cover"
@@ -78,7 +92,7 @@ export default async function SolutionsSection() {
                     </div>
                     <div className="flex flex-1 flex-col justify-center">
                       <ArrowButton
-                        href={`/solutions/${solution.slug}`}
+                        href={`/solutions/${service.slug}`}
                         variant="solid"
                         size="sm"
                       >
