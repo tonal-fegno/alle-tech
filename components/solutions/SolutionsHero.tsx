@@ -7,7 +7,7 @@ export default function SolutionsHero() {
       badgeText="Solutions"
       title="Business Technology Solutions"
       subtitle="Streamline operations, unlock insights, and drive growth with ERP, AI, and enterprise technology built around your business."
-      imageSrc="/assets/images/solutions/hero.png"
+      imageSrc="/images/solutions/hero.png"
       imageAlt="Business technology solutions"
     />
   );

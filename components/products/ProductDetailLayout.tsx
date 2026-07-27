@@ -115,13 +115,13 @@ export default function ProductDetailLayout({
   return (
     <>
       {/* 1. HERO SECTION */}
-      <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[550px] md:min-h-[620px] lg:min-h-[700px] flex items-center bg-brand-navy text-white overflow-hidden pt-[130px] pb-16 md:pt-[140px] md:pb-16 lg:py-0">
+      <section className="relative -mt-[80px] lg:-mt-[99px] min-h-[500px] sm:min-h-[550px] md:min-h-[620px] lg:min-h-[700px] flex items-center bg-brand-navy text-white overflow-hidden pt-[120px] sm:pt-[140px] md:pt-[150px] lg:pt-0 pb-12 sm:pb-16 lg:pb-0">
         {/* Background */}
         <div
           className={`absolute inset-0 bg-gradient-to-br ${product.darkBgGradient ?? ""} z-0`}
         />
         <div
-          className={`absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-br ${product.accentColor ?? ""} rounded-full blur-[160px] opacity-15 pointer-events-none z-0`}
+          className={`absolute top-1/3 right-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-gradient-to-br ${product.accentColor} rounded-full blur-[160px] opacity-15 pointer-events-none z-0`}
         />
         <div
           className="absolute inset-0 opacity-[0.06] pointer-events-none z-0"
@@ -142,7 +142,7 @@ export default function ProductDetailLayout({
             >
               <Link
                 href="/products"
-                className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/50 hover:text-white/80 transition-colors mb-8"
+                className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/50 hover:text-white/80 transition-colors mb-6 sm:mb-8"
               >
                 <ArrowLeft
                   size={13}
@@ -158,10 +158,12 @@ export default function ProductDetailLayout({
               transition={{ duration: 0.4, delay: 0.06 }}
               className="mb-4"
             >
-              <Eyebrow variant="dark">{product.tagline}</Eyebrow>
+              <Eyebrow variant="dark" showDot={false}>
+                {product.tagline}
+              </Eyebrow>
             </motion.div>
 
-            <div className="flex items-center gap-4 mb-4 flex-wrap">
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 flex-wrap">
               {product.logo && (
                 <motion.img
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -169,10 +171,10 @@ export default function ProductDetailLayout({
                   transition={{ duration: 0.5, delay: 0.1 }}
                   src={product.logo}
                   alt={`${product.title} logo`}
-                  className="h-10 md:h-12 w-auto object-contain max-w-[200px] shrink-0 drop-shadow-xl"
+                  className="h-9 sm:h-10 md:h-12 w-auto object-contain max-w-[160px] sm:max-w-[200px] shrink-0 drop-shadow-xl"
                 />
               )}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] flex flex-wrap">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] flex flex-wrap">
                 {product.title.split(" ").map((word, idx) => (
                   <motion.span
                     key={idx}
@@ -202,7 +204,7 @@ export default function ProductDetailLayout({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.26 }}
-              className="text-white/75 text-lg md:text-xl leading-relaxed font-normal mb-4 max-w-lg"
+              className="text-white/75 text-base sm:text-lg md:text-xl leading-relaxed font-normal mb-4 max-w-lg"
             >
               {product.heroSubtitle}
             </motion.p>
@@ -212,7 +214,7 @@ export default function ProductDetailLayout({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.32 }}
-                className="text-white/50 text-sm md:text-[15px] leading-relaxed font-normal mb-8 max-w-lg"
+                className="text-white/50 text-xs sm:text-sm md:text-[15px] leading-relaxed font-normal mb-8 max-w-lg"
               >
                 {product.heroDesc}
               </motion.p>
@@ -249,7 +251,7 @@ export default function ProductDetailLayout({
           </div>
 
           {/* Right — Hero Image Showcase */}
-          <div className="flex flex-col items-center md:items-end w-full max-w-[520px] mx-auto md:ml-auto">
+          <div className="flex flex-col items-center md:items-end w-full max-w-[520px] mx-auto md:ml-auto mt-4 md:mt-0">
             <motion.div
               initial={{ opacity: 0, y: 24, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -301,7 +303,8 @@ export default function ProductDetailLayout({
 
       <div className="bg-brand-bg">
         {/* 2. OVERVIEW & CORE CONCEPT */}
-        <section className="py-20 md:py-28 bg-[#fafbfd] border-b border-neutral-100/60 px-6 relative overflow-hidden">
+        <section className="py-12 sm:py-20 md:py-28 bg-[#fafbfd] border-b border-neutral-100/60 px-4 sm:px-6 md:px-8 relative overflow-hidden">
+          {/* Background decorative path */}
           <div className="absolute inset-0 pointer-events-none opacity-40">
             <svg
               className="absolute -top-24 -left-24 w-96 h-96 text-primary/5"
@@ -312,31 +315,31 @@ export default function ProductDetailLayout({
             </svg>
           </div>
 
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center relative z-10">
             <div className="lg:col-span-7">
               <Eyebrow className="mb-4">Core Concept</Eyebrow>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-6 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-navy mb-4 sm:mb-6 leading-tight">
                 {product.conceptTitle} <br />
-                <span className="text-neutral-400 font-semibold block mt-1">
+                <span className="text-neutral-400 font-semibold block mt-1 text-lg sm:text-xl md:text-2xl lg:text-3xl">
                   {product.conceptSubtitle}
                 </span>
               </h2>
-              <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-medium">
+              <p className="text-neutral-600 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
                 {product.conceptDesc}
               </p>
             </div>
 
-            <div className="lg:col-span-5 bg-white rounded-[32px] border border-neutral-200/60 p-8 sm:p-10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] relative overflow-hidden group/concept-card">
+            <div className="lg:col-span-5 bg-white rounded-2xl sm:rounded-[32px] border border-neutral-200/60 p-5 sm:p-8 md:p-10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] relative overflow-hidden group/concept-card">
               <div className="absolute top-0 inset-x-0 h-1.5 bg-primary" />
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-primary text-white shrink-0 shadow-md">
+              <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center bg-primary text-white shrink-0 shadow-md">
                   <Target size={18} />
                 </div>
-                <h3 className="text-sm font-bold text-neutral-800 uppercase tracking-widest">
+                <h3 className="text-xs sm:text-sm font-bold text-neutral-800 uppercase tracking-widest">
                   Target Operations
                 </h3>
               </div>
-              <ul className="flex flex-col gap-4">
+              <ul className="flex flex-col gap-3.5 sm:gap-4">
                 {product.conceptBullets.map((bullet, i) => (
                   <motion.li
                     key={i}
@@ -344,12 +347,12 @@ export default function ProductDetailLayout({
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="flex items-start gap-3.5 group"
+                    className="flex items-start gap-3 sm:gap-3.5 group"
                   >
-                    <div className="mt-1 shrink-0 w-5.5 h-5.5 rounded-full bg-emerald-500/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
+                    <div className="mt-1 shrink-0 w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-emerald-500/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
                       <CheckCircle2 size={13} className="text-emerald-600" />
                     </div>
-                    <span className="text-neutral-700 text-sm md:text-base font-bold leading-normal">
+                    <span className="text-neutral-700 text-xs sm:text-sm md:text-base font-bold leading-normal">
                       {bullet}
                     </span>
                   </motion.li>
@@ -382,20 +385,20 @@ export default function ProductDetailLayout({
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.45, delay: idx * 0.06, ease }}
-                  className="group flex items-start gap-6 md:gap-10 py-8 hover:bg-neutral-50/60 transition-colors duration-200 px-2 rounded-xl"
+                  className="group flex items-start gap-3 sm:gap-6 md:gap-10 py-4 sm:py-6 md:py-8 hover:bg-neutral-50/60 transition-colors duration-200 px-1 sm:px-2 rounded-xl"
                 >
-                  <span className="shrink-0 text-5xl font-black text-neutral-100 group-hover:text-neutral-200 transition-colors duration-300 leading-none select-none w-12 text-right">
+                  <span className="hidden sm:block shrink-0 text-4xl md:text-5xl font-black text-neutral-100 group-hover:text-neutral-200 transition-colors duration-300 leading-none select-none w-12 text-right">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                   <div className="flex items-start gap-5 flex-1">
                     <div className="shrink-0 w-11 h-11 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center mt-0.5 group-hover:scale-110 group-hover:bg-amber-100 transition-all duration-300">
                       <DynamicIcon name={challenge.icon} className="size-5 text-amber-600" />
                     </div>
-                    <div>
-                      <h3 className="text-lg font-extrabold text-neutral-900 mb-2 group-hover:text-primary transition-colors duration-200">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm sm:text-base md:text-lg font-extrabold text-neutral-900 mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-200">
                         {challenge.title}
                       </h3>
-                      <p className="text-neutral-500 text-sm leading-relaxed font-medium">
+                      <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed font-medium">
                         {challenge.desc}
                       </p>
                     </div>
@@ -432,17 +435,17 @@ export default function ProductDetailLayout({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.05 }}
-                    className="bg-white/[0.03] border border-white/10 hover:border-white/20 rounded-[24px] p-7 hover:bg-white/[0.06] transition-all duration-300 group"
+                    className="bg-white/[0.03] border border-white/10 hover:border-white/20 rounded-2xl sm:rounded-[24px] p-5 sm:p-7 hover:bg-white/[0.06] transition-all duration-300 group"
                   >
                     <div
                       className={`w-11 h-11 rounded-2xl bg-gradient-to-r ${product.accentColor ?? ""} flex items-center justify-center mb-5 shadow-lg group-hover:scale-105 transition-transform`}
                     >
                       <DynamicIcon name={outcome.icon} className="size-5 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-3 group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3 group-hover:text-primary transition-colors duration-300">
                       {outcome.title}
                     </h3>
-                    <p className="text-neutral-400 text-sm leading-relaxed font-normal">
+                    <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed font-normal">
                       {outcome.desc}
                     </p>
                   </motion.div>
@@ -467,12 +470,12 @@ export default function ProductDetailLayout({
             />
 
             <div className="max-w-7xl mx-auto relative z-10">
-              <div className="max-w-3xl mb-16">
-                <Eyebrow className="mb-5" variant="dark">INTELLIGENCE & AI ENGINE</Eyebrow>
-                <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-5 leading-tight">
+              <div className="max-w-3xl mb-10 md:mb-16">
+                <Eyebrow className="mb-3 sm:mb-5" variant="dark">INTELLIGENCE & AI ENGINE</Eyebrow>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 sm:mb-5 leading-tight">
                   {product.aiTitle}
                 </h2>
-                <p className="text-neutral-400 text-base md:text-lg leading-relaxed font-normal">
+                <p className="text-neutral-400 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
                   {product.aiDesc}
                 </p>
               </div>
@@ -487,13 +490,13 @@ export default function ProductDetailLayout({
                       key={idx}
                       initial={{ opacity: 0, y: 40 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
+                      viewport={{ once: true, margin: "-60px" }}
                       transition={{
                         duration: 0.7,
                         delay: idx * 0.15,
                         ease: [0.16, 1, 0.3, 1],
                       }}
-                      className={`relative flex items-center mb-16 md:mb-24 last:mb-0 ${isEven ? "md:flex-row-reverse" : "md:flex-row"}`}
+                      className={`relative flex items-center mb-8 sm:mb-16 md:mb-24 last:mb-0 ${isEven ? "md:flex-row-reverse" : "md:flex-row"}`}
                     >
                       <div className="absolute left-8 md:left-1/2 w-8 h-8 rounded-full bg-[#000a1f] border-[3px] border-primary/40 -translate-x-1/2 flex items-center justify-center z-10 shadow-lg">
                         <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
@@ -502,27 +505,27 @@ export default function ProductDetailLayout({
                       <div className="hidden md:block w-1/2" />
 
                       <div
-                        className={`w-full pl-20 md:pl-0 md:w-1/2 ${isEven ? "md:pr-16" : "md:pl-16"} text-left`}
+                        className={`w-full pl-10 sm:pl-16 md:pl-0 md:w-1/2 ${isEven ? "md:pr-12 lg:pr-16" : "md:pl-12 lg:pl-16"} text-left`}
                       >
                         <div className="group relative bg-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-primary/40 hover:bg-white/[0.04] rounded-[32px] p-8 sm:p-10 shadow-2xl transition-all duration-500 overflow-hidden">
                           <div
-                            className={`absolute top-0 ${isEven ? "left-0" : "right-0"} w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none group-hover:bg-primary/20 transition-all duration-500`}
+                            className={`absolute top-0 ${isEven ? "left-0" : "right-0"} w-36 h-36 sm:w-48 sm:h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none group-hover:bg-primary/20 transition-all duration-500`}
                           />
 
                           <div className="flex flex-wrap items-center gap-4 mb-6 relative z-10 justify-start">
                             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-indigo-500/20 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shrink-0">
                               <DynamicIcon name={ai.icon} className="size-6" />
                             </div>
-                            <span className="text-[10px] font-extrabold uppercase tracking-widest text-primary/90 bg-primary/10 border border-primary/30 px-3 py-1.5 rounded-full backdrop-blur-md">
+                            <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-primary/90 bg-primary/10 border border-primary/30 px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-full backdrop-blur-md">
                               AI Model
                             </span>
                           </div>
 
-                          <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300 relative z-10">
+                          <h3 className="text-lg sm:text-2xl font-bold text-white mb-2 sm:mb-4 group-hover:text-primary transition-colors duration-300 relative z-10">
                             {ai.title}
                           </h3>
 
-                          <p className="text-neutral-400 text-base leading-relaxed font-normal relative z-10">
+                          <p className="text-neutral-400 text-xs sm:text-base leading-relaxed font-normal relative z-10">
                             {ai.desc}
                           </p>
                         </div>
@@ -759,23 +762,23 @@ export default function ProductDetailLayout({
         {product.faqs.length > 0 && (
           <section className="py-20 md:py-28 bg-[#fafbfd] px-6 border-t border-neutral-100">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-16">
+              <div className="text-center mb-10 md:mb-16">
                 <span className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3 block justify-center">
                   <HelpCircle size={14} className="text-primary" />
                   <span>Got Questions?</span>
                 </span>
-                <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy mb-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-navy mb-4">
                   Frequently Asked Questions
                 </h2>
               </div>
 
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 {product.faqs.map((faq, i) => {
                   const isOpen = openFaq === i;
                   return (
                     <div
                       key={i}
-                      className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 shadow-2xs ${
+                      className={`bg-white border rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300 shadow-2xs ${
                         isOpen
                           ? "border-primary/30 shadow-xs"
                           : "border-neutral-150 hover:border-neutral-250"
@@ -783,13 +786,13 @@ export default function ProductDetailLayout({
                     >
                       <button
                         onClick={() => setOpenFaq(isOpen ? null : i)}
-                        className="w-full flex items-center justify-between p-6 text-left font-bold text-neutral-900 text-base md:text-lg cursor-pointer hover:bg-neutral-50/20"
+                        className="w-full flex items-center justify-between p-4 sm:p-6 text-left font-bold text-neutral-900 text-sm sm:text-base md:text-lg cursor-pointer hover:bg-neutral-50/20 gap-3"
                       >
                         <span className={`${isOpen ? "text-primary" : "text-neutral-950"}`}>
                           {faq.question}
                         </span>
                         <span
-                          className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+                          className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
                             isOpen
                               ? "bg-primary text-white rotate-90"
                               : "bg-neutral-50 text-neutral-500"
@@ -807,7 +810,7 @@ export default function ProductDetailLayout({
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                           >
-                            <div className="p-6 pt-0 border-t border-neutral-50 text-neutral-600 text-sm md:text-base leading-relaxed font-bold">
+                            <div className="p-4 sm:p-6 pt-0 border-t border-neutral-50 text-neutral-600 text-xs sm:text-sm md:text-base leading-relaxed font-bold">
                               {faq.answer}
                             </div>
                           </motion.div>
@@ -829,10 +832,10 @@ export default function ProductDetailLayout({
 
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
             <Eyebrow variant="dark">Next Step</Eyebrow>
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight max-w-3xl mt-4">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-tight max-w-3xl mt-4">
               {product.ctaTitle}
             </h2>
-            <p className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed mb-12">
+            <p className="text-white/70 text-sm sm:text-lg md:text-xl max-w-2xl leading-relaxed mb-8 sm:mb-12">
               {product.ctaSubtitle}
             </p>
 

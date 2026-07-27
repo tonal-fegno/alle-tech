@@ -18,7 +18,7 @@ export default function PageHero({
   badgeText,
   title,
   subtitle,
-  imageSrc = "/assets/images/hero-bg.png",
+  imageSrc = "/images/hero-bg.png",
   imageAlt = "Hero background",
   children,
 }: PageHeroProps) {

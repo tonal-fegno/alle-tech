@@ -20,7 +20,7 @@ export default function AboutHero() {
           </div>
 
           {/* Description Paragraphs */}
-          <div className="flex flex-col gap-6 text-body-gray font-inter text-[16px] leading-[26px] sm:text-[18px] sm:leading-[28px] lg:pt-8 animate-slide-right">
+          <div className="flex flex-col gap-6 text-dark-blue font-inter custom-body-text lg:pt-8 animate-slide-right">
             <p>
               Business is evolving rapidly, and organizations need smarter ways to improve efficiency, reduce costs, and accelerate growth.
             </p>

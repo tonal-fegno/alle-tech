@@ -58,6 +58,28 @@ body {
   .section-padding {
     @apply py-12 md:py-16 xl:py-20;
   }
+
+  .home-body-text,
+  .custom-body-text {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  @media (min-width: 1280px) {
+    .home-body-text,
+    .custom-body-text {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .home-body-text,
+    .custom-body-text {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
 }
 
 /* Marquee (logo ticker / gallery) */

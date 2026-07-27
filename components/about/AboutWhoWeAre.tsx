@@ -80,7 +80,7 @@ export default function AboutWhoWeAre() {
           {/* Left Narrative and Cards */}
           <div className="lg:col-span-7 flex flex-col gap-8 justify-between">
             {/* Story Paragraph */}
-            <p className="font-inter font-normal text-[16px] leading-[26px] sm:text-[18px] sm:leading-[28px] text-body-gray">
+            <p className="font-inter font-normal custom-body-text text-dark-blue">
               Many organizations begin their technology journey by searching for software. We believe the real challenge is understanding how technology can improve the way a business operates. That's why every engagement begins with understanding your business objectives, operational challenges, future growth plans, and industry requirements before recommending technology.
             </p>
 

@@ -4,6 +4,7 @@ interface EyebrowProps {
   className?: string;
   textClassName?: string;
   dotClassName?: string;
+  showDot?: boolean;
 }
 
 export default function Eyebrow({
@@ -12,14 +13,17 @@ export default function Eyebrow({
   className = "",
   textClassName = "",
   dotClassName = "",
+  showDot = true,
 }: EyebrowProps) {
   const dotCls = variant === "dark" ? "bg-white" : "bg-gradient-primary";
   const textCls = variant === "dark" ? "text-white" : "text-ink";
 
   return (
     <span className={`flex items-center gap-2 ${className}`}>
-      <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${dotCls} ${dotClassName}`} />
-      <span className={`text-body-16 font-semibold uppercase ${textCls} ${textClassName}`}>
+      {showDot && (
+        <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${dotCls} ${dotClassName}`} />
+      )}
+      <span className={`text-xs sm:text-sm md:text-body-16 font-semibold uppercase ${textCls} ${textClassName}`}>
         {children}
       </span>
     </span>

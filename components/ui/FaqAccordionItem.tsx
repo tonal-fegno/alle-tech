@@ -43,7 +43,7 @@ export default function FaqAccordionItem({
         }`}
       >
         <div className="overflow-hidden">
-          <p className="max-w-[820px] px-6 pb-6 text-body-16 text-body-gray md:px-8">
+          <p className="max-w-[820px] px-6 pb-6 home-body-text text-body-gray md:px-8">
             {answer}
           </p>
         </div>

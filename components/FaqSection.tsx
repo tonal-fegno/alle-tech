@@ -23,7 +23,7 @@ export default async function FaqSection() {
             Common Questions, <br className="hidden sm:block" />
             Clearly Answered
           </AnimatedHeading>
-          <p className="max-w-[480px] text-body-18 text-body-gray">
+          <p className="max-w-[480px] home-body-text text-body-gray">
             Find answers to common questions about our services, approach,
             and what it&apos;s like to partner with ALLE TECH.
           </p>
