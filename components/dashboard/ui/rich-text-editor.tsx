@@ -1,7 +1,6 @@
 "use client";
 
 import TiptapImage from "@tiptap/extension-image";
-import TiptapLink from "@tiptap/extension-link";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import {
@@ -30,8 +29,7 @@ export function RichTextEditor({ value, onChange, className }: RichTextEditorPro
 
   const editor = useEditor({
     extensions: [
-      StarterKit,
-      TiptapLink.configure({ openOnClick: false }),
+      StarterKit.configure({ link: { openOnClick: false } }),
       TiptapImage,
     ],
     content: value,

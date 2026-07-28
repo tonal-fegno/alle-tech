@@ -18,8 +18,10 @@ furniture.
   (vertical rhythm) — every top-level `<section>` uses one or both.
 - Rounding: `rounded-card` (16px, used for photo-heavy cards) vs
   `rounded-section` (20px, the default for section/image corners).
-- CMS rich text: `.rich-text` styles `h3/h4/p/ul/strong/a` — always go
-  through `RichText`, never apply the class by hand.
+- CMS rich text: `.rich-text` styles `h2–h4/p/ul/ol/blockquote/img/strong/a` —
+  always go through `RichText`, never apply the class by hand. The dashboard
+  Tiptap editor (`components/dashboard/ui/rich-text-editor.tsx`) reuses the
+  same class, styled dashboard-side in `app/(dashboard)/globals.css`.
 
 ## Component library
 

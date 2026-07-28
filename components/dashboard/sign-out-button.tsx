@@ -10,7 +10,13 @@ export function SignOutButton() {
     <Button
       variant="outline"
       size="sm"
-      onClick={() => signOut({ callbackUrl: "/dashboard/login" })}
+      onClick={async () => {
+        // redirect: false + a client-side navigation keeps the redirect URL
+        // relative to the browser origin; the server-computed callbackUrl
+        // resolves against the container bind address (0.0.0.0) in Docker.
+        await signOut({ redirect: false });
+        window.location.href = "/dashboard/login";
+      }}
     >
       <LogOut className="size-4" />
       Sign out
