@@ -1,5 +1,6 @@
 import { asc } from "drizzle-orm";
 import { auth } from "@/auth";
+import { BfcacheGuard } from "@/components/dashboard/bfcache-guard";
 import { DashboardSidebar } from "@/components/dashboard/sidebar";
 import { DashboardTopbar } from "@/components/dashboard/topbar";
 import { db } from "@/db";
@@ -15,6 +16,7 @@ export default async function ProtectedDashboardLayout({
 
   return (
     <div className="flex h-screen overflow-hidden bg-bg-1">
+      <BfcacheGuard />
       <DashboardSidebar items={menuItems} />
       <div className="flex flex-1 flex-col overflow-hidden">
         <DashboardTopbar
