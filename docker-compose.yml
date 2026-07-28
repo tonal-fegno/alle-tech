@@ -5,7 +5,10 @@ services:
     env_file:
       - .env
     ports:
-      - "5433:5432"
+      # Bound to localhost only: host-side tooling (drizzle-kit, db:seed, psql)
+      # needs this reachable, but it shouldn't be open to the internet.
+      # POSTGRES_HOST_PORT must be set in .env (pick a free port per machine).
+      - "127.0.0.1:${POSTGRES_HOST_PORT}:5432"
     volumes:
       - alletech_postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -25,7 +28,7 @@ services:
     env_file:
       - .env
     environment:
-      # Overrides the .env value (which points at localhost:5433 for host access)
+      # Overrides the .env value (which points at the host-mapped port)
       # with the in-network hostname so the container can reach postgres.
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
     depends_on:
@@ -38,11 +41,12 @@ services:
       target: runner
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      # APP_HOST_PORT must be set in .env (pick a free port per machine).
+      - "${APP_HOST_PORT}:3000"
     env_file:
       - .env
     environment:
-      # Overrides the .env value (which points at localhost:5433 for host access)
+      # Overrides the .env value (which points at the host-mapped port)
       # with the in-network hostname so the container can reach postgres.
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
       AUTH_TRUST_HOST: "true"
