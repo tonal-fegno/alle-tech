@@ -48,7 +48,11 @@ export function LoginForm() {
     setIsSubmitting(false);
 
     if (result?.error) {
-      setFormError("Invalid email or password.");
+      setFormError(
+        result.code === "rate_limited"
+          ? "Too many failed attempts. Try again in 2 minutes."
+          : "Invalid email or password."
+      );
       return;
     }
 
