@@ -11,6 +11,10 @@ const inter = Inter({
   display: "swap",
 });
 
+// Footer queries the database on every render, so the whole (site) group
+// must be dynamic — a build-time prerender would need a live DB connection.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: {
     default: "ALLE TECH",

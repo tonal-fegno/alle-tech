@@ -2,14 +2,55 @@ services:
   postgres:
     image: postgres:16-alpine
     restart: unless-stopped
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-alletech}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-alletech}
-      POSTGRES_DB: ${POSTGRES_DB:-alletech_dashboard}
+    env_file:
+      - .env
     ports:
       - "5433:5432"
     volumes:
       - alletech_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  migrate:
+    build:
+      context: .
+      target: migrator
+    env_file:
+      - .env
+    environment:
+      # Overrides the .env value (which points at localhost:5433 for host access)
+      # with the in-network hostname so the container can reach postgres.
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  app:
+    build:
+      context: .
+      target: runner
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      # Overrides the .env value (which points at localhost:5433 for host access)
+      # with the in-network hostname so the container can reach postgres.
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      AUTH_TRUST_HOST: "true"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
 
 volumes:
   alletech_postgres_data:
